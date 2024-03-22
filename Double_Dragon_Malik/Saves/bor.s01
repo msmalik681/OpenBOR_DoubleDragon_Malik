@@ -1,5 +1,5 @@
 void main() {
-	setglobalvar("Player1","Chin");
+	setglobalvar("Player1","Willy");
 	setglobalvar("mode","training");
 	setglobalvar("event",0);
 	setglobalvar("bossdeath",0);

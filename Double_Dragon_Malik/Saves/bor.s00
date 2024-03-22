@@ -1,7 +1,0 @@
-void main() {
-	setglobalvar("event",0);
-	setglobalvar("bossdeath",0);
-	setglobalvar("Player1","Billy");
-	setglobalvar("mode","stage_1");
-	changemodelproperty("_",4,1);
-}

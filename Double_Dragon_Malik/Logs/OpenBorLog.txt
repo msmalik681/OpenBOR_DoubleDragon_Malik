@@ -1,6 +1,6 @@
-Total Ram: 16752758784 Bytes
- Free Ram: 5643796480 Bytes
- Used Ram: 12335104 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10965741568 Bytes
+ Used Ram: 12303360 Bytes
 
 debug:nativeWidth, nativeHeight, bpp, Hz  1680, 1050, 24, 59
 OpenBoR v3.0 Build pass, Compile Date: Dec 25 2020
@@ -182,75 +182,71 @@ Can't play music file 'data/music/remix'
 
 Can't play music file 'data/music/remix'
 Level Loading:   'data/levels/custom_menu.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5609840640 Bytes
- Used Ram: 75523072 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10930810880 Bytes
+ Used Ram: 81676800 Bytes
 
 
 Level Loaded:    'data/levels/custom_menu.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5609840640 Bytes
- Used Ram: 75523072 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10930810880 Bytes
+ Used Ram: 81676800 Bytes
 Total sprites mapped: 85
 
 Level Unloading: 'data/levels/custom_menu.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5608955904 Bytes
- Used Ram: 75653632 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931548160 Bytes
+ Used Ram: 81823744 Bytes
 
 RAM Status:
-Total Ram: 16752758784 Bytes
- Free Ram: 5608955904 Bytes
- Used Ram: 75653632 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931548160 Bytes
+ Used Ram: 81823744 Bytes
 
 Level Loading:   'data/levels/select_screen.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5608955904 Bytes
- Used Ram: 75653632 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931548160 Bytes
+ Used Ram: 81823744 Bytes
 
 
 Level Loaded:    'data/levels/select_screen.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5608955904 Bytes
- Used Ram: 75653632 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931548160 Bytes
+ Used Ram: 81823744 Bytes
 Total sprites mapped: 85
 
-Loaded 'Chin' from data/chars/bosses/chin/chin.txt 
-Loaded 'Chin_Effect' from data/chars/bosses/chin/chin_effect.txt 
-sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
-sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
+Loaded 'Willy' from data/chars/bosses/willy_real/willy.txt 
+Loaded 'Willy_Effect' from data/chars/bosses/willy_real/willy_effect.txt 
 sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
 Level Unloading: 'data/levels/select_screen.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5608697856 Bytes
- Used Ram: 75710464 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931060736 Bytes
+ Used Ram: 81913856 Bytes
 
-Unload 'Chin' ............Done.
-Unload 'Chin_Effect' ............Done.
+Unload 'Willy' ............Done.
+Unload 'Willy_Effect' ............Done.
 RAM Status:
-Total Ram: 16752758784 Bytes
- Free Ram: 5608697856 Bytes
- Used Ram: 75710464 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931060736 Bytes
+ Used Ram: 81913856 Bytes
 
 Level Loading:   'data/levels/training.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5608697856 Bytes
- Used Ram: 75710464 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931060736 Bytes
+ Used Ram: 81913856 Bytes
 
 Loaded 'Lavis_e' from data/chars/bosses/lavis/lavis_e.txt 
 Loaded 'Lavis_Effect' from data/chars/bosses/lavis/lavis_effect.txt 
 Loaded 'Sticks_Throw' from data/chars/bosses/lavis/sticks_throw.txt 
 
 Level Loaded:    'data/levels/training.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5608697856 Bytes
- Used Ram: 75734016 Bytes
-Total sprites mapped: 332
+Total Ram: 16675508224 Bytes
+ Free Ram: 10931060736 Bytes
+ Used Ram: 81937920 Bytes
+Total sprites mapped: 363
 
-malik:ChinLoaded 'Chin' from data/chars/bosses/chin/chin.txt 
-Loaded 'Chin_Effect' from data/chars/bosses/chin/chin_effect.txt 
-sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
-sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
+malik:WillyLoaded 'Willy' from data/chars/bosses/willy_real/willy.txt 
+Loaded 'Willy_Effect' from data/chars/bosses/willy_real/willy_effect.txt 
 sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
 
 ************ Shutting Down ************
@@ -262,26 +258,26 @@ OpenBOR is the open source continuation of Beats of Rage by Senile Team.
 
 Special thanks to SEGA and SNK.
 
-Total Ram: 16752758784 Bytes
- Free Ram: 5609365504 Bytes
- Used Ram: 75607552 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10924351488 Bytes
+ Used Ram: 82004992 Bytes
 
-Release level data...........
 Level Unloading: 'data/levels/training.txt'
-Total Ram: 16752758784 Bytes
- Free Ram: 5609365504 Bytes
- Used Ram: 75607552 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10925678592 Bytes
+ Used Ram: 82004992 Bytes
 
 Unload 'Lavis_e' ............Done.
 Unload 'Lavis_Effect' ............Done.
 Unload 'Sticks_Throw' ............Done.
-Unload 'Chin' ............Done.
-Unload 'Chin_Effect' ............Done.
+Unload 'Willy' ............Done.
+Unload 'Willy_Effect' ............Done.
 RAM Status:
-Total Ram: 16752758784 Bytes
- Free Ram: 5609365504 Bytes
- Used Ram: 75607552 Bytes
+Total Ram: 16675508224 Bytes
+ Free Ram: 10925678592 Bytes
+ Used Ram: 82004992 Bytes
 
+Release level data...........
 Done!
 
 Release graphics data........	Done!

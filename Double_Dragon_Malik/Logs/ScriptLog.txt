@@ -395,73 +395,13 @@ void main()
 }
 
 #### animationscript function main #####
-# data/chars/bosses/chin/chin_effect.txt
+# data/chars/bosses/willy_real/willy.txt
 ########################################
 void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==46)
-    {
-        if(frame==1)
-        {
-            name2ani();
-            return;
-        }
-        return;
-    }
-    if(animhandle==48)
-    {
-        if(frame==6)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==49)
-    {
-        if(frame==1)
-        {
-            cProperty("map", 1);
-            return;
-        }
-        if(frame==12)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==50)
-    {
-        if(frame==16)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==51)
-    {
-        if(frame==16)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/bosses/chin/chin.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==52)
+    if(animhandle==65)
     {
         if(frame==1)
         {
@@ -471,116 +411,11 @@ void main()
         }
         return;
     }
-    if(animhandle==56)
-    {
-        if(frame==0)
-        {
-            stop();
-            dasher(3, 0, 0);
-            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        if(frame==8)
-        {
-            dasher(1.5, 0, 0);
-            return;
-        }
-        if(frame==9)
-        {
-            stop();
-            return;
-        }
-        return;
-    }
-    if(animhandle==63)
-    {
-        if(frame==2)
-        {
-            spawn02("Slam_Effect", 0, 0, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==64)
-    {
-        if(frame==0)
-        {
-            cProperty("facing", 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==65)
-    {
-        if(frame==0)
-        {
-            key2ani("freespecial3", 0, "moveforward");
-            return;
-        }
-        if(frame==1)
-        {
-            punches();
-            return;
-        }
-        return;
-    }
-    if(animhandle==70)
+    if(animhandle==77)
     {
         if(frame==0)
         {
             spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==71)
-    {
-        if(frame==0)
-        {
-            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==73)
-    {
-        if(frame==0)
-        {
-            cAiflag("jumping", 1);
-            return;
-        }
-        if(frame==4)
-        {
-            anichange("ani_jumpland");
-            return;
-        }
-        return;
-    }
-    if(animhandle==75)
-    {
-        if(frame==1)
-        {
-            spawnscreen("Darken", 0, 0, 0);
-            return;
-        }
-        if(frame==2)
-        {
-            chin_death();
-            return;
-        }
-        if(frame==3)
-        {
-            spawn02("Story", 0, 0, 0, "&STAGE4_OUT", 1);
-            return;
-        }
-        if(frame==17)
-        {
-            spawn02("Story", 0, 0, 0, "&STAGE4_OUT2", 1);
-            return;
-        }
-        if(frame==19)
-        {
-            jumptobranch("Stage_5", 1);
             return;
         }
         return;
@@ -595,7 +430,7 @@ void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==76)
+    if(animhandle==85)
     {
         if(frame==1)
         {
@@ -604,7 +439,7 @@ void main()
         }
         return;
     }
-    if(animhandle==77)
+    if(animhandle==86)
     {
         if(frame==1)
         {
@@ -613,7 +448,7 @@ void main()
         }
         return;
     }
-    if(animhandle==78)
+    if(animhandle==87)
     {
         if(frame==10)
         {
@@ -622,7 +457,7 @@ void main()
         }
         return;
     }
-    if(animhandle==79)
+    if(animhandle==88)
     {
         if(frame==12)
         {
@@ -631,7 +466,7 @@ void main()
         }
         return;
     }
-    if(animhandle==80)
+    if(animhandle==89)
     {
         if(frame==13)
         {
@@ -650,7 +485,7 @@ void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==81)
+    if(animhandle==90)
     {
         if(frame==1)
         {
@@ -660,7 +495,7 @@ void main()
         }
         return;
     }
-    if(animhandle==82)
+    if(animhandle==91)
     {
         if(frame==1)
         {
@@ -669,7 +504,7 @@ void main()
         }
         return;
     }
-    if(animhandle==83)
+    if(animhandle==92)
     {
         if(frame==1)
         {
@@ -678,7 +513,7 @@ void main()
         }
         return;
     }
-    if(animhandle==84)
+    if(animhandle==93)
     {
         if(frame==0)
         {
@@ -703,7 +538,7 @@ void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==85)
+    if(animhandle==94)
     {
         if(frame==1)
         {
@@ -715,7 +550,7 @@ void main()
         }
         return;
     }
-    if(animhandle==86)
+    if(animhandle==95)
     {
         if(frame==0)
         {
@@ -740,7 +575,7 @@ void main()
         }
         return;
     }
-    if(animhandle==88)
+    if(animhandle==97)
     {
         if(frame==0)
         {
@@ -749,7 +584,7 @@ void main()
         }
         return;
     }
-    if(animhandle==97)
+    if(animhandle==106)
     {
         if(frame==2)
         {
@@ -758,7 +593,7 @@ void main()
         }
         return;
     }
-    if(animhandle==98)
+    if(animhandle==107)
     {
         if(frame==0)
         {
@@ -767,7 +602,7 @@ void main()
         }
         return;
     }
-    if(animhandle==99)
+    if(animhandle==108)
     {
         if(frame==4)
         {
@@ -786,7 +621,7 @@ void main()
         }
         return;
     }
-    if(animhandle==100)
+    if(animhandle==109)
     {
         if(frame==1)
         {
@@ -795,7 +630,7 @@ void main()
         }
         return;
     }
-    if(animhandle==101)
+    if(animhandle==110)
     {
         if(frame==0)
         {
@@ -814,7 +649,7 @@ void main()
         }
         return;
     }
-    if(animhandle==102)
+    if(animhandle==111)
     {
         if(frame==1)
         {
@@ -833,7 +668,7 @@ void main()
         }
         return;
     }
-    if(animhandle==103)
+    if(animhandle==112)
     {
         if(frame==0)
         {
@@ -853,7 +688,7 @@ void main()
         }
         return;
     }
-    if(animhandle==105)
+    if(animhandle==114)
     {
         if(frame==7)
         {
@@ -862,7 +697,7 @@ void main()
         }
         return;
     }
-    if(animhandle==107)
+    if(animhandle==116)
     {
         if(frame==7)
         {
@@ -875,73 +710,13 @@ void main()
 }
 
 #### animationscript function main #####
-# data/chars/bosses/chin/chin_effect.txt
+# data/chars/bosses/willy_real/willy.txt
 ########################################
 void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==108)
-    {
-        if(frame==1)
-        {
-            name2ani();
-            return;
-        }
-        return;
-    }
-    if(animhandle==110)
-    {
-        if(frame==6)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==111)
-    {
-        if(frame==1)
-        {
-            cProperty("map", 1);
-            return;
-        }
-        if(frame==12)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==112)
-    {
-        if(frame==16)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==113)
-    {
-        if(frame==16)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/bosses/chin/chin.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==114)
+    if(animhandle==136)
     {
         if(frame==1)
         {
@@ -951,116 +726,11 @@ void main()
         }
         return;
     }
-    if(animhandle==118)
-    {
-        if(frame==0)
-        {
-            stop();
-            dasher(3, 0, 0);
-            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        if(frame==8)
-        {
-            dasher(1.5, 0, 0);
-            return;
-        }
-        if(frame==9)
-        {
-            stop();
-            return;
-        }
-        return;
-    }
-    if(animhandle==125)
-    {
-        if(frame==2)
-        {
-            spawn02("Slam_Effect", 0, 0, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==126)
-    {
-        if(frame==0)
-        {
-            cProperty("facing", 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==127)
-    {
-        if(frame==0)
-        {
-            key2ani("freespecial3", 0, "moveforward");
-            return;
-        }
-        if(frame==1)
-        {
-            punches();
-            return;
-        }
-        return;
-    }
-    if(animhandle==132)
+    if(animhandle==148)
     {
         if(frame==0)
         {
             spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==133)
-    {
-        if(frame==0)
-        {
-            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==135)
-    {
-        if(frame==0)
-        {
-            cAiflag("jumping", 1);
-            return;
-        }
-        if(frame==4)
-        {
-            anichange("ani_jumpland");
-            return;
-        }
-        return;
-    }
-    if(animhandle==137)
-    {
-        if(frame==1)
-        {
-            spawnscreen("Darken", 0, 0, 0);
-            return;
-        }
-        if(frame==2)
-        {
-            chin_death();
-            return;
-        }
-        if(frame==3)
-        {
-            spawn02("Story", 0, 0, 0, "&STAGE4_OUT", 1);
-            return;
-        }
-        if(frame==17)
-        {
-            spawn02("Story", 0, 0, 0, "&STAGE4_OUT2", 1);
-            return;
-        }
-        if(frame==19)
-        {
-            jumptobranch("Stage_5", 1);
             return;
         }
         return;

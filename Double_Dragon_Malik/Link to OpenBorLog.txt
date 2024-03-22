@@ -1,1 +1,1 @@
-/home/malik/BackupFiles/OpenBOR/OpenBOR Games/Double Dragon Baseline/Logs/OpenBorLog.txt
+/home/malik/Documents/GitHub/OpenBOR_DoubleDragon_Malik/Double_Dragon_Malik/Logs/OpenBorLog.txt
