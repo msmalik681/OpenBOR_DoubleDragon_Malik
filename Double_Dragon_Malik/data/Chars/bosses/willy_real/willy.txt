@@ -27,6 +27,7 @@ anim respawn #spawn animation
 	frame	none
 	@cmd	intro
 	@cmd	teleport
+	@cmd	spawnbind2 "Willy_Effect" 0 0 1 1 6
 	frame	none
 	
 anim idle

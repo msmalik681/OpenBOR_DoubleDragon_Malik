@@ -1,5 +1,5 @@
 Total Ram: 16675508224 Bytes
- Free Ram: 9868648448 Bytes
+ Free Ram: 9857331200 Bytes
  Used Ram: 12303360 Bytes
 
 debug:nativeWidth, nativeHeight, bpp, Hz  1680, 1050, 24, 59
@@ -178,60 +178,18 @@ Save settings so far........	Done!
 
 
 
-************ Shutting Down ************
+Can't play music file 'data/music/remix'
 
-OpenBOR v3.0 Build pass, Compile Date: Dec 25 2020
-Presented by the OpenBOR Team.
-www.chronocrash.com
-OpenBOR is the open source continuation of Beats of Rage by Senile Team.
-
-Special thanks to SEGA and SNK.
-
+Can't play music file 'data/music/remix'
+Level Loading:   'data/levels/custom_menu.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 9824292864 Bytes
- Used Ram: 81671680 Bytes
+ Free Ram: 9820835840 Bytes
+ Used Ram: 81671168 Bytes
 
-Release level data...........
-Done!
 
-Release graphics data........	Done!
-Release game data............
-
-Unload 'Flash' ............Done.
-Unload 'Flash_Stab' ............Done.
-Unload 'BigFlash' ............Done.
-Unload 'BigDust' ............Done.
-Unload 'Quake' ............Done.
-Unload 'BigQuake' ............Done.
-Unload 'Slam_Effect' ............Done.
-Unload 'Custom_Menu' ............Done.
-Unload '_' ............Done.
-Unload 'Darken' ............Done.
-Unload 'Whip' ............Done.
-Unload 'Bat' ............Done.
-Unload 'Bat_Throw' ............Done.
-Unload 'Knife' ............Done.
-Unload 'Dynamite' ............Done.
-Unload 'Knife_Throw' ............Done.
-Unload 'Drumcan' ............Done.
-Unload 'DrumcanStand' ............Done.
-Unload 'Drumcan_Throw' ............Done.
-Unload 'Fake_Throw' ............Done.
-Unload 'Story' ............Done.
-Unload 'Select_Screen' ............Done.
-
-Release game data............	Done!
-Release timer................	Done!
-Release input hardware.......	Done!
-Release sound system.........	Done!
-Release FileCaching System...	Done!
-
-**************** Done *****************
-
-OpenBOR v3.0 Build pass, Compile Date: Dec 25 2020
-Presented by the OpenBOR Team.
-www.chronocrash.com
-OpenBOR is the open source continuation of Beats of Rage by Senile Team.
-
-Special thanks to SEGA and SNK.
+Level Loaded:    'data/levels/custom_menu.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 9820835840 Bytes
+ Used Ram: 81671168 Bytes
+Total sprites mapped: 85
 
