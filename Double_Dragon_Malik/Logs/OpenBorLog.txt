@@ -1,5 +1,5 @@
 Total Ram: 16675508224 Bytes
- Free Ram: 10349207552 Bytes
+ Free Ram: 9868648448 Bytes
  Used Ram: 12303360 Bytes
 
 debug:nativeWidth, nativeHeight, bpp, Hz  1680, 1050, 24, 59
@@ -188,7 +188,7 @@ OpenBOR is the open source continuation of Beats of Rage by Senile Team.
 Special thanks to SEGA and SNK.
 
 Total Ram: 16675508224 Bytes
- Free Ram: 10313072640 Bytes
+ Free Ram: 9824292864 Bytes
  Used Ram: 81671680 Bytes
 
 Release level data...........
