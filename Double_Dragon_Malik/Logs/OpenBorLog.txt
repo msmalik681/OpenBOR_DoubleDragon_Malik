@@ -1,5 +1,5 @@
 Total Ram: 16675508224 Bytes
- Free Ram: 9857331200 Bytes
+ Free Ram: 10762235904 Bytes
  Used Ram: 12303360 Bytes
 
 debug:nativeWidth, nativeHeight, bpp, Hz  1680, 1050, 24, 59
@@ -183,13 +183,141 @@ Can't play music file 'data/music/remix'
 Can't play music file 'data/music/remix'
 Level Loading:   'data/levels/custom_menu.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 9820835840 Bytes
- Used Ram: 81671168 Bytes
+ Free Ram: 10726559744 Bytes
+ Used Ram: 81671680 Bytes
 
 
 Level Loaded:    'data/levels/custom_menu.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 9820835840 Bytes
- Used Ram: 81671168 Bytes
+ Free Ram: 10726559744 Bytes
+ Used Ram: 81671680 Bytes
 Total sprites mapped: 85
+
+Level Unloading: 'data/levels/custom_menu.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724753408 Bytes
+ Used Ram: 81802752 Bytes
+
+RAM Status:
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724753408 Bytes
+ Used Ram: 81802752 Bytes
+
+Level Loading:   'data/levels/select_screen.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724753408 Bytes
+ Used Ram: 81802752 Bytes
+
+
+Level Loaded:    'data/levels/select_screen.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724495360 Bytes
+ Used Ram: 81802752 Bytes
+Total sprites mapped: 85
+
+Loaded 'Willy' from data/chars/bosses/willy_real/willy.txt 
+Loaded 'Willy_Effect' from data/chars/bosses/willy_real/willy_effect.txt 
+sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
+Level Unloading: 'data/levels/select_screen.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724495360 Bytes
+ Used Ram: 81836544 Bytes
+
+Unload 'Willy' ............Done.
+Unload 'Willy_Effect' ............Done.
+RAM Status:
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724495360 Bytes
+ Used Ram: 81836544 Bytes
+
+Level Loading:   'data/levels/training.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10724495360 Bytes
+ Used Ram: 81836544 Bytes
+
+Loaded 'Lavis_e' from data/chars/bosses/lavis/lavis_e.txt 
+Loaded 'Lavis_Effect' from data/chars/bosses/lavis/lavis_effect.txt 
+Loaded 'Sticks_Throw' from data/chars/bosses/lavis/sticks_throw.txt 
+
+Level Loaded:    'data/levels/training.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10723979264 Bytes
+ Used Ram: 81860096 Bytes
+Total sprites mapped: 363
+
+malik:WillyLoaded 'Willy' from data/chars/bosses/willy_real/willy.txt 
+Loaded 'Willy_Effect' from data/chars/bosses/willy_real/willy_effect.txt 
+sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
+
+************ Shutting Down ************
+
+OpenBOR v3.0 Build pass, Compile Date: Dec 25 2020
+Presented by the OpenBOR Team.
+www.chronocrash.com
+OpenBOR is the open source continuation of Beats of Rage by Senile Team.
+
+Special thanks to SEGA and SNK.
+
+Total Ram: 16675508224 Bytes
+ Free Ram: 10722947072 Bytes
+ Used Ram: 81931264 Bytes
+
+Release level data...........
+Level Unloading: 'data/levels/training.txt'
+Total Ram: 16675508224 Bytes
+ Free Ram: 10722947072 Bytes
+ Used Ram: 81931264 Bytes
+
+Unload 'Lavis_e' ............Done.
+Unload 'Lavis_Effect' ............Done.
+Unload 'Sticks_Throw' ............Done.
+Unload 'Willy' ............Done.
+Unload 'Willy_Effect' ............Done.
+RAM Status:
+Total Ram: 16675508224 Bytes
+ Free Ram: 10722947072 Bytes
+ Used Ram: 81931264 Bytes
+
+Done!
+
+Release graphics data........	Done!
+Release game data............
+
+Unload 'Flash' ............Done.
+Unload 'Flash_Stab' ............Done.
+Unload 'BigFlash' ............Done.
+Unload 'BigDust' ............Done.
+Unload 'Quake' ............Done.
+Unload 'BigQuake' ............Done.
+Unload 'Slam_Effect' ............Done.
+Unload 'Custom_Menu' ............Done.
+Unload '_' ............Done.
+Unload 'Darken' ............Done.
+Unload 'Whip' ............Done.
+Unload 'Bat' ............Done.
+Unload 'Bat_Throw' ............Done.
+Unload 'Knife' ............Done.
+Unload 'Dynamite' ............Done.
+Unload 'Knife_Throw' ............Done.
+Unload 'Drumcan' ............Done.
+Unload 'DrumcanStand' ............Done.
+Unload 'Drumcan_Throw' ............Done.
+Unload 'Fake_Throw' ............Done.
+Unload 'Story' ............Done.
+Unload 'Select_Screen' ............Done.
+
+Release game data............	Done!
+Release timer................	Done!
+Release input hardware.......	Done!
+Release sound system.........	Done!
+Release FileCaching System...	Done!
+
+**************** Done *****************
+
+OpenBOR v3.0 Build pass, Compile Date: Dec 25 2020
+Presented by the OpenBOR Team.
+www.chronocrash.com
+OpenBOR is the open source continuation of Beats of Rage by Senile Team.
+
+Special thanks to SEGA and SNK.
 

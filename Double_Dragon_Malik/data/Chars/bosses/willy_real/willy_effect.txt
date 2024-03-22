@@ -12,6 +12,14 @@ alpha		1
 animationscript  data/scripts/scripts.c
 ondoattackscript data/scripts/ondoattackB.openbor
 
+
+anim respawn #spawn animation
+	loop	0
+	offset	19 75
+	delay	3
+	frame	none
+	frame	none
+
 anim spawn
 	loop	0
 	offset	71 139
