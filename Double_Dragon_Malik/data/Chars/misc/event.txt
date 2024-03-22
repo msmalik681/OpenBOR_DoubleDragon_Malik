@@ -1,0 +1,23 @@
+name	Event
+health	999
+type	enemy
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+subject_to_obstacle 0
+subject_to_platform 0
+subject_to_basemap 0
+offscreenkill 999
+nomove	1
+shadow	0
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	1
+	delay	3
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	eventPush
+	@cmd	killme
+	frame	data/chars/misc/empty.gif

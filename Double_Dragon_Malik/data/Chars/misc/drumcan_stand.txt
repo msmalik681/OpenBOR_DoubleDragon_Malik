@@ -1,0 +1,37 @@
+name	DrumcanStand
+health	999999
+type	obstacle
+
+takedamagescript data/scripts/takedamagedrumcan.openbor
+
+
+anim idle
+	loop	0
+	delay	0
+	offset	17 61
+	bbox	2 1 32 59
+	frame	data/chars/misc/drumcan/stand01.gif
+
+anim pain
+	loop	0
+	delay	0
+	offset	17 61
+	bbox	2 1 32 59
+	sound	data/sounds/drumcan_bounce_se22.wav
+	frame	data/chars/misc/drumcan/stand02.gif
+
+anim fall
+	loop	0
+	delay	15
+	offset	17 61
+	jumpframe 0 3 1
+	sound	data/sounds/drumcan_bounce_se22.wav
+ 	frame	data/chars/misc/drumcan/stand03.gif
+	frame	data/chars/misc/drumcan/stand04.gif
+	delay	8
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/drumcan/stand04.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/drumcan/stand04.gif
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/empty.gif

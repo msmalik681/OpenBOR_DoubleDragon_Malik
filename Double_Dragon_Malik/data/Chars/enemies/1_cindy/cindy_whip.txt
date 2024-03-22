@@ -1,0 +1,138 @@
+name			Cindy_Whip
+health			999
+mp				30
+speed			5
+type			none
+palette			data/chars/enemies/1_cindy/idle1.gif
+icon			data/chars/enemies/1_cindy/icon.gif
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+aimove			chasex
+modelflag 		3
+antigravity 	0
+subject_to_wall 1
+nocost			1
+
+animationscript	data/scripts/scripts.c
+takedamagescript data/scripts/takedamagescript.c
+
+anim attackboth # drop weapon
+	loop	0
+	delay	1
+	offset	23 74
+	@cmd	weapondrop
+	frame	data/chars/enemies/1_cindy/01_idle1.gif
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	data/chars/misc/empty.gif
+	@cmd	wallpass 1
+	@cmd	jumpin
+	frame	data/chars/misc/empty.gif
+
+
+anim follow2
+	loop	0
+	delay	12
+	offset	30 54
+	bbox	15 10 28 44
+	landframe 3
+	frame	data/chars/enemies/1_cindy/01_jump03.gif
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_cindy/01_jump02.gif
+	offset	22 81
+	bbox	9 7 25 74
+	delay	999
+	frame	data/chars/enemies/1_cindy/01_jump01.gif
+	offset	17 63
+	delay	18
+	frame	data/chars/enemies/1_cindy/01_rise01.gif
+	delay	10
+	frame	data/chars/enemies/1_cindy/01_rise02.gif
+
+
+anim idle
+	loop	1
+	offset	23 74
+	bbox	8 19 29 55
+	delay	15
+	frame	data/chars/enemies/1_cindy/01_idle1.gif
+
+anim walk
+	loop	1
+	offset	27 71
+	bbox	14 13 28 57
+	delay	11
+	frame	data/chars/enemies/1_cindy/01_walk01.gif
+	frame	data/chars/enemies/1_cindy/01_walk02.gif
+	frame	data/chars/enemies/1_cindy/01_walk03.gif
+	frame	data/chars/enemies/1_cindy/01_walk04.gif
+	frame	data/chars/enemies/1_cindy/01_walk05.gif
+
+anim attack1
+	loop	0
+	range	40 95
+	offset	38 93
+	delay	7
+	frame	data/chars/enemies/1_cindy/01_atk101.gif
+	frame	data/chars/enemies/1_cindy/01_atk102.gif
+	frame	data/chars/enemies/1_cindy/01_atk103.gif
+	attack2	56 16 111 78		13 0
+	dropv	2 3
+	hitflash BigFlash
+	hitfx	data/sounds/se20_whiphit.wav
+	sound	data/sounds/se19_whiplash.wav
+	frame	data/chars/enemies/1_cindy/01_atk104.gif
+	frame	data/chars/enemies/1_cindy/01_atk105.gif
+	attack2	0 0 0
+	frame	data/chars/enemies/1_cindy/01_atk106.gif
+	frame	data/chars/enemies/1_cindy/01_atk107.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 130
+	offset	22 81
+	bbox	9 7 25 74
+	frame	data/chars/enemies/1_cindy/01_jump01.gif
+	delay	12
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_cindy/01_jump02.gif
+	offset	30 54
+	bbox	15 10 28 44
+	frame	data/chars/enemies/1_cindy/01_jump03.gif
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_cindy/01_jump02.gif
+	offset	22 81
+	bbox	9 7 25 74
+	frame	data/chars/enemies/1_cindy/01_jump01.gif
+
+anim get
+	loop	0
+	offset	17 63
+	delay	3
+	frame	data/chars/enemies/1_cindy/rise02.gif
+	@cmd	player_hp
+	delay	10
+	frame	data/chars/enemies/1_cindy/rise02.gif
+	delay	15
+	frame	data/chars/enemies/1_cindy/get.gif
+	frame	data/chars/enemies/1_cindy/01_rise02.gif
+
+anim jumpland
+	loop	0
+	offset	17 63
+	delay	18
+	frame	data/chars/enemies/1_cindy/01_rise01.gif
+	delay	10
+	frame	data/chars/enemies/1_cindy/01_rise02.gif
+

@@ -1,0 +1,848 @@
+name			Jimmy
+health			100
+mp				30
+mprate			1
+speed			9
+type			player
+projectilehit	player
+running			25 3.5 2 0 0
+shadow			3
+grabdistance 	25
+risetime 		3
+riseinv	 		0.5 1
+makeinv	 		2
+jumpheight 		3.8
+falldie			2
+nodieblink 		1
+icon			data/chars/jimmy/icon.gif
+diesound 		data/sounds/die1.wav
+candamage 		enemy obstacle
+
+weapons	Jimmy_Whip Jimmy_Bat Jimmy_Knife Jimmy_Drumcan
+load Jimmy_Whip		3
+load Jimmy_Bat		3
+load Jimmy_Knife	3
+load Jimmy_Drumcan	3
+load Jimmy_Effect	3
+
+animationscript		data/scripts/scripts.c
+takedamagescript	data/scripts/takedamagescript.c
+keyscript			data/scripts/billy_key.openbor
+ondoattackscript	data/scripts/ondoattack.openbor
+ondrawscript		data/scripts/test.openbor
+
+#-------freespecial commands
+
+anim respawn
+	loop	0
+	offset	19 75
+	delay	3
+	frame	none
+	@cmd	intro
+	@cmd	teleport
+	frame	none
+
+anim select
+	loop	1
+	offset	57 109 #19 75
+	bbox	41 45 35 64
+	delay	11
+	#@cmd 	fixbase
+	@script
+		if(frame==3)
+		{
+		jumptobranch("stage_Y",1);
+		}
+	@end_script
+	frame	data/chars/jimmy/idle_m.gif
+	frame	data/chars/jimmy/idle_r.gif
+	frame	data/chars/jimmy/idle_m.gif
+	frame	data/chars/jimmy/idle_l.gif
+	
+anim follow1
+	loop	0
+	offset	23 80
+	delay	100
+	frame	none
+	delay	15
+	drawmethod tintmode 4
+	drawmethod tintcolor 32_32_32
+	@cmd	dasher 0 0 0.3
+	frame	data/chars/jimmy/walk01.gif
+	drawmethod tintcolor 64_64_64
+	frame	data/chars/jimmy/walk02.gif
+	drawmethod tintcolor 96_96_96
+	frame	data/chars/jimmy/walk03.gif
+	drawmethod tintmode 0
+	frame	data/chars/jimmy/walk04.gif
+	@cmd	dasher 0 0 0
+	frame	data/chars/jimmy/walk05.gif
+	frame	data/chars/jimmy/walk01.gif
+	
+anim idle
+	loop	1
+	offset	57 109 #19 75
+	bbox	41 45 35 64
+	delay	11
+	@cmd 	fixbase
+	frame	data/chars/jimmy/idle_m.gif
+	frame	data/chars/jimmy/idle_r.gif
+	frame	data/chars/jimmy/idle_m.gif
+	frame	data/chars/jimmy/idle_l.gif
+
+anim follow4
+	loop	1
+	offset	57 109 #19 75
+	bbox	41 45 35 64
+	delay	11
+	@cmd 	stop
+	frame	data/chars/jimmy/idle_m.gif
+	@cmd 	stop
+	frame	data/chars/jimmy/idle_r.gif
+	@cmd 	stop
+	frame	data/chars/jimmy/idle_m.gif
+	@cmd 	stop
+	frame	data/chars/jimmy/idle_l.gif
+
+anim walk
+	loop	1
+	offset	23 80
+	bbox	4 10 30 70
+	delay	11
+	@cmd 	fixbase
+	frame	data/chars/jimmy/walk01.gif
+	frame	data/chars/jimmy/walk02.gif
+	frame	data/chars/jimmy/walk03.gif
+	frame	data/chars/jimmy/walk04.gif
+	frame	data/chars/jimmy/walk05.gif
+
+anim grab
+	loop	0
+	offset	57 109
+	bbox	43 42 31 65
+	frame	data/chars/jimmy/grab.gif
+	
+anim throw
+	loop	0
+	offset	40 86
+	delay	5
+	flipframe 0
+	frame	data/chars/jimmy/throw01.gif
+	frame	data/chars/jimmy/throw02.gif
+	frame	data/chars/jimmy/throw03.gif
+	delay	10
+	frame	data/chars/jimmy/throw04.gif
+	frame	data/chars/jimmy/throw05.gif
+	frame	data/chars/jimmy/throw06.gif
+	frame	data/chars/jimmy/throw07.gif
+
+anim grabattack # grab punch
+	loop	0
+	delay	1
+	offset	57 109
+	bbox	47 44 28 64
+	delay	10
+	frame	data/chars/jimmy/grabatk101.gif
+	attack5	68 45 29 29		3 0
+	frame	data/chars/jimmy/grabatk102.gif
+	delay	20
+	attack5 0 0 0 0
+	frame	data/chars/jimmy/grabatk103.gif
+	delay	1
+	@cmd	grab
+	frame	data/chars/jimmy/grab.gif
+
+anim grabattack2 # grab punch finish
+	loop	0
+	delay	6
+	offset	57 109
+	bbox	47 45 39 67
+	sound	data/sounds/0_voice04.wav
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/jimmy/atk301.gif
+	frame	data/chars/jimmy/atk302.gif
+	attack	67 4 27 68		8 1
+	dropv	4.5 0.8 0
+	frame	data/chars/jimmy/atk303.gif
+	frame	data/chars/jimmy/atk304.gif
+	frame	data/chars/jimmy/atk305.gif
+	frame	data/chars/jimmy/atk306.gif
+	attack	0 0 0
+	frame	data/chars/jimmy/atk307.gif
+	frame	data/chars/jimmy/atk308.gif
+	frame	data/chars/jimmy/atk309.gif
+	
+anim grabforward # grab kick
+	loop	0
+	offset	57 109	
+	delay	10
+	bbox	42 44 31 64
+	frame	data/chars/jimmy/grabatk201.gif
+	frame	data/chars/jimmy/grabatk202.gif
+	attack5	64 55 24 28		4 0
+	frame	data/chars/jimmy/grabatk203.gif
+	attack5	0 0 0 0
+	delay	20
+	frame	data/chars/jimmy/grabatk204.gif
+	delay	1
+	@cmd	grab
+	frame	data/chars/jimmy/grab.gif
+	
+anim grabforward2 # grab kick finish
+	loop	0
+	delay	7
+	offset	57 109
+	bbox	50 39 31 69
+	frame	data/chars/jimmy/moon01.gif
+	sound	data/sounds/0_voice04.wav
+	frame	data/chars/jimmy/moon02.gif
+	frame	data/chars/jimmy/moon03.gif
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	50 23 69 62		10 1
+	dropv	4.5 0.8 0
+	delay	8
+	frame	data/chars/jimmy/rhkick01.gif
+	frame	data/chars/jimmy/rhkick02.gif
+	delay	7
+	frame	data/chars/jimmy/rhkick03.gif
+	attack	0 0 0 0
+	frame	data/chars/jimmy/rhkick04.gif
+
+anim run
+	loop	1
+	offset	40 65
+	bbox	13 10 54 54
+	delay	11
+	frame	data/chars/jimmy/run01.gif
+	frame	data/chars/jimmy/run02.gif
+	frame	data/chars/jimmy/run03.gif
+	frame	data/chars/jimmy/run04.gif
+	frame	data/chars/jimmy/run05.gif
+	frame	data/chars/jimmy/run06.gif
+
+anim runattack # running punch
+	loop	0
+	delay   7
+	offset  35 73
+	bbox	23 15 34 55
+	@cmd dasher 1.8 0 0
+	frame	data/chars/jimmy/runatk101.gif
+	frame	data/chars/jimmy/runatk102.gif
+	attack	41 7 36 29		4 1 1
+	dropv	3 0.9
+	delay	15
+	frame	data/chars/jimmy/runatk103.gif
+	attack	0 0 0
+	frame	data/chars/jimmy/runatk104.gif
+
+anim jump
+	loop	0
+	delay	20
+	offset	57 109
+	bbox	46 33 31 78
+	frame	data/chars/jimmy/jump01.gif
+	delay	12
+	bbox	42 39 36 50
+	frame	data/chars/jimmy/jump02.gif
+	frame	data/chars/jimmy/jump03.gif
+	frame	data/chars/jimmy/jump02.gif
+	bbox	46 33 31 78
+	frame	data/chars/jimmy/jump01.gif
+
+anim walkoff
+	loop	0
+	jumpframe 0 1 1
+	landframe 4
+	@cmd 	cAiflag "jumping" 1
+	sound 	data/sounds/jump.wav
+	delay	12
+	offset	57 109
+	bbox	42 39 36 50
+	frame	data/chars/jimmy/jump02.gif
+	frame	data/chars/jimmy/jump03.gif
+	frame	data/chars/jimmy/jump02.gif
+	bbox	46 33 31 78
+	delay 	999
+	frame	data/chars/jimmy/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/jimmy/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	57 109
+	bbox	43 63 34 47
+	delay	12
+	sound	data/sounds/land_se07.wav
+	@cmd	fixbase
+	frame	data/chars/jimmy/rise01.gif
+	delay	8
+	frame	data/chars/jimmy/rise02.gif
+
+anim jumpattack # flying kick
+	loop	0
+	landframe 2
+	offset	57 109
+	delay	8
+	bbox	47 42 39 40
+	frame	data/chars/jimmy/jatk101.gif
+	sound	data/sounds/kick_se15.wav
+	attack	61 38 65 41		6 1
+	delay 	999
+	frame	data/chars/jimmy/jatk102.gif
+	offset	57 109
+	bbox	43 63 34 47
+	delay	1
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/jimmy/rise01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/jimmy/rise01.gif
+
+	
+anim jumpattack2 # dive kick
+	loop	0
+	offset	57 109
+	bbox	46 41 37 44
+	landframe 3
+	delay	8
+	@cmd	floater 16
+	@cmd	stop
+	frame	data/chars/jimmy/jatk201.gif
+	bbox	41 48 52 54
+	attack	64 55 53 54		6 1
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/jimmy/jatk202.gif
+	@cmd	dasher 4 -3 0
+	delay	999
+	frame	data/chars/jimmy/jatk203.gif
+	delay	6
+	bbox	43 63 34 47
+	sound	data/sounds/land_se07.wav
+	attack	0 0 0 0
+	@cmd 	fixbase
+	frame	data/chars/jimmy/rise02.gif
+	move 3
+	frame	data/chars/jimmy/rise01.gif
+	frame	data/chars/jimmy/rise01.gif
+	frame	data/chars/jimmy/rise01.gif
+	move 0
+	frame	data/chars/jimmy/rise01.gif
+	frame	data/chars/jimmy/rise02.gif
+	
+anim jumpattack3 # spin kick
+	loop	0
+	offset	57 109
+	bbox	46 37 32 70
+	delay	5
+	@cmd	spawnbind2 "Jimmy_Effect" 0 0 1 1 6
+	attack	15 45 100 65		4 1
+	dropv	3 0.5
+	landframe 14
+	frame	data/chars/jimmy/spin01.gif
+	sound	data/sounds/0_voice07.wav
+	frame	data/chars/jimmy/spin02.gif
+	frame	data/chars/jimmy/spin03.gif
+	frame	data/chars/jimmy/spin04.gif
+	frame	data/chars/jimmy/spin05.gif
+	attack	0 0 0 0
+	frame	data/chars/jimmy/spin06.gif
+	
+	attack	15 45 100 65		4 1
+	dropv	3 1.8
+	frame	data/chars/jimmy/spin01.gif
+	frame	data/chars/jimmy/spin02.gif
+	frame	data/chars/jimmy/spin03.gif
+	frame	data/chars/jimmy/spin04.gif
+	frame	data/chars/jimmy/spin05.gif
+	frame	data/chars/jimmy/spin06.gif
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/jimmy/jump02.gif
+	frame	data/chars/jimmy/jump01.gif
+	
+	delay	1
+	bbox	43 63 34 47
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/jimmy/rise01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/jimmy/rise01.gif
+	
+anim pain
+	loop	0
+	offset	26 80
+	bbox	7 6 34 67
+	delay	6
+	frame	data/chars/jimmy/pain1a.gif
+	delay	40
+	frame	data/chars/jimmy/pain1.gif
+	delay	6
+	frame	data/chars/jimmy/pain1a.gif
+
+anim pain2
+	loop	0
+	offset	29 72
+	bbox	14 12 33 58
+	delay	6
+	frame	data/chars/jimmy/pain2a.gif
+	delay	70
+	frame	data/chars/jimmy/pain2.gif
+	delay	6
+	frame	data/chars/jimmy/pain2a.gif
+	
+anim pain6 # drop whip
+	loop	0
+	offset	57 109
+	bbox	41 45 35 64
+	delay	1
+	frame	data/chars/jimmy/idle_m.gif
+
+anim fall
+	loop	0
+	delay	20
+	landframe 2
+	offset	30 30
+	#bbox	7 2 58 42
+	attack	7 2 58 42 10 1
+	frame	data/chars/jimmy/fall1.gif
+	offset	34 40
+	delay	999
+	#bbox	7 9 70 31
+	attack	7 9 70 31 10 1
+	frame	data/chars/jimmy/fall2.gif
+	delay	50
+	offset	42 24
+	attack	0 0 0 0
+	frame	data/chars/jimmy/fall3.gif
+
+#anim fall3
+#	loop	0
+#	delay	15
+#	landframe 1
+#	offset	41 30
+#	frame	data/chars/jimmy/fall301.gif
+#	frame	data/chars/jimmy/fall301.gif
+#	offset	50 24
+#	delay	999
+#	frame	data/chars/jimmy/fall302.gif
+
+anim death
+	loop	0
+	delay 	50
+	offset	42 24
+	frame	data/chars/jimmy/fall3.gif
+	offset	57 109
+	delay 	40
+	frame	data/chars/jimmy/get.gif
+	#delay	30
+	sound 	data/sounds/0_voice01.wav
+	frame	data/chars/jimmy/get.gif
+	delay	12
+	frame	data/chars/jimmy/fall301.gif
+	frame	data/chars/jimmy/fall302.gif
+	delay	50
+	frame	data/chars/jimmy/fall303.gif
+
+anim rise
+	loop	0
+	offset	57 109
+	delay	13
+	@cmd	fixbase
+	frame	data/chars/jimmy/rise01.gif
+	delay	9
+	frame	data/chars/jimmy/rise02.gif
+
+anim get
+	loop	0
+	offset	57 109
+	delay	1
+	frame	data/chars/jimmy/rise02.gif
+	delay	15
+	frame	data/chars/jimmy/get.gif
+	frame	data/chars/jimmy/rise02.gif
+
+anim attack1
+	loop	0
+	delay	1
+	@cmd 	punches
+	frame	none
+
+anim freespecial # basic punch 1
+	loop	0
+	delay	6
+	offset	21 78
+	bbox	10 10 38 66
+	#@cmd	settextobj 5 120 120 3 9999999 ""+openborvariant("count_enemies")
+	frame	data/chars/jimmy/atk101.gif
+	frame	data/chars/jimmy/atk102.gif
+	attack	41 15 47 16		3 0
+	#sound	data/sounds/punch.wav
+	frame	data/chars/jimmy/atk103.gif
+	frame	data/chars/jimmy/atk104.gif
+	frame	data/chars/jimmy/atk105.gif
+	attack	0 0 0
+	frame	data/chars/jimmy/atk106.gif
+	frame	data/chars/jimmy/atk107.gif
+
+anim freespecial2 # basic punch 2
+	loop	0
+	delay	6
+	offset	26 76
+	bbox	9 14 55 61
+	frame	data/chars/jimmy/atk201.gif
+	attack	43 14 50 23		3 0
+	#sound	data/sounds/punch.wav
+	frame	data/chars/jimmy/atk202.gif
+	frame	data/chars/jimmy/atk203.gif
+	frame	data/chars/jimmy/atk204.gif
+	attack	0 0 0
+	frame	data/chars/jimmy/atk205.gif
+	offset	21 78
+	frame	data/chars/jimmy/atk107.gif
+
+anim freespecial3 # uppercut
+	range	0 130
+	loop	0
+	delay	6
+	offset	57 109
+	bbox	47 45 39 67
+	sound	data/sounds/0_voice04.wav
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/jimmy/atk301.gif
+	@cmd	dasher 2
+	frame	data/chars/jimmy/atk302.gif
+	attack	67 4 27 68		8 1
+	dropv	4.5 0.8 0
+	frame	data/chars/jimmy/atk303.gif
+	frame	data/chars/jimmy/atk304.gif
+	frame	data/chars/jimmy/atk305.gif
+	@cmd	dasher 0
+	frame	data/chars/jimmy/atk306.gif
+	attack	0 0 0
+	frame	data/chars/jimmy/atk307.gif
+	frame	data/chars/jimmy/atk308.gif
+	frame	data/chars/jimmy/atk309.gif
+
+anim freespecial4 # basic kick
+	loop	0
+	delay	6
+	offset	57 109
+	bbox	25 44 33 62
+	frame	data/chars/jimmy/kick101.gif
+	frame	data/chars/jimmy/kick102.gif
+	delay	8
+	attack2	52 31 38 28		7 0
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/jimmy/kick103.gif
+	frame	data/chars/jimmy/kick104.gif
+	delay	6
+	attack2	0 0 0
+	frame	data/chars/jimmy/kick105.gif
+	frame	data/chars/jimmy/kick106.gif
+	
+anim freespecial5 # headbutt
+	loop	0
+	delay	10
+	offset	57 109
+	bbox	36 45 37 63
+	frame	data/chars/jimmy/headbutt_01.gif
+	sound	data/sounds/0_voice04.wav
+	frame	data/chars/jimmy/headbutt_02.gif
+	@cmd	dasher 1
+	attack	54 43 41 44		5 1
+	dropv	3 0.8
+	delay	12
+	bbox	49 51 33 56
+	frame	data/chars/jimmy/headbutt_03.gif
+	@cmd	dasher 0
+	delay	10
+	frame	data/chars/jimmy/headbutt_04.gif
+	
+anim freespecial6 # knee
+	loop	0
+	delay	7
+	offset	57 109
+	jumpframe	0 3.5 2 0
+	landframe	9
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	bbox	37 56 33 56
+	frame	data/chars/jimmy/knee01.gif
+	sound	data/sounds/0_voice07.wav
+	attack	53 40 43 65		15 1
+	dropv	3 2
+	bbox	44 45 31 61
+	frame	data/chars/jimmy/knee02.gif
+	frame	data/chars/jimmy/knee03.gif
+	frame	data/chars/jimmy/knee02.gif
+	frame	data/chars/jimmy/knee03.gif
+	frame	data/chars/jimmy/knee02.gif
+	frame	data/chars/jimmy/knee03.gif
+	@cmd	dasher 0.8
+	attack	0 0 0
+	bbox	37 51 42 49
+	frame	data/chars/jimmy/jatk201.gif
+	delay	99
+	offset	57 109
+	bbox	46 33 31 78
+	frame	data/chars/jimmy/jump01.gif
+	delay	8
+	offset	57 109
+	bbox	43 63 34 47
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/jimmy/rise02.gif
+	frame	data/chars/jimmy/rise01.gif
+	frame	data/chars/jimmy/rise02.gif
+
+anim freespecial7 # straight barge
+	loop	0
+	delay	8
+	offset	57 109
+	@cmd	spawnbind2 "Jimmy_Effect" 0 0 1 1 6
+	sound	data/sounds/0_voice03.wav
+	bbox 	51 55 29 54
+	frame	data/chars/jimmy/straight01.gif
+	@cmd	dasher 1.7
+	delay	5
+	attack	57 24 42 77		15 1
+	damageonlanding 0 1
+	dropv	2 3
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	bbox	56 49 27 60
+	frame	data/chars/jimmy/straight02.gif
+	frame	data/chars/jimmy/straight03.gif
+	frame	data/chars/jimmy/straight03.gif
+	frame	data/chars/jimmy/straight03.gif
+	@cmd	dasher 0
+	delay	10
+	frame	data/chars/jimmy/straight04.gif
+	attack	0 0 0 0
+	frame	data/chars/jimmy/straight02.gif
+	
+anim freespecial8 # overhead punch
+	loop	0
+	delay	7
+	offset	57 109
+	bbox	43 38 40 71
+	@cmd	spawnbind2 "Jimmy_Effect" 0 0 1 1 6
+	frame	data/chars/jimmy/overhead_01.gif
+	sound	data/sounds/0_voice03.wav
+	frame	data/chars/jimmy/overhead_02.gif
+	frame	data/chars/jimmy/overhead_03.gif
+	attack3	37 9 95 111		12 1
+	dropv	-5 0.5 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/jimmy/overhead_04.gif
+	frame	data/chars/jimmy/overhead_05.gif
+	attack3	0 0 0 0
+	frame	data/chars/jimmy/overhead_06.gif
+	frame	data/chars/jimmy/atk308.gif
+	frame	data/chars/jimmy/atk309.gif
+	
+anim freespecial9 # low kick
+	loop	0
+	delay	8
+	offset	57 109
+	bbox	25 44 33 62
+	frame	data/chars/jimmy/kick101.gif
+	frame	data/chars/jimmy/kick102.gif
+	sound	data/sounds/kick_se15.wav
+	attack2	51 71 35 30		6 0
+	frame	data/chars/jimmy/kick103c.gif
+	frame	data/chars/jimmy/kick104c.gif
+	attack2	0 0 0
+	frame	data/chars/jimmy/kick105c.gif
+	frame	data/chars/jimmy/kick106.gif
+	
+anim freespecial10 # kicks combo
+	loop	0
+	offset	57 109
+	bbox	25 44 33 62
+	jumpframe 0 1.2 1.5
+	landframe 1
+	delay	999
+	frame	data/chars/jimmy/kick101.gif
+	delay	6
+	frame	data/chars/jimmy/kick101.gif
+	frame	data/chars/jimmy/kick102.gif
+	sound	data/sounds/kick_se15.wav
+	attack4	52 31 38 28		3 0
+	frame	data/chars/jimmy/kick103.gif
+	frame	data/chars/jimmy/kick104.gif
+	attack4	0 0 0
+	frame	data/chars/jimmy/kick101.gif
+	frame	data/chars/jimmy/kick102.gif
+	
+	sound	data/sounds/kick_se15.wav
+	attack4	57 53 44 22		3 0
+	frame	data/chars/jimmy/kick103b.gif
+	frame	data/chars/jimmy/kick104b.gif
+	attack4	0 0 0
+	frame	data/chars/jimmy/kick101.gif
+	frame	data/chars/jimmy/kick102.gif
+	
+	sound	data/sounds/kick_se15.wav
+	attack4	51 71 35 30		3 0
+	frame	data/chars/jimmy/kick103c.gif
+	frame	data/chars/jimmy/kick104c.gif
+	attack4	0 0 0
+	frame	data/chars/jimmy/kick105c.gif
+	frame	data/chars/jimmy/kick106.gif
+	
+	bbox	50 39 31 69
+	frame	data/chars/jimmy/moon01.gif
+	sound	data/sounds/0_voice04.wav
+	frame	data/chars/jimmy/moon02.gif
+	frame	data/chars/jimmy/moon03.gif
+	
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	50 23 69 62		8 1
+	dropv	4.5 0.8 0
+	frame	data/chars/jimmy/rhkick01.gif
+	frame	data/chars/jimmy/rhkick02.gif
+	frame	data/chars/jimmy/rhkick03.gif
+	attack	0 0 0 0
+	frame	data/chars/jimmy/rhkick04.gif
+	
+anim freespecial11 # roundhouse
+	range	-10 130
+	loop	0
+	delay	7
+	offset	57 109
+	bbox	50 39 31 69
+	frame	data/chars/jimmy/moon01.gif
+	@cmd	dasher 1
+	sound	data/sounds/0_voice04.wav
+	frame	data/chars/jimmy/moon02.gif
+	frame	data/chars/jimmy/moon03.gif
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	50 23 69 62		10 1
+	dropv	4.5 0.8 0
+	delay	8
+	frame	data/chars/jimmy/rhkick01.gif
+	frame	data/chars/jimmy/rhkick02.gif
+	@cmd	dasher 0
+	delay	7
+	frame	data/chars/jimmy/rhkick03.gif
+	attack	0 0 0 0
+	frame	data/chars/jimmy/rhkick04.gif
+	
+anim freespecial12 # elbow
+	loop	0
+	delay	8
+	offset	57 109
+	bbox	45 44 26 62
+	sound	data/sounds/0_voice04.wav
+	frame	data/chars/jimmy/elbow01.gif
+	delay	10
+	attack	25 36 33 32		10 1
+	dropv	3.5 1 
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/jimmy/elbow02.gif
+	frame	data/chars/jimmy/elbow03.gif
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/jimmy/elbow04.gif
+	
+anim freespecial13 # running kick
+	loop	0
+	delay	7
+	offset	57 109
+	bbox	25 44 33 62
+	@cmd	dasher 2.5
+	frame	data/chars/jimmy/kick101.gif
+	frame	data/chars/jimmy/kick102.gif
+	sound	data/sounds/kick_se15.wav
+	@cmd	dasher 1
+	attack	57 53 44 22		5 1
+	frame	data/chars/jimmy/kick104b.gif
+	frame	data/chars/jimmy/kick103b.gif
+	frame	data/chars/jimmy/kick104b.gif
+	@cmd	dasher 0
+	attack	0 0 0
+	delay	5
+	frame	data/chars/jimmy/kick105b.gif
+	frame	data/chars/jimmy/kick106b.gif
+	frame	data/chars/jimmy/kick106.gif
+	
+anim freespecial14 # Super Punch
+	loop	0
+	delay	6
+	offset	57 109
+	bbox	47 45 39 67
+	@cmd	spawnbind2 "Jimmy_Effect" 0 0 1 1 6
+	sound	data/sounds/0_voice05.wav
+	frame	data/chars/jimmy/atk301.gif
+	@cmd	dasher 2
+	sound	data/sounds/dragon_kick.wav
+	frame	data/chars/jimmy/atk302.gif
+	attack	63 -6 46 118		30 1
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	otg		1
+	dropv	6 0.5
+	frame	data/chars/jimmy/atk303.gif
+	frame	data/chars/jimmy/atk304.gif
+	frame	data/chars/jimmy/atk305.gif
+	@cmd	dasher 0
+	frame	data/chars/jimmy/atk306.gif
+	attack	0 0 0
+	frame	data/chars/jimmy/atk307.gif
+	frame	data/chars/jimmy/atk308.gif
+	frame	data/chars/jimmy/atk309.gif
+	
+anim slide # stomp setup
+	loop	0
+	otg		2
+	attackone 1
+	offset	57 109 #19 75
+	bbox	41 45 35 64
+	followcond 3
+	followanim 2
+	delay	1
+	attack4	0 100 120 60	0 0 0 1 0 60
+	dropv	0 0
+	hitfx	none
+	frame	data/chars/jimmy/idle_m.gif
+	
+anim follow2 # otg stomp attack
+	loop	0
+	offset	57 109
+	delay	400
+	landframe 1
+	jumpframe 3 3 -2 0
+	@cmd	stomp
+	bbox	42 39 36 50
+	frame	data/chars/jimmy/jump02.gif
+	delay	10
+	attack4	39 80 38 35		13 0 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	otg		2
+	dropv	0.3
+	delay	20
+	frame	data/chars/jimmy/otg01.gif
+	delay	20
+	attack4	0 0 0 0
+	frame	data/chars/jimmy/otg02.gif
+	@cmd 	anichange "ani_follow3"
+	frame	data/chars/jimmy/otg02.gif
+
+anim follow3 # otg stomp follow up
+	loop	0
+	offset	57 109
+	landframe 1
+	jumpframe 0 3 -2 0
+	bbox	42 39 36 50
+	delay	999
+	frame	data/chars/jimmy/jump02.gif
+	delay 	1
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/jimmy/jump02.gif
+	

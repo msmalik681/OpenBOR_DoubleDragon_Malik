@@ -1,0 +1,260 @@
+&STAGE1_IN
+#NAME Billy 1 5 1
+#NAME Jimmy 1 10 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 8 1
+//Billy
+data/story/abobo.gif	data/story/billy.gif	Welcome_to_the_gun_show,_boy!_It's_time_for_you._._._to_die._
+data/story/abobo.gif	data/story/billy.gif	Might_as_well_forget_about_Willy!_You_ain't_gonna_live_to_meet_'im!_
+data/story/billy.gif	data/story/abobo.gif	Dear_sweet_Moses_you're_huge.__And_"the_gun_show"?_What_are_you,_13?_
+data/story/billy.gif	data/story/abobo.gif	All_right_beefcake,_let's_see_what_you've_got!_
+#END
+//Jimmy
+data/story/abobo.gif	data/story/jimmy.gif	Welcome_to_the_gun_show,_boy!_It's_time_for_you._._._to_die._
+data/story/abobo.gif	data/story/jimmy.gif	Might_as_well_forget_about_Willy!_You_ain't_gonna_live_to_meet_'im!_
+data/story/jimmy.gif	data/story/abobo.gif	Dear_sweet_Moses_you're_huge.__And_"the_gun_show"?_What_are_you,_13?_
+data/story/jimmy.gif	data/story/abobo.gif	All_right_beefcake,_let's_see_what_you've_got!_
+#END
+
+&STAGE1_OUT
+#NAME Billy 1 5 1
+#NAME Jimmy 1 12 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 10 1
+//Billy
+data/story/abobo2.gif	data/story/billy.gif	Gaaaah!_Looks_like_the_show's_over._._._
+data/story/billy.gif	data/story/abobo2.gif	Maybe_you'd_have_won_if_there_wasn't_so_much_of_you_to_punch,_fatty._
+data/story/billy.gif	data/story/abobo2.gif	Now,_where_the_hell_is_Willy?_
+data/story/billy.gif	data/story/abobo2.gif	He's_due_for_a_pounding_that'll_make_what_you_just_got_look_like_gentle_caress._
+data/story/abobo2.gif	data/story/billy.gif	I._._._I_don't_know_where_Willy's_hiding,_but_there's_someone_who_does._
+data/story/abobo2.gif	data/story/billy.gif	You're_gonna_have_to_go_to._._._the_factory._._._
+#END
+//Jimmy
+data/story/abobo2.gif	data/story/jimmy.gif	Gaaaah!_Looks_like_the_show's_over._._._
+data/story/jimmy.gif	data/story/abobo2.gif	Maybe_you'd_have_won_if_there_wasn't_so_much_of_you_to_punch,_fatty._
+data/story/jimmy.gif	data/story/abobo2.gif	Now,_where_the_hell_is_Willy?_
+data/story/jimmy.gif	data/story/abobo2.gif	He's_due_for_a_pounding_that'll_make_what_you_just_got_look_like_gentle_caress._
+data/story/abobo2.gif	data/story/jimmy.gif	I._._._I_don't_know_where_Willy's_hiding,_but_there's_someone_who_does._
+data/story/abobo2.gif	data/story/jimmy.gif	You're_gonna_have_to_go_to._._._the_factory._._._
+#END
+
+&STAGE2_IN
+#NAME Billy 1 5 1
+#NAME Jimmy 1 11 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 9 1
+//Billy
+data/story/burnov.gif	data/story/billy.gif	My_oh_my,_what_a_stunning_example_of_the_male_form!_A_shame,_then,_that_I_must_
+data/story/burnov.gif	data/story/billy.gif	perforce_shuffle_you_off_this_mortal_coil._
+data/story/burnov.gif	data/story/billy.gif	Then_again,_a_bout_of_fisticuffs_will_allow_me_to_examine_your,_mmmm,_physique._
+data/story/billy.gif	data/story/burnov.gif	Whoa,_hands_off_the_merchandise,_pal!_You_gotta_pay_to_ride_this_rollercoaster,_
+data/story/billy.gif	data/story/burnov.gif	and_the_kind_of_currency_you_got_ain't_accepted_here!_
+#END
+//Jimmy
+data/story/burnov.gif	data/story/jimmy.gif	My_oh_my,_what_a_stunning_example_of_the_male_form!_A_shame,_then,_that_I_must_
+data/story/burnov.gif	data/story/jimmy.gif	perforce_shuffle_you_off_this_mortal_coil._
+data/story/burnov.gif	data/story/jimmy.gif	Then_again,_a_bout_of_fisticuffs_will_allow_me_to_examine_your,_mmmm,_physique._
+data/story/jimmy.gif	data/story/burnov.gif	Whoa,_hands_off_the_merchandise,_pal!_You_gotta_pay_to_ride_this_rollercoaster,_
+data/story/jimmy.gif	data/story/burnov.gif	and_the_kind_of_currency_you_got_ain't_accepted_here!_
+#END
+
+
+&STAGE2_OUT
+#NAME Billy 1 5 1
+#NAME Jimmy 1 14 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 12 1
+//Billy
+data/story/burnov2.gif	data/story/billy.gif	fiddlesticks!_How_could_you_have_bested_me_in_a_contest_of_martial_skill?!_
+data/story/burnov2.gif	data/story/billy.gif	Ah,_but_such_exquisite_pain!_I_say,_I_think_I_am_altogether_spent._
+data/story/billy.gif	data/story/burnov2.gif	Why_are_you_wearing_a_welding_mask_UNDER_your._._._You_know_what,_I_think_I'm_
+data/story/billy.gif	data/story/burnov2.gif	better_off_NOT_knowing._
+data/story/billy.gif	data/story/burnov2.gif	Just_tell_us_where_Willy_is,_and_we'll_leave_this_uncomfortable_episode_behind_us._
+data/story/burnov2.gif	data/story/billy.gif	Those_hooligans_have_appropriated_a_former_institution_of_learning_for_use_as_
+data/story/burnov2.gif	data/story/billy.gif	their_center_of_operations._
+data/story/burnov2.gif	data/story/billy.gif	Their_head_man_should_be_able_to_point_you_in_Willy's_direction._
+#END
+//Jimmy
+data/story/burnov2.gif	data/story/jimmy.gif	fiddlesticks!_How_could_you_have_bested_me_in_a_contest_of_martial_skill?!_
+data/story/burnov2.gif	data/story/jimmy.gif	Ah,_but_such_exquisite_pain!_I_say,_I_think_I_am_altogether_spent._
+data/story/jimmy.gif	data/story/burnov2.gif	Why_are_you_wearing_a_welding_mask_UNDER_your._._._You_know_what,_I_think_I'm_
+data/story/jimmy.gif	data/story/burnov2.gif	better_off_NOT_knowing._
+data/story/jimmy.gif	data/story/burnov2.gif	Just_tell_us_where_Willy_is,_and_we'll_leave_this_uncomfortable_episode_behind_us._
+data/story/burnov2.gif	data/story/jimmy.gif	Those_hooligans_have_appropriated_a_former_institution_of_learning_for_use_as_
+data/story/burnov2.gif	data/story/jimmy.gif	their_center_of_operations._
+data/story/burnov2.gif	data/story/jimmy.gif	Their_head_man_should_be_able_to_point_you_in_Willy's_direction._
+#END
+
+&STAGE3_IN
+#NAME Billy 1 5 1
+#NAME Jimmy 1 11 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 9 1
+//Billy
+data/story/billy.gif	data/story/lavis.gif	What?!_You're_telling_me_this_chick's_the_boss?_All_right,_fine!_
+data/story/billy.gif	data/story/lavis.gif	I_was_gettin'_tired_of_this_sausage_fest_anyway!_
+data/story/lavis.gif	data/story/billy.gif	I_see_you_had_some_fun_with_my_men._A_little_too_much_fun,_though._
+data/story/lavis.gif	data/story/billy.gif	You're_going_to_have_to_take_responsibility._
+data/story/lavis.gif	data/story/billy.gif	How'd_you_like_to_work_under_me_in_their_place?_
+#END
+//Jimmy
+data/story/jimmy.gif	data/story/lavis.gif	What?!_You're_telling_me_this_chick's_the_boss?_All_right,_fine!_
+data/story/jimmy.gif	data/story/lavis.gif	I_was_gettin'_tired_of_this_sausage_fest_anyway!_
+data/story/lavis.gif	data/story/jimmy.gif	I_see_you_had_some_fun_with_my_men._A_little_too_much_fun,_though._
+data/story/lavis.gif	data/story/jimmy.gif	You're_going_to_have_to_take_responsibility._
+data/story/lavis.gif	data/story/jimmy.gif	How'd_you_like_to_work_under_me_in_their_place?_
+#END
+
+&STAGE3_OUT
+#NAME Billy 1 5 1
+#NAME Jimmy 1 12 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 10 1
+//Billy
+data/story/lavis2.gif	data/story/billy.gif	All_right!_I_submit!_I'm_yours!_Honestly._._._what_a_brute!_
+data/story/billy.gif	data/story/lavis2.gif	Hey_lady,_you_mess_with_a_bull,_you_get_the_horns!_
+data/story/billy.gif	data/story/lavis2.gif	Put_those_things_away_before_you_hurt_yourself._
+data/story/billy.gif	data/story/lavis2.gif	(Where_the_hell_was_she_KEEPING_them?!)_Now_spill_it._Where's_Willy?!_
+data/story/lavis2.gif	data/story/billy.gif	Hmph._Fine,_I'll_tell_you,_but_only_because_I_want_to._
+data/story/lavis2.gif	data/story/billy.gif	My_uncle_has_a_gym_nearby._You_should_go_look_around_there._
+#END
+//Jimmy
+data/story/lavis2.gif	data/story/jimmy.gif	All_right!_I_submit!_I'm_yours!_Honestly._._._what_a_brute!_
+data/story/jimmy.gif	data/story/lavis2.gif	Hey_lady,_you_mess_with_a_bull,_you_get_the_horns!_
+data/story/jimmy.gif	data/story/lavis2.gif	Put_those_things_away_before_you_hurt_yourself._
+data/story/jimmy.gif	data/story/lavis2.gif	(Where_the_hell_was_she_KEEPING_them?!)_Now_spill_it._Where's_Willy?!_
+data/story/lavis2.gif	data/story/jimmy.gif	Hmph._Fine,_I'll_tell_you,_but_only_because_I_want_to._
+data/story/lavis2.gif	data/story/jimmy.gif	My_uncle_has_a_gym_nearby._You_should_go_look_around_there._
+#END
+
+&STAGE4_IN
+#NAME Billy 1 5 1
+#NAME Jimmy 1 10 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 8 1
+//Billy
+data/story/billy.gif	data/story/chin.gif		Man,_next_to_those_other_guys,_you're_almost_normal._
+data/story/chin.gif		data/story/billy.gif	Billy_Lee,_of_the_Sosetsu_Ken!_It_is_time_we_met_in_battle._
+data/story/chin.gif		data/story/billy.gif	Should_you_win,_I_will_tell_you_all_that_I_know._
+data/story/billy.gif	data/story/chin.gif		All_right,_bro!_Let's_dance!_
+#END
+//Jimmy
+data/story/jimmy.gif	data/story/chin.gif		Man,_next_to_those_other_guys,_you're_almost_normal._
+data/story/chin.gif		data/story/jimmy.gif	jimmy_Lee,_of_the_Sosetsu_Ken!_It_is_time_we_met_in_battle._
+data/story/chin.gif		data/story/jimmy.gif	Should_you_win,_I_will_tell_you_all_that_I_know._
+data/story/jimmy.gif	data/story/chin.gif		All_right,_bro!_Let's_dance!_
+#END
+
+&STAGE4_OUT
+#NAME Billy 1 5 1
+#NAME Jimmy 1 11 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 9 1
+//Billy
+data/story/chin2.gif	data/story/billy.gif	Hnng!_I_have._._._lost?_How_can_this_be?!_
+data/story/chin2.gif	data/story/billy.gif	I_have_heard_rumors_of_your_skill_but_to_think._._._
+data/story/billy.gif	data/story/chin2.gif	Whoa!_That_was_radical!_What_a_rush!_
+data/story/billy.gif	data/story/chin2.gif	So_how_'bout_you_spill_that_info_you_promised,_bro?_
+data/story/chin2.gif	data/story/billy.gif	Very_well._I_am_a_man_of_my_word._This_should_set_you_on_the_path._
+#END
+//Jimmy
+data/story/chin2.gif	data/story/jimmy.gif	Hnng!_I_have._._._lost?_How_can_this_be?!_
+data/story/chin2.gif	data/story/jimmy.gif	I_have_heard_rumors_of_your_skill_but_to_think._._._
+data/story/jimmy.gif	data/story/chin2.gif	Whoa!_That_was_radical!_What_a_rush!_
+data/story/jimmy.gif	data/story/chin2.gif	So_how_'bout_you_spill_that_info_you_promised,_bro?_
+data/story/chin2.gif	data/story/jimmy.gif	Very_well._I_am_a_man_of_my_word._This_should_set_you_on_the_path._
+#END
+
+&STAGE4_OUT2
+#NAME Billy 1 5 1
+#NAME Jimmy 1 8 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 6 1
+//Billy
+data/story/chin.gif		data/story/billy.gif	_	data/story/card.gif
+data/story/chin.gif		data/story/billy.gif	When_next_we_meet,_I_WILL_be_victorious!_Mark_my_words!_
+#END
+//Jimmy
+data/story/chin.gif		data/story/jimmy.gif	_	data/story/card.gif
+data/story/chin.gif		data/story/jimmy.gif	When_next_we_meet,_I_WILL_be_victorious!_Mark_my_words!_
+#END
+
+&STAGE5_IN
+#NAME Billy 1 5 1
+#NAME Jimmy 1 11 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 9 1
+//Billy
+data/story/deanna.gif	data/story/billy.gif	Ahahahahahaha!_You_beat_eeeeeeeverybody!_
+data/story/billy.gif	data/story/deanna.gif	Another_babe?!_
+data/story/billy.gif	data/story/deanna.gif	(I_may_not_approve_of_their_business_practices_in_general,_but_it's_good_to_see_
+data/story/billy.gif	data/story/deanna.gif	the_Shadow_Warriors_striving_for_gender_equality_in_the_workplace.)_
+data/story/deanna.gif	data/story/billy.gif	You're_pretty_extreme,_man,_but_don't_even_THINK_you_can_handle_this_hotness._
+#END
+//Jimmy
+data/story/deanna.gif	data/story/jimmy.gif	Ahahahahahaha!_You_beat_eeeeeeeverybody!_
+data/story/jimmy.gif	data/story/deanna.gif	Another_babe?!_
+data/story/jimmy.gif	data/story/deanna.gif	(I_may_not_approve_of_their_business_practices_in_general,_but_it's_good_to_see_
+data/story/jimmy.gif	data/story/deanna.gif	the_Shadow_Warriors_striving_for_gender_equality_in_the_workplace.)_
+data/story/deanna.gif	data/story/jimmy.gif	You're_pretty_extreme,_man,_but_don't_even_THINK_you_can_handle_this_hotness._
+#END
+
+&STAGE5_OUT
+#NAME Billy 1 5 1
+#NAME Jimmy 1 13 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 11 1
+//Billy
+data/story/deanna2.gif	data/story/billy.gif	Oh_maaaan!_This_blows!_
+data/story/deanna2.gif	data/story/billy.gif	Uncle_Willy's_the_only_guy_who's_beat_me_this_bad!_
+data/story/deanna2.gif	data/story/billy.gif	I_guess_I_still_got_a_lot_to_learn._
+data/story/billy.gif	data/story/deanna2.gif	You_were't_so_bad_yourself,_babe._Wadda_ya_say_we_do_this_again_some_time?_
+data/story/deanna2.gif	data/story/billy.gif	I'm_gonna_practice,_you_just_wait_and_see!_You_ass_is_going_DOWN!_
+data/story/deanna2.gif	data/story/billy.gif	Anyway,_Uncle_Willy's_just_over_there,_but_be_careful!_
+data/story/deanna2.gif	data/story/billy.gif	He's_pretty_hardcore!_
+#END
+//Jimmy
+data/story/deanna2.gif	data/story/jimmy.gif	Oh_maaaan!_This_blows!_
+data/story/deanna2.gif	data/story/jimmy.gif	Uncle_Willy's_the_only_guy_who's_beat_me_this_bad!_
+data/story/deanna2.gif	data/story/jimmy.gif	I_guess_I_still_got_a_lot_to_learn._
+data/story/jimmy.gif	data/story/deanna2.gif	You_were't_so_bad_yourself,_babe._Wadda_ya_say_we_do_this_again_some_time?_
+data/story/deanna2.gif	data/story/jimmy.gif	I'm_gonna_practice,_you_just_wait_and_see!_You_ass_is_going_DOWN!_
+data/story/deanna2.gif	data/story/jimmy.gif	Anyway,_Uncle_Willy's_just_over_there,_but_be_careful!_
+data/story/deanna2.gif	data/story/jimmy.gif	He's_pretty_hardcore!_
+#END
+
+&STAGE6_IN
+#NAME Billy 1 5 1
+#NAME Jimmy 1 11 1
+#NAME Billy 2 3 1
+#NAME Jimmy 2 9 1
+//Billy
+data/story/billy.gif	data/story/willy.gif	Where's_Marian!?_She_better_be_all_right!_
+data/story/marian2.gif	data/chars/misc/empty.gif	_
+data/story/billy.gif	data/story/willy.gif	Marian!_Willy,_you_sick_bastard!_
+data/story/willy.gif	data/story/billy.gif	Aw,_quit_yer_bitchin'!_The_girl's_just_havin'_a_little_nap_is_all._
+data/story/willy.gif	data/story/billy.gif	Now,_I_reckon_I'll_be_havin'_them_sacred_scrolls_of_yers._
+data/story/billy.gif	data/story/willy.gif	Then_take_'em,_jerk!_
+data/story/billy.gif	data/story/willy.gif	_	data/story/scroll.gif
+data/story/willy.gif	data/story/billy.gif	Haw!_Finally,_the_power_of_the_sacred_scrolls_is_mine!_Grraaaah!_
+data/story/willy.gif	data/story/billy.gif	Now,_Ah'd_love_ta_grind_ya'all_into_chicken_feed,_but_there's_a_couple_folks
+data/story/willy.gif	data/story/billy.gif	what_wanna_jaw_with_ya_first.
+data/story/burnov.gif	data/story/billy.gif	How_positively_delightful_that_we_should_meet_again!_
+data/story/burnov.gif	data/story/billy.gif	I_daresay_you_shan't_have_such_a_easy_go_of_it_this_time!_
+data/story/abobo.gif	data/story/billy.gif	You_ready,_boy?_I've_been_blastin'_my_delts_double-time!_
+data/story/abobo.gif	data/story/billy.gif	My_bigness_is_perfection!_
+data/story/abobo.gif	data/story/billy.gif	Welcome_to_Chump-ville,_Population:_YOU!_
+data/story/billy.gif	data/story/abobo.gif	A_little_warm-up_before_the_big_event?_Sure_thing,_dorks!_Let's_dance!_
+#END
+//Jimmy
+
+#END
+
+
+
+
+
+
+
+
+

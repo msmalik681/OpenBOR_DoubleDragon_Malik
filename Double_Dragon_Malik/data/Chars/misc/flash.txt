@@ -1,0 +1,19 @@
+# Player Hit flash
+name	Flash
+type	none
+alpha	1
+lifespan 4
+shadow	0
+
+anim idle
+	loop	0
+	delay	6
+	offset	27 25
+	frame	data/chars/misc/flash01.gif
+	frame	data/chars/misc/flash02.gif
+	frame	data/chars/misc/flash03.gif
+	frame	data/chars/misc/flash04.gif
+	frame	data/chars/misc/flash05.gif
+	frame	data/chars/misc/flash06.gif
+	frame	data/chars/misc/flash07.gif
+	frame	data/chars/misc/empty.gif

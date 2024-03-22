@@ -1,0 +1,109 @@
+name	Boss_Door
+health	0
+type	panel
+shadow	0
+palette data/levels/level_6/boss_door02.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+subject_to_platform 0
+antigravity	0
+offscreenkill 9999
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	delay	3
+	frame	none
+	@cmd	killme
+	frame	none
+
+anim idle
+	
+anim follow13 # Boss Door Setup
+	loop	0
+	delay	10
+	frame	none
+	frame	none
+	frame	none
+	
+anim follow14 # Boss Door Left
+	loop	0
+	delay	10
+	offset	0 0
+	# Chin intro
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-10 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-15 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-20 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-25 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-30 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-25 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-20 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-15 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-10 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	0 0
+	frame	data/levels/level_6/boss_door02.gif
+	
+	# Willy intro
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-10 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-15 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-20 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-25 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-30 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-25 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-20 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-15 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-10 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	0 0
+	frame	data/levels/level_6/boss_door02.gif
+	
+	# Boss backup
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-10 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-15 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-20 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-25 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-30 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-25 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-20 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-15 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	-10 0
+	frame	data/levels/level_6/boss_door02.gif
+	offset	0 0
+	frame	data/levels/level_6/boss_door02.gif
+	

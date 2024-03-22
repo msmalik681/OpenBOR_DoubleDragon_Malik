@@ -1,0 +1,19 @@
+name	BigDust
+type	none
+alpha	1
+lifespan 4
+subject_to_gravity 0
+shadow	0
+
+anim idle
+	loop	0
+	delay	9
+	offset	80 30
+	frame	data/chars/misc/big_dust01.gif
+	frame	data/chars/misc/big_dust02.gif
+	frame	data/chars/misc/big_dust03.gif
+	frame	data/chars/misc/big_dust04.gif
+	frame	data/chars/misc/big_dust05.gif
+	frame	data/chars/misc/big_dust06.gif
+	frame	data/chars/misc/big_dust07.gif
+	frame	data/chars/misc/empty.gif

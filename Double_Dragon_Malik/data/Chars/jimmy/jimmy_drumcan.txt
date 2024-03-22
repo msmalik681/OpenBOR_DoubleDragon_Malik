@@ -1,0 +1,82 @@
+name	Jimmy_Drumcan
+health	100
+speed	6
+type	none
+running	25 3.5 2 0 0
+shadow	3
+risetime 3
+atchain 1
+icon	data/chars/jimmy/icon.gif
+diesound data/sounds/die1.wav
+
+animationscript data/scripts/scripts.c
+
+anim run
+
+anim jump
+
+anim jumpland
+
+anim grab
+
+anim runattack
+
+anim jumpattack
+
+anim attack2
+
+anim attack3
+
+anim freespecial
+
+anim idle
+	loop	0
+	offset	37 108
+	bbox	15 44 38 63
+	delay	1
+	frame	data/chars/jimmy/04_walk01.gif
+
+anim walk
+	loop	1
+	offset	37 108
+	bbox	15 44 38 63
+	delay	18
+	frame	data/chars/jimmy/04_walk01.gif
+	frame	data/chars/jimmy/04_walk02.gif
+	frame	data/chars/jimmy/04_walk03.gif
+	frame	data/chars/jimmy/04_walk04.gif
+	frame	data/chars/jimmy/04_walk05.gif
+	frame	data/chars/jimmy/04_walk06.gif
+
+anim get
+	loop	0
+	offset	57 109
+	delay	15
+	frame	data/chars/jimmy/rise02.gif
+	offset	17 68
+	frame	data/chars/jimmy/04_rise02.gif
+	offset	21 75
+	frame	data/chars/jimmy/04_rise03.gif
+	offset	25 76
+	frame	data/chars/jimmy/04_rise04.gif
+
+anim attack1
+	loop	0
+	delay	13
+	custknife Fake_Throw
+	throwframe 2 0
+	offset	21 112
+	@cmd	antiwall 20 -25 80
+	frame	data/chars/jimmy/04_atk101.gif
+	delay	3
+	@cmd	spawn01 "Drumcan_Throw" 20 70 0
+	frame	data/chars/jimmy/04_atk101.gif
+	frame	data/chars/jimmy/04_atk101.gif
+	delay	15
+	offset	23 63
+	frame	data/chars/jimmy/04_atk102.gif
+	frame	data/chars/jimmy/04_atk103.gif
+	offset	26 75
+	frame	data/chars/jimmy/atk205.gif
+	offset	23 76
+	frame	data/chars/jimmy/atk107.gif

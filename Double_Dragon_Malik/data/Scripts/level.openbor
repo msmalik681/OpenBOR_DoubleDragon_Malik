@@ -1,0 +1,12 @@
+
+void level()
+{
+
+	if( openborvariant("current_branch") == "title")
+	{
+		setglobalvar("Player1",NULL());
+		setglobalvar("Player2",NULL());
+	}
+	setglobalvar("event", 0);
+	setglobalvar("bossdeath", 0);
+}

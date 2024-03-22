@@ -1,0 +1,428 @@
+name	lv3_objects
+health	0
+type	panel
+shadow	0
+palette data/levels/level_3/door01.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+subject_to_platform 0
+antigravity	0
+offscreenkill 9999
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim idle
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim follow1 #Door
+	loop	1
+	offset	0 96
+	delay	18
+	frame	data/levels/level_3/door01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_3/door02.gif
+	frame	data/levels/level_3/door03.gif
+	frame	data/levels/level_3/door04.gif
+	@cmd	killme
+	frame	none
+
+anim follow2 #locker
+	loop	0
+	delay	5
+	offset	0 88
+	landframe 4
+	frame	data/levels/level_3/locker01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_3/locker02.gif
+	offset	10 88
+	@cmd	gravity 1
+	@cmd	toss 0 3 0.5
+	sound	data/sounds/break_locker.wav
+	frame	data/levels/level_3/locker02.gif
+	delay	99
+	frame	data/levels/level_3/locker02.gif
+	@cmd	toss 0 2 0.5
+	delay	5
+	frame	data/levels/level_3/locker02.gif
+	frame	data/levels/level_3/locker02.gif
+	frame	none
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	frame	none	
+	frame	data/levels/level_3/locker02.gif
+	@cmd	killme
+	frame	none
+	
+anim follow3 #boss wall
+	loop	0
+	delay	13
+	offset	0 240
+	platform   0 300 -52 120 200 200 180 999
+	@cmd	setlayer 45
+	frame	data/levels/level_3/wall01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_3/wall01.gif
+	@cmd	spawn02 "lv3_objects" 0 1 1 "ani_follow11"
+	frame	data/levels/level_3/wall01.gif
+	frame	data/levels/level_3/wall01.gif
+	frame	data/levels/level_3/wall01.gif
+	frame	data/levels/level_3/wall01.gif
+	frame	data/levels/level_3/wall01.gif
+	frame	data/levels/level_3/wall01.gif
+	delay	30
+	frame	data/levels/level_3/wall01.gif
+	sound	data/sounds/boss_wall_break.wav
+	delay	13
+	frame	data/levels/level_3/wall02.gif
+	platform   0 0 0 0 0 0 0 0 0 0 0
+	frame	data/levels/level_3/wall03.gif
+	frame	data/levels/level_3/wall04.gif
+	frame	data/levels/level_3/wall05.gif
+	@cmd	killme
+	frame	none
+	
+anim follow4 #small stone
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_small.gif
+	@cmd	toss 1.5 1.2 0
+	delay	27
+	frame	data/levels/level_3/stone_small.gif
+	@cmd	dasher 0.7 0 0
+	frame	data/levels/level_3/stone_small.gif
+	@cmd	dasher 0 0 0
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	frame	none
+	frame	data/levels/level_3/stone_small.gif
+	@cmd	killme
+	frame	none
+	
+anim follow5 #big stoneA
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_bigA.gif
+	@cmd	toss 0 3 0.1
+	delay	80
+	frame	data/levels/level_3/stone_bigA.gif
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigA.gif
+	@cmd	killme
+	frame	none
+	
+anim follow6 #big stoneC
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_bigC.gif
+	@cmd	toss 1.2 2.5 0
+	delay	25
+	frame	data/levels/level_3/stone_bigC.gif
+	delay	30
+	frame	data/levels/level_3/stone_bigC.gif
+	@cmd	dasher 0.5 0 0
+	frame	data/levels/level_3/stone_bigC.gif
+	@cmd	dasher 0 0 0
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigC.gif
+	@cmd	killme
+	frame	none
+	
+anim follow7 #stone medA
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_medA.gif
+	@cmd	toss 0 3 0.1
+	delay	80
+	frame	data/levels/level_3/stone_medA.gif
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	frame	none
+	frame	data/levels/level_3/stone_medA.gif
+	@cmd	killme
+	frame	none
+	
+	
+anim follow8 #stone medB
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_medB.gif
+	@cmd	toss 1.2 2.5 0
+	delay	25
+	frame	data/levels/level_3/stone_medB.gif
+	delay	28
+	frame	data/levels/level_3/stone_medB.gif
+	@cmd	dasher 0.5 0 0
+	frame	data/levels/level_3/stone_medB.gif
+	@cmd	dasher 0 0 0
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	frame	none
+	frame	data/levels/level_3/stone_medB.gif
+	@cmd	killme
+	frame	none
+	
+anim follow9 #big stoneB
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	toss 1.2 2.5 0
+	delay	25
+	frame	data/levels/level_3/stone_bigB.gif
+	delay	30
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	dasher 0.5 0 0
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	dasher 0 0 0
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	killme
+	frame	none
+	
+anim follow10 #big stoneB
+	loop	0
+	delay	999
+	offset	3 5
+	@cmd	gravity 1
+	landframe 1
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	toss 1.2 2.5 0
+	delay	25
+	frame	data/levels/level_3/stone_bigB.gif
+	delay	30
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	dasher 0.5 0 0
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	dasher 0 0 0
+	delay	5
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	frame	none
+	frame	data/levels/level_3/stone_bigB.gif
+	@cmd	killme
+	frame	none
+	
+anim follow11 #boss wall slash
+	loop	0
+	delay	10
+	offset	0 240
+	@cmd	setlayer 46
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash01.gif
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash02.gif
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash03.gif
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash01.gif
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash02.gif
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash03.gif
+	sound	data/sounds/slice.wav
+	frame	data/levels/level_3/slash04.gif
+	@cmd	killme
+	frame	none
+
+anim follow12 # break wall sfx
+	loop	0
+	delay	1
+	@cmd	setlayer 46
+	sound	data/sounds/break_wall.wav
+	frame	none
+	@cmd	killme
+	frame	none
+	
+	

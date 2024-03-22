@@ -1,0 +1,181 @@
+name	lv5_objects
+health	0
+type	panel
+shadow	0
+palette data/levels/level_5/ship.gif
+alternatepal data/levels/level_5/ship_neon.gif
+alternatepal data/levels/level_5/lv5_base_fglayer.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+subject_to_platform 0
+antigravity	0
+offscreenkill 9999
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim idle
+
+anim follow1 # Ship sign
+	loop	1
+	offset	0 0
+	delay	80
+	@cmd	setlayer 100
+	frame	data/levels/level_5/ship.gif
+	@cmd	spawn02 "lv5_objects" 0 0 0 "ani_follow2"
+	frame	data/levels/level_5/ship.gif
+	
+anim follow2 # Ship neon
+	loop	0
+	offset	3 0
+	delay	80
+	@cmd	setlayer 101
+	@cmd	cProperty "map" 1
+	drawmethod alpha 1
+	frame	data/levels/level_5/ship_neon.gif
+	@cmd	killme
+	frame	none
+	
+anim follow3 # Plumeria
+	loop	1
+	offset	0 0
+	delay	80
+	@cmd	setlayer 100
+	frame	data/levels/level_5/plumeria.gif
+	@cmd	spawn02 "lv5_objects" 0 0 0 "ani_follow4"
+	frame	data/levels/level_5/plumeria.gif
+	
+anim follow4 # Plumeria neon
+	loop	0
+	offset	5 0
+	delay	80
+	@cmd	setlayer 101
+	@cmd	cProperty "map" 1
+	drawmethod alpha 1
+	frame	data/levels/level_5/plumeria_neon.gif
+	@cmd	killme
+	frame	none
+	
+anim follow5 # Deena
+	loop	1
+	offset	0 0
+	delay	80
+	@cmd	setlayer 100
+	frame	data/levels/level_5/deena.gif
+	@cmd	spawn02 "lv5_objects" 0 0 0 "ani_follow6"
+	frame	data/levels/level_5/deena.gif
+	
+anim follow6 # Deena neon
+	loop	0
+	offset	4 0
+	delay	80
+	@cmd	setlayer 101
+	@cmd	cProperty "map" 1
+	drawmethod alpha 1
+	frame	data/levels/level_5/deena_neon.gif
+	@cmd	killme
+	frame	none
+	
+anim follow7 # Lesbiens
+	loop	0
+	offset	0 0
+	delay	999
+	@cmd	setlayer 101
+	frame	data/levels/level_5/lesbiens.gif
+	
+anim follow8 # foreground layer
+	loop	0
+	offset	0 0
+	delay	999
+	@cmd	cProperty "map" 2
+	@cmd	setlayer 999
+	frame	data/levels/level_5/lv5_base_fglayer.gif
+	
+anim follow9 # crowd A
+	loop	1
+	offset	0 110
+	delay	20
+	@cmd	setlayer 101
+	frame	data/levels/level_5/crowd_A1.gif
+	frame	data/levels/level_5/crowd_A2.gif
+	
+anim follow10 # crowd B
+	loop	1
+	offset	138 101
+	delay	20
+	@cmd	setlayer 101
+	frame	data/levels/level_5/crowd_B1.gif
+	frame	data/levels/level_5/crowd_B2.gif
+	
+anim follow11 # wood door
+	loop	1
+	offset	0 112
+	delay	10
+	@cmd	setlayer 101
+	frame	data/levels/level_5/wood_door01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_5/wood_door01.gif
+	frame	data/levels/level_5/wood_door02.gif
+	frame	data/levels/level_5/wood_door03.gif
+	delay	550
+	frame	data/levels/level_5/wood_door04.gif
+	delay	10
+	frame	data/levels/level_5/wood_door03.gif
+	frame	data/levels/level_5/wood_door02.gif
+	delay	0
+	frame	data/levels/level_5/wood_door01.gif
+	
+anim follow12 # blue door
+	loop	1
+	offset	0 112
+	delay	10
+	@cmd	setlayer 101
+	frame	data/levels/level_5/blue_door01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_5/blue_door01.gif
+	frame	data/levels/level_5/blue_door02.gif
+	frame	data/levels/level_5/blue_door03.gif
+	delay	370
+	frame	data/levels/level_5/blue_door04.gif
+	delay	10
+	frame	data/levels/level_5/blue_door03.gif
+	frame	data/levels/level_5/blue_door02.gif
+	delay	0
+	frame	data/levels/level_5/blue_door01.gif
+	
+anim follow13 # hidden door
+	loop	1
+	offset	33 138
+	delay	10
+	@cmd	setlayer -99
+	@cmd	cProperty "map" 2
+	frame	data/levels/level_5/hidden_door.gif
+	@cmd	eventLoop
+	offset	33 138
+	frame	data/levels/level_5/hidden_door.gif
+	delay	80
+	offset	30 138
+	frame	data/levels/level_5/hidden_door.gif
+	delay	10
+	offset	30 158
+	frame	data/levels/level_5/hidden_door.gif
+	offset	30 178
+	frame	data/levels/level_5/hidden_door.gif
+	offset	30 208
+	frame	data/levels/level_5/hidden_door.gif
+	offset	30 228
+	frame	data/levels/level_5/hidden_door.gif
+	offset	30 248
+	frame	data/levels/level_5/hidden_door.gif
+	@cmd	killme
+	frame	none
+
+	

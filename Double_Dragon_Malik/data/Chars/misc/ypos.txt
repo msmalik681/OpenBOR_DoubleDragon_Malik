@@ -1,0 +1,41 @@
+name   ypos
+type   none
+subject_to_gravity 0
+
+animationscript data/scripts/scripts.c
+
+anim idle
+	loop	0
+	delay	4
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	name2ani 
+	frame   data/chars/misc/empty.gif
+
+anim follow1
+	loop	1
+	delay	1
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	screenUp 
+	frame   data/chars/misc/empty.gif
+
+anim follow2
+	loop	1
+	delay	1
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	screenDown 
+	frame   data/chars/misc/empty.gif
+
+anim follow3
+	loop	1
+	delay	1
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	unblockade
+	@cmd	screenFree 
+	frame   data/chars/misc/empty.gif
+
+
+

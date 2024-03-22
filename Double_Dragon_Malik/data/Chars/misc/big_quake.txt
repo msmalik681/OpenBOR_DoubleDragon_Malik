@@ -1,0 +1,17 @@
+name	BigQuake
+type	none
+lifespan 3
+shadow	0
+antigravity 100
+
+anim idle
+	loop	0
+	delay	18
+	offset	0 0
+	quakeframe 0 4 5
+	sound	data/sounds/gate_crash_se37.wav
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+

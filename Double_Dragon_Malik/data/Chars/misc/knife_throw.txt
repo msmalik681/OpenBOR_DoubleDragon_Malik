@@ -1,0 +1,71 @@
+name		Knife_Throw
+type		none
+antigravity	100
+remove		1
+shadow		0
+candamage	player
+offscreenkill	200
+no_adjust_base  0
+subject_to_wall	1
+subject_to_platform 1
+subject_to_hole 1
+subject_to_obstacle 1
+
+animationscript data/scripts/scripts.c
+onblockwscript data/scripts/bounceoff.openbor
+onblockoscript data/scripts/bounceoff.openbor
+onblockpscript data/scripts/bounceoff.openbor
+
+anim spawn
+	loop	0
+	offset	15 5
+	delay	3
+	frame	data/chars/misc/knife.gif
+	@cmd	copyDamage
+	@cmd	name2ani
+	frame	data/chars/misc/knife.gif
+
+anim idle
+	loop	1
+	delay	1
+	offset	15 5
+	followanim 2
+	followcond 1
+	attack	0 0 24 7		50 1
+	hitflash Flash_Stab
+	hitfx 	data/sounds/silent.wav
+	@cmd	dasher 3.5 0 0
+	frame	data/chars/misc/knife.gif
+	frame	data/chars/misc/knife.gif
+	
+anim follow2
+	loop	0
+	delay	1
+	sound	data/sounds/stab_se13.wav
+	frame	data/chars/misc/empty.gif
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/empty.gif
+
+anim follow1
+	loop	0
+	delay	5
+	offset	17 18
+	jumpframe 0 2 0.5 0
+	landframe 11
+	@cmd	changeentityproperty getlocalvar("self") "antigravity" 0
+	frame	data/chars/misc/knife/spin01.gif
+	frame	data/chars/misc/knife/spin02.gif
+	frame	data/chars/misc/knife/spin03.gif
+	frame	data/chars/misc/knife/spin04.gif
+	frame	data/chars/misc/knife/spin05.gif
+	frame	data/chars/misc/knife/spin06.gif
+	frame	data/chars/misc/knife/spin07.gif
+	frame	data/chars/misc/knife/spin08.gif
+	frame	data/chars/misc/knife/spin01.gif
+	frame	data/chars/misc/knife/spin02.gif
+	delay	999
+	frame	data/chars/misc/knife/spin03.gif
+	sound	data/sounds/knife_drop_se16.wav
+	@cmd	spawn01 "Knife" 0 0 0
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/knife/spin04.gif

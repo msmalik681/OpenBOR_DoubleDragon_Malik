@@ -1,0 +1,431 @@
+name		Deena_e
+health		10
+speed		5
+type		enemy
+jumpheight	4
+shadow		3
+risetime	3
+throw		3 3.5
+paingrab	1
+atchain		1
+aimove		Chase
+running		25 3.5 2 0 0
+diesound	data/sounds/eek.wav
+nodieblink	2
+falldie		2
+palette		data/chars/bosses/deena/idle01.gif
+subject_to_wall 0
+subject_to_gravity 0
+
+animationscript		data/scripts/scripts.c
+takedamagescript	data/scripts/takedamagescript.c
+ondeathscript 		data/scripts/bossdeath.c
+
+load	Deena_Effect 3
+
+anim spawn
+	loop	0
+	offset	22 78
+	delay	3
+	frame	none
+	@cmd	name2ani
+	@cmd	wallpass 1
+	@cmd 	cProperty "name" "Boss"
+	@cmd	jumpin
+	frame	none
+
+anim follow1 # Boss intro A
+	loop	0
+	offset	69 124
+	delay	10
+	@cmd	setlayer -1
+	@cmd 	cProperty "name" "Boss"
+	landframe 12
+	jumpframe	8 1 0 0
+	flipframe 12
+	frame	data/chars/bosses/deena/intro01.gif
+	delay	30
+	@cmd	eventLoop
+	frame	data/chars/bosses/deena/intro02.gif
+	frame	data/chars/bosses/deena/intro03.gif
+	frame	data/chars/bosses/deena/intro04.gif
+	delay	13
+	frame	data/chars/bosses/deena/intro05.gif
+	frame	data/chars/bosses/deena/intro06.gif
+	frame	data/chars/bosses/deena/intro07.gif
+	movez	1
+	@cmd	setlayer 0
+	frame	data/chars/bosses/deena/jump02.gif
+	@cmd	wallpass 1
+	movez	0
+	frame	data/chars/bosses/deena/jump03.gif
+	frame	data/chars/bosses/deena/jump04.gif
+	frame	data/chars/bosses/deena/jump05.gif
+	delay	500
+	frame	data/chars/bosses/deena/jump01.gif
+	delay	18
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/bosses/deena/rise01.gif
+	delay	10
+	frame	data/chars/bosses/deena/rise02.gif
+	offset	69 124
+	delay	10
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE5_IN" 1
+	frame	data/chars/bosses/deena/idle01.gif
+	@cmd	playmusic "data/music/boss_2.bor" 1
+	frame	data/chars/bosses/deena/idle01.gif
+	
+anim follow2 # Jump in
+	loop	0
+	bbox	5 8 22 92
+	delay	12
+	offset	69 124
+	bbox	12 6 43 48
+	landframe 3
+	frame	data/chars/bosses/deena/jump03.gif
+	frame	data/chars/bosses/deena/jump02.gif
+	delay	999
+	frame	data/chars/bosses/deena/jump01.gif
+	delay	18
+	frame	data/chars/bosses/deena/rise01.gif
+	delay	10
+	frame	data/chars/bosses/deena/rise02.gif
+
+anim follow3 #locker spawn
+
+	
+anim idle
+	loop	1
+	offset	69 124
+	bbox	52 57 29 65
+	delay	15
+	@cmd 	stats
+	#@cmd	doattack	"ani_attack3"
+	frame	data/chars/bosses/deena/idle01.gif
+	frame	data/chars/bosses/deena/idle02.gif
+	frame	data/chars/bosses/deena/idle03.gif
+	frame	data/chars/bosses/deena/idle02.gif
+
+anim walk
+	loop	1
+	offset	69 124
+	bbox	51 52 39 69
+	delay	12
+	frame	data/chars/bosses/deena/walk01.gif
+	frame	data/chars/bosses/deena/walk02.gif
+	frame	data/chars/bosses/deena/walk03.gif
+	frame	data/chars/bosses/deena/walk04.gif
+	frame	data/chars/bosses/deena/walk05.gif
+	frame	data/chars/bosses/deena/walk06.gif
+	frame	data/chars/bosses/deena/walk07.gif
+	frame	data/chars/bosses/deena/walk08.gif
+	frame	data/chars/bosses/deena/walk09.gif
+	frame	data/chars/bosses/deena/walk10.gif
+	
+anim run
+	loop	1
+	offset	69 124
+	bbox	49 67 40 54
+	delay	8
+	frame	data/chars/bosses/deena/run01.gif
+	frame	data/chars/bosses/deena/run02.gif
+	frame	data/chars/bosses/deena/run03.gif
+	frame	data/chars/bosses/deena/run04.gif
+	frame	data/chars/bosses/deena/run05.gif
+	frame	data/chars/bosses/deena/run06.gif
+
+anim runattack
+	loop	0
+	range	1 130
+	offset	69 124
+	delay	6
+	bbox	51 58 32 68
+	@cmd	stop
+	@cmd	dasher 3.5 0 0
+	@cmd	spawnbind2 "Deena_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/deena/run_atk01.gif
+	sound	data/sounds/0_voice_deena01.wav
+	bbox	44 48 41 49
+	frame	data/chars/bosses/deena/run_atk02.gif
+	attack	60 38 47 68 10 1
+	dropv	4 1 0
+	delay	8
+	frame	data/chars/bosses/deena/run_atk03.gif
+	frame	data/chars/bosses/deena/run_atk03.gif
+	frame	data/chars/bosses/deena/run_atk04.gif
+	@cmd	dasher 1.5 0 0
+	delay	10
+	attack	0 0 0 0
+	bbox	47 46 44 71
+	frame	data/chars/bosses/deena/run_atk05.gif
+	
+anim pain
+	loop	0
+	offset	69 124
+	bbox	39 56 46 66
+	delay	8
+	frame	data/chars/bosses/deena/pain101.gif
+	delay	50
+	frame	data/chars/bosses/deena/pain102.gif
+	delay	8
+	frame	data/chars/bosses/deena/pain101.gif
+
+anim pain2
+	loop	0
+	offset	69 124
+	bbox	47 63 37 60
+	delay	8
+	frame	data/chars/bosses/deena/pain201.gif
+	delay	100
+	frame	data/chars/bosses/deena/pain202.gif
+	delay	8
+	frame	data/chars/bosses/deena/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	69 124
+	bbox	7 13 37 67
+	delay	8
+	frame	data/chars/bosses/deena/pain101.gif
+
+anim pain5
+	loop	0
+	offset	69 124
+	bbox	47 63 37 60
+	delay	8
+	frame	data/chars/bosses/deena/pain201.gif
+	frame	data/chars/bosses/deena/pain202.gif
+	frame	data/chars/bosses/deena/pain201.gif
+
+anim pain3
+	loop	0
+	offset	69 124
+	bbox	14 9 39 62
+	delay	8
+	frame	data/chars/bosses/deena/pain201.gif
+	frame	data/chars/bosses/deena/pain202.gif
+	frame	data/chars/bosses/deena/pain201.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	69 124
+	landframe 2
+	bbox	37 102 71 32
+	attack	37 102 71 32		10 1
+	frame	data/chars/bosses/deena/fall01.gif
+	delay	999
+	bbox	41 96 70 33
+	attack	41 96 70 33		10 1
+	frame	data/chars/bosses/deena/fall02.gif
+	delay	50
+	bbox	35 103 80 22
+	attack	35 103 80 22		10 1
+	frame	data/chars/bosses/deena/fall03.gif
+
+anim fall3
+	loop	0
+	delay	20
+	offset	69 124
+	landframe 2
+	frame	data/chars/bosses/deena/fall301.gif
+	delay	999
+	frame	data/chars/bosses/deena/fall302.gif
+
+anim rise
+	loop	0
+	offset	69 124
+	delay	18
+	frame	data/chars/bosses/deena/rise01.gif
+	delay	10
+	frame	data/chars/bosses/deena/rise02.gif
+
+anim attack1
+	loop	0
+	offset	69 124
+	delay	1
+	range	0 65
+	@cmd	randomatk 1 4
+	frame	data/chars/bosses/deena/idle01.gif
+	frame	data/chars/bosses/deena/idle01.gif
+
+anim attack2 # triple kick
+	loop	0
+	offset	69 124
+	bbox	49 61 32 64
+	delay	6
+	frame	data/chars/bosses/deena/atk101.gif
+	frame	data/chars/bosses/deena/atk102.gif
+	frame	data/chars/bosses/deena/atk103.gif
+	frame	data/chars/bosses/deena/atk104.gif
+	sound	data/sounds/kick_se15.wav
+	attack	58 53 60 48 10 0
+	delay	8
+	frame	data/chars/bosses/deena/atk105A.gif
+	frame	data/chars/bosses/deena/atk106A.gif
+	frame	data/chars/bosses/deena/atk107A.gif
+	attack	0 0 0 0
+	frame	data/chars/bosses/deena/atk104.gif
+	sound	data/sounds/kick_se15.wav
+	attack2	58 81 60 42 10 0
+	frame	data/chars/bosses/deena/atk105B.gif
+	frame	data/chars/bosses/deena/atk106B.gif
+	attack2	0 0 0 0
+	frame	data/chars/bosses/deena/atk104.gif
+	sound	data/sounds/kick_se15.wav
+	attack2	58 60 60 48 10 0
+	frame	data/chars/bosses/deena/atk105C.gif
+	frame	data/chars/bosses/deena/atk106C.gif
+	frame	data/chars/bosses/deena/atk107C.gif
+	attack2	0 0 0 0
+	frame	data/chars/bosses/deena/atk108.gif
+	frame	data/chars/bosses/deena/atk109.gif
+
+anim attack3 # spinning bird kick
+	loop	0
+	followcond 3
+	followanim 4
+	offset	69 124
+	delay	8
+	bbox	49 69 43 54
+	@cmd	spawnbind2 "Deena_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/deena/atk201.gif
+	frame	data/chars/bosses/deena/atk202.gif
+	frame	data/chars/bosses/deena/atk203.gif
+	frame	data/chars/bosses/deena/atk204.gif
+	frame	data/chars/bosses/deena/atk205.gif
+	frame	data/chars/bosses/deena/atk206.gif
+	frame	data/chars/bosses/deena/atk207.gif
+	frame	data/chars/bosses/deena/atk208.gif
+	frame	data/chars/bosses/deena/atk209.gif
+	frame	data/chars/bosses/deena/atk210.gif
+	#spin 1
+	attack	18 56 112 65 10 1
+	dropv	4 0 0
+	@cmd	dasher 1 0 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/deena/atk211.gif
+	frame	data/chars/bosses/deena/atk212.gif
+	frame	data/chars/bosses/deena/atk213.gif
+	frame	data/chars/bosses/deena/atk214.gif
+	frame	data/chars/bosses/deena/atk215.gif
+	#spin 2
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/deena/atk211.gif
+	frame	data/chars/bosses/deena/atk212.gif
+	frame	data/chars/bosses/deena/atk213.gif
+	frame	data/chars/bosses/deena/atk214.gif
+	frame	data/chars/bosses/deena/atk215.gif
+	#spin 3
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/deena/atk211.gif
+	frame	data/chars/bosses/deena/atk212.gif
+	frame	data/chars/bosses/deena/atk213.gif
+	frame	data/chars/bosses/deena/atk214.gif
+	frame	data/chars/bosses/deena/atk215.gif
+	#spin 4
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/deena/atk211.gif
+	frame	data/chars/bosses/deena/atk212.gif
+	frame	data/chars/bosses/deena/atk213.gif
+	frame	data/chars/bosses/deena/atk214.gif
+	frame	data/chars/bosses/deena/atk215.gif
+	#end spin
+	@cmd	stop
+	frame	data/chars/bosses/deena/atk210.gif
+	frame	data/chars/bosses/deena/atk209.gif
+	frame	data/chars/bosses/deena/atk208.gif
+	frame	data/chars/bosses/deena/rise01.gif
+	frame	data/chars/bosses/deena/rise02.gif
+
+anim follow4
+	loop	0
+	delay	1
+	@cmd	doattack "ani_upper"
+	frame	none
+	
+anim upper
+	loop	0
+	delay	9
+	offset	69 124
+	jumpframe 3 3.5 2 0
+	landframe 6
+	bbox	60 92 38 32
+	frame	data/chars/bosses/deena/upper01.gif
+	frame	data/chars/bosses/deena/upper02.gif
+	bbox	62 42 34 66
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	74 30 31 50 10 1
+	sound	data/sounds/0_voice_deena01.wav
+	frame	data/chars/bosses/deena/upper03.gif
+	delay	15
+	bbox	49 54 56 39
+	attack	69 43 54 42 10 1
+	frame	data/chars/bosses/deena/upper04.gif
+	bbox	43 64 78 26
+	attack	72 59 58 34 10 1
+	frame	data/chars/bosses/deena/upper05.gif
+	delay	999
+	bbox	55 58 62 41
+	attack	79 66 50 42 10 1
+	frame	data/chars/bosses/deena/upper06.gif
+	delay	10
+	bbox	47 79 41 46
+	attack	0 0 0 0
+	frame	data/chars/bosses/deena/rise01.gif
+	bbox	52 68 29 54
+	frame	data/chars/bosses/deena/rise02.gif
+	
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	69 124
+	bbox	53 47 35 76
+	frame	data/chars/bosses/deena/jump01.gif
+	delay	8
+	frame	data/chars/bosses/deena/jump02.gif
+	frame	data/chars/bosses/deena/jump03.gif
+	frame	data/chars/bosses/deena/jump04.gif
+	frame	data/chars/bosses/deena/jump05.gif
+	frame	data/chars/bosses/deena/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	69 124
+	delay	18
+	bbox	47 79 41 46
+	frame	data/chars/bosses/deena/rise01.gif
+	delay	10
+	bbox	52 68 29 54
+	frame	data/chars/bosses/deena/rise02.gif
+
+anim death
+	loop	0
+	offset	69 124
+	delay	18
+	@cmd	spawnbind2 "Deena_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/deena/rise01.gif
+	delay	10
+	frame	data/chars/bosses/deena/rise02.gif
+	delay	15
+	frame	data/chars/bosses/deena/death01.gif
+	frame	data/chars/bosses/deena/death02.gif
+	frame	data/chars/bosses/deena/death03.gif
+	delay	10
+	frame	data/chars/bosses/deena/death04.gif
+	frame	data/chars/bosses/deena/death04.gif
+	frame	data/chars/bosses/deena/death04.gif
+	frame	data/chars/bosses/deena/death04.gif
+	frame	data/chars/bosses/deena/death04.gif
+	frame	data/chars/bosses/deena/death04.gif
+	delay 	50
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE5_OUT" 1
+	frame	data/chars/bosses/deena/death04.gif
+	@cmd	setglobalvar "event" 4
+	delay	120
+	@cmd	cAiflag "blink"  1
+	frame	data/chars/bosses/deena/death04.gif#12
+	fshadow	0
+	frame	none

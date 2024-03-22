@@ -1,0 +1,399 @@
+name			Burnov
+health			100
+mp				30
+speed			4
+type			player
+projectilehit 	player
+shadow			4
+risetime		3
+icon			data/chars/bosses/burnov/icon.gif
+diesound		data/sounds/silent.wav
+candamage		enemy obstacle
+falldie			2
+nodieblink		1
+makeinv			2 0
+
+palette			data/chars/bosses/burnov/idle1.gif
+
+load	Burnov_Effect	3
+com		a2 freespecial4
+
+animationscript		data/scripts/scripts.c
+
+anim respawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	intro
+	@cmd	teleport
+	frame	none
+	
+anim idle
+	loop	1
+	offset	30 85
+	bbox	5 14 49 72
+	delay	18
+	frame	data/chars/bosses/burnov/idle1.gif
+	frame	data/chars/bosses/burnov/idle2.gif
+	frame	data/chars/bosses/burnov/idle3.gif
+	frame	data/chars/bosses/burnov/idle2.gif
+
+anim walk
+	loop	1
+	offset	30 85
+	bbox	5 10 49 75
+	delay	15
+	
+	frame	data/chars/bosses/burnov/walk01.gif
+	frame	data/chars/bosses/burnov/walk02.gif
+	frame	data/chars/bosses/burnov/walk03.gif
+	frame	data/chars/bosses/burnov/walk04.gif
+	frame	data/chars/bosses/burnov/walk05.gif
+
+anim pain
+	loop	0
+	offset	61 88
+	bbox	34 16 57 70
+	delay	8
+	frame	data/chars/bosses/burnov/atk501.gif
+	delay	40
+	offset	46 85
+	bbox	6 10 61 74
+	frame	data/chars/bosses/burnov/pain2.gif
+	offset	61 88
+	bbox	34 16 57 70
+	delay	8
+	frame	data/chars/bosses/burnov/atk501.gif
+
+anim grabbed
+	loop	0
+	offset	61 88
+	bbox	34 16 57 70
+	delay	8
+	frame	data/chars/bosses/burnov/atk501.gif
+
+anim pain5
+	loop	0
+	offset	42 80
+	bbox	14 14 52 66
+	delay	8
+	frame	data/chars/bosses/burnov/pain11.gif
+	frame	data/chars/bosses/burnov/pain12.gif
+	frame	data/chars/bosses/burnov/pain11.gif
+
+anim pain3
+	loop	0
+	offset	42 80
+	bbox	14 14 52 66
+	delay	8
+	frame	data/chars/bosses/burnov/pain11.gif
+	frame	data/chars/bosses/burnov/pain12.gif
+	frame	data/chars/bosses/burnov/pain11.gif
+
+anim pain2
+	loop	0
+	offset	42 80
+	bbox	14 14 52 66
+	delay	8
+	frame	data/chars/bosses/burnov/pain11.gif
+	delay	150
+	frame	data/chars/bosses/burnov/pain12.gif
+	delay	8
+	frame	data/chars/bosses/burnov/pain11.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	58 51
+	landframe 2
+	attack	6 4 78 55		15 1
+	bbox	6 4 78 55
+	frame	data/chars/bosses/burnov/fall1.gif
+	attack	4 15 79 43		15 1
+	offset	59 70
+	attack	5 18 82 51		15 1
+	bbox	5 18 82 51
+	frame	data/chars/bosses/burnov/fall2.gif
+	delay	50
+	attack	0 0 0 0
+	offset	58 43
+	bbox	8 5 86 40
+	frame	data/chars/bosses/burnov/fall3.gif
+
+anim fall3
+	loop	0
+	delay	20
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	offset	58 51
+	bbox	6 4 78 55
+	frame	data/chars/bosses/burnov/fall1.gif
+	offset	59 70
+	bbox	5 18 82 51
+	frame	data/chars/bosses/burnov/fall2.gif
+	offset	58 43
+	bbox	8 5 86 40
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/bosses/burnov/fall3.gif
+	offset	58 51
+	bbox	6 4 78 55
+	frame	data/chars/bosses/burnov/fall1.gif
+	offset	59 70
+	bbox	5 18 82 51
+	frame	data/chars/bosses/burnov/fall2.gif
+	offset	58 43
+	bbox	8 5 86 40
+	frame	data/chars/bosses/burnov/fall3.gif
+
+anim rise
+	loop	0
+	delay	17
+	offset	42 73
+	@cmd	cProperty "facing" 0
+	frame	data/chars/bosses/burnov/rise01.gif
+	frame	data/chars/bosses/burnov/rise02.gif
+	
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	44 94
+	bbox	20 7 52 88
+	frame	data/chars/bosses/burnov/jump01.gif
+	delay	12
+	frame	data/chars/bosses/burnov/jump02.gif
+	frame	data/chars/bosses/burnov/jump03.gif
+	frame	data/chars/bosses/burnov/jump02.gif
+	frame	data/chars/bosses/burnov/jump01.gif
+
+anim jumpland
+	loop	0
+	delay	17
+	offset	42 73
+	bbox 	17 17 49 56
+	frame	data/chars/bosses/burnov/rise01.gif
+	bbox 	19 12 46 60
+	frame	data/chars/bosses/burnov/rise02.gif
+
+anim attack1
+	loop	0
+	delay	1
+	@cmd	key2ani "freespecial3" 0 "moveup"
+	frame	none
+	@cmd 	punches
+	frame	none
+
+anim freespecial # punch 1
+	range	0 70
+	loop	0
+	delay	1
+	offset	30 85
+	bbox	5 14 49 72
+	frame	data/chars/bosses/burnov/idle1.gif
+	delay	5
+	offset	40 90
+	bbox	20 20 46 69
+	frame	data/chars/bosses/burnov/atk101.gif
+	frame	data/chars/bosses/burnov/atk102.gif
+	attack	36 6 61 28		10 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/burnov/atk103.gif
+	delay	6
+	frame	data/chars/bosses/burnov/atk104.gif
+	frame	data/chars/bosses/burnov/atk105.gif
+	frame	data/chars/bosses/burnov/atk106.gif
+	attack	0 0 0
+	delay	5
+	frame	data/chars/bosses/burnov/atk107.gif
+	frame	data/chars/bosses/burnov/atk108.gif
+
+anim freespecial2 # punch 2
+	range	0 70
+	loop	0
+	delay	5
+	offset	43 88
+	bbox	18 17 51 72
+	frame	data/chars/bosses/burnov/atk201.gif
+	frame	data/chars/bosses/burnov/atk202.gif
+	attack	55 16 49 34		10 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/burnov/atk203.gif
+	delay	6
+	frame	data/chars/bosses/burnov/atk204.gif
+	frame	data/chars/bosses/burnov/atk205.gif
+	frame	data/chars/bosses/burnov/atk203.gif
+	attack	0 0 0 0 0 0
+	delay	5
+	offset	40 90
+	bbox	20 20 46 69
+	frame	data/chars/bosses/burnov/atk102.gif
+
+anim freespecial3 # headbutt
+	loop	0
+	offset	61 88
+	range 	0 120
+	bbox	34 16 57 70
+	frame	data/chars/bosses/burnov/atk501.gif
+	frame	data/chars/bosses/burnov/atk502.gif
+	frame	data/chars/bosses/burnov/atk503.gif
+	offset	26 90
+	bbox	17 19 27 48
+	frame	data/chars/bosses/burnov/atk102.gif
+	sound	data/sounds/swing_se17.wav
+	offset	61 88
+	@cmd	dasher	3 0 0
+	bbox	52 17 44 69
+	delay	22
+	attack	60 10 53 75		15 1
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	dropv	2 2.5 0 
+	frame	data/chars/bosses/burnov/atk505.gif
+	@cmd	dasher	0 0 0
+	delay	13
+	attack	0 0 0
+	frame	data/chars/bosses/burnov/atk506.gif
+	frame	data/chars/bosses/burnov/atk507.gif
+
+anim freespecial4
+	offset	30 85
+	#bbox	5 14 49 72
+	delay	10
+	@cmd	key2ani "freespecial5" 10 "moveforward"
+	@cmd	key2ani "freespecial6" 10 "moveup" 
+	frame	data/chars/bosses/burnov/idle1.gif
+
+anim freespecial5 # barge
+	range	0 70
+	loop	0
+	delay	8
+	offset	43 88
+	bbox	18 17 51 72
+	frame	data/chars/bosses/burnov/atk201.gif
+	offset	40 90
+	bbox	20 20 46 69
+	frame	data/chars/bosses/burnov/atk101.gif
+	frame	data/chars/bosses/burnov/atk102.gif
+	offset	23 70
+	delay	20
+	@cmd	dasher 3 0 0
+	bbox	22 14 45 56
+	sound	data/sounds/swing_se17.wav
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	26 2 57 69		20 1
+	damageonlanding 0 1
+	dropv	2.5 4 0
+	frame	data/chars/bosses/burnov/atk301.gif
+	delay	3
+	@cmd	dasher 0 0 0
+	@cmd	anichange "ani_rise"
+	frame	data/chars/bosses/burnov/atk301.gif
+
+anim freespecial6 # uppercut
+	loop	0
+	delay	8
+	range 	0 20
+	offset	43 88
+	bbox	18 17 51 72
+	frame	data/chars/bosses/burnov/atk201.gif
+	offset	53 115
+	bbox	28 41 49 74
+	frame	data/chars/bosses/burnov/atk401.gif
+	attack	3 -2 96 96		10 1
+	dropv	5 0.5 0
+	frame	data/chars/bosses/burnov/atk402.gif
+	delay	20
+	attack	0 0 0 0
+	frame	data/chars/bosses/burnov/atk403.gif
+	delay	9
+	frame	data/chars/bosses/burnov/atk401.gif
+	offset	43 88
+	bbox	18 17 51 72
+	frame	data/chars/bosses/burnov/atk201.gif
+	frame	data/chars/bosses/burnov/atk201.gif
+
+anim slide # super jump
+	loop	0
+	delay	10
+	offset	42 73
+	jumpframe 3 6 1 0
+	landframe 8
+	frame	data/chars/bosses/burnov/rise02.gif
+	frame	data/chars/bosses/burnov/rise01.gif
+	frame	data/chars/bosses/burnov/rise02.gif
+	delay	20
+	offset	44 94
+	bbox	20 7 52 88
+	frame	data/chars/bosses/burnov/jump01.gif
+	delay	12
+	frame	data/chars/bosses/burnov/jump02.gif
+	frame	data/chars/bosses/burnov/jump03.gif
+	@cmd	key2ani "follow5" 20 "attack"
+	frame	data/chars/bosses/burnov/jump02.gif
+	delay	300
+	frame	data/chars/bosses/burnov/jump01.gif
+	offset	42 73
+	delay	20
+	frame	data/chars/bosses/burnov/rise01.gif
+	frame	data/chars/bosses/burnov/rise02.gif
+	
+anim follow5 # super
+	loop	0
+	landframe 8
+	sound 	data/sounds/big_swing_se12.wav
+	delay 	12
+	offset	113 133
+	@cmd 	dasher 0 -2 0
+	attack 	47 50 122 88		50 1
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	bbox 	76 63 68 72
+	@cmd	spawnbind2 "Burnov_Effect" 0 1 1 1 6
+	frame	data/chars/bosses/burnov/super01.gif
+	frame	data/chars/bosses/burnov/super01.gif
+	frame	data/chars/bosses/burnov/super01.gif
+	frame	data/chars/bosses/burnov/super01.gif
+	frame	data/chars/bosses/burnov/super01.gif
+	frame	data/chars/bosses/burnov/super01.gif
+	delay	1
+	@cmd 	stop
+	frame	data/chars/bosses/burnov/super01.gif
+	delay	9
+	frame	data/chars/bosses/burnov/super01.gif
+	sound	data/sounds/boom_se24.wav
+	frame	data/chars/bosses/burnov/super02.gif #landframe
+	frame	data/chars/bosses/burnov/super02.gif
+	frame	data/chars/bosses/burnov/super03.gif
+	frame	data/chars/bosses/burnov/super03.gif
+	frame	data/chars/bosses/burnov/super02.gif
+	frame	data/chars/bosses/burnov/super02.gif
+	attack 	0 0 0 0
+	frame	data/chars/bosses/burnov/super03.gif
+	frame	data/chars/bosses/burnov/super02.gif
+
+	delay	15
+	offset	42 73
+	bbox 	17 17 49 56
+	frame	data/chars/bosses/burnov/rise01.gif
+	bbox 	19 12 46 60
+	frame	data/chars/bosses/burnov/rise02.gif
+
+
+anim death
+	loop	0
+	delay	150
+	offset	58 43
+	frame	data/chars/bosses/burnov/fall3.gif
+	delay	50
+	offset	42 73
+	frame	data/chars/bosses/burnov/rise01.gif
+	delay	13
+	offset	46 72
+	sound 	data/sounds/0_voice09_burnov_die.wav
+	frame	data/chars/bosses/burnov/fall301.gif
+	frame	data/chars/bosses/burnov/fall302.gif
+	delay	60
+	frame	data/chars/bosses/burnov/fall303.gif

@@ -1,0 +1,92 @@
+name			Brown_Drumcan
+health			999
+mp				30
+speed			5
+type			none
+jumpheight 		4
+shadow			3
+risetime 		3
+throw			3 3.5
+paingrab 		1
+atchain			1
+aimove			chasex
+modelflag 		3
+diesound 		data/sounds/0_voice10_die_deep.wav
+icon			data/chars/enemies/2_brown/icon.gif
+
+palette			data/chars/enemies/2_brown/04_walk02.gif
+alternatepal	data/chars/enemies/2_brown/04_walk01.gif
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	35 100
+	delay	1
+	frame	data/chars/enemies/2_brown/04_walk01.gif
+
+
+anim idle
+	loop	0
+	offset	35 100
+	bbox	13 33 44 66
+	delay	1
+	frame	data/chars/enemies/2_brown/04_walk01.gif
+
+anim walk
+	loop	1
+	offset	35 100
+	bbox	13 33 44 66
+	delay	11
+	frame	data/chars/enemies/2_brown/04_walk02.gif
+	frame	data/chars/enemies/2_brown/04_walk03.gif
+	frame	data/chars/enemies/2_brown/04_walk04.gif
+	frame	data/chars/enemies/2_brown/04_walk03.gif
+	frame	data/chars/enemies/2_brown/04_walk02.gif
+	frame	data/chars/enemies/2_brown/04_walk01.gif
+
+anim walkoff
+	loop	0
+	delay	1
+	offset	22 81
+	weaponframe 0 0
+	frame	data/chars/enemies/2_brown/jump01.gif
+	frame	data/chars/enemies/2_brown/jump01.gif
+
+anim attack1
+	loop	0
+	offset	35 107
+	delay	7
+	custknife Fake_Throw
+	throwframe 1 0
+	range	130 250
+	@cmd	antiwall 49 -50
+	frame	data/chars/enemies/2_brown/04_atk101.gif
+	frame	data/chars/enemies/2_brown/04_atk102.gif
+	frame	data/chars/enemies/2_brown/04_atk103.gif
+	frame	data/chars/enemies/2_brown/04_atk104.gif
+	@cmd	spawn01 "Drumcan_Throw" 50 80 0
+	frame	data/chars/enemies/2_brown/04_atk105.gif
+	frame	data/chars/enemies/2_brown/04_atk106.gif
+	offset	38 79
+	frame	data/chars/enemies/2_brown/atk107.gif
+	offset	32 90
+	frame	data/chars/enemies/2_brown/atk207.gif
+
+anim get
+	loop	0
+	offset	25 72
+	delay	3
+	frame	data/chars/enemies/2_brown/rise02.gif
+	@cmd	player_hp
+	frame	data/chars/enemies/2_brown/rise02.gif
+	delay	5
+	frame	data/chars/enemies/2_brown/rise01.gif
+	bbox	13 29 33 54
+	offset	28 85
+	delay	15
+	frame	data/chars/enemies/2_brown/get01.gif
+	frame	data/chars/enemies/2_brown/get02.gif
+	frame	data/chars/enemies/2_brown/get03.gif
+
+

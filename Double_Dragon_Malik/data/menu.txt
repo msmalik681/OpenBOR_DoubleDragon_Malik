@@ -1,0 +1,5 @@
+renamekey attack Punch
+renamekey attack2 Kick
+disablekey attack3
+disablekey attack4
+disablekey special

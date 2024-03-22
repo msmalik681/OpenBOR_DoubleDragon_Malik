@@ -1,0 +1,5 @@
+void setmusic(char path)
+{//change music
+void self = getlocalvar("self"); //get self
+changeentityproperty(self,"setlayer",value); //set panel layer to match value
+}

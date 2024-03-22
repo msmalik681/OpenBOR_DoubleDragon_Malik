@@ -1,0 +1,333 @@
+name			Linda
+health			100
+mp				30
+speed			5
+type			player
+projectilehit 	player
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+candamage		enemy obstacle
+falldie			2
+nodieblink		1
+makeinv			2 0
+riseinv			2 1
+diesound		data/sounds/0_voice09_burnov_die.wav
+icon			data/chars/enemies/1_linda/icon.gif
+
+weapons			Linda_Whip none none Linda
+load			Linda_Whip 3
+
+animationscript		data/scripts/scripts.c
+takedamagescript	data/scripts/takedamagescript.c
+
+com a2 freespecial4
+
+anim respawn #spawn animation
+	loop	0
+	delay	3
+	frame	none
+	@cmd	intro
+	@cmd	teleport
+	frame	none
+
+anim follow1 #walk out of door
+	loop	0
+	offset	27 71
+	delay	18
+	drawmethod tintmode 4
+	drawmethod tintcolor 32_32_32
+	frame	data/chars/enemies/1_linda/walk03.gif
+	@cmd	dasher 0 0 0.3
+	drawmethod tintcolor 64_64_64
+	frame	data/chars/enemies/1_linda/walk03.gif
+	drawmethod tintcolor 96_96_96
+	frame	data/chars/enemies/1_linda/walk04.gif
+	drawmethod tintmode 0
+	frame	data/chars/enemies/1_linda/walk05.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	frame	data/chars/enemies/1_linda/walk01.gif
+	
+anim idle
+	loop	1
+	offset	23 74
+	bbox	8 19 29 55
+	delay	15
+	#@cmd 	stats
+	frame	data/chars/enemies/1_linda/idle1.gif
+	frame	data/chars/enemies/1_linda/idle2.gif
+	frame	data/chars/enemies/1_linda/idle1.gif
+	frame	data/chars/enemies/1_linda/idle3.gif
+
+anim walk
+	loop	1
+	offset	27 71
+	bbox	14 13 28 57
+	delay	11
+	frame	data/chars/enemies/1_linda/walk01.gif
+	frame	data/chars/enemies/1_linda/walk02.gif
+	frame	data/chars/enemies/1_linda/walk03.gif
+	frame	data/chars/enemies/1_linda/walk04.gif
+	frame	data/chars/enemies/1_linda/walk05.gif
+
+anim pain
+	loop	0
+	offset	31 75
+	bbox	11 11 39 62
+	delay	8
+	frame	data/chars/enemies/1_linda/pain101.gif
+	delay	50
+	bbox	3 16 40 59
+	frame	data/chars/enemies/1_linda/pain102.gif
+	delay	8
+	bbox	11 11 39 62
+	frame	data/chars/enemies/1_linda/pain101.gif
+
+anim pain2
+	loop	0
+	offset	26 70
+	bbox	12 13 30 56
+	delay	8
+	frame	data/chars/enemies/1_linda/pain201.gif
+	delay	100
+	frame	data/chars/enemies/1_linda/pain202.gif
+	delay	8
+	frame	data/chars/enemies/1_linda/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	31 75
+	bbox	11 11 39 62
+	delay	8
+	frame	data/chars/enemies/1_linda/pain101.gif
+
+anim pain5
+	loop	0
+	offset	26 70
+	bbox	12 13 30 56
+	delay	8
+	frame	data/chars/enemies/1_linda/pain201.gif
+	frame	data/chars/enemies/1_linda/pain202.gif
+	delay	8
+	frame	data/chars/enemies/1_linda/pain201.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	39 41
+	bbox	6 7 57 33
+	attack	6 7 57 33		10 1
+	landframe 2
+	frame	data/chars/enemies/1_linda/fall01.gif
+	offset	36 42
+	bbox	5 10 68 33
+	attack	5 10 68 33		10 1
+	delay	999
+	frame	data/chars/enemies/1_linda/fall02.gif
+	delay	50
+	offset	39 30
+	bbox	6 8 65 27
+	attack	0 0 0 0
+	frame	data/chars/enemies/1_linda/fall03.gif
+
+anim fall3
+	loop	0
+	delay	20
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	offset	30 28
+	bbox	6 7 57 33
+	frame	data/chars/enemies/1_linda/fall01.gif
+	offset	30 40
+	bbox	5 10 68 33
+	delay	999
+	frame	data/chars/enemies/1_linda/fall02.gif
+	offset	42 24
+	bbox	6 8 65 27
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/enemies/1_linda/fall03.gif
+	offset	30 28
+	bbox	6 7 57 33
+	frame	data/chars/enemies/1_linda/fall01.gif
+	offset	42 24
+	bbox	5 10 68 33
+	frame	data/chars/enemies/1_linda/fall02.gif
+	offset	42 24
+	bbox	6 8 65 27
+	frame	data/chars/enemies/1_linda/fall03.gif
+
+anim rise
+	loop	0
+	offset	17 63
+	delay	18
+	@cmd	cProperty "facing" 0
+	frame	data/chars/enemies/1_linda/rise01.gif
+	delay	10
+	frame	data/chars/enemies/1_linda/rise02.gif
+
+anim get
+	loop	0
+	offset	17 63
+	delay	15
+	frame	data/chars/enemies/1_linda/rise02.gif
+	frame	data/chars/enemies/1_linda/get.gif
+	frame	data/chars/enemies/1_linda/rise02.gif
+
+anim attack1
+	loop	0
+	offset	22 78
+	delay	1
+	range	5 75
+	@cmd	key2ani "freespecial3" 0 "moveforward"
+	frame	data/chars/enemies/1_linda/idle1.gif
+	@cmd 	punches
+	frame	data/chars/enemies/1_linda/idle1.gif
+
+anim freespecial
+	loop	0
+	offset	35 83
+	delay	7
+	bbox	19 27 32 55
+	frame	data/chars/enemies/1_linda/atk101.gif
+	frame	data/chars/enemies/1_linda/atk102.gif
+	frame	data/chars/enemies/1_linda/atk103.gif
+	attack	43 30 36 13		5 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/enemies/1_linda/atk104.gif
+	frame	data/chars/enemies/1_linda/atk105.gif
+	attack	0 0 0
+	frame	data/chars/enemies/1_linda/atk101.gif
+
+anim freespecial2
+	loop	0
+	offset	35 83
+	delay	7
+	bbox	19 27 32 55
+	frame	data/chars/enemies/1_linda/atk101.gif
+	frame	data/chars/enemies/1_linda/atk200.gif
+	frame	data/chars/enemies/1_linda/atk103.gif
+	attack	43 27 40 17		5 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/enemies/1_linda/atk202.gif
+	frame	data/chars/enemies/1_linda/atk203.gif
+	attack	0 0 0
+	frame	data/chars/enemies/1_linda/atk204.gif
+	frame	data/chars/enemies/1_linda/atk101.gif
+
+anim freespecial3 # overhead
+	loop	0
+	offset	35 83
+	delay	8
+	bbox	19 27 32 55
+	frame	data/chars/enemies/1_linda/atk200.gif
+	frame	data/chars/enemies/1_linda/atk402.gif
+	frame	data/chars/enemies/1_linda/atk403.gif
+	delay	12
+	attack3	47 32 34 34		10 1
+	sound	data/sounds/swing_se17.wav
+	dropv	-3 0 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/enemies/1_linda/atk404.gif
+	frame	data/chars/enemies/1_linda/atk405.gif
+	attack3	0 0 0
+	delay	8
+	frame	data/chars/enemies/1_linda/atk204.gif
+	frame	data/chars/enemies/1_linda/atk101.gif
+
+anim freespecial4 # kick
+	loop	0
+	offset	35 83
+	delay	8
+	bbox	19 27 32 55
+	frame	data/chars/enemies/1_linda/atk101.gif
+	offset	36 86
+	bbox	20 28 33 58
+	frame	data/chars/enemies/1_linda/atk302.gif
+	frame	data/chars/enemies/1_linda/atk303.gif
+	frame	data/chars/enemies/1_linda/atk304.gif
+	delay	10
+	attack2	35 41 53 23		10 0
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/enemies/1_linda/atk305.gif
+	frame	data/chars/enemies/1_linda/atk306.gif
+	delay	8
+	attack2	0 0 0
+	frame	data/chars/enemies/1_linda/atk304.gif
+	frame	data/chars/enemies/1_linda/atk302.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	22 81
+	bbox	9 7 25 74
+	#jumpframe 0 4 1 0
+	frame	data/chars/enemies/1_linda/jump01.gif
+	delay	12
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_linda/jump02.gif
+	offset	30 54
+	bbox	15 10 28 44
+	frame	data/chars/enemies/1_linda/jump03.gif
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_linda/jump02.gif
+	offset	22 81
+	bbox	9 7 25 74
+	frame	data/chars/enemies/1_linda/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	12
+	range	5 80
+	jumpframe 0 1.5 1
+	landframe 4
+	@cmd 	cAiflag "jumping" 1
+	sound 	data/sounds/jump.wav
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_linda/jump02.gif
+	offset	30 54
+	bbox	15 10 28 44
+	frame	data/chars/enemies/1_linda/jump03.gif
+	offset	19 62
+	bbox	7 9 24 53
+	frame	data/chars/enemies/1_linda/jump02.gif
+	delay 	999
+	offset	22 81
+	bbox	9 7 25 74
+	frame	data/chars/enemies/1_linda/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/enemies/1_linda/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	17 63
+	delay	18
+	bbox	3 19 30 43
+	sound 	data/sounds/land_se07.wav
+	frame	data/chars/enemies/1_linda/rise01.gif
+	delay	10
+	frame	data/chars/enemies/1_linda/rise02.gif
+
+
+anim death
+	loop	0
+	delay	100
+	offset	39 30
+	frame	data/chars/enemies/1_linda/fall03.gif
+	offset	17 63
+	frame	data/chars/enemies/1_linda/rise01.gif
+	delay	15
+	offset	17 35
+	sound	data/sounds/0_voice09_burnov_die.wav
+	frame	data/chars/enemies/1_linda/fall301.gif
+	offset	22 26
+	frame	data/chars/enemies/1_linda/fall302.gif

@@ -1,0 +1,24 @@
+name	_
+health	100
+mp		60
+type	player
+nomove	1
+falldie 1
+nodieblink 2
+
+animationscript data/scripts/scripts.c
+
+anim	spawn
+loop	0
+delay	3
+frame	none
+@cmd	changeme
+frame	none
+
+anim pain4
+delay	1
+frame	none
+
+anim death4
+delay	1
+frame	none

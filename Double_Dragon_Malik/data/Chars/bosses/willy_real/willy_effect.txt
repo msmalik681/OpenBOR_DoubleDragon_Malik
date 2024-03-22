@@ -1,0 +1,238 @@
+name		Willy_Effect
+type		none
+shadow		0
+palette		data/chars/bosses/willy_real/effect_idle01.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+candamage	player
+nodieblink	1
+alpha		1
+
+animationscript  data/scripts/scripts.c
+ondoattackscript data/scripts/ondoattackB.openbor
+
+anim spawn
+	loop	0
+	offset	71 139
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/willy_real/effect_super103.gif
+	frame	data/chars/bosses/willy_real/effect_super104.gif
+	frame	data/chars/bosses/willy_real/effect_super105.gif
+	frame	data/chars/bosses/willy_real/effect_super106.gif
+	frame	data/chars/bosses/willy_real/effect_super107.gif
+	frame	data/chars/bosses/willy_real/effect_super108.gif
+	frame	none
+
+anim idle
+	loop	1
+	offset	71 139
+	#@cmd	doattack	"ani_attack3"
+	frame	data/chars/bosses/willy_real/effect_idle01.gif
+	frame	data/chars/bosses/willy_real/effect_idle02.gif
+	frame	data/chars/bosses/willy_real/effect_idle03.gif
+	frame	data/chars/bosses/willy_real/effect_idle04.gif
+	frame	data/chars/bosses/willy_real/effect_idle05.gif
+	frame	data/chars/bosses/willy_real/effect_idle06.gif
+	frame	data/chars/bosses/willy_real/effect_idle07.gif
+	frame	data/chars/bosses/willy_real/effect_idle08.gif
+
+anim walk
+	loop	1
+	offset	71 139
+	frame	data/chars/bosses/willy_real/effect_walk01.gif
+	frame	data/chars/bosses/willy_real/effect_walk02.gif
+	frame	data/chars/bosses/willy_real/effect_walk03.gif
+	frame	data/chars/bosses/willy_real/effect_walk04.gif
+	frame	data/chars/bosses/willy_real/effect_walk05.gif
+	frame	data/chars/bosses/willy_real/effect_walk06.gif
+	frame	data/chars/bosses/willy_real/effect_walk07.gif
+	frame	data/chars/bosses/willy_real/effect_walk08.gif
+
+anim run
+	loop	1
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+
+anim pain
+	loop	0
+	frame	none
+	frame	none
+	frame	none
+
+anim pain2
+	loop	0
+	frame	none
+	frame	none
+	frame	none
+
+anim grabbed
+	loop	0
+	frame	none
+
+anim pain3
+	loop	0
+	frame	none
+	frame	none
+	frame	none
+
+anim fall
+	loop	0
+	frame	none
+	frame	none
+	frame	none
+
+anim fall3
+	loop	0
+	frame	none
+	frame	none
+
+anim rise
+	loop	0
+	frame	none
+	frame	none
+
+anim attack1 # claws
+	loop	0
+	offset	71 139
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/willy_real/effect_atk105.gif
+	frame	data/chars/bosses/willy_real/effect_atk106.gif
+	frame	data/chars/bosses/willy_real/effect_atk107.gif
+	frame	data/chars/bosses/willy_real/effect_atk108.gif
+	frame	none
+	frame	none
+	frame	data/chars/bosses/willy_real/effect_atk110.gif
+	frame	data/chars/bosses/willy_real/effect_atk111.gif
+	frame	data/chars/bosses/willy_real/effect_atk111b.gif
+	frame	data/chars/bosses/willy_real/effect_atk112.gif
+	frame	none
+	frame	none
+	frame	none
+
+anim attack2 # power geyser
+	loop	0
+	offset	71 139
+	delay	8
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/willy_real/effect_atk202.gif
+	frame	data/chars/bosses/willy_real/effect_atk203.gif
+
+	frame	data/chars/bosses/willy_real/effect_atk204.gif
+	frame	data/chars/bosses/willy_real/effect_atk205.gif
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+
+anim attack3 # double fists
+	loop	0
+	offset	71 139
+	frame	none
+	frame 	none
+	frame 	none
+	frame 	none
+	frame 	none
+	frame 	none
+	frame 	data/chars/bosses/willy_real/effect_atk307.gif
+	frame 	data/chars/bosses/willy_real/effect_atk308.gif
+	frame 	data/chars/bosses/willy_real/effect_atk309.gif
+	frame 	data/chars/bosses/willy_real/effect_atk310.gif
+	frame 	data/chars/bosses/willy_real/effect_atk311.gif
+	frame	data/chars/bosses/willy_real/effect_atk312.gif
+
+anim attack4 # kick
+	loop	0
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+
+anim follow4 # super power up
+	loop	0
+	offset	71 139
+	frame	none
+	frame	none
+	frame	none
+
+	frame	data/chars/bosses/willy_real/effect_super103.gif
+	frame	data/chars/bosses/willy_real/effect_super104.gif
+	frame	data/chars/bosses/willy_real/effect_super105.gif
+	frame	data/chars/bosses/willy_real/effect_super106.gif
+	frame	data/chars/bosses/willy_real/effect_super107.gif
+	frame	data/chars/bosses/willy_real/effect_super108.gif
+
+	frame	none
+
+anim follow5 # super
+	loop	0
+	offset	129 139
+	delay	8
+	frame	none
+
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	
+	frame	data/chars/bosses/willy_real/effect_super201.gif
+	frame	data/chars/bosses/willy_real/effect_super202.gif
+	frame	data/chars/bosses/willy_real/effect_super203.gif
+	frame	data/chars/bosses/willy_real/effect_super204.gif
+	frame	data/chars/bosses/willy_real/effect_super205.gif
+
+	frame	data/chars/bosses/willy_real/effect_super206.gif
+	frame	none
+
+anim jump
+	loop	0
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+
+anim jumpland
+	loop	0
+	frame	none
+	frame	none

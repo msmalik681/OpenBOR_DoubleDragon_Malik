@@ -1,0 +1,14 @@
+name	panel_rock
+health	0
+type	panel
+palette data/levels/level_4/rock.png
+facing	1
+shadow	0
+antigravity 100
+offscreenkill 9999
+
+
+anim idle
+	loop	0
+	offset	0 116
+	frame	data/levels/level_4/rock.png

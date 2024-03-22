@@ -1,0 +1,75 @@
+name	Boss_Doors
+health	0
+type	panel
+shadow	0
+palette	data/levels/level_4/boss_doors01.gif
+facing	1
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+subject_to_platform 0
+#antigravity	100
+offscreenkill 9999
+#setlayer 
+
+animationscript data/scripts/scripts.c
+
+anim	spawn
+	loop	0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+	
+anim	follow1
+	loop	0
+	delay	5
+	offset	0 112
+	frame	data/levels/level_4/boss_doors01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_4/boss_doors01.gif
+	@cmd	spawn02 "Boss_Doors" 60 0 30 "ani_follow2"
+	@cmd	spawn02 "Boss_Doors" 40 0 30 "ani_follow3"
+	sound	data/sounds/break_locker.wav
+	frame	none
+	@cmd	killme
+	frame	none
+	
+anim follow2 #Door left
+	loop	0
+	delay	5
+	offset	99 77
+	landframe 2
+	frame	data/levels/level_4/boss_doors02.gif
+	@cmd	wallpass 1
+	@cmd	toss -0.4 3 0.4
+	delay	999
+	frame	data/levels/level_4/boss_doors02.gif
+	@cmd	toss -0.4 2 0.4
+	delay	10
+	frame	data/levels/level_4/boss_doors02.gif
+	delay	70
+	@cmd	cAiflag "blink"  1
+	frame	data/levels/level_4/boss_doors02.gif
+	@cmd	killme
+	frame	none
+	
+anim follow3 #Door right
+	loop	0
+	delay	5
+	offset	0 99
+	landframe 2
+	offset	10 88
+	@cmd	wallpass 1
+	@cmd	toss 0.4 3 0.4
+	frame	data/levels/level_4/boss_doors03.gif
+	delay	999
+	frame	data/levels/level_4/boss_doors03.gif
+	@cmd	toss 0.4 2 0.4
+	delay	10
+	frame	data/levels/level_4/boss_doors03.gif
+	delay	70
+	@cmd	cAiflag "blink"  1	
+	frame	data/levels/level_4/boss_doors03.gif
+	@cmd	killme
+	frame	none

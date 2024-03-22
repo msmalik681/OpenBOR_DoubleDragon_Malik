@@ -1,0 +1,15 @@
+name	Blockade
+type	none
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+offscreenkill 1000
+nolife	1
+shadow	0
+
+anim idle
+	loop	1
+	delay	10
+	offset	0 0
+	platform 0 0 0 0 5 5 999 999
+	frame	data/chars/misc/empty.gif

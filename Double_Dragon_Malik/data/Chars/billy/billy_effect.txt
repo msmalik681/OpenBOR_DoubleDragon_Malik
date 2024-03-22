@@ -1,0 +1,77 @@
+name		Billy_Effect
+type		none
+shadow		0
+palette		data/chars/billy/effect_straight01.gif	#0
+alternatepal data/chars/billy/superB_effect_01.gif	#1
+subject_to_gravity 0
+subject_to_wall 1
+subject_to_platform 1
+subject_to_screen 0
+subject_to_maxz 0
+subject_to_minz 0
+no_adjust_base 0
+alpha		1
+nodieblink	1
+
+animationscript data/scripts/scripts.c
+
+anim freespecial7 # straight kick
+	offset	57 109
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/billy/effect_straight01.gif
+	frame	data/chars/billy/effect_straight02.gif
+	frame	data/chars/billy/effect_straight03.gif
+	frame	data/chars/billy/effect_straight04.gif
+	@cmd	killme
+	frame	none
+	
+anim freespecial8 # moon kick
+	offset	57 109
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/billy/effect_moon04.gif
+	frame	data/chars/billy/effect_moon05.gif
+	frame	none
+	@cmd	killme
+	frame	none
+	
+anim jumpattack3 # spin kick
+	offset	57 109
+	frame	data/chars/billy/effect_spin01.gif
+	frame	data/chars/billy/effect_spin02.gif
+	frame	data/chars/billy/effect_spin03.gif
+	frame	data/chars/billy/effect_spin04.gif
+	frame	data/chars/billy/effect_spin05.gif
+	frame	data/chars/billy/effect_spin06.gif
+	
+	frame	data/chars/billy/effect_spin01.gif
+	frame	data/chars/billy/effect_spin02.gif
+	frame	data/chars/billy/effect_spin03.gif
+	frame	data/chars/billy/effect_spin04.gif
+	frame	data/chars/billy/effect_spin05.gif
+	frame	data/chars/billy/effect_spin06.gif
+	@cmd	killme
+	frame	none
+	@cmd	killme
+	frame	none
+	@cmd	killme
+	frame	none
+	@cmd	killme
+	frame	none
+	
+anim freespecial14 # super kick
+	offset	57 109
+	@cmd	cProperty "map"	1
+	frame	data/chars/billy/superB_effect_01.gif
+	frame	data/chars/billy/superB_effect_02.gif
+	frame	data/chars/billy/superB_effect_03.gif
+	frame	data/chars/billy/superB_effect_04.gif
+	@cmd	killme
+	frame	none
+	@cmd	killme
+	frame	none
+
+	#offset 57 127

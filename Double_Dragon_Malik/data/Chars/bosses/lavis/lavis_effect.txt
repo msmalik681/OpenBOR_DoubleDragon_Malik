@@ -1,0 +1,86 @@
+name		Lavis_Effect
+type		none
+shadow		0
+palette		data/chars/bosses/lavis/atk207_effect.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+nodieblink	1
+alpha		1
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim idle
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	killentity getlocalvar("self")
+	frame	none
+	
+anim follow3
+	loop	0
+	delay	0
+	offset	83 172
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/lavis/atk207_effect.gif
+	frame	data/chars/bosses/lavis/atk208_effect.gif
+	frame	data/chars/bosses/lavis/atk209_effect.gif
+	frame	data/chars/bosses/lavis/atk210_effect.gif
+	@cmd	killentity getlocalvar("self")
+	frame	none
+	
+	
+anim follow4 #super move
+	loop	0
+	delay	0
+	offset	83 172
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/lavis/super109_effect.gif
+	frame	data/chars/bosses/lavis/super110a_effect.gif
+	frame	data/chars/bosses/lavis/super110b_effect.gif
+	frame	data/chars/bosses/lavis/super110c_effect.gif
+	@cmd	killme
+	frame	none
+	
+anim attack5 #super move
+	loop	0
+	delay	0
+	offset	83 172
+	frame	data/chars/bosses/lavis/super201_effect.gif
+	frame	data/chars/bosses/lavis/super202_effect.gif
+	frame	data/chars/bosses/lavis/super203_effect.gif
+	frame	data/chars/bosses/lavis/super204_effect.gif
+	frame	data/chars/bosses/lavis/super205_effect.gif
+	frame	data/chars/bosses/lavis/super206_effect.gif
+	frame	data/chars/bosses/lavis/super204_effect.gif
+	frame	data/chars/bosses/lavis/super205_effect.gif
+	frame	data/chars/bosses/lavis/super206_effect.gif
+	frame	data/chars/bosses/lavis/super204_effect.gif
+	frame	data/chars/bosses/lavis/super205_effect.gif
+	frame	data/chars/bosses/lavis/super206_effect.gif
+	delay	12
+	frame	data/chars/bosses/lavis/super207_effect.gif
+	@cmd	killme
+	frame	none
+	

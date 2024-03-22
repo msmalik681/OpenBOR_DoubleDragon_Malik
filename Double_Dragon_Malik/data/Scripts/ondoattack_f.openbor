@@ -1,0 +1,36 @@
+#define OBC  openborconstant
+#define GEP  getentityproperty
+#define CEP  changeentityproperty
+#define SLV  setlocalvar
+#define GLV  getlocalvar
+#define GEV  getentityvar
+#define SEV  setentityvar
+#define CLP	 changelevelproperty
+#define OBV  openborvariant
+#define COBV changeopenborvariant
+#define GPP  getplayerproperty
+#define SGV  setglobalvar
+#define GGV  getglobalvar
+#define self GLV("self")
+
+
+void ondoattack()
+{//fake attack for enemy run attacks
+	void other = GLV("other");
+	int which = GLV("which");
+	void type = GEP(self, "type");
+	int animation = GEP(self, "animationid");
+		
+if( animation==OBC("ANI_FOLLOW4") && ( GEP(self,"defaultmodel")=="Lavis" || GEP(self,"defaultmodel")=="Lavis_e" ) )
+{// lavis super move activator
+COBV("lasthitc",0); //cancel the hit
+ performattack(self, OBC("ANI_ATTACK5")); //perform custom set run attack
+}
+
+if( !which && GEP(other,"aiflag","drop") && !GEP(self,"aiflag","falling") && GEP(other,"health") )
+{//force downed enemy not to switch they way they are facing.
+CEP(other,"facing",GEP(other,"direction")==0?2:1);
+}
+
+
+}

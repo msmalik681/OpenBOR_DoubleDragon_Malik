@@ -1,0 +1,69 @@
+name		Dynamite
+type		none
+candamage 	player enemy
+antigravity	0
+subject_to_hole 1
+subject_to_platform 1
+subject_to_wall 1
+no_adjust_base 0
+shadow	0
+
+animationscript data/scripts/scripts.c
+
+anim idle
+	loop	0
+	delay	3
+	offset	7 8
+	landframe 18
+	frame	data/chars/misc/dynamite03.gif
+	delay	8
+	@cmd	dasher 0.5 2.8 0 
+	frame	data/chars/misc/dynamite03.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite04.gif
+	frame	data/chars/misc/dynamite02.gif
+	frame	data/chars/misc/dynamite03.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite04.gif
+	frame	data/chars/misc/dynamite02.gif
+
+	frame	data/chars/misc/dynamite03.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite04.gif
+	frame	data/chars/misc/dynamite02.gif
+	frame	data/chars/misc/dynamite03.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite04.gif
+	frame	data/chars/misc/dynamite02.gif
+	frame	data/chars/misc/dynamite03.gif
+	delay	15
+	sound	data/sounds/se25_dynamite_drop.wav
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite01a.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite01a.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite01a.gif
+	frame	data/chars/misc/dynamite01.gif
+	frame	data/chars/misc/dynamite01a.gif
+	frame	data/chars/misc/dynamite01.gif
+	offset	85 65
+	delay	8
+	drawmethod alpha 1
+	sound	data/sounds/boom_se24.wav
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	38 4 88 90		40 1
+	frame	data/chars/misc/boom01.gif
+	frame	data/chars/misc/boom02.gif
+	frame	data/chars/misc/boom03.gif
+	frame	data/chars/misc/boom04.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/boom05.gif
+	frame	data/chars/misc/boom06.gif
+	frame	data/chars/misc/boom07.gif
+	frame	data/chars/misc/boom08.gif
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/empty.gif
+

@@ -1,0 +1,485 @@
+name			Lavis_e
+health			999
+speed			4
+type			enemy
+projectilehit 	enemy
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+aimove			chasex
+diesound		data/sounds/0_voice1_female_die.wav
+running			25 3.5 2 0 0
+
+palette			data/chars/bosses/lavis/idle01.gif
+
+animationscript		data/scripts/scripts.c
+takedamagescript 	data/scripts/takedamagescript.c
+ondeathscript 		data/scripts/bossdeath.c
+ondoattackscript	data/scripts/ondoattack.openbor
+
+load	Lavis_Effect	3
+load	Sticks_Throw	3
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	bossintro "ani_follow1"
+	@cmd	wallpass 1
+	@cmd 	cProperty "name" "Boss"
+	@cmd	jumpin
+	frame	none
+
+anim follow1 #boss intro
+	loop	0
+	offset	83 172
+	@cmd	setlayer 40
+	@cmd 	cProperty "name" "Boss"
+	delay	160
+	frame	data/chars/bosses/lavis/intro01.gif
+	delay	14
+	@cmd	setlayer 0
+	frame	data/chars/bosses/lavis/intro02.gif
+	frame	data/chars/bosses/lavis/intro03.gif
+	frame	data/chars/bosses/lavis/intro04.gif
+	frame	data/chars/bosses/lavis/intro05.gif
+	frame	data/chars/bosses/lavis/intro06.gif
+	frame	data/chars/bosses/lavis/intro07.gif
+	frame	data/chars/bosses/lavis/intro08.gif
+	frame	data/chars/bosses/lavis/intro09.gif
+	frame	data/chars/bosses/lavis/intro10.gif
+	frame	data/chars/bosses/lavis/intro11.gif
+	frame	data/chars/bosses/lavis/intro12.gif
+	frame	data/chars/bosses/lavis/intro13.gif
+	frame	data/chars/bosses/lavis/intro14.gif
+	frame	data/chars/bosses/lavis/intro15.gif
+	frame	data/chars/bosses/lavis/intro16.gif
+	frame	data/chars/bosses/lavis/intro17.gif
+	frame	data/chars/bosses/lavis/intro18.gif
+	frame	data/chars/bosses/lavis/intro19.gif
+	frame	data/chars/bosses/lavis/intro20.gif
+	frame	data/chars/bosses/lavis/intro21.gif
+	frame	data/chars/bosses/lavis/intro22.gif
+	frame	data/chars/bosses/lavis/intro23.gif
+	frame	data/chars/bosses/lavis/atk101.gif
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE3_IN" 1
+	frame	data/chars/bosses/lavis/atk101.gif
+	@cmd	playmusic "data/music/boss_2.bor" 1
+	frame	data/chars/bosses/lavis/atk101.gif
+	
+anim follow2 #jump down intro
+	loop	0
+	offset	83 172
+	bbox	10 23 33 82
+	landframe 1
+	delay	999
+	frame	data/chars/bosses/lavis/jump01.gif
+	delay	12
+	frame	data/chars/bosses/lavis/rise02.gif
+	frame	data/chars/bosses/lavis/rise01.gif
+	frame	data/chars/bosses/lavis/rise02.gif
+
+anim idle
+	loop	1
+	offset	83 172
+	bbox	62 114 41 58
+	delay	20
+	@cmd 	stats
+	frame	data/chars/bosses/lavis/idle01.gif
+	frame	data/chars/bosses/lavis/idle02.gif
+	frame	data/chars/bosses/lavis/idle03.gif
+	frame	data/chars/bosses/lavis/idle02.gif
+
+
+anim walk
+	loop	1
+	offset	83 172
+	bbox	71 102 32 72
+	delay	15
+	frame	data/chars/bosses/lavis/walk01.gif
+	frame	data/chars/bosses/lavis/walk02.gif
+	frame	data/chars/bosses/lavis/walk03.gif
+	frame	data/chars/bosses/lavis/walk04.gif
+	frame	data/chars/bosses/lavis/walk05.gif
+	frame	data/chars/bosses/lavis/walk06.gif
+	frame	data/chars/bosses/lavis/walk07.gif
+	frame	data/chars/bosses/lavis/walk08.gif
+	frame	data/chars/bosses/lavis/walk09.gif
+	frame	data/chars/bosses/lavis/walk10.gif
+	
+anim run
+	loop	1
+	offset	83 172
+	bbox	44 134 82 41
+	delay	7
+	frame	data/chars/bosses/lavis/run01.gif
+	frame	data/chars/bosses/lavis/run02.gif
+	frame	data/chars/bosses/lavis/run03.gif
+	frame	data/chars/bosses/lavis/run04.gif
+	frame	data/chars/bosses/lavis/run05.gif
+	frame	data/chars/bosses/lavis/run06.gif
+	frame	data/chars/bosses/lavis/run07.gif
+	frame	data/chars/bosses/lavis/run08.gif
+
+anim pain
+	loop	0
+	offset	83 172
+	bbox	69 99 33 73
+	delay	8
+	frame	data/chars/bosses/lavis/pain01.gif
+	delay	40
+	frame	data/chars/bosses/lavis/pain02.gif
+	delay	8
+	frame	data/chars/bosses/lavis/pain01.gif
+
+anim pain2
+	loop	0
+	offset	83 172
+	bbox	59 109 38 65
+	delay	8
+	frame	data/chars/bosses/lavis/pain11.gif
+	delay	150
+	frame	data/chars/bosses/lavis/pain12.gif
+	delay	8
+	frame	data/chars/bosses/lavis/pain11.gif
+	
+anim grabbed
+	loop	0
+	offset	83 172
+	bbox	66 104 30 70
+	delay	8
+	frame	data/chars/bosses/lavis/pain01.gif
+
+anim pain5
+	loop	0
+	offset	83 172
+	bbox	57 112 40 60
+	delay	8
+	frame	data/chars/bosses/lavis/pain11.gif
+	frame	data/chars/bosses/lavis/pain12.gif
+	frame	data/chars/bosses/lavis/pain11.gif
+
+anim pain3 #grab hit
+	loop	0
+	offset	83 172
+	bbox	57 112 40 60
+	delay	8
+	frame	data/chars/bosses/lavis/pain11.gif
+	frame	data/chars/bosses/lavis/pain12.gif
+	frame	data/chars/bosses/lavis/pain11.gif
+
+anim fall
+	loop	0
+	delay	50
+	offset	83 172
+	attack	53 130 64 43		10 1
+	bbox 	53 130 64 43
+	landframe 2
+	frame	data/chars/bosses/lavis/fall01.gif
+	attack	53 136 68 39		10 1
+	bbox 	53 136 68 39
+	delay	999
+	frame	data/chars/bosses/lavis/fall02.gif
+	delay	50
+	attack	0 0 0 0
+	bbox 	47 153 81 27
+	frame	data/chars/bosses/lavis/fall03.gif
+
+anim fall3
+	loop	0
+	delay	50
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	offset	83 172
+	bbox 	53 130 64 43
+	frame	data/chars/bosses/lavis/fall01.gif
+	bbox 	53 136 68 39
+	delay	999
+	frame	data/chars/bosses/lavis/fall02.gif
+	bbox 	47 153 81 27
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/bosses/lavis/fall03.gif
+	offset	83 172
+	bbox 	53 130 64 43
+	frame	data/chars/bosses/lavis/fall01.gif
+	bbox 	53 136 68 39
+	frame	data/chars/bosses/lavis/fall02.gif
+	bbox 	47 153 81 27
+	frame	data/chars/bosses/lavis/fall03.gif
+
+anim rise
+	loop	0
+	delay	15
+	offset	83 172
+	@cmd	cProperty "facing" 0
+	frame	data/chars/bosses/lavis/rise01.gif
+	frame	data/chars/bosses/lavis/rise02.gif
+
+
+anim attack1 # straight red slice
+	range	30 120
+	loop	0
+	delay	5
+	offset	83 172
+	bbox	62 114 41 58
+	frame	data/chars/bosses/lavis/atk101.gif
+	frame	data/chars/bosses/lavis/atk102.gif
+	frame	data/chars/bosses/lavis/atk103.gif
+	frame	data/chars/bosses/lavis/atk104.gif
+	delay	12
+	@cmd	dasher 2.5 0 0
+	hitflash Flash_Stab
+	hitfx	data/sounds/slice_se35.wav
+	sound	data/sounds/kick_se15.wav
+	attack2	83 98 89 30		10 0
+	bbox 	66 101 44 72
+	frame	data/chars/bosses/lavis/atk105.gif
+	@cmd	dasher 0 0 0
+	frame	data/chars/bosses/lavis/atk106.gif
+	frame	data/chars/bosses/lavis/atk107.gif
+	delay	5
+	attack2	0 0 0
+	@cmd	followatk "ani_follow3"
+	frame	data/chars/bosses/lavis/atk108.gif
+	frame	data/chars/bosses/lavis/atk102.gif
+	frame	data/chars/bosses/lavis/atk101.gif
+
+anim follow3 # heavy blue stab
+	loop	0
+	delay	7
+	offset	83 172
+	bbox	56 91 37 82
+	hitfx	data/sounds/stab_se13.wav
+	frame	data/chars/bosses/lavis/atk201.gif
+	@cmd	spawnbind2 "Lavis_Effect" 0 0 0 1 6
+	frame	data/chars/bosses/lavis/atk202.gif
+	frame	data/chars/bosses/lavis/atk203.gif
+	frame	data/chars/bosses/lavis/atk204.gif
+	frame	data/chars/bosses/lavis/atk205.gif
+	frame	data/chars/bosses/lavis/atk206.gif
+	frame	data/chars/bosses/lavis/atk207.gif
+	sound	data/sounds/swing_se17.wav
+	hitflash Flash_Stab
+	hitfx	data/sounds/stab_se13.wav
+	attack	69 61 119 104		20 1
+	frame	data/chars/bosses/lavis/atk208.gif
+	frame	data/chars/bosses/lavis/atk209.gif
+	frame	data/chars/bosses/lavis/atk210.gif
+	attack	0 0 0 0
+	frame	data/chars/bosses/lavis/atk211.gif
+	frame	data/chars/bosses/lavis/atk212.gif
+	frame	data/chars/bosses/lavis/atk213.gif
+	frame	data/chars/bosses/lavis/atk214.gif
+	frame	data/chars/bosses/lavis/atk215.gif
+	frame	data/chars/bosses/lavis/atk216.gif
+	frame	data/chars/bosses/lavis/atk217.gif
+	frame	data/chars/bosses/lavis/atk218.gif
+
+anim attack2 # throw sticks
+	range	160 400
+	loop	0
+	delay	8
+	offset	83 172
+	bbox	63 94 39 79
+	@cmd	randomani 40 "ani_follow4"
+	frame	data/chars/bosses/lavis/atk301.gif
+	frame	data/chars/bosses/lavis/atk302.gif
+	frame	data/chars/bosses/lavis/atk303.gif
+	frame	data/chars/bosses/lavis/atk304.gif
+	frame	data/chars/bosses/lavis/atk305.gif
+	frame	data/chars/bosses/lavis/atk306.gif
+	frame	data/chars/bosses/lavis/atk307.gif
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/bosses/lavis/atk308.gif
+	hitflash Flash_Stab
+	hitfx	data/sounds/stab_se13.wav
+	attack	18 79 119 82		10 0
+	frame	data/chars/bosses/lavis/atk309.gif
+	frame	data/chars/bosses/lavis/atk310.gif
+	frame	data/chars/bosses/lavis/atk311.gif
+	frame	data/chars/bosses/lavis/atk312.gif
+	attack	0 0 0 0
+	frame	data/chars/bosses/lavis/atk313.gif
+	frame	data/chars/bosses/lavis/atk314.gif
+	delay	5
+	frame	data/chars/bosses/lavis/atk315.gif
+	frame	data/chars/bosses/lavis/atk316.gif
+	@cmd	spawn01 "sticks_throw" 30 55 0
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/bosses/lavis/atk317.gif
+	delay	8
+	frame	data/chars/bosses/lavis/atk318.gif
+	frame	data/chars/bosses/lavis/atk319.gif
+	frame	data/chars/bosses/lavis/idle02.gif
+	frame	data/chars/bosses/lavis/atk320.gif
+	delay	5
+	frame	data/chars/bosses/lavis/atk321.gif
+	frame	data/chars/bosses/lavis/atk322.gif
+	@cmd	spawn01 "sticks_throw" 30 55 0
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/bosses/lavis/atk323.gif
+	delay	8
+	frame	data/chars/bosses/lavis/atk324.gif
+	frame	data/chars/bosses/lavis/atk325.gif
+	frame	data/chars/bosses/lavis/atk326.gif
+	frame	data/chars/bosses/lavis/atk327.gif
+	frame	data/chars/bosses/lavis/atk328.gif
+	frame	data/chars/bosses/lavis/atk301.gif
+	
+anim follow4 #super move A
+	loop	0
+	followanim 5
+	followcond 1
+	delay	15
+	offset	83 172
+	bbox	74 103 26 70
+	frame	data/chars/bosses/lavis/atk101.gif
+	@cmd	spawnbind2 "Lavis_Effect" 0 0 0 1 6
+	frame	data/chars/bosses/lavis/super102.gif
+	frame	data/chars/bosses/lavis/super103.gif
+	frame	data/chars/bosses/lavis/super104.gif
+	frame	data/chars/bosses/lavis/super105.gif
+	frame	data/chars/bosses/lavis/super106.gif
+	frame	data/chars/bosses/lavis/super107.gif
+	delay	9
+	frame	data/chars/bosses/lavis/super108.gif
+	sound	data/sounds/swing_se17.wav
+	attack2 96 45 45 131		5 0
+	frame	data/chars/bosses/lavis/super109.gif
+	frame	data/chars/bosses/lavis/super110.gif
+	frame	data/chars/bosses/lavis/super110.gif
+	frame	data/chars/bosses/lavis/super110.gif
+	frame	data/chars/bosses/lavis/super110.gif
+	attack2 0 0 0 0
+	frame	data/chars/bosses/lavis/super111.gif
+	bbox	44 134 82 41
+	delay	7
+	@cmd	dasher 3 0 0
+	attack	117 120 40 59		0 0
+	frame	data/chars/bosses/lavis/run01.gif
+	frame	data/chars/bosses/lavis/run02.gif
+	frame	data/chars/bosses/lavis/run03.gif
+	frame	data/chars/bosses/lavis/run04.gif
+	frame	data/chars/bosses/lavis/run05.gif
+	frame	data/chars/bosses/lavis/run06.gif
+	frame	data/chars/bosses/lavis/run07.gif
+	frame	data/chars/bosses/lavis/run08.gif
+	frame	data/chars/bosses/lavis/run01.gif
+	frame	data/chars/bosses/lavis/run02.gif
+	@cmd	doattack "ani_attack5"
+	frame	data/chars/bosses/lavis/run03.gif
+	
+anim attack5 #super move B
+	loop	0
+	range	-999 -998
+	offset	83 172
+	bbox	69 111 36 50
+	delay	7
+	@cmd	dasher	2 0 0
+	@cmd	spawnbind2 "Lavis_Effect" 0 0 0 1 6
+	frame	data/chars/bosses/lavis/super201.gif
+	sound	data/sounds/lightning_se14.wav
+	frame	data/chars/bosses/lavis/super202.gif
+	@cmd	dasher	1 0 0
+	sound	data/sounds/0_voice4_lavis_super.wav
+	frame	data/chars/bosses/lavis/super203.gif
+	@cmd	dasher	0 0 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	attack	133 98 39 37		50 1
+	dropv	5 1 0
+	bbox 	67 112 39 53
+	frame	data/chars/bosses/lavis/super204.gif
+	frame	data/chars/bosses/lavis/super205.gif
+	frame	data/chars/bosses/lavis/super206.gif
+	bbox 	67 116 50 61
+	frame	data/chars/bosses/lavis/super204.gif
+	frame	data/chars/bosses/lavis/super205.gif
+	frame	data/chars/bosses/lavis/super206.gif
+	frame	data/chars/bosses/lavis/super204.gif
+	frame	data/chars/bosses/lavis/super205.gif
+	frame	data/chars/bosses/lavis/super206.gif
+	attack	0
+	delay	10
+	bbox 	64 105 34 66
+	frame	data/chars/bosses/lavis/super207.gif
+	frame	data/chars/bosses/lavis/super208.gif
+	frame	data/chars/bosses/lavis/super209.gif
+	
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	83 172
+	bbox	70 88 38 86
+	frame	data/chars/bosses/lavis/jump01.gif
+	delay	12
+	bbox	72 91 38 71
+	frame	data/chars/bosses/lavis/jump02.gif
+	bbox	58 87 61 61
+	frame	data/chars/bosses/lavis/jump03.gif
+	frame	data/chars/bosses/lavis/jump04.gif
+	frame	data/chars/bosses/lavis/jump05.gif
+	frame	data/chars/bosses/lavis/jump06.gif
+	bbox	70 88 38 86
+	frame	data/chars/bosses/lavis/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	10
+	range	5 80
+	offset	83 172
+	bbox	70 88 38 86
+	jumpframe 0 1 1
+	landframe 7
+	sound 	data/sounds/jump.wav
+	frame	data/chars/bosses/lavis/jump01.gif
+	bbox	72 91 38 71
+	frame	data/chars/bosses/lavis/jump02.gif
+	bbox	58 87 61 61
+	frame	data/chars/bosses/lavis/jump03.gif
+	frame	data/chars/bosses/lavis/jump04.gif
+	frame	data/chars/bosses/lavis/jump05.gif
+	frame	data/chars/bosses/lavis/jump06.gif
+	bbox	70 88 38 86
+	delay 	999
+	frame	data/chars/bosses/lavis/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/bosses/lavis/jump01.gif
+	
+anim jumpland
+	loop	0
+	offset	83 172
+	bbox	63 128 43 46
+	delay	18
+	sound 	data/sounds/land_se07.wav
+	frame	data/chars/bosses/lavis/rise01.gif
+	delay	10
+	frame	data/chars/bosses/lavis/rise02.gif
+
+anim death
+	loop	0
+	delay	80
+	offset	83 172
+	frame	data/chars/bosses/lavis/fall03.gif
+	delay	20
+	frame	data/chars/bosses/lavis/rise01.gif
+	frame	data/chars/bosses/lavis/rise02.gif
+	frame	data/chars/bosses/lavis/pain11.gif
+	frame	data/chars/bosses/lavis/death01.gif
+	frame	data/chars/bosses/lavis/death02.gif
+	
+	frame	data/chars/bosses/lavis/death03.gif
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE3_OUT" 1
+	frame	data/chars/bosses/lavis/death03.gif
+	frame	data/chars/bosses/lavis/death04.gif
+	frame	data/chars/bosses/lavis/death03.gif
+	frame	data/chars/bosses/lavis/death04.gif
+	frame	data/chars/bosses/lavis/death03.gif
+	frame	data/chars/bosses/lavis/death04.gif
+	frame	data/chars/bosses/lavis/death03.gif

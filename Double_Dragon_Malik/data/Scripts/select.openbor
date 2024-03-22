@@ -1,0 +1,4 @@
+void main()
+{
+	settextobj(0,40,78,0,999999998,"\n________mode_select");
+}

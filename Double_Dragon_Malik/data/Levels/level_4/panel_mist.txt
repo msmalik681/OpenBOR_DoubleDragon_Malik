@@ -1,0 +1,19 @@
+name	panel_mist
+health	0
+type	panel
+shadow	0
+facing	1
+alpha	1
+antigravity 100
+offscreenkill 9999
+setlayer -9
+
+
+anim idle
+	loop	1
+	delay	10
+	offset	0 87
+	frame	data/levels/level_4/mist01.png
+	frame	data/levels/level_4/mist02.png
+	frame	data/levels/level_4/mist03.png
+	frame	data/levels/level_4/mist04.png

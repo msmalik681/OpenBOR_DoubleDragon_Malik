@@ -1,0 +1,392 @@
+name	lv6_objects
+health	0
+type	panel
+shadow	0
+palette data/levels/level_6/flame_red01.gif #0
+alternatepal data/levels/level_6/old_door.gif #1
+alternatepal data/levels/level_6/dragons_effect90.gif #2
+alternatepal data/levels/level_6/dragons_effect80.gif #3
+alternatepal data/levels/level_6/dragons_effect70.gif #4
+alternatepal data/levels/level_6/dragons_effect60.gif #5
+alternatepal data/levels/level_6/marian.gif #6
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_hole 0
+subject_to_platform 0
+antigravity	0
+offscreenkill 9999
+
+animationscript data/scripts/scripts.c
+ondoattackscript data/scripts/ondoattackB.openbor
+
+anim spawn
+
+anim idle
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim follow1 # Red flame
+	loop	1
+	offset	0 0
+	delay	12
+	@cmd	setlayer -50
+	frame	data/levels/level_6/flame_red01.gif
+	frame	data/levels/level_6/flame_red02.gif
+	frame	data/levels/level_6/flame_red03.gif
+	frame	data/levels/level_6/flame_red04.gif
+	
+anim follow2 # Blue flame
+	loop	1
+	offset	0 0
+	delay	12
+	@cmd	setlayer -50
+	frame	data/levels/level_6/flame_blue01.gif
+	frame	data/levels/level_6/flame_blue02.gif
+	frame	data/levels/level_6/flame_blue03.gif
+	frame	data/levels/level_6/flame_blue04.gif
+	
+anim follow3 # Old door
+	loop	1
+	offset	22 74
+	delay	10
+	@cmd	cProperty "map"	1
+	frame	data/levels/level_6/old_door.gif
+	@cmd	eventLoop
+	delay	1
+	frame	none
+	@cmd	spawn02 "lv6_objects" 0 0 30 "ani_follow10"
+	@cmd	spawn02 "lv6_objects" 0 0 30 "ani_follow11"
+	sound	data/sounds/break_locker.wav
+	frame	none
+	@cmd	killme
+	frame	none
+	
+anim follow4 # Dragons
+	loop	1
+	offset	0 0
+	delay	0
+	@cmd	setlayer 10
+	@cmd	cProperty "map"	1
+	frame	data/levels/level_6/dragons.gif
+	
+anim follow5 # Dragons effect
+	loop	1
+	offset	0 0
+	delay	20
+	@cmd	setlayer 11
+	drawmethod alpha 1
+	@cmd	cProperty "map"	2
+	frame	data/levels/level_6/dragons_effect.gif
+	@cmd	cProperty "map"	3
+	frame	data/levels/level_6/dragons_effect.gif
+	@cmd	cProperty "map"	4
+	frame	data/levels/level_6/dragons_effect.gif
+	@cmd	cProperty "map"	5
+	frame	data/levels/level_6/dragons_effect.gif
+	@cmd	cProperty "map"	4
+	frame	data/levels/level_6/dragons_effect.gif
+	@cmd	cProperty "map"	3
+	frame	data/levels/level_6/dragons_effect.gif
+	
+anim follow6 # Stone door
+	loop	1
+	offset	0 95
+	delay	40
+	@cmd	cProperty "map"	1
+	@cmd	setlayer -50
+	frame	data/levels/level_6/stone_door.gif
+	@cmd	dasher 0 0 -2
+	delay	100
+	frame	data/levels/level_6/stone_door.gif
+	@cmd	killme
+	frame	none
+	
+	
+	
+anim follow7 # Stone pillar
+	loop	1
+	delay	10
+	frame	none
+	@cmd	eventLoop
+	frame	none
+	delay	50
+	@cmd	cProperty "map"	1
+	@cmd	setlayer 0
+	drawmethod clip 80 80 33 31
+	offset			80 80
+	frame	data/levels/level_6/stone_pillar.gif
+	delay	6
+	drawmethod clip 64 64 49 47
+	offset			64 64
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 48 48 65 63
+	offset			48 48
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 32 32 81 79
+	offset			32 32
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 16 16 97 95
+	offset			16 16
+	@cmd	spawn02 "lv6_objects" 30 0 40 "ani_follow8" NULL() NULL() 2
+	@cmd	spawn02 "lv6_objects" 40 0 50 "ani_follow8" NULL() NULL() 2
+	@cmd	spawn02 "lv6_objects" 50 0 60 "ani_follow8" NULL() NULL() 2
+	@cmd	spawn02 "lv6_objects" 60 0 70 "ani_follow8" NULL() NULL() 2
+	@cmd	spawn02 "lv6_objects" 70 0 80 "ani_follow8" NULL() NULL() 2
+	@cmd	spawn02 "lv6_objects" 80 0 90 "ani_follow8" NULL() NULL() 2
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 0 0 113 111
+	offset			0 0
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 16 16 97 95
+	offset			16 16
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 32 32 81 79
+	offset			32 32
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 48 48 65 63
+	offset			48 48
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 64 64 49 47
+	offset			64 64
+	frame	data/levels/level_6/stone_pillar.gif
+	drawmethod clip 72 72 41 39
+	offset			72 72
+	frame	data/levels/level_6/stone_pillar.gif
+	delay	50
+	@cmd	jump2Frame 2
+	frame	none
+	
+anim follow8 # Pillar attack
+	loop	1
+	delay	1
+	hitflash BigFlash
+	hitfx	data/sounds/beat2.wav
+	attack	0 0 40 40 10 1 0 0 0 40
+	frame	none
+	@cmd	hitme 1
+	frame	none
+	
+anim follow9 # Spear
+	loop	1
+	offset	29 15
+	delay	10
+	@cmd	cProperty "map"	1
+	hitflash Flash_Stab
+	hitfx	data/sounds/stab.wav
+	frame	data/levels/level_6/spear01.gif
+	@cmd	spear
+	@cmd	jump2Frame 0
+	frame	data/levels/level_6/spear01.gif
+	delay	20
+	frame	data/levels/level_6/spear02.gif
+	frame	data/levels/level_6/spear01.gif
+	#delay	50
+	attack	95 55 50 100 10 1 0 0 0 130
+	frame	data/levels/level_6/spear03.gif
+	attack	0 0 0
+	delay	100
+	frame	data/levels/level_6/spear01.gif
+	
+anim follow10 #Door left
+	loop	0
+	delay	5
+	offset	45 77
+	landframe 2
+	@cmd	cProperty "map"	1
+	frame	data/levels/level_6/old_door01.gif
+	@cmd	wallpass 1
+	@cmd	toss -0.4 3 0.4
+	delay	999
+	frame	data/levels/level_6/old_door01.gif
+	@cmd	toss -0.4 2 0.4
+	delay	15
+	frame	data/levels/level_6/old_door01.gif
+	@cmd	cAiflag "blink"  1
+	delay	70
+	frame	data/levels/level_6/old_door01.gif
+	@cmd	killme
+	frame	none
+	
+anim follow11 #Door right
+	loop	0
+	delay	5
+	offset	0 78
+	landframe 2
+	offset	10 88
+	@cmd	wallpass 1
+	@cmd	toss 0.4 3 0.4
+	@cmd	cProperty "map"	1
+	frame	data/levels/level_6/old_door02.gif
+	delay	999
+	frame	data/levels/level_6/old_door02.gif
+	@cmd	toss 0.4 2 0.4
+	delay	5
+	frame	data/levels/level_6/old_door02.gif
+	@cmd	cAiflag "blink"  1
+	delay	70	
+	frame	data/levels/level_6/old_door02.gif
+	@cmd	killme
+	frame	none
+	
+anim follow12 # Break wall
+	loop	0
+	delay	10
+	frame	none
+	@cmd	eventLoop
+	frame	none
+	offset	48 105
+	@cmd	cProperty "map"	1
+	frame	data/levels/level_6/wall_break01.gif
+	frame	data/levels/level_6/wall_break02.gif
+	frame	data/levels/level_6/wall_break03.gif
+	delay	0
+	frame	data/levels/level_6/wall_break04.gif
+	
+anim follow13 # Boss Door Setup
+	loop	0
+	delay	10
+	frame	none
+	@cmd	spawnbind2 "Boss_Door" 0 0 0 1 6
+	frame	none
+	@cmd	cProperty "map"	1
+	@cmd	anichange "ani_follow14"
+	frame	none
+	
+anim follow14 # Boss Door Left
+	loop	0
+	delay	10
+	offset	0 0
+	# Chin intro
+	frame	data/levels/level_6/boss_door01.gif
+	@cmd	eventLoop
+	frame	data/levels/level_6/boss_door01.gif
+	delay	200
+	@cmd	spawn02 "Chin" 150 25 100 "ani_follow3" NULL() 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	10 0
+	delay	7
+	frame	data/levels/level_6/boss_door01.gif
+	offset	15 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	20 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	25 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	30 0
+	delay	300
+	frame	data/levels/level_6/boss_door01.gif
+	offset	25 0
+	delay	8
+	frame	data/levels/level_6/boss_door01.gif
+	offset	20 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	15 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	10 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	0 0
+	delay	100
+	@cmd	cProperty "maxmp" 8
+	@cmd	cProperty "mp" 8
+	frame	data/levels/level_6/boss_door01.gif
+	
+	# Willy intro
+	frame	data/levels/level_6/boss_door01.gif
+	@cmd	eventLoop 13
+	frame	data/levels/level_6/boss_door01.gif
+	delay	50
+	@cmd	spawn02 "Willy" 150 25 100 "ani_follow1" NULL() 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	10 0
+	delay	7
+	frame	data/levels/level_6/boss_door01.gif
+	offset	15 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	20 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	25 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	30 0
+	delay	300
+	frame	data/levels/level_6/boss_door01.gif
+	offset	25 0
+	delay	8
+	frame	data/levels/level_6/boss_door01.gif
+	offset	20 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	15 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	10 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	0 0
+	delay	100
+	frame	data/levels/level_6/boss_door01.gif
+	
+	# Boss backup
+	frame	data/levels/level_6/boss_door01.gif
+	@cmd	openborvariant("count_enemies")<4?"":jump2Frame 26
+	frame	data/levels/level_6/boss_door01.gif
+	delay	100
+	@cmd	bossBackup -100 25 100 "ani_follow3" "Brown" "Aaron"
+	frame	data/levels/level_6/boss_door01.gif
+	@cmd	spawn02 "Clive" -100 25 100 "ani_follow4" 
+	frame	data/levels/level_6/boss_door01.gif
+	offset	10 0
+	delay	7
+	frame	data/levels/level_6/boss_door01.gif
+	offset	15 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	20 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	25 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	30 0
+	delay	300
+	frame	data/levels/level_6/boss_door01.gif
+	offset	25 0
+	delay	8
+	frame	data/levels/level_6/boss_door01.gif
+	offset	20 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	15 0
+	frame	data/levels/level_6/boss_door01.gif
+	offset	10 0
+	frame	data/levels/level_6/boss_door01.gif
+	@cmd	jump2Frame 26
+	offset	0 0
+	delay	100
+	frame	data/levels/level_6/boss_door01.gif
+	
+anim follow15 # Marian
+	loop	1
+	delay	10
+	offset	0 164
+	@cmd	cProperty "map"	6
+	@cmd	setlayer -2
+	frame	none
+	@cmd	eventLoop
+	frame	none
+	delay	100
+	@cmd	dasher 0 -0.6 0
+	frame	data/levels/level_6/marian.gif
+	delay	50
+	@cmd	dasher 0 0 0
+	frame	data/levels/level_6/marian.gif
+	delay	100
+	@cmd	dasher 0 -0.6 0
+	frame	data/levels/level_6/marian.gif
+	delay	0
+	@cmd	dasher 0 0 0
+	frame	data/levels/level_6/marian.gif
+	
+anim follow16 # Ledge
+	loop	1
+	delay	0
+	offset	63 41
+	@cmd	setlayer -1
+	@cmd	cProperty "map"	1
+	frame	data/levels/level_6/ledge.gif

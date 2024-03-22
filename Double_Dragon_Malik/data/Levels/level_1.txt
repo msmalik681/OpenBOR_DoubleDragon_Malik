@@ -1,0 +1,290 @@
+# Street
+music		data/music/level_1.bor
+#bossmusic	data/music/boss_1.bor
+# Load images
+panel	data/levels/level_1/lv1_base.gif
+
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {alt} {type}
+wall 0 209 0 0 1090 1082 20 500 #start
+wall 1064 198 0 0 49 41 20 500 #start
+#wall 220 280 0 0 100 100 100 4000 #testwall
+scrollspeed	2
+noslow		1
+nofadeout 	1
+direction	both
+order		a
+
+
+#--group1-----
+
+wait
+at		0
+
+spawn	lv1_objects
+alias	ani_follow1 #punk1
+coords	480 192
+at		0
+
+spawn	lv1_objects
+alias	ani_follow2 #punk2
+coords	590 192
+at		0
+
+spawn	lv1_objects
+alias	ani_follow3 #punks drumcan
+coords	540 188
+at		0
+
+spawn	lv1_objects
+alias	ani_follow4 #fire
+coords	540 188
+at		0
+
+spawn	lv1_objects
+alias	ani_follow7 #boss gate
+mp		1
+coords	1248 188
+at		0
+
+group	0 2
+at		0
+
+######### test ###########
+#
+#group	0 1
+#at		0
+#
+#spawn	Burnov_e
+#alias	Boss
+#health	60
+#coords	500 220
+#at		0
+##########################
+
+
+spawn	Brett_e
+health	60
+coords	500 220
+at		0
+
+spawn	Frank
+health	60
+coords	550 265
+at		0
+
+spawn	Bat
+coords	500 235
+at		0
+
+spawn	Drumcan
+coords	1050 225
+at		0
+
+wait
+at		200
+
+group	0 3
+at		200
+
+spawn	Williams
+health	60
+coords	500 210
+at		200
+
+spawn	Williams
+health	60
+coords	530 235
+at		200
+
+spawn	Frank
+health	60
+coords	500 265
+at		200
+
+wait
+at		670
+
+group	0 2
+at		670
+
+spawn	Linda
+health	60
+weapon	Whip
+coords	80 210 300
+at		670
+
+spawn	Williams
+health	60
+coords	150 210 300
+at		670
+
+group	0 2
+at		670
+
+spawn	Frank
+health	60
+coords	180 210 300
+at		670
+
+spawn	Brett_e
+health	60
+coords	250 210 300
+at		670
+
+group	2 2
+at		670
+
+spawn	lv1_objects
+health	6000
+alias	ani_follow5 #door
+coords	66 204
+at		670
+
+spawn	Delay
+health	5
+coords	66 204
+at		670
+
+spawn	Delay
+health	5
+coords	66 204
+at		670
+
+spawn	Williams
+health	60
+flip	1
+alias	ani_follow1 #walk out of door
+coords	99 195 0
+at		670
+
+spawn	Delay
+health	8
+coords	66 204
+at		670
+
+spawn	Frank
+health	60
+flip	1
+alias	ani_follow1 #walk out of door
+coords	99 195 0
+at		670
+
+group	0 1
+at		670
+
+spawn	delay
+health	10
+coords	0 0
+at		670
+
+group	3 3
+at		670
+
+spawn	lv1_objects
+alias	ani_follow6 #wall crack
+coords	290 204
+at		670
+
+spawn	delay
+health	8
+coords	340 195
+at		670
+
+spawn	delay
+health	8
+coords	340 195
+at		670
+
+spawn	delay
+health	10
+coords	340 195
+at		670
+
+spawn	Brett_e
+health	60
+alias	ani_follow1 #walk out of door
+coords	320 196 0
+at		670
+
+spawn	delay
+health	10
+coords	340 195
+at		670
+
+spawn	delay
+health	10
+coords	340 195
+at		670
+
+spawn	Frank
+health	60
+alias	ani_follow1 #walk out of door
+weapon	Bat
+coords	320 196 0
+at		670
+
+spawn	delay
+health	10
+coords	340 195
+at		670
+
+spawn	Aaron
+health	60
+alias	ani_follow1 #walk out of door
+coords	320 196 0
+at		670
+
+group	0 1
+at		670
+
+spawn	Drumcan
+coords	545 210
+at		670
+
+wait
+at		1055
+
+group	3 3
+at		1055
+
+spawn	Frank
+health	60
+coords	500 265
+weapon	Bat
+at		1055
+
+spawn	delay
+health	10
+coords	340 195
+at		1055
+
+spawn	delay
+health	10
+coords	340 195
+at		1055
+
+spawn	Brett_e
+health	60
+coords	-10 265
+at		1055
+
+spawn	delay
+health	20
+coords	340 195
+at		1055
+
+spawn	Event
+mp		1
+at		1055
+
+spawn	Abbobo_e
+boss	1
+alias 	Boss
+health	120
+coords	265 180
+at		1055
+
+spawn	Enemy_Spawner
+alias	ani_follow1 # stage 1 boss backup
+coords	600 220
+at		1055

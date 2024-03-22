@@ -1,0 +1,14 @@
+name	panel_bars
+health	0
+type	panel
+shadow	0
+facing	1
+antigravity 100
+offscreenkill 9999
+setlayer -9
+
+
+anim idle
+	loop	0
+	offset	0 44
+	frame	data/levels/level_4/panel_bars.png

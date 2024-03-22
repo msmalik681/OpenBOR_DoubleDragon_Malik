@@ -1,0 +1,22 @@
+name	Delay
+health	10
+type	enemy
+antigravity 100
+subject_to_wall 0
+subject_to_hole 0
+subject_to_obstacle 0
+subject_to_platform 0
+subject_to_basemap 0
+offscreenkill 999
+nomove	1
+shadow	0
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	1
+	delay	10
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	hitme 1
+	frame	data/chars/misc/empty.gif

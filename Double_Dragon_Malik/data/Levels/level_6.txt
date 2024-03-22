@@ -1,0 +1,404 @@
+# Cliff
+music		data/music/level_6.bor
+cameraoffset 0 -60
+cameratype	0
+# Load images
+panel		data/levels/level_6/lv6_base.gif
+noslow		1
+scrollspeed	2
+candamage player enemy
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {height} {type}
+
+wall 1852 281 -80 0 -58 10 85 999 # end wall
+wall 1465 276 -9999 -9999 80 0 85 999 # upper wall
+wall 1028 308 -855 -820 35 0 35 999 # lower wall
+
+#hole {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {alt} {type}
+hole 558 380 57 0 9999 9999 58 0
+hole 1052 322 15 0 9999 9999 16 0
+
+direction both
+order	a
+
+#--------OBJECTS---------
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow6 # Stone door
+coords	79 271
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow1 # Red flame
+coords	270 151
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow1 # Red flame
+coords	510 151
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow2 # Blue flame
+coords	1101 87
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow2 # Blue flame
+coords	1342 87
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow1 # Red flame
+coords	1557 124
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow2 # Blue flame
+coords	1717 124
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow4 # Dragons
+coords	1610 3
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow5 # Dragons effect
+coords	1600 1
+at		0
+
+spawn	lv6_objects
+alias	ani_follow9 # Spear
+coords	656 194
+at		0
+
+spawn	lv6_objects
+flip	1
+alias	ani_follow9 # Spear
+coords	768 194
+at		0
+
+spawn	lv6_objects
+alias	ani_follow9 # Spear
+coords	976 194
+at		0
+
+spawn	lv6_objects
+alias	ani_follow16 # Ledge
+flip	1
+coords	1871 196 72#124
+at		0
+
+#-----------EVENTS------------
+
+spawn	lv6_objects
+flip	1
+mp		1 # event 1
+alias	ani_follow7 # Stone pillar A
+coords	244 248
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		1 # event 1
+alias	ani_follow7 # Stone pillar B
+coords	356 248 
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		2 #event 2
+alias	ani_follow3 # Old door
+coords	631 303
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		-1 # keep looping
+alias	ani_follow3 # Old door
+coords	792 303
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		2 #event 2
+alias	ani_follow3 # Old door
+coords	951 303
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		3 #event 3
+alias	ani_follow12 # Break wall
+coords	1120 272
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		4 #event 4
+alias	ani_follow12 # Break wall
+coords	1360 272
+at		0
+
+spawn	Boss_Door # Load boss door right side.
+at		0
+
+spawn	lv6_objects
+flip	1
+mp		6 #event 6 & 7
+alias	ani_follow13 # Boss door main
+coords	1632 113
+at		0
+
+spawn	lv6_objects
+alias	ani_follow15 # Marian
+mp		5
+coords	1500 196 196
+at		0
+
+
+##----------ENEMIES-----------
+
+wait
+at		0
+
+group	2 4
+at		0
+
+spawn	Brett
+weapon	Bat
+coords	520 370
+at		0
+
+spawn	Brett
+weapon	Bat
+coords	600 315
+at		0
+
+spawn	Williams
+coords	570 320
+at		0
+
+spawn	Scott
+coords	560 315
+at		0
+
+spawn	Event
+mp		1
+at		0
+
+wait
+at		530
+
+group	4 4
+at		530
+
+spawn	Event
+mp		2
+at		530
+
+spawn	Clive
+coords	101 298
+flip	1
+alias	ani_follow1
+at		530
+
+spawn	Scott
+coords	421 298
+alias	ani_follow1
+at		530
+
+spawn	Delay
+health	40
+at		530
+
+spawn	Delay
+health	40
+at		530
+
+spawn	Clive
+coords	101 298
+map		1
+flip	1
+alias	ani_follow1
+at		530
+
+spawn	Williams
+coords	421 298
+alias	ani_follow1
+at		530
+
+#--------------------------
+
+wait
+at		960
+
+group	4 4
+at		960
+
+spawn	Event
+mp		3
+at		960
+
+spawn	Delay
+health	8
+at		960
+
+spawn	Delay
+health	8
+at		960
+
+spawn	Delay
+health	8
+at		960
+
+spawn	Delay
+health	8
+at		960
+
+spawn	Aaron
+flip	1
+map		1
+alias	ani_follow1
+coords	160 272
+at		960
+
+spawn	Delay
+health	15
+at		960
+
+spawn	Delay
+health	15
+at		960
+
+spawn	Delay
+health	15
+at		960
+
+spawn	Aaron
+flip	1
+map		1
+alias	ani_follow1
+coords	160 272
+at		960
+
+spawn	Event
+mp		4
+at		960
+
+spawn	Delay
+health	5
+at		960
+
+spawn	Delay
+health	5
+at		960
+
+spawn	Brown
+alias	ani_follow1
+coords	400 272
+at		960
+
+spawn	Delay
+health	15
+at		960
+ 
+spawn	Brown
+alias	ani_follow1
+coords	400 272
+at		960
+ 
+#--------------------------
+ 
+wait
+at		1392
+
+group	5 5
+at		1392
+
+spawn	Willy
+coords	500 196 88#108
+alias	ani_follow3 # Ledge intro
+mp		7
+at		1392
+
+spawn	delay
+health	30
+at		1392
+
+spawn	delay
+health	30
+at		1392
+
+spawn	delay
+health	30
+at		1392
+
+spawn	delay
+health	30
+at		1392
+
+spawn	Abbobo
+coords	350 200 320
+at		1392
+
+spawn	Burnov
+coords	365 240 320
+at		1392
+
+
+spawn	delay
+health	10
+at		1392
+
+spawn	delay
+health	10
+at		1392
+
+spawn	Brett
+flip	1
+coords	184 200 320
+at		1392
+
+spawn	Brett
+coords	342 200 320
+at		1392
+
+group	2 2
+at		1392
+
+spawn	Event
+mp		6
+at		1392
+
+spawn	delay
+health	3
+at		1392
+
+spawn	delay
+health	3
+at		1392
+
+spawn	Event
+mp		7 # Willy intro B
+at		1392
+#
+#spawn	delay
+#health	9999999999
+#at 		960
+
+
+
+
+
+
+

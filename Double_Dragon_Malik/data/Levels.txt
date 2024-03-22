@@ -1,0 +1,94 @@
+# List level filenames here.
+#
+# Syntax:
+#	set	[difficulty]	Start a new set of levels (e.g. "normal")
+#
+#	file	[filename]	A level or part of a level
+#	next			Go to next level (show "stage clear" and stuff)
+#	scene	[filename]	Show a cut-scene
+#
+
+lbarsize 102 12 1 1 0 -999 -999 -999 -999
+mpbarsize 80 6 1 1 0 -999 -999 -999 -999
+
+p1life      56 19
+p1mp        56 38
+p1namej     -999 -999 -999 -999 -999 -999 0
+p1icon	    -176 15
+p1lifen     -999 -999
+p1lifex     -999 -999
+p1score     11 2 -999 -999 100 2 5
+
+e1life      -999 -999
+e1icon      -999 -999
+e1name      -999 -999
+
+p2life      322 19
+p2mp        344 38
+p2namej     -999 -999 -999 -999 -999 -999 0
+p2icon      304  15
+p2lifen     -999 -999
+p2lifex     -999 -999
+p2score     304 2 -999 -999 393 2 5
+
+e2life      999 999
+e2icon      999 999
+e2name      -999 -999
+
+blendfx 1 1 1 1 1 1 1
+
+
+#############################
+
+set			menu
+skipselect
+branch		title
+z			0 272
+file		data/levels/custom_menu.txt
+
+#############################
+
+set			ARCADE
+cansave		2
+lives		8
+credits		1
+maxplayers	2
+noshowcomplete 1
+disablehof 1
+noshowcomplete 1
+disablegameover 1
+
+skipselect _ _
+
+branch select
+z			0 272
+file		data/levels/select_screen.txt
+
+branch	training
+z		270 320
+file	data/levels/training.txt
+
+branch	stage_1
+z		191 274
+file	data/levels/level_1.txt
+
+branch	stage_2	
+z		135 350
+file	data/levels/level_2.txt
+
+branch	stage_3
+z		145 290
+file	data/levels/level_3.txt
+
+branch	stage_4
+z		112 251
+file	data/levels/level_4.txt
+
+branch	stage_5
+z		155 390#410
+file	data/levels/level_5.txt
+
+branch	stage_6
+z		196 380
+file	data/levels/level_6.txt
+

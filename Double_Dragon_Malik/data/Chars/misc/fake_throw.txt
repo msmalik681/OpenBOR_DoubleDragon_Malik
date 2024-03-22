@@ -1,0 +1,13 @@
+name	Fake_Throw
+health	1
+type	none
+remove	1
+speed	0
+
+anim idle
+	delay	3
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/empty.gif
+

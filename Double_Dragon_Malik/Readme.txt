@@ -1,0 +1,1 @@
+Simply make the appimage executable then run. In most modern distros you can just right click the file and select the executable checkbox in properties. To update by terminal in this folder run "chmod a+x OpenBOR_3.0_6391.AppImage".

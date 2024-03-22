@@ -1,0 +1,111 @@
+name		Billy_Knife
+health		100
+speed		9
+type		none
+running		25 3.5 2 0 0
+shadow		3
+risetime 	3
+atchain 	1
+icon		data/chars/billy/icon.gif
+modelflag 	3
+
+animationscript	data/scripts/scripts.c
+
+anim walk
+	loop	1
+	offset	23 80
+	bbox	4 10 30 70
+	delay	11
+	frame	data/chars/billy/03_walk01.gif
+	frame	data/chars/billy/03_walk02.gif
+	frame	data/chars/billy/03_walk03.gif
+	frame	data/chars/billy/03_walk04.gif
+	frame	data/chars/billy/03_walk05.gif
+
+anim run
+	loop	1
+	offset	40 65
+	bbox	13 10 54 54
+	delay	11
+	frame	data/chars/billy/run01.gif
+	frame	data/chars/billy/03_run02.gif
+	frame	data/chars/billy/03_run03.gif
+	frame	data/chars/billy/03_run04.gif
+	frame	data/chars/billy/run05.gif
+	frame	data/chars/billy/03_run06.gif
+
+anim jump
+	loop	0
+	delay	20
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/billy/03_jump01.gif
+	delay	12
+	offset	21 71
+	bbox	6 6 30 58
+	frame	data/chars/billy/03_jump02.gif
+	offset	36 55
+	bbox	12 6 43 48
+	frame	data/chars/billy/03_jump03.gif
+	offset	21 71
+	bbox	6 6 30 58
+	frame	data/chars/billy/03_jump02.gif
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/billy/03_jump01.gif
+
+anim jumpland
+	loop	0
+	offset	21 67
+	delay	18
+	frame	data/chars/billy/03_rise01.gif
+	delay	10
+	frame	data/chars/billy/03_rise02.gif
+
+anim grab
+
+anim throw
+
+anim runattack
+
+anim jumpattack
+
+anim attack2
+
+anim attack3
+
+anim freespecial
+
+anim idle
+	loop	0
+	offset	19 75
+	bbox	4 10 34 65
+	delay	1
+	frame	data/chars/billy/03_idle.gif
+
+anim get
+	loop	0
+	offset	57 109
+	delay	15
+	frame	data/chars/billy/rise02.gif
+	frame	data/chars/billy/get.gif
+	offset	21 67
+	frame	data/chars/billy/03_rise02.gif
+
+anim attack1
+	loop	0
+	delay	8
+	offset	25 95
+	bbox	9 30 36 65
+	custknife Fake_Throw
+	throwframe 1 0
+	@cmd	antiwall 60 -60 37
+	frame	data/chars/billy/03_atk101.gif
+	frame	data/chars/billy/03_atk102.gif
+	@cmd	spawn01 "Knife_Throw" 60 37 0
+	frame	data/chars/billy/03_atk103.gif
+	frame	data/chars/billy/03_atk104.gif
+	offset	26 75
+	frame	data/chars/billy/atk205.gif
+	offset	23 76
+	frame	data/chars/billy/atk107.gif

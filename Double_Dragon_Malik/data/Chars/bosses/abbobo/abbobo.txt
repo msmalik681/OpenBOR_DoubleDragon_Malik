@@ -1,0 +1,339 @@
+name			Abbobo
+health			100
+mp				30
+speed			4
+atchain			1 2 3
+diesound 		data/sounds/silent.wav
+type			player
+projectilehit 	player
+jumpheight		3.8
+shadow			4
+risetime 		3
+icon			data/chars/bosses/abbobo/icon.gif
+candamage		enemy obstacle
+falldie			2
+nodieblink		1
+makeinv			2 0
+blockpain		1
+
+palette			data/chars/bosses/abbobo/idle01.gif
+alternatepal	data/chars/bosses/abbobo/walk03.gif
+
+load Abbobo_Effect 3
+
+animationscript		data/scripts/scripts.c
+takedamagescript	data/scripts/takedamagescript.c
+#ondeathscript 		data/scripts/bossdeath.c
+
+com a2 freespecial5
+
+anim respawn #spawn animation
+	loop	0
+	offset	19 75
+	delay	3
+	frame	none
+	@cmd	intro
+	@cmd	teleport
+	frame	none
+
+anim idle
+	loop	1
+	offset	70 164
+	bbox	46 82 47 83
+	delay	20
+	frame	data/chars/bosses/abbobo/idle01.gif
+	frame	data/chars/bosses/abbobo/idle02.gif
+	frame	data/chars/bosses/abbobo/idle01.gif
+	frame	data/chars/bosses/abbobo/idle03.gif
+
+anim walk
+	loop	1
+	offset	38 101
+	bbox	13 17 48 83
+	delay	15
+	cancel	0 4 0 a2 freespecial4
+	frame	data/chars/bosses/abbobo/walk01.gif
+	frame	data/chars/bosses/abbobo/walk02.gif
+	frame	data/chars/bosses/abbobo/walk03.gif
+	frame	data/chars/bosses/abbobo/walk04.gif
+	frame	data/chars/bosses/abbobo/walk05.gif
+
+anim pain
+	loop	0
+	offset	42 101
+	bbox	10 13 46 86
+	delay	8
+	frame	data/chars/bosses/abbobo/pain01.gif
+	delay	40
+	frame	data/chars/bosses/abbobo/pain02.gif
+	delay	8
+	frame	data/chars/bosses/abbobo/pain01.gif
+
+anim grabbed
+	loop	0
+	offset	42 101
+	bbox	10 13 46 86
+	delay	8
+	frame	data/chars/bosses/abbobo/pain01.gif
+
+anim pain5
+	loop	0
+	offset	28 84
+	bbox	7 10 41 74
+	delay	8
+	frame	data/chars/bosses/abbobo/pain11.gif
+	frame	data/chars/bosses/abbobo/pain12.gif
+	frame	data/chars/bosses/abbobo/pain11.gif
+
+anim pain3
+	loop	0
+	offset	28 84
+	bbox	7 10 41 74
+	delay	8
+	frame	data/chars/bosses/abbobo/pain11.gif
+	frame	data/chars/bosses/abbobo/pain12.gif
+	frame	data/chars/bosses/abbobo/pain11.gif
+
+anim pain2
+	loop	0
+	offset	28 84
+	bbox	7 10 41 74
+	delay	8
+	frame	data/chars/bosses/abbobo/pain11.gif
+	delay	150
+	frame	data/chars/bosses/abbobo/pain12.gif
+	delay	8
+	frame	data/chars/bosses/abbobo/pain11.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	40 55
+	landframe 2
+	attack	6 5 76 49		10 1
+	bbox 	6 5 76 49
+	frame	data/chars/bosses/abbobo/fall01.gif
+	attack	4 15 79 43		10 1
+	bbox 	4 15 79 43
+	offset	39 65
+	delay 	999
+	frame	data/chars/bosses/abbobo/fall02.gif
+	attack	0 0 0 0
+	bbox 	6 4 89 37
+	offset	45 36
+	delay 	50
+	frame	data/chars/bosses/abbobo/fall03.gif
+
+anim fall3 # Jimmy overhead
+	loop	0
+	delay	20
+	landframe 2
+	jumpframe 2 5.5 -1.2
+	bbox 	6 5 76 49
+	offset	40 55
+	frame	data/chars/bosses/abbobo/fall01.gif
+	bbox 	4 15 79 43
+	offset	39 65
+	delay 	999
+	frame	data/chars/bosses/abbobo/fall02.gif
+	bbox 	6 4 89 37
+	offset	45 36
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/bosses/abbobo/fall03.gif
+	bbox 	6 5 76 49
+	offset	40 55
+	frame	data/chars/bosses/abbobo/fall01.gif
+	bbox 	4 15 79 43
+	offset	39 65
+	frame	data/chars/bosses/abbobo/fall02.gif
+	bbox 	6 4 89 37
+	offset	45 36
+	frame	data/chars/bosses/abbobo/fall03.gif
+
+anim rise
+	loop	0
+	delay	15
+	offset	70 164
+	frame	data/chars/bosses/abbobo/rise01.gif
+	frame	data/chars/bosses/abbobo/rise02.gif
+
+anim attack1
+	loop	0
+	delay	1
+	@cmd 	punches
+	frame	none
+
+anim freespecial # basic punch 1
+	range	0 70
+	loop	0
+	delay	7
+	offset	32 91
+	bbox	4 10 61 83
+	frame	data/chars/bosses/abbobo/punch101.gif
+	frame	data/chars/bosses/abbobo/punch102.gif
+	attack	36 6 61 28		5 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/abbobo/punch103.gif
+	delay	10
+	frame	data/chars/bosses/abbobo/punch104.gif
+	delay	6
+	attack	0 0 0 0
+	frame	data/chars/bosses/abbobo/punch105.gif
+
+anim freespecial2 # basic punch 2
+	range	0 70
+	loop	0
+	delay	7
+	offset	32 91
+	bbox	4 10 61 83
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/abbobo/punch201.gif
+	frame	data/chars/bosses/abbobo/punch102.gif
+	attack	36 6 61 28		5 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/bosses/abbobo/punch203.gif
+	delay	10
+	frame	data/chars/bosses/abbobo/punch204.gif
+	delay	6
+	attack	0 0 0 0
+	frame	data/chars/bosses/abbobo/punch105.gif
+
+anim freespecial3 # overhead
+	range	0 120
+	loop	0
+	delay	8
+	offset	32 91
+	bbox	4 10 61 83
+	frame	data/chars/bosses/abbobo/punch201.gif
+	offset	48 118
+	frame	data/chars/bosses/abbobo/punch302.gif
+	frame	data/chars/bosses/abbobo/punch303.gif
+	frame	data/chars/bosses/abbobo/punch304.gif
+	attack3	42 9 96 105		20 1
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	sound	data/sounds/punch.wav
+	dropv	-1 0 0
+	frame	data/chars/bosses/abbobo/punch305.gif
+	frame	data/chars/bosses/abbobo/punch306.gif
+	delay	10
+	attack3	0 0 0
+	frame	data/chars/bosses/abbobo/punch307.gif
+	frame	data/chars/bosses/abbobo/punch308.gif
+	offset	32 91
+	frame	data/chars/bosses/abbobo/punch105.gif
+
+anim freespecial4 # super forwarer
+	mponly	1
+	energycost 30 1
+	delay	1
+	@cmd	doattack "ani_follow5"
+	frame	none
+
+anim freespecial5 # start block
+	loop	0
+	delay	8
+	bbox	48 84 48 81
+	@cmd	cAiflag "blocking" 1
+	@cmd	anichange "ani_block"
+	offset	70 164
+	frame	data/chars/bosses/abbobo/block01.gif
+
+anim block # block
+	loop	0
+	delay	8
+	bbox	48 84 48 81
+	offset	70 164
+	@cmd	cAiflag "blocking" 1
+	frame	data/chars/bosses/abbobo/block02.gif
+	frame	data/chars/bosses/abbobo/block02.gif
+	@cmd	key2frame "attack2" 1
+	@cmd	key2frame "special" 1
+	frame	data/chars/bosses/abbobo/block02.gif
+	@cmd	cAiflag "blocking" 0
+	frame	data/chars/bosses/abbobo/block01.gif
+
+anim blockpain
+	loop	0
+	delay	12
+	offset	70 164
+	@cmd	dasher -3
+	frame	data/chars/bosses/abbobo/block02.gif
+	@cmd	dasher -1.5
+	frame	data/chars/bosses/abbobo/block02.gif
+	@cmd	dasher 0
+	@cmd	anichange "ani_block"
+	frame	data/chars/bosses/abbobo/block02.gif
+
+anim follow5 # super move
+	loop	0
+	range 	30 120
+	delay	8
+	offset	70 164
+	@cmd	spawnbind2 "Abbobo_Effect" 0 0 1 0 6
+	bbox	47 94 44 71
+	frame	data/chars/bosses/abbobo/rise02.gif
+	bbox	47 112 44 53
+	frame	data/chars/bosses/abbobo/rise01.gif
+	delay	7
+	sound 	data/sounds/0_voice11_abbobo.wav
+	frame	data/chars/bosses/abbobo/super01.gif
+	sound 	data/sounds/big_swing_se12.wav
+	bbox	47 94 44 71
+	frame	data/chars/bosses/abbobo/super02.gif
+	bbox	52 87 44 78
+	frame	data/chars/bosses/abbobo/super03.gif
+	attack 	49 1 119 165		50 1
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	dropv	7 0.5
+	frame	data/chars/bosses/abbobo/super04.gif
+	frame	data/chars/bosses/abbobo/super05.gif
+	attack 	0 0 0 0
+	frame	data/chars/bosses/abbobo/super05.gif
+	frame	data/chars/bosses/abbobo/super06.gif
+	delay	10
+	frame	data/chars/bosses/abbobo/super06.gif
+	frame	data/chars/bosses/abbobo/super07.gif
+	
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	28 115
+	bbox	10 23 33 82
+	frame	data/chars/bosses/abbobo/jump01.gif
+	delay	12
+	frame	data/chars/bosses/abbobo/jump02.gif
+	frame	data/chars/bosses/abbobo/jump03.gif
+	frame	data/chars/bosses/abbobo/jump02.gif
+	frame	data/chars/bosses/abbobo/jump01.gif
+	
+anim jumpland
+	loop	0
+	offset	70 164
+	bbox	47 112 44 53
+	delay	18
+	frame	data/chars/bosses/abbobo/rise01.gif
+	delay	10
+	bbox	47 94 44 71
+	frame	data/chars/bosses/abbobo/rise02.gif
+	
+anim death
+	loop	0
+	delay	100
+	offset	45 36
+	frame	data/chars/bosses/abbobo/fall03.gif
+	offset	70 164
+	delay	50
+	frame	data/chars/bosses/abbobo/rise01.gif
+	delay	13
+	offset	58 52
+	sound 	data/sounds/0_voice10_die_deep.wav
+	frame	data/chars/bosses/abbobo/fall301.gif
+	frame	data/chars/bosses/abbobo/fall302.gif
+	delay	60
+	frame	data/chars/bosses/abbobo/fall303.gif
+	
+

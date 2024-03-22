@@ -1,0 +1,164 @@
+name			Brett_Bat
+health			999
+mp				30
+speed			5
+type			none
+palette			data/chars/enemies/0_brett/idle1.gif
+icon			data/chars/enemies/0_brett/icon.gif
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+aimove			chasex
+subject_to_wall 1
+antigravity 	0
+modelflag 		3
+diesound		data/sounds/eek.wav
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	25 78
+	delay	1
+	frame	data/chars/enemies/0_brett/02_idle.gif
+	frame	data/chars/enemies/0_brett/02_idle.gif
+	@cmd	wallpass 1
+	@cmd	jumpin
+	frame	data/chars/enemies/0_brett/02_idle.gif
+
+anim follow2
+	loop	0
+	bbox	5 8 22 92
+	delay	12
+	offset	36 55
+	bbox	12 6 43 48
+	landframe 3
+	frame	data/chars/enemies/0_brett/02_jump03.gif
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/enemies/0_brett/02_jump02.gif
+	offset	17 101
+	bbox	5 8 22 92
+	delay	999
+	frame	data/chars/enemies/0_brett/02_jump01.gif
+	offset	20 66
+	delay	18
+	frame	data/chars/enemies/0_brett/02_rise01.gif
+	delay	10
+	frame	data/chars/enemies/0_brett/02_rise02.gif
+
+anim idle
+	loop	1
+	offset	25 78
+	bbox	9 14 32 61
+	delay	10
+	@cmd	tryatk "ani_follow5" 10
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_idle.gif
+
+anim walk
+	loop	1
+	offset	23 85
+	bbox	9 24 30 64
+	delay	9
+	@cmd	tryatk "ani_follow5" 10
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_walk01.gif
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_walk02.gif
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_walk03.gif
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_walk04.gif
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_walk05.gif
+	@cmd	key2ani "follow5" 0 "attack2"
+	frame	data/chars/enemies/0_brett/02_walk06.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/enemies/0_brett/02_jump01.gif
+	delay	12
+	offset	20 69
+	bbox	6 6 30 58
+	frame	data/chars/enemies/0_brett/02_jump02.gif
+	offset	36 55
+	bbox	12 6 43 48
+	frame	data/chars/enemies/0_brett/02_jump03.gif
+	offset	20 69
+	bbox	6 6 30 58
+	frame	data/chars/enemies/0_brett/02_jump02.gif
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/enemies/0_brett/02_jump01.gif
+
+anim get
+	loop	0
+	offset	20 66
+	delay	3
+	frame	data/chars/enemies/0_brett/rise02.gif
+	@cmd	player_hp
+	delay	10
+	frame	data/chars/enemies/0_brett/rise02.gif
+	delay	15
+	frame	data/chars/enemies/0_brett/get.gif
+	frame	data/chars/enemies/0_brett/02_rise02.gif
+
+anim jumpland
+	loop	0
+	offset	20 66
+	bbox	6 8 31 56
+	delay	18
+	frame	data/chars/enemies/0_brett/02_rise01.gif
+	delay	10
+	frame	data/chars/enemies/0_brett/02_rise02.gif
+
+anim attack1
+	loop	0
+	range	0 50
+	offset	36 83
+	delay	8
+	bbox	19 19 32 63
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/enemies/0_brett/02_atk101.gif
+	frame	data/chars/enemies/0_brett/02_atk102.gif
+	attack	36 9 34 43		30 1
+	frame	data/chars/enemies/0_brett/02_atk103.gif
+	attack	0 0 0 0
+	frame	data/chars/enemies/0_brett/02_atk104.gif
+	frame	data/chars/enemies/0_brett/02_atk105.gif
+	frame	data/chars/enemies/0_brett/02_atk106.gif
+
+anim attack2
+
+anim attack3
+
+anim attack4
+
+anim follow5 # throw bat
+	loop	0
+	range	100 250
+	offset	36 83
+	delay	8
+	throwframe 2 50
+	custknife Fake_Throw
+	bbox	8 29 33 64
+	@cmd	antiwall 20 -20 40
+	frame	data/chars/enemies/0_brett/02_atk101.gif
+	frame	data/chars/enemies/0_brett/02_atk102.gif
+	bbox	0 0 0 0
+	@cmd	spawn01 "Bat_Throw" 20 45 0
+	frame	data/chars/enemies/0_brett/02_atk103b.gif
+	frame	data/chars/enemies/0_brett/02_atk104b.gif
+	offset	22 87
+	frame	data/chars/enemies/0_brett/atk405.gif
+	offset	23 74
+	frame	data/chars/enemies/0_brett/atk106.gif

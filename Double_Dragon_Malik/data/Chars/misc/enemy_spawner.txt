@@ -1,0 +1,99 @@
+name	Enemy_Spawner
+health		10
+type		enemy
+subject_to_wall 0
+subject_to_gravity 0
+palette 	data/levels/level_2/door01.gif
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	delay	4
+	offset	0 0
+	frame	none
+	@cmd	name2ani 
+	frame   none
+
+anim follow1 # stage 1 boss backup
+	loop	1
+	delay	50
+	frame	none
+	@cmd	boss_backup 0 0 0 NULL() 4 "Williams" "Linda" "Frank" "Brett" "Aaron"
+	frame	none
+
+anim follow2 # stage 2 boss backup
+	loop	1
+	offset	0 112
+	delay	20
+	frame 	none
+	@cmd	setlayer 3
+	sound 	data/sounds/elevator_se32.wav
+	frame	data/levels/level_2/door01.gif
+	frame	data/levels/level_2/door02.gif
+	delay	250
+	@cmd	bossBackup 40 118 112 "ani_follow1" "Williams" "Scott" "Cindy" "Linda" "Mark" "Kent"
+	frame	data/levels/level_2/door03.gif
+	delay	250
+	@cmd	bossBackup 40 118 112 "ani_follow1" "Williams" "Scott" "Cindy" "Linda" "Mark" "Kent"
+	frame	data/levels/level_2/door03.gif
+	delay	250
+	@cmd	bossBackup 40 118 112 "ani_follow1" "Williams" "Scott" "Cindy" "Linda" "Mark" "Kent"
+	frame	data/levels/level_2/door03.gif
+	delay	250
+	@cmd	bossBackup 40 118 112 "ani_follow1" "Williams" "Scott" "Cindy" "Linda" "Mark" "Kent"
+	frame	data/levels/level_2/door03.gif
+	delay	20
+	frame	data/levels/level_2/door02.gif
+	frame	data/levels/level_2/door01.gif
+	frame	none
+	@cmd	eFrame 2 0 #if its just boss and me load more enemies.
+	frame	none
+	@cmd	jump2Frame 9 #loop back
+	frame	none
+
+anim follow3 # stage 3 boss backup
+	loop	0
+	offset	0 0
+	delay	400
+	frame	none
+	delay	250
+	frame	none
+	@cmd	bossBackup 0 0 0 "ani_follow1" "Williams" "Scott" "Frank"
+	frame	none
+	@cmd	bossBackup 0 0 0 "ani_follow1" "Williams" "Scott" "Frank"
+	frame	none
+	@cmd	bossBackup 0 0 0 "ani_follow1" "Williams" "Scott" "Frank"
+	frame	none
+	@cmd	bossBackup 0 0 0 "ani_follow1" "Williams" "Scott" "Frank"
+	delay	10
+	frame	none
+	frame	none
+	@cmd	eFrame 2 2 #if its just boss and me load more enemies.
+	frame	none
+	@cmd	jump2Frame 5 #loop back
+	frame	none
+	frame	none
+
+anim follow4 # stage 4 boss backup
+	loop	0
+	offset	0 0
+	delay	400
+	frame	none
+	delay	250
+	frame	none
+	@cmd	bossBackup 0 0 0 NULL() "Ted" "Harry"
+	frame	none
+	@cmd	bossBackup 580 0 0 NULL() "Ted" "Harry"
+	frame	none
+	delay	10
+	frame	none
+	frame	none
+	@cmd	eFrame 2 1 #if its just boss and me load more enemies.
+	frame	none
+	@cmd	jump2Frame 4 #loop back
+	frame	none
+	frame	none
+
+
+

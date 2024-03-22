@@ -1,0 +1,139 @@
+name	lv2_objects
+health	0
+type	panel
+shadow	0
+palette data/levels/level_2/steam01.gif
+#facing	0
+antigravity 100
+subject_to_wall 0
+subject_to_hole 0
+subject_to_platform 0
+offscreenkill 9999
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	1
+	frame	none
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim idle
+	loop	0
+	offset	0 0
+	delay	1
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim follow1 #steam1
+	loop	1
+	offset	72 114
+	delay	8
+	drawmethod alpha 1
+	frame	data/levels/level_2/steam01.gif
+	frame	data/levels/level_2/steam02.gif
+	frame	data/levels/level_2/steam03.gif
+	frame	data/levels/level_2/steam04.gif
+	delay	12
+	frame	data/levels/level_2/steam05.gif
+	frame	data/levels/level_2/steam06.gif
+	frame	data/levels/level_2/steam07.gif
+	delay	150
+	frame	none
+
+anim follow2 #steam2
+	loop	1
+	delay	5
+	drawmethod alpha 1
+	offset	37 58
+	frame	data/levels/level_2/small_steam01.gif
+	frame	data/levels/level_2/small_steam02.gif
+	offset	72 114
+	frame	data/levels/level_2/steam02.gif
+	delay	15
+	frame	data/levels/level_2/steam05.gif
+	frame	data/levels/level_2/steam06.gif
+	frame	data/levels/level_2/steam07.gif
+	delay	30
+	frame	none
+	offset	72 114
+	delay	10
+	frame	data/levels/level_2/steam02.gif
+	frame	data/levels/level_2/steam05.gif
+	frame	data/levels/level_2/steam06.gif
+	frame	data/levels/level_2/steam07.gif
+	delay	250
+	frame	none
+
+anim follow3 #steam3
+	loop	1
+	delay	8
+	drawmethod alpha 1
+	offset	37 58
+	@cmd	setlayer 999
+	frame	data/levels/level_2/small_steam01.gif
+	offset	72 114
+	frame	data/levels/level_2/steam01.gif
+	frame	data/levels/level_2/steam02.gif
+	delay	15
+	frame	data/levels/level_2/steam05.gif
+	frame	data/levels/level_2/steam06.gif
+	frame	data/levels/level_2/steam07.gif
+	delay	100
+	frame	none
+
+anim follow4 #steam4
+	loop	1
+	drawmethod alpha 1
+	offset	37 58
+	delay	5
+	@cmd	setlayer 3
+	frame	data/levels/level_2/small_steam01.gif
+	frame	data/levels/level_2/small_steam02.gif
+	delay	15
+	frame	data/levels/level_2/small_steam05.gif
+	frame	data/levels/level_2/small_steam06.gif
+	frame	data/levels/level_2/small_steam07.gif
+	delay	20
+	frame	none
+	delay	5
+	frame	data/levels/level_2/small_steam01.gif
+	frame	data/levels/level_2/small_steam02.gif
+	delay	15
+	frame	data/levels/level_2/small_steam05.gif
+	frame	data/levels/level_2/small_steam06.gif
+	frame	data/levels/level_2/small_steam07.gif
+	delay	30
+	frame	none
+	offset	72 114
+	delay	10
+	frame	data/levels/level_2/steam02.gif
+	frame	data/levels/level_2/steam05.gif
+	frame	data/levels/level_2/steam06.gif
+	frame	data/levels/level_2/steam07.gif
+	delay	200
+	frame	none
+
+anim follow5 #doorA
+	loop	0
+	offset	0 112
+	delay	20
+	@cmd	setlayer 3
+	sound 	data/sounds/elevator.wav
+	frame	data/levels/level_2/door01.gif
+	frame	data/levels/level_2/door02.gif
+	delay	250
+	@cmd	spawn02 "Williams" 40 118 112 "ani_follow1"
+	frame	data/levels/level_2/door03.gif
+	@cmd	spawn02 "Kent" 40 118 112 "ani_follow1"
+	frame	data/levels/level_2/door03.gif
+	delay	20
+	frame	data/levels/level_2/door02.gif
+	frame	data/levels/level_2/door01.gif
+	@cmd	killme
+	frame	none
+	

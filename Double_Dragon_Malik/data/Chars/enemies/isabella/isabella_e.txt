@@ -1,0 +1,372 @@
+name			Isabella_e
+health			999
+speed			6
+type			enemy
+projectilehit 	enemy
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+aimove			chasex
+diesound		data/sounds/0_voice1_female_die.wav
+subject_to_wall 0
+subject_to_gravity 0
+subject_to_minz 0
+
+palette		data/chars/enemies/isabella/idle01.gif
+
+animationscript data/scripts/scripts.c
+takedamagescript data/scripts/takedamagescript.c
+
+anim spawn
+	loop	0
+	offset	69 130
+	delay	3
+	frame	none
+	@cmd 	stats
+	@cmd	name2ani
+	@cmd	wallpass 1
+	@cmd	jumpin
+	frame	none
+
+anim follow1 # walk out of door
+	loop	0
+	offset	69 130
+	delay	18
+	drawmethod tintmode 4
+	drawmethod tintcolor 32_32_32
+	frame	data/chars/enemies/isabella/walk01.gif
+	@cmd	dasher 0 0 0.3
+	drawmethod tintcolor 64_64_64
+	frame	data/chars/enemies/isabella/walk02.gif
+	drawmethod tintcolor 96_96_96
+	frame	data/chars/enemies/isabella/walk03.gif
+	drawmethod tintmode 0
+	frame	data/chars/enemies/isabella/walk04.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	frame	data/chars/enemies/isabella/walk05.gif
+
+anim follow2 # jump down
+	loop	0
+	bbox	5 8 22 92
+	delay	12
+	offset	69 130
+	bbox	47 55 54 44
+	landframe 3
+	frame	data/chars/enemies/isabella/jump03.gif
+	bbox	54 54 31 70
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	999
+	frame	data/chars/enemies/isabella/jump01.gif
+	delay	18
+	bbox	50 78 40 51
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/enemies/isabella/rise01.gif
+	delay	10
+	frame	data/chars/enemies/isabella/rise02.gif
+	
+anim follow3 # jump from crowd
+	loop	0
+	delay	12
+	offset	69 130
+	landframe 3
+	drawmethod tintmode 4
+	drawmethod tintcolor 32_32_32
+	@cmd	dasher 0 0 0.2
+	jumpframe 8 2 0 0
+	landframe 16
+	frame	data/chars/enemies/isabella/walk01.gif
+	drawmethod tintcolor 64_64_64
+	frame	data/chars/enemies/isabella/walk02.gif
+	drawmethod tintcolor 96_96_96
+	frame	data/chars/enemies/isabella/walk03.gif
+	drawmethod tintmode 0
+	frame	data/chars/enemies/isabella/walk04.gif
+	frame	data/chars/enemies/isabella/walk05.gif
+	frame	data/chars/enemies/isabella/walk06.gif
+	frame	data/chars/enemies/isabella/walk07.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	frame	data/chars/enemies/isabella/walk08.gif
+	frame	data/chars/enemies/isabella/jump01.gif#8
+	delay	15
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	6
+	frame	data/chars/enemies/isabella/jump03.gif
+	frame	data/chars/enemies/isabella/jump04.gif
+	frame	data/chars/enemies/isabella/jump05.gif
+	frame	data/chars/enemies/isabella/jump06.gif
+	delay	15
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	1
+	frame	data/chars/enemies/isabella/jump01.gif
+	delay	18
+	sound	data/sounds/land_se07.wav
+	bbox	50 78 40 51
+	frame	data/chars/enemies/isabella/rise01.gif#16
+	delay	10
+	frame	data/chars/enemies/isabella/rise02.gif
+
+anim idle
+	loop	1
+	offset	69 130
+	bbox	50 67 37 62
+	delay	12
+	frame	data/chars/enemies/isabella/idle01.gif
+	frame	data/chars/enemies/isabella/idle02.gif
+	frame	data/chars/enemies/isabella/idle01.gif
+	frame	data/chars/enemies/isabella/idle03.gif
+
+anim walk
+	loop	1
+	offset	69 130
+	bbox	55 60 27 69
+	delay	12
+	frame	data/chars/enemies/isabella/walk01.gif
+	frame	data/chars/enemies/isabella/walk02.gif
+	frame	data/chars/enemies/isabella/walk03.gif
+	frame	data/chars/enemies/isabella/walk04.gif
+	frame	data/chars/enemies/isabella/walk05.gif
+	frame	data/chars/enemies/isabella/walk06.gif
+	frame	data/chars/enemies/isabella/walk07.gif
+	frame	data/chars/enemies/isabella/walk08.gif
+
+anim pain
+	loop	0
+	offset	69 130
+	bbox	51 63 33 67
+	delay	8
+	frame	data/chars/enemies/isabella/pain101.gif
+	delay	50
+	frame	data/chars/enemies/isabella/pain102.gif
+	delay	8
+	frame	data/chars/enemies/isabella/pain101.gif
+
+anim pain2
+	loop	0
+	offset	69 130
+	bbox	54 68 33 61
+	delay	8
+	frame	data/chars/enemies/isabella/pain201.gif
+	delay	100
+	frame	data/chars/enemies/isabella/pain202.gif
+	delay	8
+	frame	data/chars/enemies/isabella/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	69 130
+	bbox	51 63 33 67
+	delay	8
+	frame	data/chars/enemies/isabella/pain101.gif
+
+anim pain5
+	loop	0
+	offset	69 130
+	bbox	54 68 33 61
+	delay	8
+	frame	data/chars/enemies/isabella/pain201.gif
+	frame	data/chars/enemies/isabella/pain202.gif
+	frame	data/chars/enemies/isabella/pain201.gif
+
+anim fall
+	loop	0
+	delay	30
+	offset	69 130
+	landframe 2
+	bbox	44 90 61 30
+	attack	44 90 61 30		10 1
+	frame	data/chars/enemies/isabella/fall01.gif
+	bbox	50 98 64 29
+	attack	50 98 64 29		10 1
+	delay	999
+	frame	data/chars/enemies/isabella/fall02.gif
+	delay	50
+	bbox	38 109 82 23
+	attack	0 0 0 0
+	frame	data/chars/enemies/isabella/fall03.gif
+
+anim fall3
+	loop	0
+	delay	30
+	offset	69 130
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	bbox	44 90 61 30
+	frame	data/chars/enemies/isabella/fall01.gif
+	bbox	50 98 64 29
+	delay	999
+	frame	data/chars/enemies/isabella/fall02.gif
+	bbox	38 109 82 23
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/enemies/isabella/fall03.gif
+	bbox	44 90 61 30
+	frame	data/chars/enemies/isabella/fall01.gif
+	bbox	50 98 64 29
+	frame	data/chars/enemies/isabella/fall02.gif
+	bbox	38 109 82 23
+	frame	data/chars/enemies/isabella/fall03.gif
+
+anim rise
+	loop	0
+	offset	69 130
+	delay	18
+	@cmd	cProperty "facing" 0
+	frame	data/chars/enemies/isabella/rise01.gif
+	delay	10
+	frame	data/chars/enemies/isabella/rise02.gif
+
+anim attack1 #punches
+	loop	0
+	range	5 55
+	offset	69 130
+	delay	6
+	fastattack 1
+	bbox	53 68 38 59
+	frame	data/chars/enemies/isabella/atk101.gif
+	frame	data/chars/enemies/isabella/atk102.gif
+	frame	data/chars/enemies/isabella/atk103.gif
+	attack	79 65 47 30		5 0
+	bbox	53 71 42 57
+	dropv	2 2.2
+	sound	data/sounds/punch.wav
+	frame	data/chars/enemies/isabella/atk104.gif
+	frame	data/chars/enemies/isabella/atk105.gif
+	attack	0 0 0
+	bbox	53 68 38 59
+	frame	data/chars/enemies/isabella/atk101.gif
+	frame	data/chars/enemies/isabella/atk201.gif
+	frame	data/chars/enemies/isabella/atk103.gif
+	frame	data/chars/enemies/isabella/atk202.gif
+	attack2	85 72 44 23		5 0
+	bbox	53 71 42 57
+	dropv	2 2.2
+	sound	data/sounds/punch.wav
+	frame	data/chars/enemies/isabella/atk203.gif
+	frame	data/chars/enemies/isabella/atk204.gif
+	attack2	0 0 0
+	bbox	53 68 38 59
+	frame	data/chars/enemies/isabella/atk202.gif
+
+anim attack2 # kick
+	loop	0
+	offset	69 130
+	range	56 73
+	delay	7
+	bbox	61 65 34 64
+	frame	data/chars/enemies/isabella/atk301.gif
+	frame	data/chars/enemies/isabella/atk302.gif
+	frame	data/chars/enemies/isabella/atk303.gif
+	delay	10
+	attack2	99 51 43 57		10 0
+	dropv	2 2.2
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/enemies/isabella/atk304.gif
+	frame	data/chars/enemies/isabella/atk305.gif
+	delay	7
+	attack2	0 0 0
+	frame	data/chars/enemies/isabella/atk306.gif
+	frame	data/chars/enemies/isabella/atk302.gif
+
+anim attack3 # upside down kick
+	loop	0
+	offset	69 130
+	range	-45 45
+	delay	7
+	jumpframe 10 1.5 0 0
+	landframe 14
+	bbox	53 68 38 59
+	frame	data/chars/enemies/isabella/atk101.gif
+	bbox	50 78 40 51
+	frame	data/chars/enemies/isabella/rise02.gif
+	frame	data/chars/enemies/isabella/rise01.gif
+	frame	data/chars/enemies/isabella/atk401.gif
+	bbox	55 64 27 64
+	frame	data/chars/enemies/isabella/atk402.gif
+	frame	data/chars/enemies/isabella/atk403.gif
+	delay	10
+	attack2	16 62 99 53		15 1
+	dropv	2.5 4
+	hitflash BigFlash
+	sound	data/sounds/kick_se15.wav
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/enemies/isabella/atk404.gif
+	frame	data/chars/enemies/isabella/atk405.gif
+	attack2	0 0 0 0
+	frame	data/chars/enemies/isabella/atk401.gif
+	frame	data/chars/enemies/isabella/atk402.gif
+	delay	12
+	bbox	47 55 54 44
+	frame	data/chars/enemies/isabella/jump05.gif
+	frame	data/chars/enemies/isabella/jump06.gif
+	bbox	54 54 31 70
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	999
+	frame	data/chars/enemies/isabella/jump01.gif
+	bbox	50 78 40 51
+	delay	15
+	frame	data/chars/enemies/isabella/rise01.gif
+	frame	data/chars/enemies/isabella/rise02.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	69 130
+	bbox	54 54 31 70
+	frame	data/chars/enemies/isabella/jump01.gif
+	delay	15
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	6
+	bbox	47 55 54 44
+	frame	data/chars/enemies/isabella/jump03.gif
+	frame	data/chars/enemies/isabella/jump04.gif
+	frame	data/chars/enemies/isabella/jump05.gif
+	frame	data/chars/enemies/isabella/jump06.gif
+	delay	15
+	bbox	54 54 31 70
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	1
+	frame	data/chars/enemies/isabella/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	12
+	range	5 80
+	jumpframe 0 1.5 1
+	landframe 7
+	@cmd 	cAiflag "jumping" 1
+	sound 	data/sounds/jump.wav
+	offset	69 130
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	6
+	bbox	47 55 54 44
+	frame	data/chars/enemies/isabella/jump03.gif
+	frame	data/chars/enemies/isabella/jump04.gif
+	frame	data/chars/enemies/isabella/jump05.gif
+	frame	data/chars/enemies/isabella/jump06.gif
+	delay 	12
+	bbox	54 54 31 70
+	frame	data/chars/enemies/isabella/jump02.gif
+	delay	999
+	frame	data/chars/enemies/isabella/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/enemies/isabella/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	69 130
+	bbox	50 78 40 51
+	delay	18
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/enemies/isabella/rise01.gif
+	delay	10
+	frame	data/chars/enemies/isabella/rise02.gif
+
+anim death
+	offset	69 130
+	frame	data/chars/enemies/isabella/fall03.gif

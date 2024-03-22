@@ -1,0 +1,102 @@
+name		Chin_Effect
+type		none
+shadow		0
+palette		data/chars/bosses/chin/run_atk_effect01.gif
+alternatepal data/chars/bosses/willy_real/effect_idle01.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+nodieblink	1
+alpha		1
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim idle
+
+anim runattack
+	loop	0
+	offset	82 124
+	frame	none
+	frame	none
+	frame	data/chars/bosses/chin/run_atk_effect01.gif
+	frame	data/chars/bosses/chin/run_atk_effect02.gif
+	frame	data/chars/bosses/chin/run_atk_effect03.gif
+	frame	data/chars/bosses/chin/run_atk_effect04.gif
+	@cmd	killme
+	frame	none
+
+anim attack2 # power geyser
+	loop	0
+	offset	71 170
+	frame	none
+	@cmd	cProperty "map"	1
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/willy_real/effect_atk203b.gif
+	frame	data/chars/bosses/willy_real/effect_atk204b.gif
+	frame	data/chars/bosses/willy_real/effect_atk205b.gif
+	frame	data/chars/bosses/willy_real/effect_atk206b.gif
+	frame	data/chars/bosses/willy_real/effect_atk207b.gif
+	frame	data/chars/bosses/willy_real/effect_atk208b.gif
+	@cmd	killme
+	frame	none
+	
+anim attack4 #Ground Stomp
+	loop	0
+	offset	72 124
+	frame	none
+	frame	none
+	frame	none
+	#charge up
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	#stomp
+	frame	none
+	frame	none
+	frame	none
+	frame	data/chars/bosses/chin/atk506_effect.gif
+	frame	data/chars/bosses/chin/atk507_effect.gif
+	frame	data/chars/bosses/chin/atk508_effect01.gif
+	frame	data/chars/bosses/chin/atk508_effect02.gif
+	frame	data/chars/bosses/chin/atk508_effect03.gif
+	frame	data/chars/bosses/chin/atk508_effect04.gif
+	@cmd	killme
+	frame	none
+	
+anim follow4 #Dragon Kick
+	loop	0
+	offset	52 144
+	frame	none
+	frame	none
+	frame	none
+	#charge up
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	#dragon kick
+	frame	data/chars/bosses/chin/atk601_effect.gif
+	frame	data/chars/bosses/chin/atk602_effect.gif
+	frame	data/chars/bosses/chin/atk603_effect01.gif
+	frame	data/chars/bosses/chin/atk603_effect02.gif
+	frame	data/chars/bosses/chin/atk603_effect03.gif
+	#end like normal kick
+	frame	data/chars/bosses/chin/atk603_effect03.gif
+	@cmd	killme
+	frame	none

@@ -1,0 +1,79 @@
+#include "data/scripts/scripts.openbor"
+
+void takedamamge()
+{// global take damage scripts
+	void AniID = GEP(self,"animationID");
+	int Type = GLV("attacktype");
+	int drop = GLV("drop");
+	int dir = GEP(self, "direction");
+	char name = GEP(self,"name"); //Get name alias
+	char model = GEP(self,"model"); //Get current model name
+	int Damage = getlocalvar("damage"); //Get received damage
+	int eType = GEP(self,"type"); //Get attacker type
+	void attacker = getlocalvar("attacker");
+//settextobj(90,100,100,2,999999999,"DAMAGE!");
+if(attacker == self){return 0;}//ignore scripted damage.
+
+if( GEP(self,"health") <= Damage && !drop && Type < 6 && !GEP(self,"aiflag","falling") )
+{//can not be killed unless its a knockdown attack
+if(eType == OBC("TYPE_ENEMY") && GGV("bossdeath") == 1){return 0;}
+ CEP(self,"health",1);
+ } 
+
+	//void oppAniID = GEP(getentityproperty(self,"opponent"),"animationID");
+	
+	if( strinfirst(name, "Dynamite") == "Dynamite" && ( drop || Type == OBC("ATK_NORMAL2") ) && !GEP(self,"aiflag","falling"))
+	{ spawn02("Dynamite",0,0,0); }
+
+	//settextobj(50,220,200,3,999999999,"" +Type);
+	if( GEP(self,"aiflag","falling") && GEP(self,"aiflag","drop") && GEP(self,"antigravity")>=-0.50)
+	{
+	if(GEV(self,"grav")==NULL()){SEV(self,"grav",-0.10);
+	}else {SEV(self,"grav",GEV(self,"grav")-0.10);}
+	CEP(self,"antigravity",GEV(self,"grav"));
+	}else {CEP(self,"antigravity",0); SEV(self,"grav",0);}
+
+	CEP(self,"subject_to_gravity" ,1);
+	CEP(self,"subject_to_wall" ,1);
+
+	if( Type == !OBC("ATK_NORMAL4") ){
+	CEP(self, "facing", 0);
+	}
+	
+	if( GEP(self,"type") == OBC("TYPE_ENEMY") && Type == OBC("ATK_NORMAL2") )
+	{// reset grab kick counter
+	setkicks();
+	}
+
+	if(AniID == OBC("ANI_PAIN") && Type == OBC("ATK_NORMAL"))
+	{
+		setkicks();
+		damageentity(self,self,0,0,OBC("ATK_NORMAL2"));
+	}
+	
+	if(AniID == OBC("ANI_PAIN2") && (Type == OBC("ATK_NORMAL") || Type == OBC("ATK_NORMAL2")) )
+	{
+		setkicks();
+
+		damageentity(self,self,GEP(self,"health")==1?2:0,1,OBC("ATK_NORMAL3"));
+	}
+
+	//reset some things if hit
+	if( GEP(self,"type") == OBC("TYPE_ENEMY") ){stats(); wallpass(1);}
+}
+
+void drumcan()
+{
+	void AniID = GEP(self,"animationID");
+	void other = GLV("attacker");
+	int dir = GEP(other,"direction");
+
+	if(AniID == OBC("ANI_IDLE"))
+		{
+		CEP(self, "animation", OBC("ANI_PAIN")); //Change the animation
+		} else if(AniID == OBC("ANI_PAIN"))
+		{
+		CEP(self, "direction", dir);
+		CEP(self,"animation", OBC("ANI_FALL")); //Change the animation
+		}
+}

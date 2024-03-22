@@ -1,0 +1,70 @@
+name		Sticks_Throw
+type		none
+remove		1
+shadow		0
+candamage	player
+offscreenkill	200
+no_adjust_base  0
+subject_to_wall	1
+subject_to_gravity 0
+subject_to_platform 1
+subject_to_hole 1
+subject_to_obstacle 1
+
+animationscript data/scripts/scripts.c
+onblockWscript data/scripts/bounceoff.openbor
+onblockoscript data/scripts/bounceoff.openbor
+onblockpscript data/scripts/bounceoff.openbor
+
+anim	spawn
+	loop	0
+	offset	15 5
+	delay	3
+	frame	none
+	@cmd	copyDamage
+	@cmd	name2ani
+	frame	none
+
+anim	idle
+	loop	0
+	delay	5
+	offset	15 5
+	hitflash Flash_Stab
+	hitfx	data/sounds/stab_se13.wav
+	Attack2	2 20 79 22		10 0 0 0 10
+	followanim 2
+	followcond 1
+	frame	data/chars/bosses/lavis/sticks01.gif
+	@cmd	dasher 2 0 0
+	frame	data/chars/bosses/lavis/sticks01.gif
+	
+anim	follow2
+	loop	0
+	Delay	1
+	frame	data/chars/bosses/lavis/sticks01.gif
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/bosses/lavis/sticks01.gif
+
+anim	follow1 #spin off wall
+	loop	0
+	Delay	5
+	offset	17 18
+	jumpframe 0 2 0.5 0
+	@cmd	wallpass 0
+	@cmd	gravity 1
+	sound	data/sounds/knife_drop_se16.wav
+	frame	data/chars/bosses/lavis/sticks02.gif
+	frame	data/chars/bosses/lavis/sticks03.gif
+	frame	data/chars/bosses/lavis/sticks04.gif
+	frame	data/chars/bosses/lavis/sticks05.gif
+	frame	data/chars/bosses/lavis/sticks02.gif
+	frame	none
+	frame	data/chars/bosses/lavis/sticks03.gif
+	frame	none
+	frame	data/chars/bosses/lavis/sticks04.gif
+	frame	none
+	frame	data/chars/bosses/lavis/sticks05.gif
+	@cmd	killme
+	frame	none
+	
+	

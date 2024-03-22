@@ -1,0 +1,1009 @@
+#define OBC  openborconstant
+#define GEP  getentityproperty
+#define CEP  changeentityproperty
+#define SLV  setlocalvar
+#define GLV  getlocalvar
+#define GEV  getentityvar
+#define SEV  setentityvar
+#define CLP	 changelevelproperty
+#define OBV  openborvariant
+#define COBV changeopenborvariant
+#define GPP  getplayerproperty
+#define CPP  changeplayerproperty
+#define SGV  setglobalvar
+#define GGV  getglobalvar
+#define self GLV("self")
+
+
+
+////////////////////
+/// #LOAD PLAYER ///
+////////////////////
+
+void changeme()
+{// load player that was picked then chnage to them
+	if(OBV("current_branch")=="title" || OBV("current_branch")=="select") return 0;
+	
+	char player;
+
+	if ( GEP(self,"playerindex")==1 ){
+		player=GGV("Player2");
+	} else { player=GGV("Player1"); }
+	
+	log("malik:"+player);
+		loadmodel(player,3);
+		CPP(GEP(self,"playerindex"),"lives",GPP(GEP(self,"playerindex"),"lives") + 1);
+		CPP(GEP(self,"playerindex"),"name",player);
+		damageentity(self,self,9999,0,OBC("ATK_NORMAL4"));
+
+}
+
+////////////////
+/// #GRAVITY ///
+////////////////
+
+void degravity(int Ratio)
+{// Changes antigravity effect
+    
+    CEP(self, "antigravity", Ratio);
+}
+
+void gravity(int change)
+{// Changes antigravity effect
+    
+	CEP(self,"Subject_to_Gravity",change);
+}
+
+void stop()
+{// Stop enemy's movement!
+    
+    CEP(self, "velocity", 0, 0, 0); //Stop moving!
+}
+
+void floater( int Time )
+{// Floats in Time centiseconds
+    
+    int eTime = OBV("elapsed_time");
+
+    CEP(self, "tosstime", eTime + Time*2);
+}
+
+void dasher( float Vx, float Vy, float Vz )
+{// Dash with desired speed!
+    
+
+    CEP(self, "velocity", GEP(self,"direction") == 0 ? -Vx:Vx, Vz, Vy); //Move!
+}
+
+void toss(float x,float y,float z)
+{// to be used like jumpframe
+	 //get caller
+	if(GEP(self,"direction") == 0) { x = -x;} //sync direction
+	tossentity(self,y,x,z); //toss input variables
+}
+
+void antiwall(int Dist, int Move, int Height)
+{// Checks if there is wall at defined distance
+// If there is wall, entity will be moved away with defined movement
+   
+   int Direction = GEP(self, "direction");
+   int x = GEP(self, "x");
+   int y = GEP(self, "y");
+   int z = GEP(self, "z");
+
+   if(Direction == 0){ //Is entity facing left?                  
+      Dist = -Dist; //Reverse Dist to match facing
+      Move = -Move; //Reverse Move to match facing
+   }
+
+   if(checkwall(x+Dist,z) > y+Height )
+   {
+     CEP(self, "position", x+Move);
+   }
+}
+
+
+void stomp()
+{// Targetting opponent before performing targeted leap attack
+    
+	float Vy = 3.8;
+    float x = GEP(self, "x"); // Get enemy's x coordinate
+    float z = GEP(self, "z"); // Get enemy's z coordinate
+
+      void target = GEP(self, "opponent");
+      float Tx = GEP(target, "x"); // Get target's x coordinate
+      float Tz = GEP(target, "z"); // Get target's z coordinate
+
+      float Vx = (Tx-x)/(20*Vy); // Calculate Vx then store value in local variable
+      float Vz = (Tz-z)/(20*Vy); // Calculate Vz then store value in local variable
+
+	  tossentity(self, Vy, Vx, Vz); //Leap towards target!
+}
+
+
+/////////////////
+/// #TELEPORT ///
+/////////////////
+
+void fixbase()
+{//fix issue with multiple base levels in stage 5
+
+	if(OBV("current_branch")=="stage_5")
+	{
+	CLP("camerazoffset",-70-GEP(self,"base"));
+	}
+}
+
+void teleport()
+{// used to respawn in safe locations
+    
+	char branch = OBV("current_branch");
+	float x = GEP(self, "x");
+	if( !GEV(self,"spawn") ){
+	CEP(self, "blink", 0); // remove blink effect.
+	SEV(self, "intro", 1); //next time dont stop blinking.
+	}
+	
+	if(branch=="stage_6")
+	{
+		//CEP(self, "position", 0, 200, 0);
+		CEP(self, "position", x, x<1059?309:278, 0);
+	}
+	
+	if(branch=="stage_4")
+	{
+      CEP(self, "position", 1500, 188, 0);
+	} else if(branch=="stage_1")
+	{
+      CEP(self, "position", x, 215, 0);
+	} else if(branch=="stage_2")
+	{
+      CEP(self, "position", x, 280, 0);
+	} else if(branch=="stage_5")
+	{
+      CEP(self, "position", 999, x<1400?310:300, 0);
+	}
+}
+
+void chin_death()
+{// special for chin death cutscene
+
+void p1 = GPP(0, "entity");
+void p2 = GPP(1, "entity");
+
+	CEP(self, "position", 1830, 190, 15);
+	CEP(self, "direction", 0);
+	if(p1){CEP(p1, "position", 1660, 190, 15); CEP(p1, "direction", 1); performattack(p1,OBC("ANI_FOLLOW4")); }
+	if(p2){CEP(p2, "position", 1640, 190, 15); CEP(p2, "direction", 1); performattack(p2,OBC("ANI_FOLLOW4")); }
+}
+
+
+///////////////////
+/// #ANIMCHANGE ///
+///////////////////
+
+
+
+void anichange(void ani)
+{// msmalik681 animation changer
+
+	 //get caller
+	CEP(self, "animation", OBC(ani)); //Change the animation
+}
+
+void doattack(void ani)
+{// msmalik681 use attack
+
+	 //get caller
+	performattack (self, OBC(ani)); //Change the animation.
+}
+
+void punches()
+{
+	void enemy = findtarget(self, OBC("ani_freespecial3"));
+
+	if( enemy && GEP(enemy,"animationID") == OBC("ani_pain2") && GEP(enemy,"TYPE") == OBC("TYPE_ENEMY"))
+	{//finish only when enemy in range and pain2
+	 stop;
+	 performattack(self, OBC("ani_freespecial3"));
+	 return 0;
+	}
+	
+	SEV(self,"swap",GEV(self,"swap")==1?2:1);
+	int swap = GEV(self,"swap");
+	char ani = "ani_freespecial"+swap;
+	performattack(self, OBC(ani));
+}
+
+void range_attack(char atk, char ani_id)
+{
+	void enemy = findtarget(self, OBC("ani_" + atk));
+
+	if(enemy && ( !ani_id || GEP(enemy,"animationID") == OBC("ani_" + ani_id) ) )
+	{
+		stop;
+		performattack(self, OBC("ani_" + atk));
+		return 0;
+	}
+}
+
+void tryatk( char ani, int input, char alias)
+{// msmalik681 random attack
+	 //get caller
+	if(alias && GEP(self,"name") != alias || GEP(self,"type") == OBC("type_player")){ return 0; }
+	void enemy = findtarget(self, OBC(ani));
+	int go = rand()%100; //100 percent
+	if(go<0){go=go*-1;} //make positive
+	if(go<input && enemy && GEP(enemy,"vulnerable") && !GEP(enemy,"aiflag","drop"))
+	{
+	stop(); // Stop movement
+	performattack(self, OBC(ani)); //Change the animation.
+	}
+}
+
+void name2ani()
+{// msmalik681 animation changer based on name.
+
+	char name = GEP(self, "name"); //get current alias.
+	if(strinfirst(name, "i_")!= -1 || strinfirst(name, "I_")!= -1)
+	{//if alias has keyword any set animation
+	CEP(self, "animation", OBC(name)); //Change the animation.
+	}
+
+}
+
+void bossintro(void ani)
+{// msmalik681 change animation if enemy is a boss
+
+	 //get caller
+	int boss = GEP(self, "boss");
+	if(boss==1)
+	{
+	CEP(self, "falldie", 2); //Enable death animation
+	CEP(self, "animation", OBC(ani)); //Change the animation
+	}
+}
+
+void jumpin()
+{// msmalik681 change animation if enemy is spawned in the air
+
+	 //get caller
+	float base = GEP(self, "base");
+	float y = GEP(self, "y");
+	if(y>base)
+	{
+	CEP(self, "antigravity", 0);
+	CEP(self, "subject_to_gravity", 1);
+	CEP(self, "animation", OBC("ani_follow2")); //Change the animation
+	}
+}
+
+void weaponchange(int weapon)
+{//force weapon change by script
+
+	 //get caller
+	CEP(self, "weapon", weapon); //Change the weapon
+	CEP(self, "weapnum", weapon); //Change the weapon
+	CEP(self, "weapent",self); //kill the weapon
+}
+
+void followatk(void next_anim)
+{//follow attack
+  
+  int hits = GEP(self,"animhits");
+    if (hits >= 1)
+    {
+      performattack(self, OBC(next_anim), 1);
+    }
+}
+
+void intro()
+{//special intro for players on stage 6
+  
+  char branch = OBV("current_branch");
+  
+    if(branch=="stage_6" && GGV("event")==0)
+    {
+      CEP(self, "position", 104, 277, 0); //move the player
+      CEP(self, "blink", 0); // remove blink effect
+	  CEP(self, "animation", OBC("ani_follow1")); //Change the animation
+    }
+}
+
+void spear()
+{// change frame baase on player being in the set parameters.
+
+int x = GEP(self, "x");
+int dir = GEP(self, "direction");
+int i=0, min, max, px, pz;
+
+for(i=0;i<1;i++)
+{
+void player = GPP(i, "entity");
+	if(player)
+	{
+	px = GEP(player, "x");
+	pz = GEP(player, "z");
+	if(dir==0)
+	{
+	min=x-200;
+	max=x-10;
+	} else {
+	min=x+10;
+	max=x+200;
+	}
+	if(px>min && px<max && pz<321){updateframe(self, 2);}
+	}
+}
+}
+
+void gotoframe( int frame )
+{
+
+CEP(self,"animpos", frame);
+}
+
+
+///
+/// #WALLPASS
+///
+
+void wallpass(int value)
+{// Changes ability to pass through walls
+	
+	CEP(self, "subject_to_minz", value);
+	CEP(self, "subject_to_wall", value);
+	CEP(self, "subject_to_gravity", value);
+	CEP(self, "subject_to_platform", value);
+	if(value==1)
+		{
+		CEP(self, "antigravity", 0);
+		}
+}
+
+///
+/// #LOOP
+///
+
+void landframe()
+{
+	int moveback = getentityproperty(self,"animpos")-1;
+	if(getentityproperty(self,"y")>getentityproperty(self,"base"))
+	{
+		changeentityproperty(self,"animpos",moveback);
+	}
+}
+
+void bossloop()
+{//stop a animation runing unless a boss is on screen
+		//get caller
+void vEntity;					//Target entity placeholder.    
+int  iEntity;					//Entity enumeration holder.    
+int  iMax = OBV("ent_max");		//Entity count.
+int loop = 1;					//checker if loop should continue
+
+   for(iEntity=0; iEntity<iMax; iEntity++)
+	{//find all entitys
+   	vEntity = getentity(iEntity);	   //Get target entity from current loop. 
+	if(GEP(vEntity, "boss") == 1)
+	{//if entity is a boss
+	loop = 0; //stop the animation loop
+	break; //break this for loop
+	}}
+
+	if(loop==1)
+	{//this is to loop frames back
+	CEP(self, "animpos",0); //move back to first frame in the animation.
+	}
+}
+
+void eventLoop( int frame)
+{//use event variable to hold animation until desired time.
+					//get caller.
+	int mp = GEP(self, "mp"); 		//get caller mp.
+	int event = GGV("event");				//get event variable.
+
+	if(event!=mp){ CEP(self, "animpos", frame!=NULL()?frame:0); } //no event match loop back or to set frame.
+}
+
+void eventPush( int set)
+{//force the "event" global variable to match callers mp or set manually
+SGV("event", set?set:GEP(self,"mp"));//if set is not null use it otherwise set to mp
+}
+
+void eFrame( int ecount , int frame )
+{//change frame position based on number of enemies.
+	if (OBV("count_enemies")==ecount)
+	{
+	CEP(self, "animpos", frame);
+	}
+}
+
+void jump2Frame( int frame )
+{//change frame position.
+	CEP(self, "animpos", frame);
+}
+
+void key2frame(char key, int frame)
+{//msmalik681 change frame based on key press
+ //key inputs: "moveup" "movedown" "moveforward" "moveback" 
+ //press: 3=holding 1=press 2=release default holding.
+	int dir = GEP(self, "direction");  //Get current facing direction
+	if(key=="moveforward"){key = dir==0?"moveleft":"moveright";}
+	if(key=="moveback"){key = dir==0?"moveright":"moveleft";}
+
+	if ( playerkeys(GEP(self,"playerindex"), 3, key) )
+	{
+		updateframe(self,frame);
+	}
+}
+
+void key2ani(char ani, int mp, char key1, char key2)
+{//msmalik681 change animation based on key press or combination
+ //key inputs: "moveup" "movedown" "moveforward" "moveback" 
+ //press: 3=holding 1=press 2=release default holding.
+
+	int current_mp = GEP(self,"mp");
+	int dir = GEP(self, "direction");  //Get current facing direction
+	if(key1=="moveforward"){key1 = dir==0?"moveleft":"moveright";}
+	if(key1=="moveback"){key1 = dir==0?"moveright":"moveleft";}
+	if(key2=="moveforward"){key2 = dir==0?"moveleft":"moveright";}
+	if(key2=="moveback"){key2 = dir==0?"moveright":"moveleft";}
+
+		if ( ( playerkeys(GEP(self,"playerindex"), 3, key1) || !key1 ) && ( playerkeys(GEP(self,"playerindex"), 3, key2) || !key2 ) ) {
+			if( current_mp >= mp ){
+			CEP(self,"mp",current_mp-mp);
+			} else if ( current_mp < mp ){ return 0; }
+			CEP(self, "velocity", 0, 0, 0); //Stop moving!
+			performattack (self, OBC("ani_" + ani)); //Change the animation.
+		}
+
+
+}
+
+
+///
+/// #RANDOM
+///
+
+int random(int input)
+{//retuen number from 1 to input amount
+int output = rand()%input+1;
+if(output < 0){output = output * -1;}
+if(output==0){output=input;}
+return output;
+}
+
+int randomatk( int min, int max)
+{
+int rand = random(max);
+//settextobj(5,120,120,3,999999999,""+rand);
+if(rand<0){rand=rand*-1;}
+if(rand<min){rand=min;}
+performattack(self,OBC("ANI_ATTACK"+rand));
+}
+
+void randomani(int input,char ani)
+{//change animation based on percentage.
+	 //get caller
+	if(random(100)<=input)
+	{	
+	CEP(self, "animation", OBC(ani)); //Change the animation
+	}
+}
+
+///
+/// #SETLAYER
+///
+
+void setlayer(int value)
+{//change layer
+ //get self
+CEP(self,"setlayer",value); //set panel layer to match value
+}
+
+///
+/// #DAMAGING
+///
+
+void smartbomb(char Type, int Damage, int Drop, char Attack)
+{//damame all entitys
+void vEntity;					//Target entity placeholder.    
+int  iEntity;					//Entity enumeration holder.    
+int  iMax = OBV("ent_max");		//Entity count.
+int check = 0;
+if(Type=="enemy" || Type=="player" || Type=="npc" || Type=="obstacle"){check = 1;}
+
+   for(iEntity=0; iEntity<iMax; iEntity++){//find all entitys
+   	vEntity = getentity(iEntity);	   //Get target entity from current loop. 
+   	if(check==1){
+	if(GEP(vEntity, "type")==OBC("TYPE_"+Type) && GEP(vEntity,"vulnerable") == 1){//if entity matches type
+	damageentity(vEntity, vEntity, Damage, Drop, OBC(Attack)); //damage entity
+	}
+   } else if(GEP(vEntity,"model")==Type && GEP(vEntity,"vulnerable") ==1 ){
+damageentity(vEntity, vEntity, Damage, Drop, OBC(Attack));
+}
+					  }
+}
+
+void bossdeath()
+{//kill all other enemies
+void vEntity;					//Target entity placeholder.    
+int  iEntity;					//Entity enumeration holder.    
+int  iMax = OBV("ent_max");		//Entity count.
+
+	for(iEntity=0; iEntity<iMax; iEntity++)
+	{//find all entitys
+   		vEntity = getentity(iEntity);	   //Get target entity from current loop. 
+		if(GEP(vEntity, "type")==OBC("TYPE_ENEMY") && GEP(vEntity, "name") != "Boss")
+		{//if entity matches type
+		damageentity(vEntity, vEntity, 999, 1, OBC("atk_normal9")); //damage entity
+		}
+	}
+}
+
+void hitme(int Damage, int Drop, char atk)
+{//damame to self
+	 //get self
+	if(atk==NULL()){atk = "ATK_NORMAL";}
+	if(Drop == NULL()){Drop = 0;}
+	damageentity(self, self, Damage, Drop, OBC(atk)); //damage entity
+
+}
+
+void weapondrop()
+{
+	void vself = getlocalvar("self");
+	damageentity(self, self, 0, 0, OBC("ATK_NORMAL")); //damage entity
+	setidle(vself,OBC("ANI_IDLE"));
+}
+
+void unblockade()
+{//remove all blockades
+void vEntity;					//Target entity placeholder.    
+int  iEntity;					//Entity enumeration holder.    
+int  iMax = OBV("ent_max");		//Entity count.
+
+   for(iEntity=0; iEntity<iMax; iEntity++)
+	{//find all entitys
+		vEntity = getentity(iEntity);	   //Get target entity from current loop. 
+		
+		if(GEP(vEntity, "name")=="Blockade"){//if entity matches name
+		killentity(vEntity); //kill entity
+		}
+	}
+}
+
+void copyDamage()
+{// match "candamage" to parent
+							//Get self.
+	void parent = GEP(self, "parent");		//Get parent.
+	int candamage = GEP(parent, "candamage");//Get parent candamage property.
+	if(candamage){CEP(self, "candamage", candamage);}//Copy parent candamage property to self
+}
+
+void setDamage( char A, char B, char C, char D, char E)
+{// set "candamage" property
+ //valid inputs TYPE_ENEMY, TYPE_NPC, TYPE_OBSTACLE, TYPE_PLAYER, TYPE_SHOT,
+ 
+	//Get self.
+	
+	if(A && B && C && D && E){
+	CEP(self, "candamage", A, B, C, D, E);
+	} else if (A && B && C && D ){
+	CEP(self, "candamage", A, B, C, D);
+	} else if(A && B && C){
+	CEP(self, "candamage", A, B, C);
+	} else if (A && B){
+	CEP(self, "candamage", A, B);
+	} else {CEP(self, "candamage", A);}
+}
+
+void killme()
+{//simple script to kill a entity
+killentity(self); //you know.
+}
+
+void bossCheck()
+{
+ 					//Get self.
+void parent = GEP(self, "parent");	//Get parent.
+
+	if(GEP(parent,"health")<1){killme();}//if parent dead kill self.
+}
+
+void healAll()
+{//script to heal all players to full health.
+int i;
+for(i=0;i<1;i++)
+{
+void player = GPP(i, "entity"); //find player.
+if(player)//found player.
+{
+int maxhp = GEP(player, "maxhealth");//find max hp.
+CEP(player, "health", maxhp);// apply max hp.
+}
+}
+}
+
+///
+/// #SPAWNS
+///
+
+void spawn01(void vName, float fX, float fY, float fZ)
+{
+	//spawn01 (Generic spawner)
+	//Damon Vaughn Caskey
+	//Spawns entity next to caller.
+	//
+	//vName: Model name of entity to be spawned in.
+	//fX: X location adjustment.
+	//fZ: Y location adjustment.
+        //fY: Z location adjustment.
+
+	 //Get calling entity.
+	void vSpawn; //Spawn object.
+	int  iDirection = GEP(self, "direction");
+	clearspawnentry(); //Clear current spawn entry.
+      setspawnentry("name", vName); //Acquire spawn entity by name.
+
+	if (iDirection == 0){ //Is entity facing left?                  
+          fX = -fX; //Reverse X direction to match facing.
+	}
+
+      fX = fX + GEP(self, "x"); //Get X location and add adjustment.
+      fY = fY + GEP(self, "a"); //Get Y location and add adjustment.
+      fZ = fZ + GEP(self, "z"); //Get Z location and add adjustment.
+	
+	vSpawn = spawn(); //Spawn in entity.
+	
+	CEP(vSpawn, "direction", iDirection); //Set direction.
+	CEP(vSpawn, "position", fX, fZ, fY); //Set spawn location.
+	CEP(vSpawn, "parent", self); 
+	
+	return vSpawn; //Return spawn.
+}
+
+void spawn02( char vName, float fX, float fY, float fZ, char Alias, int Screen, int Dir, int HP, int MP)
+{//msmalik681 updated spawn01 to set extra values on spawn
+	//spawn02 (Generic spawner)
+	//Spawns entity next to caller.
+	//vName: Model name of entity to be spawned in.
+	//fX: X location adjustment.
+	//fZ: Y location adjustment.
+    //fY: Z location adjustment.
+	//Alias: set custom name
+	//Screen: subject to screen 1 or calling entity 0
+	//Dir: NULL() to match calling entity or 0 force left 1 force right.
+	 //Get calling entity.
+	void vSpawn; //Spawn object.
+	int  iDirection = GEP(self, "direction");
+
+	clearspawnentry(); //Clear current spawn entry.
+	setspawnentry("name",vName); //Acquire spawn entity by name.
+
+	if(iDirection == 0){fX = -fX;}
+
+	if(!Screen)
+	{
+	fX = fX + GEP(self, "x"); //Get X location and add adjustment.
+	fY = fY + GEP(self, "a"); //Get Y location and add adjustment.
+	fZ = fZ + GEP(self, "z"); //Get Z location and add adjustment.
+	} //else {fY=0;}
+	
+	vSpawn = spawn(); //Spawn in entity.
+
+	CEP(vSpawn, "position", fX, fZ, fY); //Set spawn location.
+	if(Dir != NULL()){CEP(vSpawn, "direction", Dir);} else { CEP(vSpawn, "direction", iDirection); }//Set direction.
+    if(Alias){CEP(vSpawn, "name", Alias);} //Set Alias to spawned entity.
+	if(HP){//Ajust health.
+	CEP(vSpawn, "maxhealth", HP);
+	CEP(vSpawn, "health", HP);
+	} 
+	if(MP)
+	{ //Adjust mp.
+	CEP(vSpawn, "maxmp", MP);
+	CEP(vSpawn, "mp", MP);
+	}
+	CEP(vSpawn, "parent", self); //Set spawner as parent.
+	return vSpawn; //Return spawn.
+}
+
+void spawnscreen(void vName, float fX, float fZ, float fY, char Alias, int iDirection)
+{
+	//spawnscreen (Generic spawner with alias and relative to screen)
+	//Spawns entity next to caller.
+	//vName: Model name of entity to be spawned in.
+	//fX: X location adjustment.
+	//fZ: Y location adjustment.
+        //fY: Z location adjustment.
+	 //Get calling entity.
+	void vSpawn; //Spawn object.
+
+	clearspawnentry(); //Clear current spawn entry.
+	setspawnentry("name",vName); //Acquire spawn entity by name.
+	
+	vSpawn = spawn(); //Spawn in entity.
+
+	CEP(vSpawn, "position",OBV("xpos")+fX,OBV("ypos")+fZ, fY?fY:0); //Set spawn location.
+	if(iDirection){CEP(vSpawn, "direction", iDirection);} //Set direction.
+    	if(Alias){CEP(vSpawn, "name", Alias);} //Set Alias to spawned entity
+	CEP(vSpawn, "parent", self);
+	return vSpawn; //Return spawn.
+}
+
+void spawnbind(void Name, float dx, float dy, float dz)
+{ // Spawn and bind other entity
+   
+   void Spawn;
+}
+
+void spawnbind2( void Name, float dx, float dy, float dz, int iDir, int iBind, char Name, void ent )
+{// Bind entity to target, so the target moves, the entity moves.
+ // @cmd spawnbind2 "entity" x z a direction bindanimation
+ // [Direction]
+ //  0 = No change. 
+ //  1 = Same direction as target. 
+ // -1 = Opposite direction as target. 
+ //  2 = Always right.
+ // -2 = Always left.
+ // [Bindanimation] 
+ //  0 = No effect. 
+ //  1 = Keep same animation as the target. 
+ //  2 = Also keep same frame as the target. 
+ //  4 = Kill the entity if the animation doesn't match.
+ // You can combine those values for bindanimation, so it can be 6 which means 2 and 4.
+
+   if(!ent){ent = self;}
+   void Spawn;
+   
+   do
+   {
+   Spawn = spawn01(Name, 0, 0, 0);
+   } while (Spawn == NULL());
+   
+   bindentity(Spawn, ent, dx, dz, dy, iDir, iBind);
+   CEP(Spawn, "parent", ent);
+   if(Name){CEP(Spawn, "name", Name);}
+   
+}
+
+void bossBackup( float bX, float bY, float bZ, char Alias, char name0, char name1, char name2, char name3, char name4, char name5, char name6, char name7, char name8, char name9)
+{//msmalik681 have set enemies spawn to backup boss in a fight.
+
+//check if there is a boss and they are alive
+void vEntity;					//Target entity placeholder.    
+int  iEntity;					//Entity enumeration holder.    
+int  iMax = OBV("ent_max");		//Entity count.
+int check;
+
+
+   for(iEntity=0; iEntity<iMax; iEntity++)
+   {//find all entitys
+   	vEntity = getentity(iEntity);	   //Get target entity from current loop.
+	if(GEP(vEntity, "boss")==1)
+	{//if entity is a boss and alive.
+	check = 1;
+	break;
+	}
+   }
+
+if(check)
+{
+	SLV("enemies",array(10));
+	void a = GLV("enemies");
+	set(a,0,name0);
+	set(a,1,name1);
+	set(a,2,name2);
+	set(a,3,name3);
+	set(a,4,name4);
+	set(a,5,name5);
+	set(a,6,name6);
+	set(a,7,name7);
+	set(a,8,name8);
+	set(a,9,name9);
+	
+	int max, i;
+	
+	for(i=0;i>-1;i++)
+	{
+		if(get(a,i) != NULL())
+		{
+		max=i;
+		continue;
+		}
+	max++;
+	break;
+	}
+	
+	int random = rand() % max;
+	if(random < 0){random = (random * -1);}
+	//settextobj(0,100,100,2,9999999999,"random: "+random);
+
+	if(Alias){ spawn02(get(a,random),bX,bY,bZ,Alias);
+	} else { spawn01(get(a,random),bX,bY,bZ); }
+	
+	free(GLV("enemies"));
+	SLV("enemies", NULL());
+}
+}
+
+void boss_backup( float bX, float bY, float bZ, char Alias, int minE, char name0, char name1, char name2, char name3, char name4, char name5, char name6, char name7, char name8, char name9)
+{//msmalik681 have set enemies spawn to backup boss in a fight.
+
+//check if there is a boss and they are alive
+void vEntity;					//Target entity placeholder.    
+int  iEntity;					//Entity enumeration holder.    
+int  iMax = OBV("ent_max");		//Entity count.
+int check;
+
+if( minE && OBV("count_enemies") > minE ){ return 0; }//only run if enemy count meets requirement.
+
+   for(iEntity=0; iEntity<iMax; iEntity++)
+   {//find all entitys
+   	vEntity = getentity(iEntity);	   //Get target entity from current loop.
+	if( GEP(vEntity, "boss")==1)
+	{//found the boss
+	check = 1; break;
+	}
+   }
+
+if(check)
+{
+	SLV("enemies",array(10));
+	void a = GLV("enemies");
+	set(a,0,name0);
+	set(a,1,name1);
+	set(a,2,name2);
+	set(a,3,name3);
+	set(a,4,name4);
+	set(a,5,name5);
+	set(a,6,name6);
+	set(a,7,name7);
+	set(a,8,name8);
+	set(a,9,name9);
+	
+	int max, i;
+	
+	for(i=0;i>-1;i++)
+	{
+		if(get(a,i) != NULL())
+		{
+		max=i;
+		continue;
+		}
+	max++;
+	break;
+	}
+	
+	int random = rand() % max;
+	if(random < 0){random = (random * -1);}
+	//settextobj(0,100,100,2,9999999999,"random: "+random);
+
+	if(Alias){ spawn02(get(a,random),bX,bY,bZ,Alias);
+	} else { spawn01(get(a,random),bX,bY,bZ); }
+	
+	free(GLV("enemies"));
+	SLV("enemies", NULL());
+}
+
+}
+
+
+void unbind ()
+// unbind entity
+// 24.09.2013 - Douglas Baldan - O Ilusionista
+{
+bindentity(self, NULL());
+}
+
+///
+/// #SCREEN
+///
+
+void screenUp()
+{//move screen up
+
+    
+    int mp = GEP(self, "mp");
+	int Ypos = OBV("ypos");
+	CLP("scrollspeed", 0);
+	
+	//settextobj(0, 10, 100, 1, 999999999, Ypos);
+	
+	if(Ypos>mp)
+	{
+	COBV("ypos",Ypos-1);
+	} else { killentity(self); }
+}
+
+void screenDown()
+{//move screen down
+
+    
+    int mp = GEP(self, "mp");
+	int Ypos = OBV("ypos");
+	CLP("scrollspeed", 0);
+	
+	if(Ypos<mp)
+	{
+	COBV("ypos",Ypos+1);
+	} else { killentity(self); }
+}
+
+void screenFree()
+{//release the screen for free scrolling
+
+    
+	CLP("scrollspeed", 2);
+	killentity(self);
+}
+
+///
+/// #PROPERTY
+///
+
+void player_hp()
+{
+	if(GEP(self,"type") == OBC("TYPE_PLAYER") )
+	{
+		CEP(self,"maxhealth",100);
+	}
+}
+
+void cProperty( char prop, int val, char obc )
+{// msmalik681 change entity property
+	if(obc)
+	{
+	CEP(self, prop, OBC(obc));
+	} else
+	{
+	CEP(self, prop, val);
+	}
+}
+
+void cAiflag( char flag, int val)
+{// msmalik681 change entity aiflag
+CEP(self,"aiflag",flag,val);
+}
+
+void grab()
+{ // re-grab opponent.
+void opp = GEP(self,"opponent"); //get enemy
+int hp = GEP(opp,"health"); //enemy hp
+if(hp > 1){ dograb(self, opp, 50); } // only grab if they are alive
+}
+
+void setkicks()
+{//reset kicks for grab attack
+SEV(self,"kicks",1); // reset
+}
+
+void stats()
+{//for enemy update stats based on current stage.
+ char name = GEP(self,"name"); // get current name
+ char branch = OBV("current_branch");	//current branch name
+ int i,agg,off,maxhp; // initialize variables for use.
+
+if(branch)
+	{
+	 char stage = strright(branch,strlength(branch)-1);	//stage number
+	 		if(stage=="1"){  agg =	-60;	off = 1.0;
+	 } else if(stage=="2"){	 agg =	-50;	off = 1.1;
+	 } else if(stage=="3"){	 agg =	-40;	off = 1.2;
+	 } else if(stage=="4"){	 agg =	-30;	off = 1.3;
+	 } else if(stage=="5"){  agg =	-20;	off = 1.4;
+	 } else if(stage=="6"){	 agg =	 0;		off = 1.5; //should be stage 6
+	 }
+	 
+	 CEP(self,"aggression",agg);
+		for(i=2;i<12;i++)
+		{	
+			if(i=11){
+			CEP(self,"offense",OBC("ATK_NORMAL"),off);
+			break;
+			} else {CEP(self,"offense",OBC("ATK_NORMAL"+i),off);}
+		}
+	
+	}
+}

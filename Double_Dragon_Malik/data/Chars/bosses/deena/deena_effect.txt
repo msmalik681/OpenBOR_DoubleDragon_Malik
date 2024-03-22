@@ -1,0 +1,99 @@
+name		Deena_Effect
+type		none
+shadow		0
+palette		data/chars/bosses/deena/run_atk_effect01.gif
+alternatepal data/chars/bosses/deena/death_effect01.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+alpha		1
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim idle
+
+anim runattack
+	loop	0
+	offset	69 124
+	frame	none
+	frame	data/chars/bosses/deena/run_atk_effect01.gif
+	frame	data/chars/bosses/deena/run_atk_effect02.gif
+	frame	data/chars/bosses/deena/run_atk_effect03.gif
+	frame	data/chars/bosses/deena/run_atk_effect04.gif	
+	@cmd	killme
+	frame	none
+	
+anim attack3 # spinning bird kick
+	loop	0
+	offset	69 124
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	#spin 1
+	frame	data/chars/bosses/deena/atk211_effect.gif
+	frame	data/chars/bosses/deena/atk212_effect.gif
+	frame	data/chars/bosses/deena/atk213_effect.gif
+	frame	data/chars/bosses/deena/atk214_effect.gif
+	frame	data/chars/bosses/deena/atk215_effect.gif
+	#spin 2
+	frame	data/chars/bosses/deena/atk211_effect.gif
+	frame	data/chars/bosses/deena/atk212_effect.gif
+	frame	data/chars/bosses/deena/atk213_effect.gif
+	frame	data/chars/bosses/deena/atk214_effect.gif
+	frame	data/chars/bosses/deena/atk215_effect.gif
+	#spin 3
+	frame	data/chars/bosses/deena/atk211_effect.gif
+	frame	data/chars/bosses/deena/atk212_effect.gif
+	frame	data/chars/bosses/deena/atk213_effect.gif
+	frame	data/chars/bosses/deena/atk214_effect.gif
+	frame	data/chars/bosses/deena/atk215_effect.gif
+	#spin 4
+	frame	data/chars/bosses/deena/atk211_effect.gif
+	frame	data/chars/bosses/deena/atk212_effect.gif
+	frame	data/chars/bosses/deena/atk213_effect.gif
+	frame	data/chars/bosses/deena/atk214_effect.gif
+	frame	data/chars/bosses/deena/atk215_effect.gif
+	#end spin
+	@cmd	killme
+	frame	none
+	
+anim death
+	loop	0
+	delay	10
+	drawmethod alpha 0
+	@cmd	cProperty "map" 1
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	offset	69 184
+	frame	data/chars/bosses/deena/death_effect01.gif
+	offset	69 164
+	frame	data/chars/bosses/deena/death_effect01.gif
+	offset	69 144
+	frame	data/chars/bosses/deena/death_effect01.gif
+	offset	69 124
+	frame	data/chars/bosses/deena/death_effect01.gif
+	frame	data/chars/bosses/deena/death_effect02.gif
+	frame	data/chars/bosses/deena/death_effect03.gif
+	frame	data/chars/bosses/deena/death_effect03.gif
+	frame	data/chars/bosses/deena/death_effect03.gif
+	@cmd	cAiflag "blink"  1
+	frame	none
+	frame	none

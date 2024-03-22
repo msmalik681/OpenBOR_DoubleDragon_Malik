@@ -1,0 +1,18 @@
+name	panel_grass
+health	0
+type	panel
+palette data/levels/level_4/panel_grass_mid.png
+facing	1
+shadow	0
+antigravity 100
+offscreenkill 99999
+
+
+anim idle
+	loop	1
+	delay	12
+	offset	0 25
+	frame	data/chars/misc/empty.gif
+	frame	data/levels/level_4/panel_grass_mid.png
+	frame	data/levels/level_4/panel_grass_strong.png
+	frame	data/levels/level_4/panel_grass_mid.png

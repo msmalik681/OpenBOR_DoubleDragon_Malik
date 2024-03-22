@@ -1,0 +1,44 @@
+name	Bat
+type	item
+subtype	weapon
+weapnum	2
+palette data/chars/misc/bat.act
+shootnum 1
+shadow	0
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	delay	1
+	offset	20 7
+	bbox	0 0 41 10
+	frame	data/chars/misc/bat.gif
+	frame	data/chars/misc/bat.gif
+
+anim respawn
+	loop	0
+	delay	1
+	offset	0 0
+	frame	none
+	@cmd	dasher	0 60 0
+	frame	none
+	@cmd	spawn02 "Bat_Throw" 0 0 0 "ANI_FOLLOW1"
+	frame	none
+	@cmd	killentity getlocalvar("self")
+	frame	none
+
+anim idle
+	loop	1
+	delay	10
+	offset	20 7
+	bbox	0 0 41 10
+	frame	data/chars/misc/bat.gif
+
+
+anim death
+	loop	0
+	delay	10
+	offset	20 7
+	bbox	0 0 41 10
+	frame	data/chars/misc/bat.gif

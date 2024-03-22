@@ -1,0 +1,13 @@
+name	panel_sides
+health	0
+type	panel
+shadow	0
+antigravity 100
+offscreenkill 9999
+setlayer -11
+
+
+anim idle
+	loop	0
+	offset	0 159
+	frame	data/levels/level_4/panel_sides.png

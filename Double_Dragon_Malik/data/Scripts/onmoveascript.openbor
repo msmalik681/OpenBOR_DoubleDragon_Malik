@@ -1,0 +1,23 @@
+#define OBC openborconstant
+#define GEP getentityproperty
+#define CEP changeentityproperty
+#define SLV setlocalvar
+#define GLV getlocalvar
+#define OBV openborvariant
+#define GEV getentityvar
+#define SEV setentityvar
+
+void main()
+{
+    void self = GLV("self");
+    float y = GEP(self, "y");
+    float base = GEP(self,"base");
+    void opp = GEP(self,"opponent");
+    void ani = GEP(opp,"animationID");
+    int falling = GEP(self,"aiflag","falling");
+if(falling && y== 0 && ani == OBC("ANI_FREESPECIAL8"))
+{
+  gotomainmenu(3);
+}
+
+}

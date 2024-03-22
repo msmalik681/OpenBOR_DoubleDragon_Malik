@@ -1,0 +1,82 @@
+name	lv1_objects
+health	1
+type	panel
+shadow	0
+palette data/levels/level_1/drumcan.gif
+facing	1
+antigravity 100
+offscreenkill 9999
+
+animationscript data/scripts/scripts.c
+
+anim idle
+	loop	0
+	offset	0 0
+	delay	1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	@cmd name2ani
+	frame	data/chars/misc/empty.gif
+
+anim follow1 #punk1
+	loop	1
+	offset	0 86
+	delay	20
+	frame	data/levels/level_1/punk101.gif
+	frame	data/levels/level_1/punk102.gif
+
+anim follow2 #punk2
+	loop	1
+	offset	0 97
+	delay	20
+	frame	data/levels/level_1/punk201.gif
+	frame	data/levels/level_1/punk202.gif
+
+anim follow3 #drumcan
+	loop	1
+	offset	-1 50
+	delay	20
+	frame	data/levels/level_1/drumcan.gif
+
+anim follow4 #fire
+	loop	1
+	offset	-1 73
+	delay	15
+	drawmethod alpha 1
+	frame	data/levels/level_1/001.gif
+	frame	data/levels/level_1/002.gif
+	frame	data/levels/level_1/003.gif
+	frame	data/levels/level_1/004.gif
+
+anim follow5 #door
+	loop	0
+	offset	0 96
+	delay	20
+	@cmd	setlayer -3
+	frame	data/levels/level_1/door02.gif
+	sound	data/sounds/door_open.wav
+	frame	data/levels/level_1/door03.gif
+	frame	data/levels/level_1/door04.gif
+
+anim follow6 #wall crack
+	loop	0
+	offset	0 112
+	delay	15
+	@cmd	setlayer -3
+	frame	data/levels/level_1/crack01.gif
+	sound	data/sounds/break_wall.wav
+	frame	data/levels/level_1/crack02.gif
+	frame	data/levels/level_1/crack03.gif
+	frame	data/levels/level_1/crack04.gif
+
+anim follow7 #boss gate
+	loop	0
+	offset	0 143
+	delay	10
+	frame	data/levels/level_1/gate01.gif
+	@cmd	eventLoop
+	frame	none
+	@cmd	killme
+	frame	none
+
+

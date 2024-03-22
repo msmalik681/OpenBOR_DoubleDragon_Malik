@@ -1,0 +1,459 @@
+#define OBC  openborconstant
+#define GEP  getentityproperty
+#define CEP  changeentityproperty
+#define SLV  setlocalvar
+#define GLV  getlocalvar
+#define GEV  getentityvar
+#define SEV  setentityvar
+#define CLP	 changelevelproperty
+#define OBV  openborvariant
+#define COBV changeopenborvariant
+#define GPP  getplayerproperty
+#define CPP  changeplayerproperty
+#define SGV  setglobalvar
+#define GGV  getglobalvar
+#define self GLV("self")
+
+void main()
+{
+	//loadgamefile();
+
+	int time = OBV("elapsed_time");
+	int map1,map2,maxmap,x,y,width,height;
+	void P1=GPP(0,"entity");
+	void P2=GPP(1,"entity");
+	//debug info
+	//drawstring(10, 10, 3, "lives: "+ GPP(0,"lives")+"\ncredits: "+GPP(0,"credits")+"\njoining: "+GPP(0,"joining"), 9999999999999 );
+	
+	//set scene images
+	if (!GGV("select_bg")){ SGV("select_bg", loadsprite("data/bgs/select.gif")); 	}
+	if (!GGV("border")){ SGV("border", loadsprite("data/levels/select_screen/border.gif")); 	}
+	if (!GGV("faces")){ SGV("faces", loadsprite("data/levels/select_screen/select_faces.gif")); 	}
+	if (!GGV("shade")){ SGV("shade", loadsprite("data/levels/select_screen/shade.gif")); 	}
+	if (!GGV("press_start")){ SGV("press_start", loadsprite("data/levels/custom_menu/ps_press_start.gif"));}
+
+	//draw main scene
+	changedrawmethod(NULL(),"reset",1);
+	drawsprite(GGV("select_bg"),0,0,999999991);
+	drawsprite(GGV("border"),0,0,999999992);
+	drawsprite(GGV("faces"),0,0,999999992);
+
+	//load character text boxes
+	if(!width)
+	{//initial select screen setup
+
+	//add players who joined in on the main menu
+	setplayers();
+
+	//set default values
+	width=33;
+	height=33;
+	x=119;
+	y=88;
+
+	//1st row
+	namebox("Billy",	x+width,y);
+	namebox("Jimmy",	x+(width*2),y);
+	namebox("Abbobo",	x+(width*3),y);
+	namebox("Burnov",	x+(width*4),y);
+	namebox("Lavis",	x+(width*5),y);
+	//2nd row
+	namebox("Chin",	x,y+width);
+	namebox("Deena",	x+(width*1),y+width);
+	namebox("Willy",	x+(width*2),y+width);
+	namebox("Linda",	x+(width*3),y+width);
+	namebox("Cindy",	x+(width*4),y+width);
+	namebox("Frank",	x+(width*5),y+width);
+	namebox("Williams",x+(width*6),y+width);
+	//3rd row
+	namebox("Brett",	x,y+(width*2));
+	namebox("Kent",	x+(width*1),y+(width*2));
+	namebox("Mark",	x+(width*2),y+(width*2));
+	namebox("Scott",	x+(width*3),y+(width*2));
+	namebox("Ted",		x+(width*4),y+(width*2));
+	namebox("Harry",	x+(width*5),y+(width*2));
+	namebox("Isabella",x+(width*6),y+(width*2));
+	//4th row
+	namebox("Libby",	x,y+(width*3));
+	namebox("Erica",	x+(width*1),y+(width*3));
+	namebox("Aaron",	x+(width*2),y+(width*3));
+	namebox("Brown",	x+(width*3),y+(width*3));
+	namebox("Clive",	x+(width*4),y+(width*3));
+	namebox("Clive",	x+(width*5),y+(width*3));
+	namebox("Greg",x+(width*6),y+(width*3));
+	}
+
+
+	//add players and show animations
+	boxani();
+	if( P1 )
+	{
+
+		if(!GEV(P1,"selected"))
+		{
+		SEV(P1,"selected",1);
+		settextobj(100,15,247,0,9999999933,gettextobjproperty(GEV(P1,"selected"),"text"));
+		} else {
+			//platyer 1
+			changedrawmethod(NULL(),"reset",1);
+			changedrawmethod(NULL(),"alpha",2);
+			drawsprite(GGV("shade"),1,245,999999993);
+			drawsprite(GGV("shade"),1,245,999999993);
+			changedrawmethod(NULL(),"reset",1);
+			if(GEV( P1,"selected") == -1 || GEV( P1,"selected") == -2 ){ if(GEP(P1,"colourmap")){changedrawmethod(NULL(),"table",GEP(P1,"colourmap")); } }
+			playerani(gettextobjproperty(100,"text"));
+			drawsprite(GGV("playerani0"),0,0,999999994);
+		}
+
+
+
+		//player 1 controls and box animation
+		if(GEV(P1,"selected") > -1)
+		{
+			if(playerkeys(0,1,"moveright") )
+			{
+				SEV(P1,"selected", select_move(0,GEV(P1,"selected"),width) );
+			}
+			if( playerkeys(0,1,"moveleft") )
+			{
+				SEV(P1,"selected", select_move(0,GEV(P1,"selected"),width*-1) );
+			}
+			if( playerkeys(0,1,"movedown") )
+			{
+				SEV(P1,"selected", select_move(0,GEV(P1,"selected"),0,height) );
+			}
+			if( playerkeys(0,1,"moveup") )
+			{
+				SEV(P1,"selected", select_move(0,GEV(P1,"selected"),0,height*-1) );
+			}
+			if( playerkeys(0,1,"attack") )
+			{
+				SGV("Player1",gettextobjproperty(100,"text"));
+				if( GGV("Player2") != GGV("Player1") ){ loadmodel(GGV("Player1"),3); }
+				CPP(0,"name",GGV("Player1"));
+				CEP(P1,"model",GGV("Player1"),0);
+				CEP(P1,"freezetime",-1);
+				CEP(P1,"frozen", 1);
+				SEV(P1,"selected",-1);
+			}
+
+			//select box animation
+			changedrawmethod(NULL(),"reset",1);
+			changedrawmethod(NULL(),"alpha",1);
+			drawsprite(GGV("box"),gettextobjproperty(GEV(P1,"selected"),"x"),gettextobjproperty(GEV(P1,"selected"),"y"),999999993);
+		} else if( GPP(0,"mapcount") > 1 && GEV(P1,"selected") == -1 )
+			{//remap option if available
+				maxmap = GEP(P1,"mapcount")-1;
+				map1 = GPP(0,"colourmap");
+
+				//show change colour icon
+				if (!GGV("colour")){ SGV("colour", loadsprite("data/levels/select_screen/colour.gif")); 	}
+				changedrawmethod(NULL(),"reset",1);
+				drawsprite(GGV("colour"),30,120,999999993);
+
+				if(playerkeys(0,1,"moveright") )
+				{
+					if( map1 < maxmap ){ CPP(0,"colourmap",map1+1); CEP(P1,"map",GPP(0,"colourmap")); playsample(OBC("sample_beep"), 0, 120, 120, 100, 0); }
+				}
+				if(playerkeys(0,1,"moveleft") )
+				{
+					if( map1 > 0 ){  CPP(0,"colourmap",map1-1); CEP(P1,"map",GPP(0,"colourmap")); playsample(OBC("sample_beep"), 0, 120, 120, 100, 0); }
+				}
+				if( playerkeys(0,1,"attack") )
+				{
+					playsample(OBC("sample_beep"), 0, 120, 120, 100, 0); SEV(P1,"selected",-2);
+				}
+		} else 
+			{//show player ready and waiting for other player 
+				SEV(P1,"selected",-2);
+				//show ready text
+				if (!GGV("ready")){ SGV("ready", loadsprite("data/levels/select_screen/ready.gif")); }
+				changedrawmethod(NULL(),"reset",1);
+				drawsprite(GGV("ready"),30,120,999999993);
+			}
+
+	} else 
+	{//player not present add press start prompt
+		int start = time%300;
+		if (!GGV("press_start")){ SGV("press_start", loadsprite("data/levels/custom_menu/ps_press_start.gif"));}
+		changedrawmethod(NULL(),"reset",1);
+		changedrawmethod(NULL(),"alpha",2);
+		drawsprite(GGV("shade"),1,245,999999993);
+		drawsprite(GGV("shade"),1,245,999999993);
+		changedrawmethod(NULL(),"reset",1);
+		if(start<150) drawsprite(GGV("press_start"),10,250,999999994);
+
+	}
+
+	if( P2 )
+	{
+		if(!GEV(P2,"selected"))
+		{
+		SEV(P2,"selected",1);
+		settextobj(101,378,247,0,9999999933,gettextobjproperty(GEV(P2,"selected"),"text"));
+		} else {
+			//platyer 2
+			changedrawmethod(NULL(),"reset",1);
+			changedrawmethod(NULL(),"alpha",2);
+			drawsprite(GGV("shade"),363,245,999999993);
+			drawsprite(GGV("shade"),363,245,999999993);
+			changedrawmethod(NULL(),"reset",1);
+			if(GEV( P2,"selected") == -1 || GEV( P2,"selected") == -2){ if(GEP(P2,"colourmap")){changedrawmethod(NULL(),"table",GEP(P2,"colourmap")); } }
+			playerani(gettextobjproperty(101,"text"),1);
+			changedrawmethod(NULL(),"flipx",1);
+			drawsprite(GGV("playerani1"),480,0,999999994);
+		}
+
+
+
+		//player 2 controls and box animation
+		if(GEV(P2,"selected") > -1)
+		{
+			if(playerkeys(1,1,"moveright") )
+			{
+				SEV(P2,"selected", select_move(1,GEV(P2,"selected"),width) );
+			}
+			if( playerkeys(1,1,"moveleft") )
+			{
+				SEV(P2,"selected", select_move(1,GEV(P2,"selected"),width*-1) );
+			}
+			if( playerkeys(1,1,"movedown") )
+			{
+				SEV(P2,"selected", select_move(1,GEV(P2,"selected"),0,height) );
+			}
+			if( playerkeys(1,1,"moveup") )
+			{
+				SEV(P2,"selected", select_move(1,GEV(P2,"selected"),0,height*-1) );
+			}
+			if( playerkeys(1,1,"attack") )
+			{
+				SGV("Player2",gettextobjproperty(101,"text"));
+				CPP(1,"name",GGV("Player2"));
+				CPP(P2,"name",GGV("Player2"));
+				CEP(P2,"model",GGV("Player2"),1);
+				CEP(P2,"freezetime",-1);
+				CEP(P2,"frozen", 1);
+				SEV(P2,"selected",-1);
+			}
+
+			//select box animation
+			changedrawmethod(NULL(),"reset",1);
+			changedrawmethod(NULL(),"alpha",1);
+			drawsprite(GGV("box"),gettextobjproperty(GEV(P2,"selected"),"x"),gettextobjproperty(GEV(P2,"selected"),"y"),999999993);
+		} else if( GPP(1,"mapcount") > 1 && GEV(P2,"selected") == -1 )
+			{//remap option if available
+				maxmap = GEP(P2,"mapcount")-1;
+				map2 = GPP(1,"colourmap");
+
+				//show change colour icon
+				if (!GGV("colour")){ SGV("colour", loadsprite("data/levels/select_screen/colour.gif")); 	}
+				changedrawmethod(NULL(),"reset",1);
+				drawsprite(GGV("colour"),401,120,999999993);
+
+				if(playerkeys(1,1,"moveright") )
+				{
+					if( map2 < maxmap ){ CPP(1,"colourmap",map2+1); CEP(P2,"map",GPP(1,"colourmap")); playsample(OBC("sample_beep"), 0, 120, 120, 100, 0); }
+				}
+				if(playerkeys(1,1,"moveleft") )
+				{
+					if( map2 > 0 ){  CPP(1,"colourmap",map2-1); CEP(P2,"map",GPP(1,"colourmap")); playsample(OBC("sample_beep"), 0, 120, 120, 100, 0); }
+				}
+				if( playerkeys(1,1,"attack") )
+				{
+					playsample(OBC("sample_beep"), 0, 120, 120, 100, 0); SEV(P2,"selected",-2);
+				}
+		} else
+			{//show player ready and waiting for other player
+				SEV(P2,"selected",-2);
+				//show ready text
+				if (!GGV("ready")){ SGV("ready", loadsprite("data/levels/select_screen/ready.gif")); }
+				changedrawmethod(NULL(),"reset",1);
+				drawsprite(GGV("ready"),401,120,999999993);
+			}
+
+	} else 
+	{//player not present add press start prompt
+		int start = time%300;
+		changedrawmethod(NULL(),"reset",1);
+		changedrawmethod(NULL(),"alpha",2);
+		drawsprite(GGV("shade"),363,245,999999993);
+		drawsprite(GGV("shade"),363,245,999999993);
+		changedrawmethod(NULL(),"reset",1);
+		if(start<150) drawsprite(GGV("press_start"),372,250,999999994);
+
+	}
+
+
+//finalize
+	
+	if( P1 && P2 )
+	{
+		if( GEV(P2,"selected") == -2 && GEV(P1,"selected") == -2 ) { width=0; jumptobranch(GGV("mode"),1); }
+	} else if( !P1 && P2 )
+	{
+		if( GEV(P2,"selected") == -2 ) { width=0; jumptobranch(GGV("mode"),1); }
+	} else if( P1 && !P2 )
+	{
+		if( GEV(P1,"selected") == -2 ) { width=0; ondestroy(); jumptobranch(GGV("mode"),1); }
+	}
+
+}
+
+///////////////////////////////////////////////
+//////// Nothing but FUN down here ! //////////
+///////////////////////////////////////////////
+
+void setsprite(char global, char sprite)
+{//check if globalvar empty then load specified sprite
+if(!GGV(global))	SGV(global, loadsprite(sprite));
+}
+
+void endselect()
+{
+	jumptobranch("stage_1",1);
+}
+
+void select_move(int index, int select, int width, int height)
+{//navigate around the menu !
+	int i;
+
+	for(i=1;gettextobjproperty(i,"x");i++)
+	{
+	if(	gettextobjproperty(i,"x")== gettextobjproperty(select,"x") + (height?0:width) &&
+		gettextobjproperty(i,"y")==gettextobjproperty(select,"y") + (height?height:0) )
+		{ 
+			playsample(OBC("sample_beep"), 0, 120, 120, 100, 0);
+			select=i; break;
+		}
+	}
+
+	//show selected characters name
+	if(index){ settextobj(101,378,247,0,9999999933,gettextobjproperty(select,"text"));
+	} else{ settextobj(100,15,247,0,9999999933,gettextobjproperty(select,"text")); }
+
+	return select;
+}
+
+void boxani()
+{
+	int time = OBV("elapsed_time");
+	char path = "data/levels/select_screen/box_";
+	time = time%120;
+	if(time>100)
+	{
+	if(GGV("box")){ name2null("box"); }
+	SGV("box", loadsprite(path + "06.gif"));
+	} else if(time>80)
+	{
+	if(GGV("box")){ name2null("box"); }
+	SGV("box", loadsprite(path + "05.gif"));
+	} else if(time>60)
+	{
+	if(GGV("box")){ name2null("box"); }
+	SGV("box", loadsprite(path + "04.gif"));
+	} else if(time>40)
+	{
+	if(GGV("box")){ name2null("box"); }
+	SGV("box", loadsprite(path + "03.gif"));
+	} else if(time>20)
+	{
+	if(GGV("box")){ name2null("box"); }
+	SGV("box", loadsprite(path + "02.gif"));
+	} else {
+	if(GGV("box")){ name2null("box"); }
+	SGV("box", loadsprite(path + "01.gif"));
+	}
+
+}
+
+
+void playerani(char name, int p2)
+{
+	int time = OBV("elapsed_time");
+	char path = "data/levels/select_screen/players/";
+	char playerani;
+	if(p2){playerani="playerani1";} else {playerani="playerani0";}
+	time = time%100;
+	int cycle;
+
+	if(	name == "Chin" || name == "Cindy" || name == "Linda" || name == "Erica" || name == "Isabella" || name == "Libby")
+	{ cycle=1; } else { cycle=0; }
+
+	if(time>75)
+	{
+	if(GGV(playerani)){ name2null(playerani); }
+	if(cycle==1){ SGV(playerani, loadsprite(path + name + "_03.gif")); }
+	else{ SGV(playerani, loadsprite(path + name + "_02.gif")); }
+	} else if(time>50)
+	{
+	if(GGV(playerani)){ name2null(playerani); }
+	if(cycle==1){ SGV(playerani, loadsprite(path + name + "_01.gif")); }
+	else{ SGV(playerani, loadsprite(path + name + "_03.gif")); }
+	} else if(time>25)
+	{
+	if(GGV(playerani)){ name2null(playerani); }
+	SGV(playerani, loadsprite(path + name + "_02.gif"));
+	} else {
+	if(GGV(playerani)){ name2null(playerani); }
+	SGV(playerani, loadsprite(path + name + "_01.gif"));
+	}
+
+}
+
+void namebox(char name, float x, float y)
+{//make textboxes with characters name in it not visable just to navigate the select screen
+int i;
+
+for(i=1;i>0;i++)
+{
+	if( !gettextobjproperty(i,"text") ) { break; }
+}
+
+settextobj(i,x,y,0,99999999,name);
+
+}
+
+void setplayers()
+{//force player into game if they pressed start in main menu
+	
+	void ent;
+	clearspawnentry();
+	setspawnentry("name", "_");
+
+	if(GGV("Player1"))
+	{
+	ent = spawn();
+	CPP(0,"lives",8);
+	CPP(0,"credits",1);
+	CPP(0,"entity",ent);
+	SGV("Player1",NULL());
+	}
+
+	if(GGV("Player2"))
+	{
+	ent = NULL();
+	ent = spawn();
+	CPP(1,"lives",8);
+	CPP(1,"credits",1);
+	CPP(1,"entity",ent);
+	SGV("Player2",NULL());
+	}
+}
+
+void ondestroy()
+{//closing up shop time to clean up.
+name2null("select_bg");
+name2null("border");
+name2null("faces");
+name2null("box");
+name2null("shade");
+name2null("colour");
+name2null("ready");
+name2null("playerani0");
+name2null("playerani1");
+}
+
+void name2null(char name)
+{//free a global var based on name
+	if(GGV(name)){ free(GGV(name)); SGV(name, NULL()); }
+}

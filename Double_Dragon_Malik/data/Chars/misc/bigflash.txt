@@ -1,0 +1,19 @@
+# Player Hit flash
+name	BigFlash
+type	none
+alpha	1
+lifespan 4
+shadow	0
+
+anim idle
+	loop	0
+	delay	6
+	offset	27 25
+	frame	data/chars/misc/bigflash01.gif
+	frame	data/chars/misc/bigflash02.gif
+	frame	data/chars/misc/bigflash03.gif
+	frame	data/chars/misc/bigflash04.gif
+	frame	data/chars/misc/bigflash05.gif
+	frame	data/chars/misc/bigflash06.gif
+	frame	data/chars/misc/bigflash07.gif
+	frame	data/chars/misc/empty.gif

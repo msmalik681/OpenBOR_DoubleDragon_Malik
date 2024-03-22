@@ -1,0 +1,297 @@
+# Street
+music		data/music/level_2.bor
+bossmusic	data/music/boss_1.bor
+cameraoffset 0 -60
+cameratype	0
+# Load images
+panel	data/levels/level_2/lv2_base.gif
+
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {alt} {type}
+
+#wall 150 350 0 0 1500 1500 500 300 #test
+
+wall 0 253 0 0 1500 1500 500 300 #start
+wall 575 333 0 0 1500 1500 3 1500 #down stop
+wall 820 270 -20 0 1500 1500 19 1500 #boxes
+wall 1105 285 -20 0 1500 1500 19 1500 #boxes 2
+wall 1265 333 -80 0 1500 1500 80 1500 #end wall
+
+#platforms
+wall 405 295 -43 0 95 140 47 33 #platform stone
+wall 575 333 -82 0 80 160 85 65 #platform 1st red
+wall 712 333 -77 0 65 143 80 85 #platform 2nd red
+wall 848 333 -80 0 1500 1500 80 118 #platform top level
+
+hole 350 360 60 0 300 300 65
+
+spawn1  	140 20
+spawn2  	140	90
+
+direction	both
+cameratype	1
+noslow		1
+scrollspeed 3
+order		a
+
+#--------OBJECTS---------
+
+#spawn	ypos
+#coords	160 151
+#alias	ani_follow2 #screen down
+#mp		90
+#at		0
+
+spawn	knife
+coords	210 300
+at		0
+
+group 	1 1
+at		0
+
+spawn	Drumcan
+coords	585 265
+at		0
+
+spawn	Drumcan
+coords	640 315
+at		0
+
+spawn	Bat
+coords	665 290
+at		0
+
+spawn	DrumcanStand
+coords	390 305
+at		0
+
+spawn	DrumcanStand
+coords	375 320
+at		0
+
+spawn	DrumcanStand
+coords	360 335
+at		0
+
+spawn	DrumcanStand
+coords	345 350
+at		0
+
+spawn	lv2_objects
+coords	30 358
+flip	1
+alias	ani_follow1
+at		0
+
+spawn	lv2_objects
+coords	363 385
+alias	ani_follow2
+at		0
+
+spawn	lv2_objects
+coords	910 260
+alias	ani_follow3
+at		0
+
+spawn	lv2_objects
+coords	766 110
+alias	ani_follow4
+at		0
+
+spawn	lv2_objects
+flip	1
+coords	563 64
+alias	ani_follow4
+at		0
+
+#----------ENEMIES-----------
+
+###################
+wait
+at		0
+
+group	4 4
+at		0
+###################
+
+spawn	Mark
+coords	497 253
+at		0
+
+spawn	Mark
+coords	525 280
+at		0
+
+spawn	delay
+health	20
+at		0
+
+spawn	delay
+health	20
+at		0
+
+spawn	Mark
+map		1
+alias	ani_follow3 #walk from top
+coords	10 253 140
+flip	1
+at		0
+
+spawn	delay
+health	5
+at		0
+
+spawn	Mark
+alias	ani_follow3 #walk from top
+coords	10 253 140
+flip	1
+at		0
+
+group	1 1
+at		0
+
+#spawn	ypos
+#coords	0 0
+#alias	ani_follow3 #free screen
+#mp		40
+#at		0
+
+#####################
+
+group	100 100
+at		230
+
+spawn	Brown
+Weapon	Drumcan
+coords	500 279 85
+at		230
+
+####################
+wait
+at		455
+
+group	3 5
+at		455
+####################
+
+spawn	Blockade
+coords	-155 350
+at		455
+
+#spawn	ypos
+#coords	0 0
+#alias	ani_follow1
+#mp		45
+#at		455
+
+spawn	Scott
+coords	550 275
+at		455
+
+spawn	Mark
+coords	540 285
+at		455
+
+spawn	Linda
+coords	500 305
+at		455
+
+spawn	Cindy
+coords	480 310 0
+weapon	Whip
+at		455
+
+spawn	delay
+coords	550 320
+health	50
+at		455
+
+spawn	Scott
+coords	-20 255
+at		455
+
+spawn	Mark
+coords	-36 270
+at		455
+
+group	1 1 
+at		455
+
+#spawn	ypos
+#coords	0 0
+#alias	ani_follow3 #free screen
+#mp	40
+#at		455
+
+
+#####################
+group	1 1
+at		950
+
+wait
+at		950
+#######################
+
+#spawn	ypos
+#coords	160 151
+#alias	ani_follow1 #screen up
+#mp		0
+#at		950
+
+coords	-90 330
+at		950
+
+group	1 2
+at		950
+
+spawn	Scott
+coords	110 275 500
+at		950
+
+spawn	Mark
+map		1
+coords	170 275 500
+at		950
+
+spawn	Williams
+coords	-22 280 85
+at		950
+
+spawn	Kent
+coords	-24 290 85
+at		950
+
+spawn	lv2_objects
+flip	1
+coords	160 151
+alias	ani_follow5 #doorA
+at		950
+
+spawn	delay
+health	5
+coords	0 0
+at		950
+
+spawn	delay
+health	5
+coords	0 0
+at		950
+
+group	2 2
+at		950
+
+spawn	Burnov_e
+health	130
+boss	1
+coords	300 305 310
+at		950
+
+spawn	delay
+health	35
+coords	0 0
+at		950
+
+spawn	Enemy_Spawner
+flip	1
+coords	160 151
+alias	ani_follow2 # stage 2 boss backup
+at		950

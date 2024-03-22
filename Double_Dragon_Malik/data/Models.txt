@@ -1,0 +1,149 @@
+# List all character models to be loaded.
+# Syntax:
+# load		[name]		[path]		// Load on startup
+# know		[name]		[path]		// Load when needed
+
+maxfollows	20
+maxfreespecials 20
+maxattacks	8
+nodropen	1
+
+# Required objects. These must always be loaded.
+load	Flash			data/chars/misc/flash.txt
+load	Flash_Stab		data/chars/misc/flash_stab.txt
+load	BigFlash		data/chars/misc/bigflash.txt
+load	BigDust			data/chars/misc/big_dust.txt
+load	Quake			data/chars/misc/quake.txt
+load	BigQuake		data/chars/misc/big_quake.txt
+load	Slam_Effect		data/chars/misc/slam_effect.txt
+know	Delay			data/chars/misc/delay.txt
+know	Event			data/chars/misc/event.txt
+know	Enemy_Spawner	data/chars/misc/enemy_spawner.txt
+know	Ypos			data/chars/misc/ypos.txt
+
+# Players must also be loaded.
+load	Custom_Menu		data/levels/custom_menu/custom_menu.txt
+load	_				data/levels/custom_menu/_.txt
+know	Jimmy			data/chars/jimmy/jimmy.txt
+know	Jimmy_Effect	data/chars/jimmy/jimmy_effect.txt
+know	Jimmy_Whip		data/chars/jimmy/jimmy_whip.txt
+know	Jimmy_Bat		data/chars/jimmy/jimmy_bat.txt
+know	Jimmy_Knife		data/chars/jimmy/jimmy_knife.txt
+know	Jimmy_Drumcan	data/chars/jimmy/jimmy_drumcan.txt
+know	Billy			data/chars/billy/billy.txt
+know	Billy_Effect	data/chars/billy/billy_effect.txt
+know	Billy_Whip		data/chars/billy/billy_whip.txt
+know	Billy_Bat		data/chars/billy/billy_bat.txt
+know	Billy_Knife		data/chars/billy/billy_knife.txt
+know	Billy_Drumcan	data/chars/billy/billy_drumcan.txt
+
+# Playable enemies
+know	Abbobo			data/chars/bosses/abbobo/abbobo.txt
+know	Burnov			data/chars/bosses/burnov/burnov.txt
+know	Lavis			data/chars/bosses/lavis/lavis.txt
+know	Chin			data/chars/bosses/chin/chin.txt
+know	Deena			data/chars/bosses/deena/deena.txt
+know	Willy			data/chars/bosses/willy_real/willy.txt
+
+# Boss Enemies
+know	Abbobo_e		data/chars/bosses/abbobo/abbobo_e.txt
+know	Abbobo_Effect	data/chars/bosses/abbobo/abbobo_effect.txt
+know	Burnov_e		data/chars/bosses/burnov/burnov_e.txt
+know	Burnov_Effect	data/chars/bosses/burnov/burnov_effect.txt
+know	Lavis_e			data/chars/bosses/lavis/lavis_e.txt
+know	Lavis_Effect	data/chars/bosses/lavis/lavis_effect.txt
+know	Sticks_Throw	data/chars/bosses/lavis/sticks_throw.txt
+know	Chin_e			data/chars/bosses/chin/chin_e.txt
+know	Chin_Effect		data/chars/bosses/chin/chin_effect.txt
+know	Deena_e			data/chars/bosses/deena/deena_e.txt
+know	Deena_Effect	data/chars/bosses/deena/deena_effect.txt
+know	Willy_e			data/chars/bosses/willy/willy_e.txt
+know	Death_Gun		data/chars/bosses/willy/deathgun.txt
+know	Willy_Real		data/chars/bosses/willy_real/willy_real.txt
+know	Willy_Effect	data/chars/bosses/willy_real/willy_effect.txt
+
+# Common Enemies
+know	Brett_e			data/chars/enemies/0_brett/brett_e.txt
+know	Brett			data/chars/enemies/0_brett/brett.txt
+know	Brett_Bat		data/chars/enemies/0_brett/brett_bat.txt
+know	Brett_Knife		data/chars/enemies/0_brett/brett_knife.txt
+know	Frank_e			data/chars/enemies/0_frank/frank_e.txt
+know	Frank			data/chars/enemies/0_frank/frank.txt
+know	Frank_Bat		data/chars/enemies/0_frank/frank_bat.txt
+know	Frank_Knife		data/chars/enemies/0_frank/frank_knife.txt
+know	Kent_e			data/chars/enemies/0_kent/kent_e.txt
+know	Kent			data/chars/enemies/0_kent/kent.txt
+know	Kent_Bat		data/chars/enemies/0_kent/kent_bat.txt
+know	Kent_Knife		data/chars/enemies/0_kent/kent_knife.txt
+know	Williams_e		data/chars/enemies/0_williams/williams_e.txt
+know	Williams		data/chars/enemies/0_williams/williams.txt
+know	Williams_Bat	data/chars/enemies/0_williams/williams_bat.txt
+know	Williams_Knife	data/chars/enemies/0_williams/williams_knife.txt
+know	Cindy_e			data/chars/enemies/1_cindy/cindy_e.txt
+know	Cindy			data/chars/enemies/1_cindy/cindy.txt
+know	Cindy_Whip		data/chars/enemies/1_cindy/cindy_whip.txt
+know	Linda_e			data/chars/enemies/1_linda/linda_e.txt
+know	Linda			data/chars/enemies/1_linda/linda.txt
+know	Linda_Whip		data/chars/enemies/1_linda/linda_whip.txt
+know	Aaron_e			data/chars/enemies/2_aaron/aaron_e.txt
+know	Aaron			data/chars/enemies/2_aaron/aaron.txt
+know	Aaron_Drumcan	data/chars/enemies/2_aaron/aaron_drumcan.txt
+know	Brown_e			data/chars/enemies/2_brown/brown_e.txt
+know	Brown			data/chars/enemies/2_brown/brown.txt
+know	Brown_Drumcan	data/chars/enemies/2_brown/brown_drumcan.txt
+know	Mark_e			data/chars/enemies/3_mark/mark_e.txt
+know	Mark			data/chars/enemies/3_mark/mark.txt
+know	Mark_Knife		data/chars/enemies/3_mark/mark_knife.txt
+know	Scott_e			data/chars/enemies/3_scott/scott_e.txt
+know	Scott			data/chars/enemies/3_scott/scott.txt
+know	Scott_Knife		data/chars/enemies/3_scott/scott_knife.txt
+know	Clive_e			data/chars/enemies/4_clive/clive_e.txt
+know	Clive			data/chars/enemies/4_clive/clive.txt
+know	Greg_e			data/chars/enemies/4_greg/greg_e.txt
+know	Greg			data/chars/enemies/4_greg/greg.txt
+know	Harry_e			data/chars/enemies/5_harry/harry_e.txt
+know	Harry			data/chars/enemies/5_harry/harry.txt
+know	Ted_e			data/chars/enemies/5_ted/ted_e.txt
+know	Ted				data/chars/enemies/5_ted/ted.txt
+know	Erica_e			data/chars/enemies/erica/erica_e.txt
+know	Erica			data/chars/enemies/erica/erica.txt
+know	Isabella_e		data/chars/enemies/isabella/isabella_e.txt
+know	Isabella		data/chars/enemies/isabella/isabella.txt
+know	Libby_e			data/chars/enemies/libby/libby_e.txt
+know	Libby			data/chars/enemies/libby/libby.txt
+
+#panels
+know	panel_grass		data/levels/level_4/panel_grass.txt
+know	panel_rock		data/levels/level_4/panel_rock.txt
+know	panel_sides		data/levels/level_4/panel_sides.txt
+know	panel_bars		data/levels/level_4/panel_bars.txt
+know	panel_water		data/levels/level_4/panel_water.txt
+know	panel_mist		data/levels/level_4/panel_mist.txt
+know	lv1_objects		data/levels/level_1/lv1_objects.txt
+know	lv2_objects		data/levels/level_2/lv2_objects.txt
+know	lv3_objects		data/levels/level_3/lv3_objects.txt
+know	lv5_objects		data/levels/level_5/lv5_objects.txt
+know	lv6_objects		data/levels/level_6/lv6_objects.txt
+know	Boss_Doors		data/levels/level_4/boss_doors.txt
+know	platform		data/chars/misc/platform.txt
+know	Blockade		data/chars/misc/blockade.txt
+know	Boss_Door		data/levels/level_6/boss_door.txt
+
+# weapon items
+load	Darken			data/chars/misc/darken.txt
+load	Whip			data/chars/misc/whip.txt
+load	Bat				data/chars/misc/bat.txt
+load	Bat_Throw		data/chars/misc/bat_throw.txt
+load	Knife			data/chars/misc/knife.txt
+load	Dynamite		data/chars/misc/dynamite.txt
+load	Knife_Throw		data/chars/misc/knife_throw.txt
+load	Drumcan			data/chars/misc/drumcan.txt
+load	DrumcanStand	data/chars/misc/drumcan_stand.txt
+load	Drumcan_Throw	data/chars/misc/drumcan_throw.txt
+load	Fake_Throw		data/chars/misc/fake_throw.txt
+
+#Story System
+load	Story			data/story/story.txt
+
+#custom select screen
+load 	Select_Screen 	data/Levels/select_screen/select_screen.txt

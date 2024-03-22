@@ -1,0 +1,480 @@
+# Cliff
+music		data/music/level_5.bor
+cameraoffset 0 -200
+cameratype	0
+# Load images
+panel		data/levels/level_5/lv5_base.gif
+noslow		1
+scrollspeed	2000
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {height} {type}
+
+##floor platforms
+wall 1355 388 100 -30 131 0 135 17 #last steps
+wall 1330 388 -500 -600 131 0 135 34 #last platform
+wall 728  388 100 -30 131 0 135 51 #middle step
+wall 703  388 -230 -350 131 0 135 68 #middle platform
+wall 363  388 100 -30 131 0 135 85 #first step low
+wall 342  388 100 -30 131 0 135 102 #first step high
+wall 317  388 -9999 -9999 131 0 135 119 #first platform
+
+##wall level
+wall 2000 278 -9999 -9999 10 0 99 999 #top stage wall
+wall 1990 354 -80 0 100 100 85 999 #end wall
+wall 1400 430 -999 -999 0 0 60 999 #end bar
+
+wall 360 300 -999 -999 20 0 22 999 #first top bar
+wall 1355 435 -9999 -9999 0  0 75 999 #first lower barrier
+direction right
+order	a
+
+#--ITEMS------
+
+spawn	ypos
+coords	0 0
+alias	ani_follow1 #screen up
+mp		10
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow1 #ship
+coords	457 0
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow3 # plumeria
+coords	818 0
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow5 # deena
+coords	1335 0
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow7 # Lesbiens
+coords	1678 0
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow8 # foreground layer
+coords	0 0
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow9 # crowd A
+coords	964 192
+at		0
+
+spawn	lv5_objects
+flip	1
+alias	ani_follow10 # crowd B
+coords	1273 192
+at		0
+
+spawn	lv5_objects
+flip	1
+mp		2 #event 2
+alias	ani_follow11 # wood door
+coords	1536 270
+at		0
+
+spawn	lv5_objects
+flip	1
+mp		1 #event 2
+alias	ani_follow12 # blue door
+coords	528 207
+at		0
+
+spawn	lv5_objects
+flip	1
+mp		4 #event 4
+alias	ani_follow13 # hidden door
+coords	1993 329
+at		0
+
+#--ENEMIES--------
+
+###############
+wait
+at		0
+
+group	1 2
+at		0
+###############
+
+spawn	ypos
+alias	ani_follow1 #screen up
+mp		30
+at		0
+
+spawn	delay
+health	10
+at		0
+
+spawn	delay
+health	10
+at		0
+
+spawn	Clive
+coords	510 280
+at		0
+
+spawn	Clive
+coords	510 350
+at		0
+
+group	3 3
+at		0
+
+spawn	Clive
+coords	-30 305
+at		0
+
+spawn	Clive
+coords	-30 350
+at		0
+
+spawn	delay
+health	15
+at		0
+
+spawn	Clive
+coords	-30 305
+at		0
+
+group	1 1
+at		0
+
+spawn	ypos
+alias	ani_follow3 #free screen
+mp		0
+at		0
+
+################
+wait
+at		340
+
+group	1 2
+at		340
+################
+
+spawn	ypos
+alias	ani_follow1 #screen up
+mp		50
+at		340
+
+spawn	delay
+health	10
+at		340
+
+spawn	delay
+health	10
+at		340
+
+spawn	Isabella
+coords	510 280
+at		340
+
+spawn	Erica
+coords	510 350
+at		340
+
+group	2 2
+at		340
+
+spawn	Event
+mp		1
+at		340
+
+spawn	delay
+health	5
+at		340
+
+spawn	delay
+health	5
+at		340
+
+spawn	Clive
+flip	1
+map		1
+coords	229 263 68
+alias	ani_follow1 # walk out of door
+at		340
+
+spawn	delay
+health	12
+at		340
+
+spawn	Clive
+flip	1
+coords	229 263 68
+alias	ani_follow1 # walk out of door
+at		340
+
+group	1 1
+at		340
+
+spawn	ypos
+alias	ani_follow3 #free screen
+mp		0
+at		0
+
+################
+wait
+at		810
+
+group	1 1
+at		810
+################
+
+
+spawn	ypos
+alias	ani_follow1 #screen up
+mp		60
+at		810
+
+spawn	delay
+health	10
+at		810
+
+group	4 4
+at		810
+
+spawn	Isabella
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	Isabella
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	Erica
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	Erica
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+###
+
+grroup	3 6
+at		810
+
+spawn	Isabella
+coords	-100 280
+at		810
+
+spawn	Isabella
+coords	-100 300
+at		810
+
+spawn	Libby
+coords	-100 280
+at		810
+
+spawn	Erica
+coords	580 280
+at		810
+
+spawn	Libby
+coords	580 310
+at		810
+
+spawn	Libby
+coords	580 350
+at		810
+
+###
+
+spawn	Isabella
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	Isabella
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	Erica
+flip	1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	delay
+health	8
+at		810
+
+spawn	Clive
+flip	1
+map		1
+coords	309 268 100#1119 268 100
+alias	ani_follow3 # jump from crowd
+at		810
+
+group	1 1
+at		810
+
+spawn	ypos
+alias	ani_follow3 #free screen
+at		810
+
+group	2 2
+at		810
+
+spawn	Deena
+health	180
+flip	1
+boss	1
+alias	ani_follow1
+mp		3 #event 3
+coords	773 278 80#1773
+at		1000
+
+################
+wait
+at		1536
+
+group	2 2
+at		1536
+################
+
+
+spawn	ypos
+alias	ani_follow1 #screen up
+mp		120
+at		1536
+
+group	4 4
+at		1536
+
+spawn	Event
+mp		2
+at		1536
+
+spawn	delay
+health	5
+at		1536
+
+spawn	delay
+health	5
+at		1536
+
+spawn	delay
+health	5
+at		1536
+
+spawn	Isabella
+flip	1
+coords	23 263
+alias	ani_follow1 # walk out of door
+at		1536
+
+spawn	delay
+health	10
+at		1536
+
+spawn	delay
+health	10
+at		1536
+
+spawn	Isabella
+flip	1
+coords	23 263
+alias	ani_follow1 # walk out of door
+at		1536
+
+spawn	delay
+health	10
+at		1536
+
+spawn	Clive
+flip	1
+coords	23 263
+alias	ani_follow1 # walk out of door
+at		1536
+
+group	2 2
+at		1536
+
+spawn	Event
+mp		3
+at		1536
+
+
+
+

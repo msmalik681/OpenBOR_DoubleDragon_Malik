@@ -1,0 +1,42 @@
+name	Whip
+type	item
+subtype	weapon
+weapnum	1
+shootnum -1
+shadow	0
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	delay	1
+	offset	18 11
+	bbox	0 0 32 12
+	frame	data/chars/misc/whip.gif
+	frame	data/chars/misc/whip.gif
+
+anim respawn
+	loop	0
+	delay	999
+	offset	18 11
+	bbox	0 0 32 12
+	jumpframe 0 3 1.2  0 0
+	landframe 1
+	frame	data/chars/misc/whip.gif
+	delay	10
+	frame	data/chars/misc/whip.gif
+
+anim idle
+	loop	1
+	delay	10
+	offset	18 11
+	bbox	0 0 32 12
+	frame	data/chars/misc/whip.gif
+
+
+anim death
+	loop	0
+	delay	10
+	offset	18 11
+	bbox	0 0 32 12
+	frame	data/chars/misc/whip.gif

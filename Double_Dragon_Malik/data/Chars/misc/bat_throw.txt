@@ -1,0 +1,61 @@
+name		Bat_Throw
+type		none
+shadow		0
+remove		0
+candamage	enemy player
+offscreenkill 200
+no_adjust_base 0
+subject_to_gravity 0
+subject_to_wall 1
+subject_to_platform 1
+subject_to_hole 1
+subject_to_obstacle 1
+palette		data/chars/misc/bat.gif
+
+animationscript	data/scripts/scripts.c
+onblockwscript	data/scripts/bounceoff.openbor
+onblockoscript	data/scripts/bounceoff.openbor
+onblockpscript	data/scripts/bounceoff.openbor
+
+anim spawn
+	loop	0
+	offset	20 7
+	delay	3
+	frame	none
+	@cmd	copyDamage
+	@cmd	name2ani
+	frame	none
+
+anim idle
+	loop	0
+	delay	3
+	offset	20 7
+	attack	0 0 41 10	40 1 0 0 10
+	frame	data/chars/misc/bat.gif
+	@cmd	dasher 3.5 0 0
+	frame	data/chars/misc/bat.gif
+
+anim follow1
+	loop	0
+	delay	5
+	offset	28 31
+	jumpframe 0 2 0.3 0
+	landframe 11
+	@cmd	gravity 1
+	frame	data/chars/misc/bat/spin01.gif
+	frame	data/chars/misc/bat/spin02.gif
+	frame	data/chars/misc/bat/spin03.gif
+	frame	data/chars/misc/bat/spin04.gif
+	frame	data/chars/misc/bat/spin05.gif
+	frame	data/chars/misc/bat/spin06.gif
+	frame	data/chars/misc/bat/spin07.gif
+	frame	data/chars/misc/bat/spin08.gif
+	frame	data/chars/misc/bat/spin01.gif
+	frame	data/chars/misc/bat/spin02.gif
+	delay	999
+	frame	data/chars/misc/bat/spin03.gif
+	delay	1
+	sound	data/sounds/bat_drop_se18.wav
+	@cmd	spawn01 "Bat" 0 0 0
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/bat/spin04.gif

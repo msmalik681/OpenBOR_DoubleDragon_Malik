@@ -1,0 +1,11 @@
+void ondoattack()
+{//do not hit falling entities.
+	void other = getlocalvar("other");
+	void self = getlocalvar("self");
+
+if(getentityproperty(other, "aiflag", "falling"))//if falling.
+{
+changeopenborvariant("lasthitc",0); //cancel the hit.
+}
+
+}

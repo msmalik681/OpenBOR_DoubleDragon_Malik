@@ -1,0 +1,123 @@
+#include "data/scripts/scripts.c"
+#define OBC  openborconstant
+#define GEP  getentityproperty
+#define CEP  changeentityproperty
+#define SLV  setlocalvar
+#define GLV  getlocalvar
+#define GEV  getentityvar
+#define SEV  setentityvar
+#define GLP	 getlevelproperty
+#define CLP	 changelevelproperty
+#define OBV  openborvariant
+#define COBV changeopenborvariant
+#define GPP  getplayerproperty
+#define SGV  setglobalvar
+#define GGV  getglobalvar
+#define self GLV("self")
+
+void main()
+{//All players Keyscripts
+	//void self = getlocalvar("self"); //Get calling entity
+	void exists = GEP(self, "health")>0?1:NULL(); // Is caller alive
+ if (openborvariant("in_level") && exists)
+ {
+    int playerIndex = GEP(self,"playerindex"); //Get player by index
+    void aniid = GEP(self,"animationID"); //Get current animation ID
+	char name = GEP(self,"name"); //Get current name
+	char model = GEP(self,"model"); //Get current model name
+	int mp = GEP(self,"mp"); // Get current mp
+    int dir = GEP(self, "direction");  //Get current facing direction
+    void start = playerkeys(playerIndex, 1, "start"); //New key status of "Start"
+    void punch = playerkeys(playerIndex, 1, "attack"); //New key status of "Attack"
+    void kick = playerkeys(playerIndex, 1, "attack2"); // New key of "Attack 2"
+	void test = playerkeys(playerIndex, 1, "attack3"); // New key of "Attack 3"
+	void jump = playerkeys(playerIndex, 1, "jump"); //New key status of "Jump"
+	void backward = playerkeys(playerIndex, 1, dir==0?"moveright":"moveleft");
+	//Release Keys
+	void backwardR = playerkeys(playerIndex, 2, dir==0?"moveright":"moveleft");
+	//Hold Keys
+	void kickH = playerkeys(playerIndex, 3, "attack2");
+	void upH = playerkeys(playerIndex, 3, "moveup");
+	void downH = playerkeys(playerIndex, 3, "movedown");
+	void forwardH = playerkeys(playerIndex, 3, dir==0?"moveleft":"moveright");
+	void backwardH = playerkeys(playerIndex, 3, dir==0?"moveright":"moveleft");
+	int time;
+
+if(test){
+smartbomb("enemy",999,1,"ATK_NORMAL");
+hitme(999,1,"ATK_NORMAL");
+}
+
+	if( GEP(self, "aiflag", "jumping"))
+	 {
+	 		if(punch){ nullkeys();
+	 }else	if( GEP(self, "y")>GEP(self, "base") )
+	 {// all jump attacks
+ 
+ 	 	if(kick)
+ 	 	{
+ 	 		if(upH){ doattack(OBC("ani_jumpattack3")); // spin kick
+ 	 		} else if(backwardH && name == "Billy" && mp>=6){ CEP(self,"mp",mp-6); doattack(OBC("ani_freespecial14")); // super kick
+ 	 		} else if(downH){ doattack(OBC("ani_jumpattack2")); // dive kick
+ 	 		} else{	doattack(OBC("ani_jumpattack")); }	// flying kick
+ 	 	}
+	 }
+	}
+		
+	if(aniid == OBC("ani_run") && kick){ CEP(self, "aiflag", "running", 0); doattack(OBC("ani_freespecial13")); } // running kick
+	
+	if(aniid == OBC("ani_grab"))
+	{// all grab attacks controlled by script
+	if(backwardH && punch){return 0;} //allow default throw
+	if(forwardH && punch || jump){nullkeys();}//cancel default inputs
+	void opp = GEP(self, "opponent");
+	void kicks = GEV(opp,"kicks");
+	if(kick)
+	{
+	if(kicks % 3 != 0){ SEV(opp, "kicks",kicks+1); doattack(OBC("ani_grabforward")); // grab knee attack
+	} else { doattack(OBC("ani_grabforward2")); } // grab kick finisher
+	}
+	if(punch)
+	{
+	if(kicks < 60){ SEV(opp, "kicks",kicks+30); doattack(OBC("ani_grabattack")); // grab knee attack
+	} else { doattack(OBC("ani_grabattack2")); } // grab kick finisher
+	}
+	}
+	
+	if(aniid == OBC("ani_idle") || aniid == OBC("ani_walk"))
+	{//all moves that can be used from idle or walking animations
+	
+	 if(punch && strinfirst(model, "Drumcan") == -1)
+	 {//Punch attacks
+				if(upH && forwardH && name == "Jimmy" && mp>=6){ stop(); CEP(self,"mp",mp-6); doattack(OBC("ani_freespecial14"));  // Super Punch
+		} else 	if(upH){ stop(); doattack(OBC("ani_freespecial5")); // headbutt
+		} else 	if(forwardH && downH && name == "Jimmy" && mp>=3){ stop(); CEP(self,"mp",mp-3); doattack(OBC("ani_freespecial8")); // overhead punch
+		} else 	if(forwardH && name == "Jimmy" && mp>=3){ stop(); CEP(self,"mp",mp-3); doattack(OBC("ani_freespecial7")); // straight barge
+		} else 	if(downH){ stop(); doattack(OBC("ani_freespecial12")); // elbow
+		//} else 	if( GEP(findtarget(self, OBC("ani_freespecial3")),"animationID") == OBC("ani_pain2") && strinfirst(model, "_") == -1 ){ stop; doattack(OBC("ani_freespecial3")); //uppercut only when enemy in range and pain2
+		}
+	 }
+
+	 if(kick && strinfirst(model, "Drumcan") == -1)
+	 {//Kick attacks
+				if(upH && forwardH && mp>=3){ stop(); CEP(self,"mp",mp-3); doattack(OBC("ani_freespecial6"));  // knee
+		} else 	if(downH && forwardH){ stop(); doattack(OBC("ani_freespecial10")); // kicks combo
+		} else 	if(forwardH && name == "Billy" && mp>=3){ stop(); CEP(self,"mp",mp-3); doattack(OBC("ani_freespecial7")); // straight kick
+		} else 	if(upH && name == "Billy" && mp>=3){ stop(); CEP(self,"mp",mp-3); doattack(OBC("ani_freespecial8")); // moon kick
+		} else 	if(downH){ stop(); doattack(OBC("ani_freespecial9")); // low kick
+		} else 	if( GEP(findtarget(self, OBC("ani_freespecial11")),"animationID") == OBC("ani_pain2") ){ stop(); doattack(OBC("ani_freespecial11")); //roundhouse only when enemy in range and pain2
+		} else	{ stop(); doattack(OBC("ani_freespecial4")); } // basic kick
+	
+	}
+
+	}
+}
+}
+
+//Functions 
+void nullkeys()
+{//null a key press.
+int player = GEP(self,"playerindex"); //Get player by index
+	changeplayerproperty(player, "newkeys", 0);
+	changeplayerproperty(player, "playkeys", 0);
+}

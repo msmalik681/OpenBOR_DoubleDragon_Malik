@@ -1,0 +1,11 @@
+name	Select_Screen
+health	1
+type	endlevel
+nomove	1
+
+ondrawscript data/levels/select_screen/select_screen.openbor
+
+anim	idle
+loop	1
+frame	none
+

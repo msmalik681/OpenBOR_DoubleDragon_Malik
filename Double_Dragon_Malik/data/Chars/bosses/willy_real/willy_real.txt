@@ -1,0 +1,352 @@
+name		Willy_Real
+health		999
+#nomove		1
+speed		5
+type		enemy
+jumpheight	4
+shadow		3
+risetime	3
+throw		3 3.5
+paingrab	1
+atchain		3
+aimove		Chasex
+running		20 3.5 2 0 0
+diesound	data/sounds/eek.wav
+palette		data/chars/bosses/willy_real/idle01.gif
+subject_to_wall 0
+subject_to_gravity 0
+nodieblink 2
+falldie 2
+
+animationscript		data/scripts/scripts.c
+takedamagescript	data/scripts/takedamagescript.c
+
+load	Willy_Effect	3
+
+anim spawn
+	loop	0
+	offset	71 139
+	delay	3
+	frame	data/chars/bosses/willy_real/atk114.gif
+	@cmd	spawnbind2 "Willy_Effect" 0 0 1 1 6
+	@cmd	name2ani
+	@cmd	wallpass 1
+	delay 	8
+	frame	data/chars/bosses/willy_real/atk114.gif
+	frame	data/chars/bosses/willy_real/super101.gif
+	frame	data/chars/bosses/willy_real/super102.gif
+	frame	data/chars/bosses/willy_real/super103.gif
+	frame	data/chars/bosses/willy_real/super104.gif
+	frame	data/chars/bosses/willy_real/super103.gif
+	frame	data/chars/bosses/willy_real/super104.gif
+	frame	data/chars/bosses/willy_real/super103.gif
+	frame	data/chars/bosses/willy_real/super104.gif
+	frame	data/chars/bosses/willy_real/atk114.gif
+
+anim follow1 # Boss intro A
+	
+anim follow2 # Jump in
+
+anim follow3 #locker spawn
+	
+anim idle
+	loop	1
+	offset	71 139
+	bbox	54 71 31 67
+	delay	12
+	#@cmd	doattack	"ani_attack4"
+	frame	data/chars/bosses/willy_real/idle02.gif
+	frame	data/chars/bosses/willy_real/idle01.gif
+	frame	data/chars/bosses/willy_real/idle01.gif
+	frame	data/chars/bosses/willy_real/idle01.gif
+	frame	data/chars/bosses/willy_real/idle01.gif
+	frame	data/chars/bosses/willy_real/idle02.gif
+	frame	data/chars/bosses/willy_real/idle03.gif
+	frame	data/chars/bosses/willy_real/idle03.gif
+
+anim walk
+	loop	1
+	offset	71 139
+	bbox	59 72 28 67
+	delay	13
+	frame	data/chars/bosses/willy_real/walk01.gif
+	frame	data/chars/bosses/willy_real/walk02.gif
+	frame	data/chars/bosses/willy_real/walk03.gif
+	frame	data/chars/bosses/willy_real/walk04.gif
+	frame	data/chars/bosses/willy_real/walk05.gif
+	frame	data/chars/bosses/willy_real/walk06.gif
+	frame	data/chars/bosses/willy_real/walk07.gif
+	frame	data/chars/bosses/willy_real/walk08.gif
+
+anim run
+	loop	1
+	offset	71 139
+	bbox	59 80 44 56
+	delay	8
+	frame	data/chars/bosses/willy_real/run01.gif
+	frame	data/chars/bosses/willy_real/run02.gif
+	frame	data/chars/bosses/willy_real/run03.gif
+	frame	data/chars/bosses/willy_real/run04.gif
+	frame	data/chars/bosses/willy_real/run05.gif
+	frame	data/chars/bosses/willy_real/run06.gif
+	
+anim pain
+	loop	0
+	offset	71 139
+	bbox	44 71 41 69
+	delay	8
+	frame	data/chars/bosses/willy_real/pain101.gif
+	delay	50
+	frame	data/chars/bosses/willy_real/pain102.gif
+	delay	8
+	frame	data/chars/bosses/willy_real/pain101.gif
+
+anim pain2
+	loop	0
+	offset	71 139
+	bbox	54 76 36 63
+	delay	8
+	frame	data/chars/bosses/willy_real/pain201.gif
+	delay	100
+	frame	data/chars/bosses/willy_real/pain202.gif
+	delay	8
+	frame	data/chars/bosses/willy_real/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	71 139
+	bbox	44 71 41 69
+	delay	8
+	frame	data/chars/bosses/willy_real/pain101.gif
+
+anim pain3
+	loop	0
+	offset	71 139
+	bbox	54 76 36 63
+	delay	8
+	frame	data/chars/bosses/willy_real/pain201.gif
+	frame	data/chars/bosses/willy_real/pain202.gif
+	frame	data/chars/bosses/willy_real/pain201.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	71 139
+	bbox	2 1 68 37
+	landframe 2
+	frame	data/chars/bosses/willy_real/fall01.gif
+	bbox	3 7 74 33
+	delay	999
+	frame	data/chars/bosses/willy_real/fall02.gif
+	bbox	1 2 85 30
+	frame	data/chars/bosses/willy_real/fall03.gif
+
+anim fall3
+	loop	0
+	delay	20
+	offset	71 139
+	landframe 2
+	frame	data/chars/bosses/willy_real/fall301.gif
+	bbox	7 5 76 25
+	delay	999
+	frame	data/chars/bosses/willy_real/fall302.gif
+
+anim rise
+	loop	0
+	offset	71 139
+	delay	18
+	frame	data/chars/bosses/willy_real/rise01.gif
+	delay	10
+	frame	data/chars/bosses/willy_real/rise02.gif
+
+anim attack1 # claws
+	loop	0
+	offset	71 139
+	delay	8
+	bbox	56 74 34 66
+	frame	data/chars/bosses/willy_real/atk101.gif
+	frame	data/chars/bosses/willy_real/atk102.gif
+	frame	data/chars/bosses/willy_real/atk103.gif
+	frame	data/chars/bosses/willy_real/atk104.gif
+	frame	data/chars/bosses/willy_real/atk105.gif
+	move	5
+	attack 	33 39 109 71		5
+	frame	data/chars/bosses/willy_real/atk106.gif
+	frame	data/chars/bosses/willy_real/atk107.gif
+	frame	data/chars/bosses/willy_real/atk108.gif
+	attack 	0 0 0 0
+	move	0
+	frame	data/chars/bosses/willy_real/atk108.gif
+	frame	data/chars/bosses/willy_real/atk109.gif
+	move	8
+	frame	data/chars/bosses/willy_real/atk110.gif
+	attack 	49 34 67 109 		5 1
+	dropv 	3 2
+	frame	data/chars/bosses/willy_real/atk111.gif
+	frame	data/chars/bosses/willy_real/atk111.gif
+	move	0
+	frame	data/chars/bosses/willy_real/atk112.gif
+	attack 	0 0 0 0
+	frame	data/chars/bosses/willy_real/atk112.gif
+	frame	data/chars/bosses/willy_real/atk113.gif
+	frame	data/chars/bosses/willy_real/atk114.gif
+
+anim attack2 # power geyser
+	loop	0
+	offset	71 139
+	delay	8
+	bbox	55 67 35 71
+	@cmd	spawnbind2 "Chin_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/willy_real/atk101.gif
+	frame	data/chars/bosses/willy_real/atk102.gif
+	frame	data/chars/bosses/willy_real/atk103.gif
+	frame	data/chars/bosses/willy_real/atk104.gif
+	frame	data/chars/bosses/willy_real/atk201.gif
+	frame	data/chars/bosses/willy_real/atk202.gif
+	bbox	54 80 38 59
+	attack	71 92 86 51			30 1
+	dropv	5 1
+	hitflash BigFlash
+	sound	data/sounds/punch.wav
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/bosses/willy_real/atk203.gif
+	attack	71 -9 86 152		30 1
+	frame	data/chars/bosses/willy_real/atk204.gif
+	frame	data/chars/bosses/willy_real/atk204.gif
+	frame	data/chars/bosses/willy_real/atk204.gif
+	attack 	0 0 0 0
+	frame	data/chars/bosses/willy_real/atk205.gif
+	frame	data/chars/bosses/willy_real/atk205.gif
+	delay	12
+	frame	data/chars/bosses/willy_real/rise01.gif
+	frame	data/chars/bosses/willy_real/rise02.gif
+
+anim attack3 # double fists
+	loop	0
+	offset	71 139
+	delay	8
+	bbox	55 75 37 64
+	frame	data/chars/bosses/willy_real/atk101.gif
+	frame 	data/chars/bosses/willy_real/atk302.gif
+	frame 	data/chars/bosses/willy_real/atk303.gif
+	frame 	data/chars/bosses/willy_real/atk304.gif
+	frame 	data/chars/bosses/willy_real/atk305.gif
+	frame 	data/chars/bosses/willy_real/atk306.gif
+	frame 	data/chars/bosses/willy_real/atk307.gif
+	frame 	data/chars/bosses/willy_real/atk308.gif
+	frame 	data/chars/bosses/willy_real/atk308.gif
+	frame 	data/chars/bosses/willy_real/atk309.gif
+	frame 	data/chars/bosses/willy_real/atk310.gif
+	frame	data/chars/bosses/willy_real/idle01.gif
+
+anim attack4 # kick
+	loop	0
+	offset	71 139
+	delay	8
+	bbox	55 75 37 64
+	frame	data/chars/bosses/willy_real/atk101.gif
+	bbox	43 74 37 64
+	frame	data/chars/bosses/willy_real/atk401.gif
+	frame	data/chars/bosses/willy_real/atk402.gif
+	frame	data/chars/bosses/willy_real/atk403.gif
+	bbox	32 74 37 64
+	attack2 48 89 56 29			10
+	frame	data/chars/bosses/willy_real/atk404.gif
+	delay 	20
+	frame	data/chars/bosses/willy_real/atk405.gif
+	attack2	0 0 0 0
+	delay 	8
+	bbox	43 74 37 64
+	frame	data/chars/bosses/willy_real/atk402.gif
+	frame	data/chars/bosses/willy_real/atk401.gif
+	bbox	56 74 34 66
+	frame	data/chars/bosses/willy_real/atk114.gif
+
+anim follow4 # super power up
+	loop	0
+	offset	71 139
+	delay	8
+	bbox	56 74 34 66
+	frame	data/chars/bosses/willy_real/atk114.gif
+	frame	data/chars/bosses/willy_real/super101.gif
+	frame	data/chars/bosses/willy_real/super102.gif
+	bbox	52 84 46 54
+	frame	data/chars/bosses/willy_real/super103.gif
+	frame	data/chars/bosses/willy_real/super104.gif
+	frame	data/chars/bosses/willy_real/super103.gif
+	frame	data/chars/bosses/willy_real/super104.gif
+	frame	data/chars/bosses/willy_real/super103.gif
+	frame	data/chars/bosses/willy_real/super104.gif
+	bbox	56 74 34 66
+	frame	data/chars/bosses/willy_real/atk114.gif
+
+anim follow5 # super
+	loop	0
+	offset	71 139
+	delay	8
+	bbox	56 74 34 66
+	frame	data/chars/bosses/willy_real/atk114.gif
+
+	frame	data/chars/bosses/willy_real/atk306.gif
+	frame	data/chars/bosses/willy_real/super202.gif
+	frame	data/chars/bosses/willy_real/super202b.gif
+	frame	data/chars/bosses/willy_real/atk306.gif
+	frame	data/chars/bosses/willy_real/super203.gif
+	frame	data/chars/bosses/willy_real/super203b.gif
+	frame	data/chars/bosses/willy_real/atk306.gif
+	frame	data/chars/bosses/willy_real/super202.gif
+	frame	data/chars/bosses/willy_real/super202b.gif
+	frame	data/chars/bosses/willy_real/atk306.gif
+	frame	data/chars/bosses/willy_real/super203.gif
+	frame	data/chars/bosses/willy_real/super203b.gif
+	frame	data/chars/bosses/willy_real/atk306.gif
+	frame	data/chars/bosses/willy_real/super202.gif
+	frame	data/chars/bosses/willy_real/super202b.gif
+	frame	data/chars/bosses/willy_real/atk306.gif
+	frame	data/chars/bosses/willy_real/super203.gif
+	frame	data/chars/bosses/willy_real/super203b.gif
+
+	frame	data/chars/bosses/willy_real/atk101.gif
+	frame	data/chars/bosses/willy_real/atk102.gif
+	frame	data/chars/bosses/willy_real/atk103.gif
+	frame	data/chars/bosses/willy_real/atk104.gif
+	frame	data/chars/bosses/willy_real/atk306.gif
+	
+	frame	data/chars/bosses/willy_real/super204.gif
+	frame	data/chars/bosses/willy_real/super204b.gif
+	frame	data/chars/bosses/willy_real/super204b.gif
+	frame	data/chars/bosses/willy_real/super204b.gif
+	frame	data/chars/bosses/willy_real/super204b.gif
+	bbox	56 74 34 66
+	frame	data/chars/bosses/willy_real/atk309.gif
+	frame	data/chars/bosses/willy_real/atk310.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	71 139
+	bbox	5 8 22 92
+	frame	data/chars/bosses/willy_real/jump01.gif
+	delay	12
+	bbox	6 6 30 58
+	frame	data/chars/bosses/willy_real/jump02.gif
+	bbox	12 6 43 48
+	frame	data/chars/bosses/willy_real/jump03.gif
+	bbox	6 6 30 58
+	frame	data/chars/bosses/willy_real/jump02.gif
+	bbox	5 8 22 92
+	frame	data/chars/bosses/willy_real/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	71 139
+	bbox	6 8 31 56
+	delay	18
+	frame	data/chars/bosses/willy_real/rise01.gif
+	delay	10
+	frame	data/chars/bosses/willy_real/rise02.gif
+
+anim death
+	offset	71 139
+	frame	data/chars/bosses/willy_real/fall03.gif

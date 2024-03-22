@@ -1,0 +1,6 @@
+#import "data/scripts/ondoattack_f.openbor"
+
+void main()
+{
+ondoattack();	
+}

@@ -1,0 +1,6 @@
+#music		data/music/remix.bor 1
+background	data/bgs/select.gif
+nopause		1
+nosave		1
+
+allowselect Billy Jimmy

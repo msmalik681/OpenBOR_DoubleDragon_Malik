@@ -1,0 +1,47 @@
+name		platform
+type		none
+facing	  	1
+antigravity	100
+subject_to_platform 0
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	delay	1
+	loop	0
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+	@cmd	name2ani
+	frame	data/chars/misc/empty.gif
+	
+anim idle
+	delay	1
+	loop	0
+	offset	0 0
+	frame	data/chars/misc/empty.gif
+
+### stage 2 ###
+
+anim follow1 #first platform
+	delay	1
+	loop	0
+	offset	0 0
+	#platform {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {height} 
+	platform 0 0 -43 0 1500 1500 47 33
+	frame	data/chars/misc/empty.gif
+
+anim follow2 #second platform
+	delay	1
+	loop	0
+	offset	0 0
+	platform 0 0 -80 0 1500 1500 90 77
+	frame	data/chars/misc/empty.gif
+
+anim follow3 #third platform
+	delay	1
+	loop	0
+	offset	0 0
+	platform 32 50 -37 -37 37 37 40 40
+	frame	data/chars/misc/empty.gif
+
+

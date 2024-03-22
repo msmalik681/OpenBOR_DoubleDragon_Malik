@@ -1,0 +1,558 @@
+name			Chin_e
+health			999
+speed			5
+type			enemy
+projectilehit 	enemy
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+aimove			chasex
+diesound		data/sounds/0_voice08_die.wav
+subject_to_wall 0
+subject_to_gravity 0
+subject_to_minz 0
+palette			data/chars/bosses/chin/idle01.gif
+running			25 3.5 2 0 0
+
+animationscript		data/scripts/scripts.c
+takedamagescript	data/scripts/takedamagescript.c
+ondeathscript 		data/scripts/bossdeath.c
+#ondrawscript		data/scripts/test.openbor
+
+load	Chin_Effect	3
+
+anim spawn
+	loop	0
+	offset	22 78
+	delay	3
+	fshadow	0
+	frame	none
+	@cmd	bossintro "ani_follow1"
+	frame	none
+	@cmd	name2ani
+	@cmd	wallpass 1
+	@cmd 	cProperty "name" "Boss"
+	@cmd	jumpin
+	frame	none
+
+anim follow1 # Boss intro
+	loop	0
+	offset	52 124
+	delay	200
+	@cmd	setlayer -1
+	frame	data/chars/bosses/chin/intro01.gif
+	delay	10
+	frame	data/chars/bosses/chin/atk504.gif
+	frame	data/chars/bosses/chin/atk506.gif
+	frame	data/chars/bosses/chin/atk507.gif
+	delay	100
+	frame	data/chars/bosses/chin/atk508.gif
+	delay	10
+	frame	data/chars/bosses/chin/atk401.gif
+	frame	data/chars/bosses/chin/atk509.gif
+	delay	16
+	@cmd	dasher 0 0 0.4
+	@cmd	setlayer 0
+	frame	data/chars/bosses/chin/walk01.gif
+	frame	data/chars/bosses/chin/walk02.gif
+	frame	data/chars/bosses/chin/walk03.gif
+	frame	data/chars/bosses/chin/walk04.gif
+	@cmd	wallpass 1
+	@cmd 	dasher 0 0 0
+	@cmd 	cProperty "name" "Boss"
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE4_IN" 1
+	frame	data/chars/bosses/chin/idle01.gif
+	@cmd	playmusic "data/music/boss_1.bor" 1
+	frame	data/chars/bosses/chin/idle01.gif
+
+
+anim follow2 # Jump in
+	loop	0
+	delay	12
+	landframe 1
+	offset	17 101
+	bbox	12 6 43 48
+	delay	999
+	frame	data/chars/bosses/chin/jump01.gif
+	offset	20 66
+	delay	18
+	bbox	6 8 31 56
+	frame	data/chars/bosses/chin/rise01.gif
+	delay	10
+	frame	data/chars/bosses/chin/rise02.gif
+
+anim follow3 # Boss door intro
+	loop	0
+	offset	52 124
+	delay	17
+	@cmd	setlayer -80
+	@cmd	dasher 0.6 0 0
+	fshadow	0
+	frame	data/chars/bosses/chin/walk01.gif
+	frame	data/chars/bosses/chin/walk02.gif
+	frame	data/chars/bosses/chin/walk03.gif
+	frame	data/chars/bosses/chin/walk04.gif
+	frame	data/chars/bosses/chin/walk05.gif
+	frame	data/chars/bosses/chin/walk01.gif
+	frame	data/chars/bosses/chin/walk02.gif
+	frame	data/chars/bosses/chin/walk03.gif
+	frame	data/chars/bosses/chin/walk04.gif
+	frame	data/chars/bosses/chin/walk05.gif
+	frame	data/chars/bosses/chin/walk01.gif
+	frame	data/chars/bosses/chin/walk02.gif
+	@cmd	dasher 0 0 0
+	frame	data/chars/bosses/chin/walk03.gif
+	
+	delay	40
+	offset	52 124
+	#flipframe 13
+	frame	data/chars/bosses/chin/idle01.gif
+
+	delay	18
+	offset	52 124
+	@cmd	dasher 0 -0.3 0
+	frame	data/chars/bosses/chin/walk01.gif
+	@cmd	setlayer 0
+	frame	data/chars/bosses/chin/walk02.gif
+	frame	data/chars/bosses/chin/walk03.gif
+	frame	data/chars/bosses/chin/walk04.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	@cmd 	cProperty "name" "Boss"
+	frame	data/chars/bosses/chin/walk05.gif
+	
+	delay	40
+	offset	52 124
+	frame	data/chars/bosses/chin/idle01.gif
+	frame	data/chars/bosses/chin/intro201.gif
+	delay	10
+	frame	data/chars/bosses/chin/intro202.gif
+	frame	data/chars/bosses/chin/intro203.gif
+	frame	data/chars/bosses/chin/intro204.gif
+	delay	40
+	@cmd	healAll
+	frame	data/chars/bosses/chin/intro205.gif
+	delay	10
+	frame	data/chars/bosses/chin/intro203.gif
+	frame	data/chars/bosses/chin/intro202.gif
+	delay	40
+	frame	data/chars/bosses/chin/intro201.gif
+
+	
+anim idle
+	loop	1
+	offset	52 124
+	bbox	31 53 41 68
+	delay	15
+	@cmd 	stats
+	@cmd 	tryatk "ani_follow4" 20
+	frame	data/chars/bosses/chin/idle01.gif
+	frame	data/chars/bosses/chin/idle02.gif
+	frame	data/chars/bosses/chin/idle01.gif
+	frame	data/chars/bosses/chin/idle03.gif
+
+anim walk
+	loop	1
+	offset	52 124
+	bbox	37 53 38 68
+	delay	14
+	@cmd 	tryatk "ani_follow4" 20
+	frame	data/chars/bosses/chin/walk01.gif
+	frame	data/chars/bosses/chin/walk02.gif
+	frame	data/chars/bosses/chin/walk03.gif
+	frame	data/chars/bosses/chin/walk04.gif
+	frame	data/chars/bosses/chin/walk05.gif
+	
+anim run
+	loop	1
+	offset	52 124
+	bbox	37 53 38 68
+	delay	8
+	frame	data/chars/bosses/chin/run01.gif
+	frame	data/chars/bosses/chin/run02.gif
+	frame	data/chars/bosses/chin/run03.gif
+	frame	data/chars/bosses/chin/run04.gif
+	frame	data/chars/bosses/chin/run05.gif
+	frame	data/chars/bosses/chin/run06.gif
+
+anim runattack
+	loop	0
+	range	1 110
+	offset	52 124
+	delay	7
+	bbox	31 52 34 73
+	@cmd	stop
+	@cmd	dasher 3 0 0
+	@cmd	spawnbind2 "Chin_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/chin/run_atk01.gif
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/bosses/chin/run_atk02.gif
+	attack	43 64 81 40 10 1
+	dropv	4 1 0
+	frame	data/chars/bosses/chin/run_atk03.gif
+	frame	data/chars/bosses/chin/run_atk04.gif
+	frame	data/chars/bosses/chin/run_atk03.gif
+	frame	data/chars/bosses/chin/run_atk04.gif
+	frame	data/chars/bosses/chin/run_atk03.gif
+	frame	data/chars/bosses/chin/run_atk04.gif
+	@cmd	dasher 1.5 0 0
+	offset	20 66
+	delay	10
+	attack	0 0 0 0
+	bbox	6 8 31 56
+	frame	data/chars/bosses/chin/rise02.gif
+	@cmd	stop
+	frame	data/chars/bosses/chin/rise02.gif
+	
+anim pain
+	loop	0
+	offset	30 80
+	bbox	7 13 37 67
+	delay	8
+	frame	data/chars/bosses/chin/pain101.gif
+	delay	50
+	frame	data/chars/bosses/chin/pain102.gif
+	delay	8
+	frame	data/chars/bosses/chin/pain101.gif
+
+anim pain2
+	loop	0
+	offset	34 71
+	bbox	14 9 39 62
+	delay	8
+	frame	data/chars/bosses/chin/pain201.gif
+	delay	100
+	frame	data/chars/bosses/chin/pain202.gif
+	delay	8
+	frame	data/chars/bosses/chin/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	30 80
+	bbox	7 13 37 67
+	delay	8
+	frame	data/chars/bosses/chin/pain101.gif
+
+anim pain5
+	loop	0
+	offset	34 71
+	bbox	14 9 39 62
+	delay	8
+	frame	data/chars/bosses/chin/pain201.gif
+	frame	data/chars/bosses/chin/pain202.gif
+	frame	data/chars/bosses/chin/pain201.gif
+
+anim pain3
+	loop	0
+	offset	34 71
+	bbox	14 9 39 62
+	delay	8
+	frame	data/chars/bosses/chin/pain201.gif
+	frame	data/chars/bosses/chin/pain202.gif
+	frame	data/chars/bosses/chin/pain201.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	30 28
+	bbox	2 1 68 37
+	attack 	2 1 68 37		10 1
+	landframe 2
+	frame	data/chars/bosses/chin/fall01.gif
+	offset	30 40
+	bbox	3 7 74 33
+	attack 	3 7 74 33		10 1
+	delay	999
+	frame	data/chars/bosses/chin/fall02.gif
+	delay	50
+	offset	42 24
+	bbox	1 2 85 30
+	attack 	1 2 85 30		10 1
+	frame	data/chars/bosses/chin/fall03.gif
+
+anim fall3
+	loop	0
+	delay	20
+	offset	30 28
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	bbox	2 1 68 37
+	frame	data/chars/bosses/chin/fall01.gif
+	offset	30 40
+	bbox	3 7 74 33
+	delay	999
+	frame	data/chars/bosses/chin/fall02.gif
+	offset	42 24
+	bbox	1 2 85 30
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/bosses/chin/fall03.gif
+	offset	30 28
+	bbox	2 1 68 37
+	frame	data/chars/bosses/chin/fall01.gif
+	offset	30 40
+	bbox	3 7 74 33
+	frame	data/chars/bosses/chin/fall02.gif
+	offset	42 24
+	bbox	1 2 85 30
+	frame	data/chars/bosses/chin/fall03.gif
+
+anim rise
+	loop	0
+	offset	20 66
+	delay	18
+	@cmd 	cProperty "facing" 0
+	frame	data/chars/bosses/chin/rise01.gif
+	delay	10
+	frame	data/chars/bosses/chin/rise02.gif
+
+anim attack1 #Power Strike
+	loop	0
+	offset	52 124
+	delay	8
+	bbox	31 52 34 73
+	frame	data/chars/bosses/chin/atk401.gif
+	frame	data/chars/bosses/chin/atk402.gif
+	frame	data/chars/bosses/chin/atk403.gif
+	#404 is 102
+	frame	data/chars/bosses/chin/atk102.gif
+	
+	bbox	48 64 50 59
+	attack2	79 60 55 26		15 1
+	damageonlanding 0 1
+	dropv	2.5 4
+	hitflash BigFlash
+	sound	data/sounds/punch.wav
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/bosses/chin/atk405.gif
+	frame	data/chars/bosses/chin/atk406.gif
+	frame	data/chars/bosses/chin/atk407.gif
+	attack2	0 0 0 0
+	bbox	45 57 37 65
+	frame	data/chars/bosses/chin/atk408.gif
+	frame	data/chars/bosses/chin/atk101.gif
+
+anim attack2 #Kick
+	loop	0
+	offset	52 124
+	delay	7
+	bbox	49 54 33 69
+	frame	data/chars/bosses/chin/atk301.gif
+	frame	data/chars/bosses/chin/atk302.gif
+	frame	data/chars/bosses/chin/atk303.gif
+	delay	9
+	sound	data/sounds/kick_se15.wav
+	attack2	69 60 60 31		10 0
+	frame	data/chars/bosses/chin/atk304.gif
+	frame	data/chars/bosses/chin/atk305.gif
+	delay	7
+	attack2	0 0 0
+	frame	data/chars/bosses/chin/atk306.gif
+	frame	data/chars/bosses/chin/atk307.gif
+	frame	data/chars/bosses/chin/atk308.gif
+
+anim attack3 #Combo Attack
+	loop	0
+	offset	52 124
+	delay	8
+	fastattack 1
+	bbox	41 54 36 69
+	frame	data/chars/bosses/chin/atk101.gif
+	bbox	39 56 38 68
+	frame	data/chars/bosses/chin/atk102.gif
+	bbox	46 57 42 67
+	attack	70 58 47 33		10 0
+	sound	data/sounds/punch.wav
+	frame	data/chars/bosses/chin/atk103.gif
+	frame	data/chars/bosses/chin/atk104.gif
+	frame	data/chars/bosses/chin/atk105.gif
+	attack	0 0 0
+	bbox	41 54 36 69
+	frame	data/chars/bosses/chin/atk101.gif
+	bbox	39 56 38 68
+	frame	data/chars/bosses/chin/atk201.gif
+	bbox	46 57 42 67
+	attack	70 58 52 33		10 0
+	sound	data/sounds/punch.wav
+	frame	data/chars/bosses/chin/atk202.gif
+	frame	data/chars/bosses/chin/atk203.gif
+	frame	data/chars/bosses/chin/atk204.gif
+	attack2	0 0 0
+	frame	data/chars/bosses/chin/atk205.gif
+	bbox	41 54 36 69
+	@cmd	followatk "ANI_ATTACK1"
+	frame	data/chars/bosses/chin/atk101.gif
+	
+anim attack4 #Ground Stomp
+	loop	0
+	rangez  0 35
+	offset	52 124
+	delay	10
+	bbox	31 52 34 73
+	@cmd	spawnbind2 "Chin_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/chin/atk401.gif
+	frame	data/chars/bosses/chin/atk402.gif
+	frame	data/chars/bosses/chin/atk403.gif
+	#charge up
+	frame	data/chars/bosses/chin/atk501.gif
+	frame	data/chars/bosses/chin/atk502.gif
+	frame	data/chars/bosses/chin/atk501.gif
+	frame	data/chars/bosses/chin/atk502.gif
+	#stomp
+	frame	data/chars/bosses/chin/atk503.gif
+	sound	data/sounds/0_voice14.wav
+	frame	data/chars/bosses/chin/atk504.gif
+	frame	data/chars/bosses/chin/atk505.gif
+	sound	data/sounds/quake_se33.wav
+	attack	-16 120 140 35		20 1 1 0 0 35
+	dropv	5 1 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/bosses/chin/atk506.gif
+	frame	data/chars/bosses/chin/atk507.gif
+	frame	data/chars/bosses/chin/atk508.gif
+	frame	data/chars/bosses/chin/atk508.gif
+	frame	data/chars/bosses/chin/atk508.gif
+	frame	data/chars/bosses/chin/atk508.gif
+	frame	data/chars/bosses/chin/atk508.gif
+	#before last frame
+	attack	0 0 0
+	frame	data/chars/bosses/chin/atk401.gif
+	frame	data/chars/bosses/chin/atk509.gif
+	
+anim follow4 #Dragon Kick
+	loop	0
+	range 	80 150
+	offset	52 124
+	delay	9
+	bbox	31 52 34 73
+	@cmd	spawnbind2 "Chin_Effect" 0 0 1 1 6
+	frame	data/chars/bosses/chin/atk401.gif
+	frame	data/chars/bosses/chin/atk402.gif
+	frame	data/chars/bosses/chin/atk403.gif
+	#charge up
+	frame	data/chars/bosses/chin/atk501.gif
+	frame	data/chars/bosses/chin/atk502.gif
+	frame	data/chars/bosses/chin/atk501.gif
+	frame	data/chars/bosses/chin/atk502.gif
+	frame	data/chars/bosses/chin/atk501.gif
+	frame	data/chars/bosses/chin/atk502.gif
+	sound	data/sounds/0_voice14.wav
+	frame	data/chars/bosses/chin/atk502.gif
+	sound	data/sounds/big_swing_se12.wav
+	#dragon kick
+	attack	60 20 130 110		50 1
+	dropv	5 1 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	frame	data/chars/bosses/chin/atk601.gif
+	frame	data/chars/bosses/chin/atk602.gif
+	frame	data/chars/bosses/chin/atk603.gif
+	frame	data/chars/bosses/chin/atk603.gif
+	frame	data/chars/bosses/chin/atk603.gif
+	#end like normal kick
+	attack	0 0 0
+	frame	data/chars/bosses/chin/atk305.gif
+	frame	data/chars/bosses/chin/atk306.gif
+	frame	data/chars/bosses/chin/atk307.gif
+	frame	data/chars/bosses/chin/atk308.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/bosses/chin/jump01.gif
+	delay	12
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/bosses/chin/jump02.gif
+	offset	36 55
+	bbox	12 6 43 48
+	frame	data/chars/bosses/chin/jump03.gif
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/bosses/chin/jump02.gif
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/bosses/chin/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	20
+	range	5 80
+	jumpframe 0 1.5 1
+	landframe 4
+	@cmd 	cAiflag "jumping" 1
+	sound 	data/sounds/jump.wav
+	delay	12
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/bosses/chin/jump02.gif
+	offset	36 55
+	bbox	12 6 43 48
+	frame	data/chars/bosses/chin/jump03.gif
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/bosses/chin/jump02.gif
+	delay 	999
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/bosses/chin/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/bosses/chin/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	20 66
+	bbox	6 8 31 56
+	delay	18
+	sound	data/sounds/land_se07.wav
+	frame	data/chars/bosses/chin/rise01.gif
+	delay	10
+	frame	data/chars/bosses/chin/rise02.gif
+
+anim death
+	loop 	0
+	delay 	150
+	offset	42 24
+	frame	data/chars/bosses/chin/fall03.gif
+	delay 	50
+	@cmd 	spawnscreen "Darken" 0 0 0
+	frame	data/chars/bosses/chin/fall03.gif
+	@cmd 	chin_death
+	offset	20 66
+	frame	data/chars/bosses/chin/rise01.gif
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE4_OUT" 1
+	frame	data/chars/bosses/chin/rise01.gif
+	delay 	10
+	frame	data/chars/bosses/chin/rise02.gif
+	delay	40
+	offset	52 124
+	frame	data/chars/bosses/chin/idle01.gif
+	frame	data/chars/bosses/chin/intro201.gif
+	delay	10
+	frame	data/chars/bosses/chin/intro202.gif
+	frame	data/chars/bosses/chin/intro203.gif
+	frame	data/chars/bosses/chin/intro204.gif
+	delay	40
+	frame	data/chars/bosses/chin/intro205.gif
+	delay	10
+	frame	data/chars/bosses/chin/intro203.gif
+	frame	data/chars/bosses/chin/intro202.gif
+	frame	data/chars/bosses/chin/intro201.gif
+	offset 	52 124
+	frame	data/chars/bosses/chin/atk301.gif
+	frame	data/chars/bosses/chin/out01.gif
+	delay	50
+	frame	data/chars/bosses/chin/out02.gif
+	@cmd	spawn02 "Story" 0 0 0 "&STAGE4_OUT2" 1
+	frame	data/chars/bosses/chin/out02.gif
+	frame	data/chars/bosses/chin/out02.gif
+	@cmd 	jumptobranch "Stage_5" 1
+	frame	data/chars/bosses/chin/out02.gif
+	

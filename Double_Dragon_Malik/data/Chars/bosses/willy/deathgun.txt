@@ -1,0 +1,36 @@
+name		Death_Gun
+type		none
+shadow		0
+palette		data/chars/bosses/willy/deathgun.gif
+subject_to_gravity 1
+subject_to_wall 1
+subject_to_platform 1
+#candamage	player
+nodieblink	1
+bounce 		1
+
+animationscript  data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	15 21
+	delay	3
+	landframe 2
+	bouncefactor 2
+	frame	none
+	@cmd	dasher 0.3 -1 0
+	delay	100
+	frame	data/chars/bosses/willy/deathgun.gif
+	delay	5
+	frame	data/chars/bosses/willy/deathgun.gif
+	frame	none
+	frame	data/chars/bosses/willy/deathgun.gif
+	frame	none
+	frame	data/chars/bosses/willy/deathgun.gif
+	frame	none
+	frame	data/chars/bosses/willy/deathgun.gif
+	frame	none
+	frame	data/chars/bosses/willy/deathgun.gif
+	@cmd	killme
+	frame	none
+

@@ -1,0 +1,23 @@
+void bounceoff()
+{// bounce off things
+	void self = getlocalvar("self"); //get caller
+	int Dir = getentityproperty(self, "direction"); //get direction
+	int v = getentityproperty(self, "xdir"); //get horizontal velocity
+	char name = getentityproperty(self, "name"); //get name
+	
+	if(Dir==0){Dir=1; //swap direction variable
+	} else { Dir=0;}
+	
+	if(name=="Drumcan_Throw") //if it is a drumcan
+	{
+		playsample(loadsample("data/sounds/drumcan_drop.wav")); //play sample for drumcan hitting wall
+		changeentityproperty(self,"direction",Dir); //reverse direction
+		changeentityproperty(self, "velocity", -v); //reverse horizontal velocity
+	} else
+		{
+			playsample(loadsample("data/sounds/knife_drop.wav")); //play sample for knife and bat hitting wall
+			changeentityproperty(self,"direction",Dir); //reverse direction
+			changeentityproperty(self, "velocity", 0); //stop horizontal velocity
+			changeentityproperty(self, "animation", openborconstant("ani_follow1")); //Change the animation
+		}
+}

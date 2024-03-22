@@ -1,0 +1,141 @@
+# Street
+#music		data/music/level_1.bor
+#bossmusic	data/music/boss_1.bor
+# Load images
+panel	data/levels/training/base.gif
+
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {alt} {type}
+#wall 171 319 0 0 300 300 60 41
+
+scrollspeed	2
+noslow		1
+nofadeout 	1
+direction	both
+order		a
+
+load Lavis_e 3
+
+
+#--group1-----
+
+group 	1 1
+at 		0
+wait
+at		0
+
+spawn	Knife
+coords	120 300
+at		0
+
+spawn	Bat
+coords	60 310
+at		0
+
+spawn	Drumcan
+coords	50 320
+at		0
+
+spawn	Whip
+coords	160 300
+at		0
+
+spawn	Lavis_e
+health	999
+coords	500 300
+at		0
+#
+#spawn	Frank
+#health	9999
+#
+#coords	100 290
+#at		0
+#
+#spawn	Kent
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Williams
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Cindy
+#health	9999
+#coords	150 210
+#at		0
+#
+#spawn	Linda
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Aaron
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Brown
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Mark
+#health	9999
+#map		1
+#alias	Dynamite
+#coords	350 300
+#at		0
+#
+#spawn	Scott
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Clive
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Greg
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Harry
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Ted
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Erica
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Isabella
+#health	9999
+#
+#coords	150 210
+#at		0
+#
+#spawn	Libby
+#health	9999
+#
+#coords	150 210
+#at		0

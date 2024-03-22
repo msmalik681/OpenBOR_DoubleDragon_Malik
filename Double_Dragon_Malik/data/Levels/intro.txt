@@ -1,0 +1,23 @@
+# Street
+music		data/music/menu.bor 18790
+#bossmusic	data/music/boss_1.bor
+# Load images
+panel	data/levels/custom_menu/panel.gif
+
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {alt} {type}
+#wall 171 319 0 0 300 300 60 41
+nopause 1
+nofadeout 1
+notime 1
+order		aaaaaaaaaaaaaaaaaaaaaaaa
+
+#--group1-----
+
+group 	0 1
+at 		0
+wait
+at		0
+
+spawn	Intro
+coords	120 300
+at		0

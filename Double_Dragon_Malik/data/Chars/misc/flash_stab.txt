@@ -1,0 +1,17 @@
+#Stab Hit Flash
+name	Flash_Stab
+type	none
+alpha	1
+lifespan 4
+shadow	0
+
+anim idle
+	loop	0
+	delay	6
+	offset	74 62
+	frame	data/chars/misc/flash_stab01.gif
+	frame	data/chars/misc/flash_stab02.gif
+	frame	data/chars/misc/flash_stab03.gif
+	frame	data/chars/misc/flash_stab04.gif
+	frame	data/chars/misc/flash_stab05.gif
+	frame	none

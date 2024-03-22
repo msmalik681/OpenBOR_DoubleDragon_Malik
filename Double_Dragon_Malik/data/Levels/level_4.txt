@@ -1,0 +1,303 @@
+# Cliff
+music		data/music/level_4.bor
+#bossmusic	data/music/menu.bor
+
+# Load images
+panel	data/levels/level_4/lv4_base.png
+scrollspeed	3
+#wall {xpos} {zpos} {upperleft} {lowerleft} {upperright} {lowerright} {depth} {alt} {type}
+
+#floor walls
+wall -500 254 0 0 854 781 82 15 #start
+wall 300 205 0 0 670 630 45 15 #middle above hole
+wall 559 254 -148 0 460 312 160 15 #main before bridge
+
+wall 1360 254 -115 0 999 999 128 15 #main after bridge
+
+#wall level boundaries
+wall 0 180 0 0 685 650 999 999 #start
+wall 632 160 0 0 60 50 999 999 #1st pillar
+wall 682 145 0 0 40 32 999 999 #2nd pillar
+wall 714 132 0 0 90 70 999 999 #3rd pillar
+wall 825 164 0 0 150 150 999 999 #4th pillar before bridge
+
+wall 957 164 0 0 341 341 999 999 #bridge
+wall 910 212 0 0 420 420 5 10 #bridge bottom border
+wall 1356 254 -40 0 110 110 45 999 #wall in front of player
+
+wall 1295 164 0 0 380 380 999 999 #main wall after the bridge
+wall 1561 180 0 0 180 160 50 999 #1st pillar
+wall 1703 157 0 0 102 86 32 45 #platform near door
+wall 1703 130 0 0 999 999 999 999 #door wall
+
+hole 272 254 47 0 240 288 58
+hole 866 251 45 0 475 475 40
+
+
+direction both
+cameraoffset 0 -100
+cameratype	0
+noslow		1
+order	a
+
+spawn	Boss_Doors
+coords	1809 111
+flip	1
+mp		1 #event 1
+alias	ani_follow1 #boss door
+at		0
+
+spawn	panel_grass
+coords	0 160
+at	0
+
+spawn	panel_rock
+coords	1352 240
+at	0
+
+spawn	panel_sides
+facing	1
+flip	1
+coords	960 159
+at	0
+
+spawn	panel_sides
+facing	0
+coords	1297 159
+at	0
+
+spawn	panel_bars
+coords	958 159
+at	0
+
+spawn	panel_water
+coords	1008 65
+at	0
+
+spawn	panel_water
+coords	1008 129
+at	0
+
+spawn	panel_water
+coords	1008 186
+at	0
+
+spawn	panel_mist
+#coords	10 200
+coords	983 190
+at	0
+
+#--items------
+
+spawn	Bat
+coords	803 123
+at		0
+
+spawn	Drumcan
+coords	728 165
+at		0
+
+spawn	Drumcan
+coords	1165 195
+at		0
+
+#--ENEMIES--------
+
+#--group1-----
+
+wait
+at		0
+
+group	1 3
+at		0
+
+spawn	Ted
+coords	520 195
+at		0
+
+spawn	Kent
+coords	570 195
+weapon	Bat
+at		0
+
+spawn	Ted
+coords	620 195
+at		0
+
+spawn	Ted
+coords	-80 190
+map		1
+at		0
+
+spawn	Ted
+coords	-80 235
+map		1
+at		0
+
+#--group2-----
+
+wait
+at		475
+
+group	5 5
+at		475
+
+# group 2A
+
+spawn	Ted
+coords	349 114 350
+at		475
+
+spawn	Ted
+coords	275 135 350
+map		1
+at		475
+
+spawn	Delay
+health	15
+at		475
+
+spawn	Delay
+health	15
+at		475
+
+spawn	Delay
+health	15
+at		475
+
+spawn	Ted
+coords	349 114 350
+at		475
+
+spawn	Ted
+coords	275 135 350
+map		1
+at		475
+
+spawn	Delay
+health	15
+at		475
+
+spawn	Harry
+coords	275 135 350
+at		475
+
+# group 2B
+
+group	1 3
+at		475
+
+spawn	Kent
+coords	-90 190
+at		475
+
+spawn	Kent
+coords	-140 190
+at		475
+
+spawn	Williams
+coords	-220 190
+at		475
+
+# group 2C
+
+spawn	Abbobo
+coords	520 180
+map		1
+at		475
+
+spawn	Ted
+coords	570 180
+at		475
+
+spawn	Ted
+coords	575 185
+at		475
+
+# group 2D
+
+group	10 10
+at		500
+
+spawn	Brown
+coords	560 193
+weapon	Drumcan
+at		500
+
+spawn	Aaron
+coords	705 173
+map		1
+at		500
+
+spawn	Aaron
+coords	775 173
+map		1
+at		500
+
+wait
+at		990
+
+spawn	Harry
+coords	550 170
+at		990
+
+spawn	Harry
+coords	550 200
+at		990
+
+spawn	Kent
+coords	620 200
+at		990
+
+spawn	Ted
+coords	680 170
+at		990
+
+spawn	Williams
+coords	720 180
+at		990
+
+group	1 3
+at		1510
+
+wait
+at		1510
+
+spawn	Harry
+coords	235 145 330
+at		1510
+
+spawn	Harry
+coords	265 145 330
+at		1510
+
+spawn 	Delay
+health 	10
+at 		1510
+
+spawn 	Delay
+health 	10
+at 		1510
+
+spawn 	Delay
+health 	10
+at 		1510
+
+spawn	Event
+mp		1
+at		1510
+
+spawn	Chin
+coords	345 120 15
+health 	160
+flip	1
+boss 	1
+at		1510
+
+spawn	Enemy_Spawner
+flip	1
+coords	-50 170
+alias	ani_follow4 # stage 4 boss backup
+at		1510
+
+

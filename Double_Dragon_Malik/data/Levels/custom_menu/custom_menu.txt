@@ -1,0 +1,12 @@
+name	Custom_Menu
+health	1
+type	text
+subtype noskip
+nomove	1
+
+ondrawscript data/levels/custom_menu/custom_menu.openbor
+
+anim	idle
+loop	1
+frame	none
+

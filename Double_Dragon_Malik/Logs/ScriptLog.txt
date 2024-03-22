@@ -1,0 +1,1069 @@
+
+#### animationscript function main #####
+# data/chars/misc/slam_effect.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==6)
+    {
+        if(frame==7)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/levels/custom_menu/_.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==8)
+    {
+        if(frame==1)
+        {
+            changeme();
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/darken.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==11)
+    {
+        if(frame==9)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/bat.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==17)
+    {
+        if(frame==1)
+        {
+            dasher(0, 60, 0);
+            return;
+        }
+        if(frame==2)
+        {
+            spawn02("Bat_Throw", 0, 0, 0, "ANI_FOLLOW1");
+            return;
+        }
+        if(frame==3)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/bat_throw.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==20)
+    {
+        if(frame==1)
+        {
+            copyDamage();
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==21)
+    {
+        if(frame==1)
+        {
+            dasher(3.5, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==22)
+    {
+        if(frame==0)
+        {
+            gravity(1);
+            return;
+        }
+        if(frame==11)
+        {
+            spawn01("Bat", 0, 0, 0);
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/knife.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==24)
+    {
+        if(frame==1)
+        {
+            dasher(0, 60, 0);
+            return;
+        }
+        if(frame==2)
+        {
+            spawn02("Knife_Throw", 0, 0, 0, "ani_follow1");
+            return;
+        }
+        if(frame==3)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/dynamite.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==27)
+    {
+        if(frame==1)
+        {
+            dasher(0.5, 2.8, 0);
+            return;
+        }
+        if(frame==36)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/knife_throw.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==28)
+    {
+        if(frame==1)
+        {
+            copyDamage();
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==29)
+    {
+        if(frame==0)
+        {
+            dasher(3.5, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==30)
+    {
+        if(frame==1)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+    if(animhandle==31)
+    {
+        if(frame==0)
+        {
+            changeentityproperty(getlocalvar("self"), "antigravity", 0);
+            return;
+        }
+        if(frame==11)
+        {
+            spawn01("Knife", 0, 0, 0);
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/drumcan.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==32)
+    {
+        if(frame==1)
+        {
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==33)
+    {
+        if(frame==1)
+        {
+            dasher(0, 40, 0);
+            return;
+        }
+        if(frame==2)
+        {
+            spawn02("Drumcan_Throw", 0, 0, 0, "ani_follow1");
+            return;
+        }
+        if(frame==3)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+    if(animhandle==34)
+    {
+        if(frame==0)
+        {
+            dasher(0, 0, 0);
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/drumcan_stand.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==38)
+    {
+        if(frame==6)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/drumcan_throw.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==39)
+    {
+        if(frame==1)
+        {
+            copyDamage();
+            return;
+        }
+        return;
+    }
+    if(animhandle==40)
+    {
+        if(frame==5)
+        {
+            spawn01("Quake", 0, 0, 0);
+            return;
+        }
+        if(frame==6)
+        {
+            anichange("ani_follow2");
+            return;
+        }
+        return;
+    }
+    if(animhandle==41)
+    {
+        if(frame==4)
+        {
+            spawn01("Quake", 0, 0, 0);
+            return;
+        }
+        if(frame==5)
+        {
+            anichange("ani_follow3");
+            return;
+        }
+        return;
+    }
+    if(animhandle==42)
+    {
+        if(frame==2)
+        {
+            dasher(0.5, 0, 0);
+            return;
+        }
+        if(frame==3)
+        {
+            spawn01("Quake", 0, 0, 0);
+            dasher(0.3, 0, 0);
+            return;
+        }
+        if(frame==4)
+        {
+            dasher(0.2, 0, 0);
+            return;
+        }
+        if(frame==5)
+        {
+            dasher(0, 0, 0);
+            spawn01("Drumcan", 0, 0, 0);
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/misc/fake_throw.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==43)
+    {
+        if(frame==1)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/chin/chin_effect.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==46)
+    {
+        if(frame==1)
+        {
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==48)
+    {
+        if(frame==6)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==49)
+    {
+        if(frame==1)
+        {
+            cProperty("map", 1);
+            return;
+        }
+        if(frame==12)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==50)
+    {
+        if(frame==16)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==51)
+    {
+        if(frame==16)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/chin/chin.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==52)
+    {
+        if(frame==1)
+        {
+            intro();
+            teleport();
+            return;
+        }
+        return;
+    }
+    if(animhandle==56)
+    {
+        if(frame==0)
+        {
+            stop();
+            dasher(3, 0, 0);
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
+            return;
+        }
+        if(frame==8)
+        {
+            dasher(1.5, 0, 0);
+            return;
+        }
+        if(frame==9)
+        {
+            stop();
+            return;
+        }
+        return;
+    }
+    if(animhandle==63)
+    {
+        if(frame==2)
+        {
+            spawn02("Slam_Effect", 0, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==64)
+    {
+        if(frame==0)
+        {
+            cProperty("facing", 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==65)
+    {
+        if(frame==0)
+        {
+            key2ani("freespecial3", 0, "moveforward");
+            return;
+        }
+        if(frame==1)
+        {
+            punches();
+            return;
+        }
+        return;
+    }
+    if(animhandle==70)
+    {
+        if(frame==0)
+        {
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
+            return;
+        }
+        return;
+    }
+    if(animhandle==71)
+    {
+        if(frame==0)
+        {
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
+            return;
+        }
+        return;
+    }
+    if(animhandle==73)
+    {
+        if(frame==0)
+        {
+            cAiflag("jumping", 1);
+            return;
+        }
+        if(frame==4)
+        {
+            anichange("ani_jumpland");
+            return;
+        }
+        return;
+    }
+    if(animhandle==75)
+    {
+        if(frame==1)
+        {
+            spawnscreen("Darken", 0, 0, 0);
+            return;
+        }
+        if(frame==2)
+        {
+            chin_death();
+            return;
+        }
+        if(frame==3)
+        {
+            spawn02("Story", 0, 0, 0, "&STAGE4_OUT", 1);
+            return;
+        }
+        if(frame==17)
+        {
+            spawn02("Story", 0, 0, 0, "&STAGE4_OUT2", 1);
+            return;
+        }
+        if(frame==19)
+        {
+            jumptobranch("Stage_5", 1);
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/lavis/lavis_effect.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==76)
+    {
+        if(frame==1)
+        {
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==77)
+    {
+        if(frame==1)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+    if(animhandle==78)
+    {
+        if(frame==10)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+    if(animhandle==79)
+    {
+        if(frame==12)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==80)
+    {
+        if(frame==13)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/lavis/sticks_throw.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==81)
+    {
+        if(frame==1)
+        {
+            copyDamage();
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==82)
+    {
+        if(frame==1)
+        {
+            dasher(2, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==83)
+    {
+        if(frame==1)
+        {
+            killentity(getlocalvar("self"));
+            return;
+        }
+        return;
+    }
+    if(animhandle==84)
+    {
+        if(frame==0)
+        {
+            wallpass(0);
+            gravity(1);
+            return;
+        }
+        if(frame==11)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/lavis/lavis_e.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==85)
+    {
+        if(frame==1)
+        {
+            bossintro("ani_follow1");
+            wallpass(1);
+            cProperty("name", "Boss");
+            jumpin();
+            return;
+        }
+        return;
+    }
+    if(animhandle==86)
+    {
+        if(frame==0)
+        {
+            setlayer(40);
+            cProperty("name", "Boss");
+            return;
+        }
+        if(frame==1)
+        {
+            setlayer(0);
+            return;
+        }
+        if(frame==24)
+        {
+            spawn02("Story", 0, 0, 0, "&STAGE3_IN", 1);
+            return;
+        }
+        if(frame==25)
+        {
+            playmusic("data/music/boss_2.bor", 1);
+            return;
+        }
+        return;
+    }
+    if(animhandle==88)
+    {
+        if(frame==0)
+        {
+            stats();
+            return;
+        }
+        return;
+    }
+    if(animhandle==97)
+    {
+        if(frame==2)
+        {
+            spawn02("Slam_Effect", 0, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==98)
+    {
+        if(frame==0)
+        {
+            cProperty("facing", 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==99)
+    {
+        if(frame==4)
+        {
+            dasher(2.5, 0, 0);
+            return;
+        }
+        if(frame==5)
+        {
+            dasher(0, 0, 0);
+            return;
+        }
+        if(frame==7)
+        {
+            followatk("ani_follow3");
+            return;
+        }
+        return;
+    }
+    if(animhandle==100)
+    {
+        if(frame==1)
+        {
+            spawnbind2("Lavis_Effect", 0, 0, 0, 1, 6);
+            return;
+        }
+        return;
+    }
+    if(animhandle==101)
+    {
+        if(frame==0)
+        {
+            randomani(40, "ani_follow4");
+            return;
+        }
+        if(frame==16)
+        {
+            spawn01("sticks_throw", 30, 55, 0);
+            return;
+        }
+        if(frame==23)
+        {
+            spawn01("sticks_throw", 30, 55, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==102)
+    {
+        if(frame==1)
+        {
+            spawnbind2("Lavis_Effect", 0, 0, 0, 1, 6);
+            return;
+        }
+        if(frame==14)
+        {
+            dasher(3, 0, 0);
+            return;
+        }
+        if(frame==24)
+        {
+            doattack("ani_attack5");
+            return;
+        }
+        return;
+    }
+    if(animhandle==103)
+    {
+        if(frame==0)
+        {
+            dasher(2, 0, 0);
+            spawnbind2("Lavis_Effect", 0, 0, 0, 1, 6);
+            return;
+        }
+        if(frame==2)
+        {
+            dasher(1, 0, 0);
+            return;
+        }
+        if(frame==3)
+        {
+            dasher(0, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==105)
+    {
+        if(frame==7)
+        {
+            anichange("ani_jumpland");
+            return;
+        }
+        return;
+    }
+    if(animhandle==107)
+    {
+        if(frame==7)
+        {
+            spawn02("Story", 0, 0, 0, "&STAGE3_OUT", 1);
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/chin/chin_effect.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==108)
+    {
+        if(frame==1)
+        {
+            name2ani();
+            return;
+        }
+        return;
+    }
+    if(animhandle==110)
+    {
+        if(frame==6)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==111)
+    {
+        if(frame==1)
+        {
+            cProperty("map", 1);
+            return;
+        }
+        if(frame==12)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==112)
+    {
+        if(frame==16)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+    if(animhandle==113)
+    {
+        if(frame==16)
+        {
+            killme();
+            return;
+        }
+        return;
+    }
+
+}
+
+#### animationscript function main #####
+# data/chars/bosses/chin/chin.txt
+########################################
+void main()
+{
+    int frame = getlocalvar("frame");
+    int animhandle = getlocalvar("animhandle");
+    if(animhandle==114)
+    {
+        if(frame==1)
+        {
+            intro();
+            teleport();
+            return;
+        }
+        return;
+    }
+    if(animhandle==118)
+    {
+        if(frame==0)
+        {
+            stop();
+            dasher(3, 0, 0);
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
+            return;
+        }
+        if(frame==8)
+        {
+            dasher(1.5, 0, 0);
+            return;
+        }
+        if(frame==9)
+        {
+            stop();
+            return;
+        }
+        return;
+    }
+    if(animhandle==125)
+    {
+        if(frame==2)
+        {
+            spawn02("Slam_Effect", 0, 0, 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==126)
+    {
+        if(frame==0)
+        {
+            cProperty("facing", 0);
+            return;
+        }
+        return;
+    }
+    if(animhandle==127)
+    {
+        if(frame==0)
+        {
+            key2ani("freespecial3", 0, "moveforward");
+            return;
+        }
+        if(frame==1)
+        {
+            punches();
+            return;
+        }
+        return;
+    }
+    if(animhandle==132)
+    {
+        if(frame==0)
+        {
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
+            return;
+        }
+        return;
+    }
+    if(animhandle==133)
+    {
+        if(frame==0)
+        {
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
+            return;
+        }
+        return;
+    }
+    if(animhandle==135)
+    {
+        if(frame==0)
+        {
+            cAiflag("jumping", 1);
+            return;
+        }
+        if(frame==4)
+        {
+            anichange("ani_jumpland");
+            return;
+        }
+        return;
+    }
+    if(animhandle==137)
+    {
+        if(frame==1)
+        {
+            spawnscreen("Darken", 0, 0, 0);
+            return;
+        }
+        if(frame==2)
+        {
+            chin_death();
+            return;
+        }
+        if(frame==3)
+        {
+            spawn02("Story", 0, 0, 0, "&STAGE4_OUT", 1);
+            return;
+        }
+        if(frame==17)
+        {
+            spawn02("Story", 0, 0, 0, "&STAGE4_OUT2", 1);
+            return;
+        }
+        if(frame==19)
+        {
+            jumptobranch("Stage_5", 1);
+            return;
+        }
+        return;
+    }
+
+}

@@ -1,0 +1,413 @@
+#define OBC  openborconstant
+#define GEP  getentityproperty
+#define CEP  changeentityproperty
+#define SLV  setlocalvar
+#define GLV  getlocalvar
+#define GEV  getentityvar
+#define SEV  setentityvar
+#define CLP	 changelevelproperty
+#define OBV  openborvariant
+#define COBV changeopenborvariant
+#define GPP  getplayerproperty
+#define CPP  changeplayerproperty
+#define SGV  setglobalvar
+#define GGV  getglobalvar
+#define self GLV("self")
+
+void main()
+{
+
+	//loadgamefile();
+	//int save = getsaveinfo(0, "level");
+CPP(0,"credits",1);
+CPP(0,"lives",1);
+	int time = OBV("elapsed_time");
+	int intro_time,menu_time,x,y,w,h,select,width,height,i,thunder,text_drop,index;
+	char current_menu,lightning;
+	// debug info
+	//drawstring(10, 10, 3, "P1_joining: "+GPP(0,"joining")+"\nP2_joining: "+GPP(1,"joining")+"\nPlayer1: "+GGV("Player1"), 9999999999999 );
+
+if ( GPP(0,"joining") ) SGV("Player1",1);
+if ( GPP(1,"joining") ) SGV("Player2",1);
+
+	if( playerkeys(0,1,"anybutton") && GGV("Player1") ){index=0;}
+	if( playerkeys(1,1,"anybutton") && GGV("Player2") ){index=1;}
+	
+
+	//if(!press_start && playerkeys(index,2,"start") && OBV("elapsed_time")>100 ){ press_start=1;}
+
+	if(GGV("Player1") || GGV("Player2"))
+	{//setup main menu after someone has joined in
+	if(!menu_time ){menu_time=time+200;}
+	if(!select){select=0;}
+	setsprite("tile","data/levels/custom_menu/tile.gif");
+	//setsprite("scorefix","data/levels/custom_menu/scorefix.gif");
+	if(!current_menu){current_menu="main_menu.gif";}
+	setsprite("bg","data/levels/custom_menu/" + current_menu);
+	
+	changedrawmethod(NULL(),"reset",1);
+	drawsprite(GGV("bg"),0,0,9999999); //background picture should always be there.
+	//drawsprite(GGV("scorefix"),0,0,9999999999); //hide player score.
+	}
+
+	if( !(GGV("Player1") || GGV("Player2")) )
+	{//press start screen
+		setsprite("black",			"data/bgs/title.gif");
+		setsprite("dragons",		"data/levels/custom_menu/ps_dragons.gif");
+		setsprite("dragons_dark",	"data/levels/custom_menu/ps_dragons_dark.gif");
+		setsprite("white",			"data/levels/custom_menu/ps_white.gif");
+		setsprite("dragons_eyes",	"data/levels/custom_menu/ps_dragons_eyes01.gif");
+		setsprite("text",			"data/levels/custom_menu/ps_text.gif");
+		setsprite("text_white",		"data/levels/custom_menu/ps_text_white.gif");
+		setsprite("press_start",	"data/levels/custom_menu/ps_press_start.gif");
+		if (!thunder){thunder = loadsample("data/sounds/thunder.wav");}
+		if (!text_drop){text_drop = loadsample("data/sounds/boss_wall_break_se39.wav");}
+		if(!intro_time || time > intro_time)
+			{
+				intro_time=time+1000;
+				if(GGV("lightning")){ free(GGV("lightning")); }
+				if(!x){x=1;}
+				lightning = "data/levels/custom_menu/ps_lightning_";
+				if(x%2){lightning = lightning + "gold.gif";
+				} else {lightning = lightning + "blue.gif";}
+				SGV("lightning", loadsprite(lightning));
+				x++;
+				playsample(thunder,1,120,120,100,0);
+			}
+		changedrawmethod(NULL(),"reset",1);
+		drawsprite(GGV("dragons"),0,0,999999993);
+		drawsprite(GGV("black"),0,0,999999990);
+		
+		if(time>intro_time-980){ fade_out(intro_time,850,10); }
+		drawsprite(GGV("dragons_dark"),0,0,999999994);
+		drawsprite(GGV("lightning"),0,0,999999991);
+		changedrawmethod(NULL(),"reset",1);
+
+		if(time>intro_time-980){ fade_out(intro_time,910,10); }
+		drawsprite(GGV("white"),0,0,999999992);
+		changedrawmethod(NULL(),"reset",1);
+		
+		if(time > (intro_time-860))
+		{
+		if(GGV("dragons_eyes")){ free(GGV("dragons_eyes")); }
+		SGV("dragons_eyes", loadsprite("data/chars/misc/empty.gif"));
+		} else if(time > (intro_time-890))
+		{
+		if(GGV("dragons_eyes")){ free(GGV("dragons_eyes")); }
+		SGV("dragons_eyes", loadsprite("data/levels/custom_menu/ps_dragons_eyes04.gif"));
+		} else if(time > (intro_time-920))
+		{
+		if(GGV("dragons_eyes")){ free(GGV("dragons_eyes")); }
+		SGV("dragons_eyes", loadsprite("data/levels/custom_menu/ps_dragons_eyes03.gif"));
+		} else if(time > (intro_time-950))
+		{
+		if(GGV("dragons_eyes")){ free(GGV("dragons_eyes")); }
+		SGV("dragons_eyes", loadsprite("data/levels/custom_menu/ps_dragons_eyes02.gif"));
+		} else if (time < (intro_time-950))
+		{
+		if(GGV("dragons_eyes")){ free(GGV("dragons_eyes")); }
+		SGV("dragons_eyes", loadsprite("data/levels/custom_menu/ps_dragons_eyes01.gif"));
+		}
+		
+		cdm(1);
+		drawsprite(GGV("dragons_eyes"),0,0,999999995);
+		changedrawmethod(NULL(),"reset",1);
+		
+		if(time > (intro_time-800) && !y)
+		{
+		if(!w){playsample(text_drop,1,120,120,100,0); w=1;}
+		fade_out(intro_time,600,10);
+		drawsprite(GGV("text_white"),0,0,999999996);
+		changedrawmethod(NULL(),"reset",1);
+		drawsprite(GGV("text"),0,0,999999995);
+		changedrawmethod(NULL(),"reset",1);
+		if(time > (intro_time-200)){ y=1; playmusic("data/music/intro.bor");}
+		} else if(y)
+		{
+		if(time%300 > 150)
+		{
+
+		cdm(1);
+		drawsprite(GGV("press_start"),205,5,999999995);
+		changedrawmethod(NULL(),"reset",1);
+		}
+		drawsprite(GGV("text"),0,0,999999995);
+		changedrawmethod(NULL(),"reset",1);
+		}
+
+
+	} else if(!OBV("in_options") && current_menu=="main_menu.gif")
+	{//the main menu.
+		if(!h){playmusic("data/music/menu.bor",1,18790); h=1;}
+		x=40;
+		x=draw_in(x,menu_time,190);
+		drawsprite(GGV("tile"),x,80,999999997);
+		changedrawmethod(NULL(),"reset",1);
+	
+		x=264;
+		x=draw_in(x,menu_time,170);
+		drawsprite(GGV("tile"),x,80,999999997);
+		changedrawmethod(NULL(),"reset",1);
+	
+		x=40;
+		x=draw_in(x,menu_time,160);
+		drawsprite(GGV("tile"),x,160,999999997);
+		changedrawmethod(NULL(),"reset",1);
+	
+		x=264;
+		x=draw_in(x,menu_time,140);
+		drawsprite(GGV("tile"),x,160,999999997);
+		changedrawmethod(NULL(),"reset",1);
+		
+		if(time > menu_time-100)
+		{
+			//difference in height and width for the text objects.
+			width=224;
+			height=80;
+		settextobj(0,40,78,0,999999998,"\n________mode_select");
+		settextobj(1,264,78,0,999999998,"\n_____________options");
+		settextobj(2,40,158,0,999999998,"\n________how_to_play");
+		settextobj(3,264,158,0,999999998,"\n__________exit_game");
+	
+		changetextobjproperty(select,"font",1);
+	
+		if( playerkeys(index,1,"moveright") ){ select=menu_mover(select,width); }
+		if( playerkeys(index,1,"moveleft") ){ select=menu_mover(select,width*-1);}
+		if( playerkeys(index,1,"movedown") ){ select=menu_mover(select,0,height);}
+		if( playerkeys(index,1,"moveup") ){ select=menu_mover(select,0,height*-1);}
+		if( playerkeys(index,1,"attack") || playerkeys(index,1,"start") )
+		{
+			if(gettextobjproperty(select,"text")=="\n__________exit_game"){ shutdown(); }
+			if(gettextobjproperty(select,"text")=="\n_____________options"){ current_menu=change_menu("options.gif"); options(); }
+			if(gettextobjproperty(select,"text")=="\n________mode_select")	{ 
+																			setsprite("tileb","data/levels/custom_menu/tile_big.gif");
+																			menu_time=time+200;
+																			current_menu=change_menu("mode_select.gif");
+																			}
+			if(gettextobjproperty(select,"text")=="\n________how_to_play"){ }
+		}
+	
+		}
+
+	} else if(current_menu=="mode_select.gif")
+	{//the mode select menu.
+
+		x=129;
+		x=draw_in(x,menu_time,190);
+		drawsprite(GGV("tileb"),x,70,999999997);
+		changedrawmethod(NULL(),"reset",1);
+	
+		x=129;
+		x=draw_in(x,menu_time,170);
+		drawsprite(GGV("tileb"),x,120,999999997);
+		changedrawmethod(NULL(),"reset",1);
+	
+		x=129;
+		x=draw_in(x,menu_time,160);
+		drawsprite(GGV("tileb"),x,170,999999997);
+		changedrawmethod(NULL(),"reset",1);
+	
+		x=129;
+		x=draw_in(x,menu_time,140);
+		drawsprite(GGV("tileb"),x,220,999999997);
+		changedrawmethod(NULL(),"reset",1);
+		
+		if(time > menu_time-100)
+		{
+			//difference in height and width for the text objects.
+			width=224;
+			height=50;
+		settextobj(0,129,68,0,999999998,"\n____________arcade_mode");
+		settextobj(1,129,118,0,999999998,"\n_______time_attack_mode");
+		settextobj(2,129,168,0,999999998,"\n__________boss_rush_mode");
+		settextobj(3,129,218,0,999999998,"\n_______________main_menu");
+	
+		changetextobjproperty(select,"font",1);
+	
+		if( playerkeys(index,1,"moveright") ){ select=menu_mover(select,width); }
+		if( playerkeys(index,1,"moveleft") ){ select=menu_mover(select,width*-1);}
+		if( playerkeys(index,1,"movedown") ){ select=menu_mover(select,0,height);}
+		if( playerkeys(index,1,"moveup") ){ select=menu_mover(select,0,height*-1);}
+		if( playerkeys(index,2,"attack") || playerkeys(index,2,"start") )
+		{
+			if(gettextobjproperty(select,"text")=="\n____________arcade_mode")	{
+																				x=NULL();
+																				y=NULL();
+																				w=NULL();
+																				h=NULL();
+																				intro_time=NULL();
+																				time=NULL();
+																				select=0;
+																				menu_time=NULL();
+																				current_menu=change_menu("main_menu.gif");
+																				SGV("mode","training");
+																				CPP(0,"name","_");
+																				ondestroy();
+																				playgame(1,2);
+																				//killentity(self);
+																				}
+			if(gettextobjproperty(select,"text")=="\n_______time_attack_mode"){ }
+			if(gettextobjproperty(select,"text")=="\n__________boss_rush_mode"){ }
+			if(gettextobjproperty(select,"text")=="\n_______________main_menu")	{
+																				free(GGV("tile"));
+																				SGV("tile", NULL());
+																				select=0;
+																				menu_time=time+200;
+																				current_menu=change_menu("main_menu.gif");
+																				}
+		}
+	
+		}
+
+	} else if (OBV("in_options"))
+	{
+	
+
+		x=140; y=100; w=200; h=130;
+		
+		
+		if (OBV("in_video_options"))
+		{
+		x=30; y=60; w=370; h=190;
+		}
+		
+		if (OBV("in_sound_options"))
+		{
+		x=110; y=60; w=290; h=190;
+		}
+		
+		if (OBV("in_control_options"))
+		{
+		x=120; y=20; w=320; h=250;
+		}
+		
+		if (OBV("in_system_options"))
+		{
+		x=80; y=40; w=330; h=210;
+		}
+		
+		drawbox(x,y,w,h,99999992,rgbcolor(0,0,0),6);//alternate screen darken.
+		drawbox(x,y,w,h,99999992,rgbcolor(0,0,0),6);//alternate screen darken.
+	} else if ( current_menu=="options.gif" )
+	{ current_menu=change_menu("main_menu.gif"); menu_time=time+200; }
+}
+
+///////////////////////////////////////////////////////////////////////
+////////////// FUNCTIONS //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+void setsprite(char global, char sprite)
+{//check if globalvar empty then load specified sprite
+if(!GGV(global))	SGV(global, loadsprite(sprite));
+}
+
+void menu_mover(int select, int width, int height)
+{//navigate around the menu !
+	int i;
+
+	for(i=0;gettextobjproperty(i,"x");i++)
+	{
+	if(	gettextobjproperty(i,"x")== gettextobjproperty(select,"x") + (height?0:width) &&
+		gettextobjproperty(i,"y")==gettextobjproperty(select,"y") + (height?height:0) )
+		{ 
+			playsample(OBC("sample_beep"), 0, 120, 120, 100, 0);
+			select=i; break;
+		}
+	}
+
+	return select;
+}
+
+void change_menu(char new_menu)
+{//handel clearing the screen for a new menu.
+	changetextobjproperty(0,"text","");
+	changetextobjproperty(1,"text","");
+	changetextobjproperty(2,"text","");
+	changetextobjproperty(3,"text","");
+	free(GGV("bg"));
+	SGV("bg",NULL());
+	return new_menu;
+}
+
+void cdm(int alpha, int rgb, int scale)
+{//cmd short for change draw method !
+	changedrawmethod(NULL(),"alpha",alpha);
+	//when used with alpha 6 controls the visability 0 non visable 256 fully visable.
+	if(rgb)
+	{
+	changedrawmethod(NULL(),"channelr",rgb);
+	changedrawmethod(NULL(),"channelg",rgb);
+	changedrawmethod(NULL(),"channelb",rgb);
+	}
+	if(scale)
+	{
+	changedrawmethod(NULL(),"scalex",scale);
+	changedrawmethod(NULL(),"scaley",scale);
+	}
+}
+
+void draw_in(int x, int menu_time,int time_in,int scale)
+{//fade in effect
+	int time = OBV("elapsed_time");
+
+	if(time > menu_time-(time_in-40))
+	{
+	cdm(0,0,scale?scale:256);
+	x=x;
+	} else if(time > menu_time-(time_in-30))
+	{
+	cdm(6,200,scale?scale:306);
+	x=(x-20);
+	} else if(time > menu_time-(time_in-20))
+	{
+	cdm(6,150,scale?scale:356);
+	x=(x-40);
+	} else if(time > menu_time-(time_in-10))
+	{
+	cdm(6,100,scale?scale:406);
+	x=(x-60);
+	} else if(time > menu_time-time_in)
+	{
+	cdm(6,50,scale?scale:456);
+	x=(x-80);
+	} else { cdm(6,999,0); }
+
+	return x;
+}
+
+void fade_out(int intro_time,int time_in, int multiply)
+{//fade in effect
+	int time = OBV("elapsed_time");
+	int i,step;
+	if(time > (intro_time - time_in)){ cdm(6,1);
+	} else 
+	{
+		for(i=10;i>0;i--)
+		{
+			if(!step){step=256/i;}
+			if(time > ((intro_time - time_in) - (multiply * i))){cdm(6,i*step);}
+		}
+	}
+}
+
+void ondestroy()
+{//closing up shop time to clean up.
+	name2null("tile");
+	name2null("tileb");
+	name2null("bg");
+	name2null("scorefix");
+	name2null("dragons");
+	name2null("dragons_dark");
+	name2null("dragons_eyes");
+	name2null("white");
+	name2null("lightning");
+	name2null("text");
+	name2null("text_white");
+	name2null("press_start");
+	name2null("black");
+}
+
+void name2null(char name)
+{//free a global var based on name
+	if(GGV(name)){ free(GGV(name)); SGV(name, NULL()); }
+}

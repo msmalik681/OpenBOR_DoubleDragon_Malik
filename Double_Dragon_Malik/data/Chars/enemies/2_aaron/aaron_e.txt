@@ -1,0 +1,366 @@
+name			Aaron_e
+health			999
+speed			4
+type			enemy
+projectilehit	enemy
+jumpheight		4
+walkoffmove		2
+shadow			3
+risetime		3
+throw			3 3.5
+grabdistance 	18
+paingrab		1
+atchain			1
+aimove			chasex
+subject_to_wall 0
+subject_to_gravity 0
+diesound		data/sounds/0_voice10_die_deep.wav
+
+palette			data/chars/enemies/2_aaron/04_walk01.gif
+alternatepal	data/chars/enemies/2_aaron/04_walk02.gif
+
+weapons			none none none Aaron_Drumcan
+load Aaron_Drumcan 3
+
+animationscript data/scripts/scripts.c
+takedamagescript data/scripts/takedamagescript.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	fshadow	0
+	frame	data/chars/misc/empty.gif
+	@cmd	name2ani
+	@cmd	wallpass 1
+	#@cmd	jumpin
+	frame	data/chars/misc/empty.gif
+
+anim follow1
+	loop	0
+	offset	30 85
+	delay	18
+	drawmethod tintmode 4
+	drawmethod tintcolor 32_32_32
+	frame	data/chars/enemies/2_aaron/walk01.gif
+	@cmd	dasher 0 0 0.3
+	drawmethod tintcolor 64_64_64
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	drawmethod tintcolor 96_96_96
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	drawmethod tintmode 0
+	frame	data/chars/enemies/2_aaron/walk04.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	frame	data/chars/enemies/2_aaron/walk03.gif
+
+anim follow3 #walk out of boss door
+	loop	0
+	offset	30 85	
+	delay	17
+	@cmd	setlayer -80
+	@cmd	dasher 0.6 0 0
+	fshadow	0
+	@cmd	cProperty "map" 1
+	frame	data/chars/enemies/2_aaron/walk01.gif
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk04.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	frame	data/chars/enemies/2_aaron/walk01.gif
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk04.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	@cmd	dasher 0 0 0
+	frame	data/chars/enemies/2_aaron/walk01.gif
+	
+	delay	40
+	offset	32 82
+	frame	data/chars/enemies/2_aaron/idle01.gif
+	
+	offset	30 85
+	delay	18
+	@cmd	dasher 0 -0.3 0
+	frame	data/chars/enemies/2_aaron/walk01.gif
+	@cmd	setlayer 0
+	
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk04.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	
+anim idle
+	loop	1
+	offset	32 82
+	bbox	12 17 35 65
+	delay	15
+	@cmd 	stats
+	frame	data/chars/enemies/2_aaron/idle01.gif
+	frame	data/chars/enemies/2_aaron/idle02.gif
+	frame	data/chars/enemies/2_aaron/idle03.gif
+	frame	data/chars/enemies/2_aaron/idle02.gif
+
+anim walk
+	loop	1
+	offset	30 85
+	bbox	12 17 35 68
+	delay	11
+	frame	data/chars/enemies/2_aaron/walk01.gif
+	frame	data/chars/enemies/2_aaron/walk02.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk04.gif
+	frame	data/chars/enemies/2_aaron/walk03.gif
+	frame	data/chars/enemies/2_aaron/walk02.gif
+
+anim pain
+	loop	0
+	offset	38 91
+	bbox	19 23 35 65
+	delay	8
+	frame	data/chars/enemies/2_aaron/pain101.gif
+	delay	50
+	bbox	5 20 45 70
+	frame	data/chars/enemies/2_aaron/pain102.gif
+	delay	8
+	bbox	19 23 35 65
+	frame	data/chars/enemies/2_aaron/pain101.gif
+
+anim pain2
+	loop	0
+	offset	33 78
+	bbox	18 13 32 65
+	delay	8
+	frame	data/chars/enemies/2_aaron/pain201.gif
+	delay	100
+	frame	data/chars/enemies/2_aaron/pain202.gif
+	delay	8
+	frame	data/chars/enemies/2_aaron/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	38 91
+	bbox	11 11 39 62
+	delay	8
+	frame	data/chars/enemies/2_aaron/pain101.gif
+
+anim pain5
+	loop	0
+	offset	33 78
+	bbox	18 13 32 65
+	delay	8
+	frame	data/chars/enemies/2_aaron/pain201.gif
+	frame	data/chars/enemies/2_aaron/pain202.gif
+	frame	data/chars/enemies/2_aaron/pain201.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	40 43
+	bbox	7 2 65 42
+	attack	7 2 65 42		10 1
+	landframe 2
+	frame	data/chars/enemies/2_aaron/fall01.gif
+	offset	41 52
+	bbox	7 13 74 38
+	attack	7 13 74 38		10 1
+	delay	999
+	frame	data/chars/enemies/2_aaron/fall02.gif
+	delay	50
+	offset	44 33
+	bbox	7 6 74 33
+	attack	0 0 0 0
+	frame	data/chars/enemies/2_aaron/fall03.gif
+
+anim fall3
+	loop	0
+	delay	20
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	offset	40 43
+	bbox	7 2 65 42
+	frame	data/chars/enemies/2_aaron/fall01.gif
+	offset	41 52
+	bbox	7 13 74 38
+	delay	999
+	frame	data/chars/enemies/2_aaron/fall02.gif
+	offset	44 33
+	bbox	7 6 74 33
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/enemies/2_aaron/fall03.gif
+	offset	40 43
+	bbox	7 2 65 42
+	frame	data/chars/enemies/2_aaron/fall01.gif
+	offset	41 52
+	bbox	7 13 74 38
+	frame	data/chars/enemies/2_aaron/fall02.gif
+	offset	44 33
+	bbox	7 6 74 33
+	frame	data/chars/enemies/2_aaron/fall03.gif
+
+anim rise
+	loop	0
+	offset	25 72
+	delay	18
+	@cmd	cProperty "facing" 0
+	frame	data/chars/enemies/2_aaron/rise01.gif
+	delay	10
+	frame	data/chars/enemies/2_aaron/rise02.gif
+
+anim get
+	loop	0
+	offset	25 72
+	delay	15
+	frame	data/chars/enemies/2_aaron/rise01.gif
+	frame	data/chars/enemies/2_aaron/rise02.gif
+
+anim attack1
+	loop	0
+	delay	1
+	range	5 75
+	@cmd	randomatk 2 4
+	offset	32 82
+	delay	15
+	frame	data/chars/enemies/2_aaron/idle01.gif
+
+anim attack2 # punches
+	loop	0
+	range	0 0
+	delay	8
+	offset	33 78
+	bbox	18 13 32 65
+	delay	6
+	frame	data/chars/enemies/2_aaron/pain201.gif
+	offset	38 79
+	bbox	23 12 35 66
+	attack	50 18 60 23		5 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/enemies/2_aaron/atk001.gif
+	frame	data/chars/enemies/2_aaron/atk002.gif
+	frame	data/chars/enemies/2_aaron/atk003.gif
+	attack	0 0 0 0
+	frame	data/chars/enemies/2_aaron/atk004.gif
+	frame	data/chars/enemies/2_aaron/atk005.gif
+	offset	33 78
+	bbox	18 13 32 65
+	delay	5
+	frame	data/chars/enemies/2_aaron/pain201.gif
+	offset	38 79
+	bbox	22 16 36 62
+	frame	data/chars/enemies/2_aaron/atk101.gif
+	frame	data/chars/enemies/2_aaron/atk102.gif
+	frame	data/chars/enemies/2_aaron/atk103.gif
+	frame	data/chars/enemies/2_aaron/atk104.gif
+	attack2	60 22 55 21		5 0
+	sound	data/sounds/swing_se17.wav
+	frame	data/chars/enemies/2_aaron/atk105.gif
+	frame	data/chars/enemies/2_aaron/atk106.gif
+	attack	0 0 0
+	frame	data/chars/enemies/2_aaron/atk107.gif
+
+anim attack3 # low kick
+	loop	0
+	range	0 0
+	offset	32 90
+	delay	10
+	bbox	16 25 37 64
+	frame	data/chars/enemies/2_aaron/atk201.gif
+	frame	data/chars/enemies/2_aaron/atk202.gif
+	attack2	49 32 50 60		10 0
+	sound	data/sounds/kick_se15.wav
+	frame	data/chars/enemies/2_aaron/atk203.gif
+	frame	data/chars/enemies/2_aaron/atk204.gif
+	attack2	0 0 0 0
+	frame	data/chars/enemies/2_aaron/atk205.gif
+	frame	data/chars/enemies/2_aaron/atk206.gif
+	frame	data/chars/enemies/2_aaron/atk207.gif
+
+anim attack4 # heavy punch
+	loop	0
+	range	0 0
+	offset	33 78
+	bbox	18 13 32 65
+	delay	13
+	frame	data/chars/enemies/2_aaron/pain201.gif
+	offset	38 79
+	bbox	22 16 36 62
+	frame	data/chars/enemies/2_aaron/atk101.gif
+	frame	data/chars/enemies/2_aaron/atk102a.gif
+	frame	data/chars/enemies/2_aaron/atk102.gif
+	frame	data/chars/enemies/2_aaron/atk103.gif
+	delay	8
+	frame	data/chars/enemies/2_aaron/atk104.gif
+	attack2	60 22 58 21		15 1
+	sound	data/sounds/swing_se17.wav
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	dropv	2 3 0
+	frame	data/chars/enemies/2_aaron/atk105.gif
+	frame	data/chars/enemies/2_aaron/atk106.gif
+	attack	0 0 0
+	frame	data/chars/enemies/2_aaron/atk107.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	0 90
+	offset	22 81
+	bbox	18 5 34 85
+	#umpframe 0 4 1 0
+	frame	data/chars/enemies/2_aaron/jump01.gif
+	delay	12
+	offset	33 78
+	bbox	15 12 34 62
+	frame	data/chars/enemies/2_aaron/jump02.gif
+	offset	33 73
+	bbox	11 10 37 60
+	frame	data/chars/enemies/2_aaron/jump03.gif
+	offset	33 78
+	bbox	15 12 34 62
+	frame	data/chars/enemies/2_aaron/jump02.gif
+	offset	40 90
+	bbox	18 5 34 85
+	frame	data/chars/enemies/2_aaron/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	1
+	landframe 4
+	jumpframe 0 1 1
+	@cmd 	cAiflag "jumping" 1
+	sound 	data/sounds/jump.wav
+	delay	12
+	offset	33 78
+	bbox	15 12 34 62
+	frame	data/chars/enemies/2_aaron/jump02.gif
+	offset	33 73
+	bbox	11 10 37 60
+	frame	data/chars/enemies/2_aaron/jump03.gif
+	offset	33 78
+	bbox	15 12 34 62
+	frame	data/chars/enemies/2_aaron/jump02.gif
+	delay 	999
+	offset	40 90
+	bbox	18 5 34 85
+	frame	data/chars/enemies/2_aaron/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/enemies/2_aaron/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	25 72
+	delay	18
+	bbox	8 21 37 52
+	sound 	data/sounds/land_se07.wav
+	frame	data/chars/enemies/2_aaron/rise01.gif
+	delay	10
+	frame	data/chars/enemies/2_aaron/rise02.gif
+
+anim death
+	offset	39 30
+	frame	data/chars/enemies/2_aaron/fall03.gif

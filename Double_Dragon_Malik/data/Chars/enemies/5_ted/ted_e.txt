@@ -1,0 +1,353 @@
+name			Ted_e
+health			999
+speed			5
+type			enemy
+projectilehit 	enemy
+jumpheight		4
+shadow			3
+risetime		3
+throw			3 3.5
+paingrab		1
+atchain			1
+aimove			chasex
+diesound		data/sounds/0_voice08_die.wav
+subject_to_wall 0
+subject_to_gravity 0
+subject_to_minz 0
+
+palette			data/chars/enemies/5_ted/idle1.gif
+alternatepal 	data/chars/enemies/5_ted/walk01.gif
+
+animationscript data/scripts/scripts.c
+takedamagescript data/scripts/takedamagescript.c
+
+anim spawn
+	loop	0
+	offset	22 78
+	delay	3
+	frame	none
+	@cmd 	stats
+	@cmd	name2ani
+	@cmd	wallpass 1
+	@cmd	jumpin
+	frame	none
+
+anim follow1
+	loop	0
+	offset	22 78
+	delay	18
+	drawmethod tintmode 4
+	drawmethod tintcolor 32_32_32
+	frame	data/chars/enemies/5_ted/walk02.gif
+	@cmd	dasher 0 0 0.3
+	drawmethod tintcolor 64_64_64
+	frame	data/chars/enemies/5_ted/walk02.gif
+	drawmethod tintcolor 96_96_96
+	frame	data/chars/enemies/5_ted/walk03.gif
+	drawmethod tintmode 0
+	frame	data/chars/enemies/5_ted/walk04.gif
+	@cmd	dasher 0 0 0
+	@cmd	wallpass 1
+	frame	data/chars/enemies/5_ted/walk05.gif
+
+anim follow2 # jump in
+	loop	0
+	bbox	5 8 22 92
+	delay	12
+	offset	36 55
+	bbox	12 6 43 48
+	landframe 3
+	frame	data/chars/enemies/5_ted/jump03.gif
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/enemies/5_ted/jump02.gif
+	offset	17 101
+	bbox	5 8 22 92
+	delay	999
+	frame	data/chars/enemies/5_ted/jump01.gif
+	offset	20 66
+	delay	18
+	bbox	6 8 31 56
+	frame	data/chars/enemies/5_ted/rise01.gif
+	delay	10
+	frame	data/chars/enemies/5_ted/rise02.gif
+
+anim follow3 #locker spawn
+	loop	0
+	offset	22 78
+	delay	10
+	@cmd	wallpass 1
+	frame	data/chars/enemies/5_ted/idle1.gif
+	frame	data/chars/enemies/5_ted/idle2.gif
+	frame	data/chars/enemies/5_ted/idle3.gif
+	frame	data/chars/enemies/5_ted/idle4.gif
+	frame	data/chars/enemies/5_ted/idle3.gif
+	frame	data/chars/enemies/5_ted/idle2.gif
+	frame	data/chars/enemies/5_ted/idle1.gif
+	frame	data/chars/enemies/5_ted/idle1.gif
+	frame	data/chars/enemies/5_ted/idle2.gif
+	frame	data/chars/enemies/5_ted/idle3.gif
+	frame	data/chars/enemies/5_ted/idle4.gif
+	frame	data/chars/enemies/5_ted/idle3.gif
+	frame	data/chars/enemies/5_ted/idle2.gif
+	frame	data/chars/enemies/5_ted/idle1.gif
+	
+anim idle
+	loop	1
+	offset	22 78
+	bbox	5 13 38 64
+	delay	9
+	frame	data/chars/enemies/5_ted/idle1.gif
+	frame	data/chars/enemies/5_ted/idle2.gif
+	frame	data/chars/enemies/5_ted/idle3.gif
+	frame	data/chars/enemies/5_ted/idle4.gif
+	frame	data/chars/enemies/5_ted/idle3.gif
+	frame	data/chars/enemies/5_ted/idle2.gif
+	frame	data/chars/enemies/5_ted/idle1.gif
+
+anim walk
+	loop	1
+	offset	22 78
+	bbox	5 13 38 64
+	delay	14
+	frame	data/chars/enemies/5_ted/walk01.gif
+	frame	data/chars/enemies/5_ted/walk02.gif
+	frame	data/chars/enemies/5_ted/walk03.gif
+	frame	data/chars/enemies/5_ted/walk04.gif
+	frame	data/chars/enemies/5_ted/walk05.gif
+
+anim pain
+	loop	0
+	offset	30 80
+	bbox	7 13 37 67
+	delay	8
+	frame	data/chars/enemies/5_ted/pain101.gif
+	delay	50
+	frame	data/chars/enemies/5_ted/pain102.gif
+	delay	8
+	frame	data/chars/enemies/5_ted/pain101.gif
+
+anim pain2
+	loop	0
+	offset	34 71
+	bbox	14 9 39 62
+	delay	8
+	frame	data/chars/enemies/5_ted/pain201.gif
+	delay	100
+	frame	data/chars/enemies/5_ted/pain202.gif
+	delay	8
+	frame	data/chars/enemies/5_ted/pain201.gif
+
+anim grabbed
+	loop	0
+	offset	30 80
+	bbox	7 13 37 67
+	delay	8
+	frame	data/chars/enemies/5_ted/pain101.gif
+
+anim pain5
+	loop	0
+	offset	34 71
+	bbox	14 9 39 62
+	delay	8
+	frame	data/chars/enemies/5_ted/pain201.gif
+	frame	data/chars/enemies/5_ted/pain202.gif
+	frame	data/chars/enemies/5_ted/pain201.gif
+
+anim fall
+	loop	0
+	delay	20
+	offset	30 28
+	landframe 2
+	bbox	2 1 68 37
+	attack	2 1 68 37 	10 1
+	frame	data/chars/enemies/5_ted/fall01.gif
+	offset	30 40
+	bbox	3 7 74 33
+	attack	3 7 74 33 	10 1
+	delay	999
+	frame	data/chars/enemies/5_ted/fall02.gif
+	delay	50
+	offset	42 24
+	attack	0 0 0 0
+	bbox	1 2 85 30
+	frame	data/chars/enemies/5_ted/fall03.gif
+
+anim fall3
+	loop	0
+	delay	20
+	offset	30 28
+	landframe 2
+	jumpframe 2 5.5 -1.5
+	bbox	2 1 68 37
+	frame	data/chars/enemies/5_ted/fall01.gif
+	offset	30 40
+	bbox	3 7 74 33
+	delay	999
+	frame	data/chars/enemies/5_ted/fall02.gif
+	offset	42 24
+	bbox	1 2 85 30
+	delay	25
+	@cmd	spawn02 "Slam_Effect" 0 0 0
+	frame	data/chars/enemies/5_ted/fall03.gif
+	bbox	2 1 68 37
+	frame	data/chars/enemies/5_ted/fall01.gif
+	offset	30 40
+	bbox	3 7 74 33
+	delay	999
+	frame	data/chars/enemies/5_ted/fall02.gif
+	offset	42 24
+	bbox	1 2 85 30
+	frame	data/chars/enemies/5_ted/fall03.gif
+
+anim rise
+	loop	0
+	offset	20 66
+	delay	18
+	@cmd	cProperty "facing" 0
+	frame	data/chars/enemies/5_ted/rise01.gif
+	delay	10
+	frame	data/chars/enemies/5_ted/rise02.gif
+
+anim attack1
+	loop	0
+	offset	22 78
+	delay	1
+	range	0 65
+	@cmd	randomatk 2 4
+	frame	data/chars/enemies/5_ted/idle1.gif
+	frame	data/chars/enemies/5_ted/idle1.gif
+
+anim attack2 # punches
+	loop	0
+	offset	23 74
+	delay	8
+	fastattack 1
+	bbox	10 10 35 63
+	frame	data/chars/enemies/5_ted/atk101.gif
+	frame	data/chars/enemies/5_ted/atk102.gif
+	attack	39 12 46 17		5 0
+	frame	data/chars/enemies/5_ted/atk103.gif
+	frame	data/chars/enemies/5_ted/atk104.gif
+	attack	0 0 0
+	#frame	data/chars/enemies/5_ted/atk105.gif
+	#frame	data/chars/enemies/5_ted/atk106.gif
+	offset	21 74
+	bbox	6 10 33 62
+	frame	data/chars/enemies/5_ted/atk201.gif
+	offset	23 74
+	frame	data/chars/enemies/5_ted/atk102.gif
+	attack2	36 10 48 20		5 0
+	frame	data/chars/enemies/5_ted/atk203.gif
+	frame	data/chars/enemies/5_ted/atk204.gif
+	attack2	0 0 0
+	frame	data/chars/enemies/5_ted/atk101.gif
+	frame	data/chars/enemies/5_ted/atk106.gif
+
+anim attack3 # kick
+	loop	0
+	offset	22 84
+	delay	7
+	bbox	14 15 32 68
+	frame	data/chars/enemies/5_ted/atk301.gif
+	frame	data/chars/enemies/5_ted/atk302.gif
+	frame	data/chars/enemies/5_ted/atk303.gif
+	delay	9
+	attack2	28 24 60 45		10 0
+	frame	data/chars/enemies/5_ted/atk304.gif
+	frame	data/chars/enemies/5_ted/atk305.gif
+	delay	7
+	attack2	0 0 0
+	frame	data/chars/enemies/5_ted/atk306.gif
+	frame	data/chars/enemies/5_ted/atk307.gif
+	offset	23 74
+	frame	data/chars/enemies/5_ted/atk106.gif
+
+anim attack4 # straight punch
+	loop	0
+	offset	23 74
+	delay	7
+	bbox	13 12 29 58
+	frame	data/chars/enemies/5_ted/atk105.gif
+	offset	19 77
+	bbox	22 8 33 64
+	frame	data/chars/enemies/5_ted/atk401.gif
+	delay	11
+	attack	41 12 50 23		15 1
+	damageonlanding 0 1
+	dropv	2.5 4
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	bbox	32 15 29 59
+	frame	data/chars/enemies/5_ted/atk402.gif
+	frame	data/chars/enemies/5_ted/atk403.gif
+	attack	0 0 0
+	delay	7
+	bbox	23 7 29 67
+	frame	data/chars/enemies/5_ted/atk404.gif
+	offset	22 84
+	bbox	16 16 30 67
+	frame	data/chars/enemies/5_ted/atk307.gif
+	offset	23 74
+	bbox	9 10 33 61
+	frame	data/chars/enemies/5_ted/atk106.gif
+
+anim jump
+	loop	0
+	delay	20
+	range	5 80
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/enemies/5_ted/jump01.gif
+	delay	12
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/enemies/5_ted/jump02.gif
+	offset	36 55
+	bbox	12 6 43 48
+	frame	data/chars/enemies/5_ted/jump03.gif
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/enemies/5_ted/jump02.gif
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/enemies/5_ted/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	20
+	range	5 80
+	jumpframe 0 1.5 1
+	landframe 4
+	@cmd 	cAiflag "jumping" 1
+	sound 	data/sounds/jump.wav
+	delay	12
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/enemies/5_ted/jump02.gif
+	offset	36 55
+	bbox	12 6 43 48
+	frame	data/chars/enemies/5_ted/jump03.gif
+	offset	21 64
+	bbox	6 6 30 58
+	frame	data/chars/enemies/5_ted/jump02.gif
+	delay 	999
+	offset	17 101
+	bbox	5 8 22 92
+	frame	data/chars/enemies/5_ted/jump01.gif
+	@cmd 	anichange "ani_jumpland"
+	frame	data/chars/enemies/5_ted/jump01.gif
+
+anim jumpland
+	loop	0
+	offset	20 66
+	bbox	6 8 31 56
+	delay	18
+	sound 	data/sounds/land_se07.wav
+	frame	data/chars/enemies/5_ted/rise01.gif
+	delay	10
+	frame	data/chars/enemies/5_ted/rise02.gif
+
+anim death
+	offset	39 24
+	frame	data/chars/enemies/5_ted/fall03.gif

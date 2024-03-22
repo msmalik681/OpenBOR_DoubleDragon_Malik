@@ -1,0 +1,30 @@
+name		Slam_Effect
+type		none
+shadow		0
+palette		data/chars/bosses/chin/atk508_effect04.gif	#2
+subject_to_gravity 0
+subject_to_wall 1
+subject_to_platform 1
+subject_to_screen 0
+subject_to_maxz 0
+subject_to_minz 0
+no_adjust_base 0
+alpha		1
+nodieblink	1
+
+animationscript data/scripts/scripts.c
+
+anim spawn # slam effect when using overhead attack.
+	loop	0
+	offset	72 124
+	delay	3
+	frame 	none
+	delay 	8
+	frame	data/chars/bosses/chin/atk506_effect.gif
+	frame	data/chars/bosses/chin/atk507_effect.gif
+	frame	data/chars/bosses/chin/atk508_effect01.gif
+	frame	data/chars/bosses/chin/atk508_effect02.gif
+	frame	data/chars/bosses/chin/atk508_effect03.gif
+	frame	data/chars/bosses/chin/atk508_effect04.gif
+	@cmd	killme
+	frame	none

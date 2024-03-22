@@ -1,0 +1,97 @@
+name		Drumcan_Throw
+type		none
+antigravity	0
+shadow		0
+bounce		1
+candamage 	player
+no_adjust_base  0
+subject_to_wall	1
+subject_to_platform 1
+subject_to_hole 1
+subject_to_obstacle 1
+palette		data/chars/misc/drumcan/atk01.gif
+
+animationscript data/scripts/scripts.c
+onblockwscript data/scripts/bounceoff.openbor
+onblockoscript data/scripts/bounceoff.openbor
+onblockpscript data/scripts/bounceoff.openbor
+
+anim spawn
+	loop	0
+	delay	3
+	frame	data/chars/misc/empty.gif
+	@cmd	copyDamage
+	frame	data/chars/misc/empty.gif
+
+anim idle
+	loop	0
+	delay	2
+	offset	16 44
+	attack	0 0 33 45 80 1 0
+	hitflash BigFlash
+	hitfx	data/sounds/beat2_se04.wav
+	jumpframe 1 2.5 0.6 0
+	bouncefactor 1.5
+	landframe 4
+	frame	data/chars/misc/drumcan/atk02.gif
+	frame	data/chars/misc/drumcan/atk02.gif
+	delay	30
+	frame	data/chars/misc/drumcan/atk02.gif
+	delay	999
+	frame	data/chars/misc/drumcan/atk01.gif
+	delay	1
+	frame	data/chars/misc/drumcan/atk02.gif
+	@cmd	spawn01 "Quake" 0 0 0
+	sound	data/sounds/drumcan_bounce_se22.wav
+	frame	data/chars/misc/drumcan/atk02.gif
+	@cmd	anichange "ani_follow2"
+	frame	data/chars/misc/drumcan/atk02.gif
+
+anim follow2
+	loop	0
+	delay	1
+	offset	16 44
+	attack	0 0 33 45 10 1 0
+	hitflash BigFlash
+	bouncefactor 1.5
+	landframe 3
+	frame	data/chars/misc/drumcan/atk02.gif
+	delay	30
+	frame	data/chars/misc/drumcan/atk02.gif
+	delay	999
+	frame	data/chars/misc/drumcan/atk01.gif
+	delay	1
+	frame	data/chars/misc/drumcan/atk02.gif
+	@cmd	spawn01 "Quake" 0 0 0
+	sound	data/sounds/drumcan_bounce_se22.wav
+	frame	data/chars/misc/drumcan/atk02.gif
+	@cmd	anichange "ani_follow3"
+	frame	data/chars/misc/drumcan/atk02.gif
+
+anim follow3
+	loop	0
+	delay	1
+	offset	16 44
+	attack	0 0 33 45 10 1 0
+	hitflash BigFlash
+	bouncefactor 0
+	landframe 1
+	delay	999
+	frame	data/chars/misc/drumcan/atk02.gif
+	delay	1
+	frame	data/chars/misc/drumcan/atk01.gif
+	offset	15 47
+	delay	12
+	@cmd	dasher	0.5 0 0
+	frame	data/chars/misc/drumcan/atk03.gif
+	@cmd	spawn01 "Quake" 0 0 0
+	sound	data/sounds/drumcan_bounce_se22.wav
+	@cmd	dasher	0.3 0 0
+	frame	data/chars/misc/drumcan/atk03.gif
+	@cmd	dasher	0.2 0 0
+	attack	0 0 0 0
+	frame	data/chars/misc/drumcan/atk03.gif
+	@cmd	dasher	0 0 0
+	@cmd	spawn01 "Drumcan" 0 0 0
+	@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/drumcan.gif

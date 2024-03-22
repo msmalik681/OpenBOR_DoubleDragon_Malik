@@ -1,0 +1,60 @@
+#define OBC  openborconstant
+#define GEP  getentityproperty
+#define CEP  changeentityproperty
+#define SLV  setlocalvar
+#define GLV  getlocalvar
+#define GEV  getentityvar
+#define SEV  setentityvar
+#define CLP  changelevelproperty
+#define OBV  openborvariant
+#define COBV changeopenborvariant
+#define GPP  getplayerproperty
+#define SGV  setglobalvar
+#define GGV  getglobalvar
+#define self GLV("self")
+
+void main()
+{// test stuff
+int x = GEP(self, "x");
+int y = GEP(self, "a");
+int z = GEP(self, "z");
+//drawstring(int x, int y, int font#, text)
+//settextobj(5,120,120,3,999999999,"");
+
+//settextobj(120,50,100,3,999999999,"vulnerable: " + GEP(self,"vulnerable") );
+//settextobj(250,50,120,1,999999999,"X:" + x + "\nY:" + y + "\nZ:" + z);
+
+/*
+void self = getlocalvar("self"); //get caller
+
+		if(  GEP(self,"aiflag","drop") &&
+			!GEP(self,"aiflag","falling") &&
+			 GEP(self ,"health") )
+			 {
+
+drawstring(150, 100, 3, "STOMP TIME!" );
+}
+*/
+
+
+//void vEntity;					//Target entity placeholder.    
+//int  iEntity;					//Entity enumeration holder.    
+//int  iMax = openborvariant("ent_max");		//Entity count.
+//float x, y, z;
+//int hp, off;
+//
+//   for(iEntity=0; iEntity<iMax; iEntity++)
+//   {//find all entitys
+//   vEntity = getentity(iEntity);	   //Get target entity from current loop. 
+//   		if(getentityproperty(vEntity, "type")==openborconstant("TYPE_ENEMY"))
+//   		{//if entity matches type
+//   		x = getentityproperty(vEntity, "x");// - openborvariant("xpos");
+//   		z = getentityproperty(vEntity, "z");		//get caller z value
+//   		hp = getentityproperty(vEntity, "health");
+//   		off = getentityproperty(vEntity,"offense",openborconstant("ATK_NORMAL"));
+//   		drawstring(x, z-100, 3, "HP:"+hp);
+//   		drawstring(x, z-100, 3, "\nOFF:"+off);
+//   		} 
+//   }
+//
+}

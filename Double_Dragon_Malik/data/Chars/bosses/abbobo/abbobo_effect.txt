@@ -1,0 +1,78 @@
+name		Abbobo_Effect
+type		none
+shadow		0
+palette		data/levels/level_1/gate01.gif
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+subject_to_screen 0
+subject_to_maxz 0
+subject_to_minz 0
+nodieblink	1
+
+alternatepal data/chars/bosses/abbobo/super04_effect.gif #1
+
+animationscript data/scripts/scripts.c
+
+anim spawn
+	loop	0
+	offset	0 0
+	delay	3
+	frame	none
+	@cmd	name2ani
+	frame	none
+
+anim follow1 #boss gate
+	loop	0
+	offset	0 143
+	@cmd	setlayer -1
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate02.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate02.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate02.gif
+	frame	data/levels/level_1/gate01.gif
+	frame	data/levels/level_1/gate02.gif
+	frame	data/levels/level_1/gate03.gif
+	frame	data/levels/level_1/gate04.gif
+	frame	data/levels/level_1/gate05.gif
+	frame	none
+
+anim follow2 # slam effect when using overhead attack.
+	loop	0
+	offset	72 124
+	delay	3
+	frame 	none
+	delay 	8
+	@cmd	cProperty "map"	2
+	frame	data/chars/bosses/chin/atk506_effect.gif
+	frame	data/chars/bosses/chin/atk507_effect.gif
+	frame	data/chars/bosses/chin/atk508_effect01.gif
+	frame	data/chars/bosses/chin/atk508_effect02.gif
+	frame	data/chars/bosses/chin/atk508_effect03.gif
+	frame	data/chars/bosses/chin/atk508_effect04.gif
+	@cmd	killme
+	frame	none
+
+	anim follow5 # super move
+	offset	70 164
+	frame	none
+	frame	none
+	frame	none
+	frame	none
+	@cmd	cProperty "map" 1
+	@cmd	cProperty "alpha" 1
+	frame	data/chars/bosses/abbobo/super03_effect.gif
+	frame	data/chars/bosses/abbobo/super04_effect.gif
+	frame	data/chars/bosses/abbobo/super05_effect.gif
+	frame	data/chars/bosses/abbobo/super05b_effect.gif
+	frame	data/chars/bosses/abbobo/super06_effect.gif
+	@cmd	killme
+	frame	none
+
