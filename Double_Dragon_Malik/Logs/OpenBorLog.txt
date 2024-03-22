@@ -1,5 +1,5 @@
 Total Ram: 16675508224 Bytes
- Free Ram: 10769412096 Bytes
+ Free Ram: 10766802944 Bytes
  Used Ram: 12303360 Bytes
 
 debug:nativeWidth, nativeHeight, bpp, Hz  1680, 1050, 24, 59
@@ -183,69 +183,57 @@ Can't play music file 'data/music/remix'
 Can't play music file 'data/music/remix'
 Level Loading:   'data/levels/custom_menu.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10733801472 Bytes
- Used Ram: 81671680 Bytes
+ Free Ram: 10733170688 Bytes
+ Used Ram: 81671168 Bytes
 
 
 Level Loaded:    'data/levels/custom_menu.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10733801472 Bytes
- Used Ram: 81671680 Bytes
+ Free Ram: 10733170688 Bytes
+ Used Ram: 81671168 Bytes
 Total sprites mapped: 85
 
 Level Unloading: 'data/levels/custom_menu.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10731241472 Bytes
- Used Ram: 81884160 Bytes
+ Free Ram: 10730590208 Bytes
+ Used Ram: 81805824 Bytes
 
 RAM Status:
 Total Ram: 16675508224 Bytes
- Free Ram: 10731241472 Bytes
- Used Ram: 81884160 Bytes
+ Free Ram: 10730590208 Bytes
+ Used Ram: 81805824 Bytes
 
 Level Loading:   'data/levels/select_screen.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10731241472 Bytes
- Used Ram: 81884160 Bytes
+ Free Ram: 10730590208 Bytes
+ Used Ram: 81805824 Bytes
 
 
 Level Loaded:    'data/levels/select_screen.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10731241472 Bytes
- Used Ram: 81884160 Bytes
+ Free Ram: 10730590208 Bytes
+ Used Ram: 81805824 Bytes
 Total sprites mapped: 85
 
-Loaded 'Billy' from data/chars/billy/billy.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Whip' from data/chars/billy/billy_whip.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Bat' from data/chars/billy/billy_bat.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Knife' from data/chars/billy/billy_knife.txt 
-Loaded 'Billy_Drumcan' from data/chars/billy/billy_drumcan.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Effect' from data/chars/billy/billy_effect.txt 
-sound_load_sample can't load sample from file 'data/sounds/dragon_kick.wav'!
+Loaded 'Willy' from data/chars/bosses/willy_real/willy.txt 
+Loaded 'Willy_Effect' from data/chars/bosses/willy_real/willy_effect.txt 
+sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
 Level Unloading: 'data/levels/select_screen.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 81954304 Bytes
+ Free Ram: 10730332160 Bytes
+ Used Ram: 81823744 Bytes
 
-Unload 'Billy' ............Done.
-Unload 'Billy_Whip' ............Done.
-Unload 'Billy_Bat' ............Done.
-Unload 'Billy_Knife' ............Done.
-Unload 'Billy_Drumcan' ............Done.
-Unload 'Billy_Effect' ............Done.
+Unload 'Willy' ............Done.
+Unload 'Willy_Effect' ............Done.
 RAM Status:
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 81954304 Bytes
+ Free Ram: 10730332160 Bytes
+ Used Ram: 81823744 Bytes
 
 Level Loading:   'data/levels/training.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 81954304 Bytes
+ Free Ram: 10730332160 Bytes
+ Used Ram: 81823744 Bytes
 
 Loaded 'Lavis_e' from data/chars/bosses/lavis/lavis_e.txt 
 Loaded 'Lavis_Effect' from data/chars/bosses/lavis/lavis_effect.txt 
@@ -253,21 +241,13 @@ Loaded 'Sticks_Throw' from data/chars/bosses/lavis/sticks_throw.txt
 
 Level Loaded:    'data/levels/training.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 81976832 Bytes
-Total sprites mapped: 460
+ Free Ram: 10730332160 Bytes
+ Used Ram: 81860096 Bytes
+Total sprites mapped: 363
 
-malik:BillyLoaded 'Billy' from data/chars/billy/billy.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Whip' from data/chars/billy/billy_whip.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Bat' from data/chars/billy/billy_bat.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Knife' from data/chars/billy/billy_knife.txt 
-Loaded 'Billy_Drumcan' from data/chars/billy/billy_drumcan.txt 
-sound_load_sample can't load sample from file 'data/sounds/die1.wav'!
-Loaded 'Billy_Effect' from data/chars/billy/billy_effect.txt 
-sound_load_sample can't load sample from file 'data/sounds/dragon_kick.wav'!
+malik:WillyLoaded 'Willy' from data/chars/bosses/willy_real/willy.txt 
+Loaded 'Willy_Effect' from data/chars/bosses/willy_real/willy_effect.txt 
+sound_load_sample can't load sample from file 'data/sounds/punch.wav'!
 
 ************ Shutting Down ************
 
@@ -279,28 +259,24 @@ OpenBOR is the open source continuation of Beats of Rage by Senile Team.
 Special thanks to SEGA and SNK.
 
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 82063360 Bytes
+ Free Ram: 10728554496 Bytes
+ Used Ram: 81928192 Bytes
 
 Release level data...........
 Level Unloading: 'data/levels/training.txt'
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 82063360 Bytes
+ Free Ram: 10728554496 Bytes
+ Used Ram: 81928192 Bytes
 
 Unload 'Lavis_e' ............Done.
 Unload 'Lavis_Effect' ............Done.
 Unload 'Sticks_Throw' ............Done.
-Unload 'Billy' ............Done.
-Unload 'Billy_Whip' ............Done.
-Unload 'Billy_Bat' ............Done.
-Unload 'Billy_Knife' ............Done.
-Unload 'Billy_Drumcan' ............Done.
-Unload 'Billy_Effect' ............Done.
+Unload 'Willy' ............Done.
+Unload 'Willy_Effect' ............Done.
 RAM Status:
 Total Ram: 16675508224 Bytes
- Free Ram: 10730725376 Bytes
- Used Ram: 82063360 Bytes
+ Free Ram: 10728554496 Bytes
+ Used Ram: 81928192 Bytes
 
 Done!
 

@@ -395,404 +395,28 @@ void main()
 }
 
 #### animationscript function main #####
-# data/chars/billy/billy_whip.txt
+# data/chars/bosses/willy_real/willy.txt
 ########################################
 void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==57)
-    {
-        if(frame==0)
-        {
-            hitme(0, 0, "ATK_NORMAL6");
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_bat.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==68)
-    {
-        if(frame==0)
-        {
-            doattack("ani_freespecial");
-            return;
-        }
-        return;
-    }
-    if(animhandle==69)
-    {
-        if(frame==0)
-        {
-            antiwall(20, -20, 40);
-            return;
-        }
-        if(frame==2)
-        {
-            spawn01("Bat_Throw", 20, 40, 0);
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_knife.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==83)
-    {
-        if(frame==0)
-        {
-            antiwall(60, -60, 37);
-            return;
-        }
-        if(frame==2)
-        {
-            spawn01("Knife_Throw", 60, 37, 0);
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_drumcan.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==96)
-    {
-        if(frame==0)
-        {
-            antiwall(20, -25, 80);
-            return;
-        }
-        if(frame==1)
-        {
-            spawn01("Drumcan_Throw", 20, 70, 0);
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_effect.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==97)
-    {
-        if(frame==7)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==98)
-    {
-        if(frame==6)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==99)
-    {
-        if(frame==12)
-        {
-            killme();
-            return;
-        }
-        if(frame==13)
-        {
-            killme();
-            return;
-        }
-        if(frame==14)
-        {
-            killme();
-            return;
-        }
-        if(frame==15)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==100)
-    {
-        if(frame==0)
-        {
-            cProperty("map", 1);
-            return;
-        }
-        if(frame==4)
-        {
-            killme();
-            return;
-        }
-        if(frame==5)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==101)
+    if(animhandle==66)
     {
         if(frame==1)
         {
             intro();
             teleport();
+            spawnbind2("Willy_Effect", 0, 0, 1, 1, 6);
             return;
         }
         return;
     }
-    if(animhandle==102)
-    {
-        if(frame==1)
-        {
-            dasher(0, 0, 0.3);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0, 0, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==107)
-    {
-        if(frame==3)
-        {
-            grab();
-            return;
-        }
-        return;
-    }
-    if(animhandle==109)
-    {
-        if(frame==4)
-        {
-            grab();
-            return;
-        }
-        return;
-    }
-    if(animhandle==112)
+    if(animhandle==78)
     {
         if(frame==0)
         {
-            dasher(1.8, 0, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==116)
-    {
-        if(frame==0)
-        {
-            floater(16);
-            stop();
-            return;
-        }
-        if(frame==2)
-        {
-            dasher(4, -3, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==117)
-    {
-        if(frame==0)
-        {
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==125)
-    {
-        if(frame==0)
-        {
-            fixbase();
-            return;
-        }
-        return;
-    }
-    if(animhandle==127)
-    {
-        if(frame==0)
-        {
-            punches();
-            return;
-        }
-        return;
-    }
-    if(animhandle==130)
-    {
-        if(frame==1)
-        {
-            dasher(2);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==132)
-    {
-        if(frame==2)
-        {
-            dasher(1);
-            return;
-        }
-        if(frame==3)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==133)
-    {
-        if(frame==7)
-        {
-            dasher(0.8);
-            return;
-        }
-        return;
-    }
-    if(animhandle==134)
-    {
-        if(frame==1)
-        {
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==135)
-    {
-        if(frame==2)
-        {
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==138)
-    {
-        if(frame==1)
-        {
-            dasher(1);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==140)
-    {
-        if(frame==0)
-        {
-            dasher(2.5);
-            return;
-        }
-        if(frame==2)
-        {
-            dasher(1);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==141)
-    {
-        if(frame==0)
-        {
-            floater(16);
-            stop();
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        if(frame==1)
-        {
-            playsample(loadsample("data/sounds/0_voice05.wav"), 1, 50, 50);
-            return;
-        }
-        if(frame==2)
-        {
-            dasher(4, -3, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==143)
-    {
-        if(frame==0)
-        {
-            stomp();
-            return;
-        }
-        if(frame==3)
-        {
-            anichange("ani_follow3");
-            return;
-        }
-        return;
-    }
-    if(animhandle==144)
-    {
-        if(frame==1)
-        {
-            anichange("ani_jumpland");
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
             return;
         }
         return;
@@ -807,7 +431,7 @@ void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==145)
+    if(animhandle==86)
     {
         if(frame==1)
         {
@@ -816,7 +440,7 @@ void main()
         }
         return;
     }
-    if(animhandle==146)
+    if(animhandle==87)
     {
         if(frame==1)
         {
@@ -825,7 +449,7 @@ void main()
         }
         return;
     }
-    if(animhandle==147)
+    if(animhandle==88)
     {
         if(frame==10)
         {
@@ -834,7 +458,7 @@ void main()
         }
         return;
     }
-    if(animhandle==148)
+    if(animhandle==89)
     {
         if(frame==12)
         {
@@ -843,7 +467,7 @@ void main()
         }
         return;
     }
-    if(animhandle==149)
+    if(animhandle==90)
     {
         if(frame==13)
         {
@@ -862,7 +486,7 @@ void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==150)
+    if(animhandle==91)
     {
         if(frame==1)
         {
@@ -872,7 +496,7 @@ void main()
         }
         return;
     }
-    if(animhandle==151)
+    if(animhandle==92)
     {
         if(frame==1)
         {
@@ -881,7 +505,7 @@ void main()
         }
         return;
     }
-    if(animhandle==152)
+    if(animhandle==93)
     {
         if(frame==1)
         {
@@ -890,7 +514,7 @@ void main()
         }
         return;
     }
-    if(animhandle==153)
+    if(animhandle==94)
     {
         if(frame==0)
         {
@@ -915,7 +539,7 @@ void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==154)
+    if(animhandle==95)
     {
         if(frame==1)
         {
@@ -927,7 +551,7 @@ void main()
         }
         return;
     }
-    if(animhandle==155)
+    if(animhandle==96)
     {
         if(frame==0)
         {
@@ -952,7 +576,7 @@ void main()
         }
         return;
     }
-    if(animhandle==157)
+    if(animhandle==98)
     {
         if(frame==0)
         {
@@ -961,7 +585,7 @@ void main()
         }
         return;
     }
-    if(animhandle==166)
+    if(animhandle==107)
     {
         if(frame==2)
         {
@@ -970,7 +594,7 @@ void main()
         }
         return;
     }
-    if(animhandle==167)
+    if(animhandle==108)
     {
         if(frame==0)
         {
@@ -979,7 +603,7 @@ void main()
         }
         return;
     }
-    if(animhandle==168)
+    if(animhandle==109)
     {
         if(frame==4)
         {
@@ -998,7 +622,7 @@ void main()
         }
         return;
     }
-    if(animhandle==169)
+    if(animhandle==110)
     {
         if(frame==1)
         {
@@ -1007,7 +631,7 @@ void main()
         }
         return;
     }
-    if(animhandle==170)
+    if(animhandle==111)
     {
         if(frame==0)
         {
@@ -1026,7 +650,7 @@ void main()
         }
         return;
     }
-    if(animhandle==171)
+    if(animhandle==112)
     {
         if(frame==1)
         {
@@ -1045,7 +669,7 @@ void main()
         }
         return;
     }
-    if(animhandle==172)
+    if(animhandle==113)
     {
         if(frame==0)
         {
@@ -1065,7 +689,7 @@ void main()
         }
         return;
     }
-    if(animhandle==174)
+    if(animhandle==115)
     {
         if(frame==7)
         {
@@ -1074,7 +698,7 @@ void main()
         }
         return;
     }
-    if(animhandle==176)
+    if(animhandle==117)
     {
         if(frame==7)
         {
@@ -1087,404 +711,28 @@ void main()
 }
 
 #### animationscript function main #####
-# data/chars/billy/billy_whip.txt
+# data/chars/bosses/willy_real/willy.txt
 ########################################
 void main()
 {
     int frame = getlocalvar("frame");
     int animhandle = getlocalvar("animhandle");
-    if(animhandle==188)
-    {
-        if(frame==0)
-        {
-            hitme(0, 0, "ATK_NORMAL6");
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_bat.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==199)
-    {
-        if(frame==0)
-        {
-            doattack("ani_freespecial");
-            return;
-        }
-        return;
-    }
-    if(animhandle==200)
-    {
-        if(frame==0)
-        {
-            antiwall(20, -20, 40);
-            return;
-        }
-        if(frame==2)
-        {
-            spawn01("Bat_Throw", 20, 40, 0);
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_knife.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==214)
-    {
-        if(frame==0)
-        {
-            antiwall(60, -60, 37);
-            return;
-        }
-        if(frame==2)
-        {
-            spawn01("Knife_Throw", 60, 37, 0);
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_drumcan.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==227)
-    {
-        if(frame==0)
-        {
-            antiwall(20, -25, 80);
-            return;
-        }
-        if(frame==1)
-        {
-            spawn01("Drumcan_Throw", 20, 70, 0);
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy_effect.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==228)
-    {
-        if(frame==7)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==229)
-    {
-        if(frame==6)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==230)
-    {
-        if(frame==12)
-        {
-            killme();
-            return;
-        }
-        if(frame==13)
-        {
-            killme();
-            return;
-        }
-        if(frame==14)
-        {
-            killme();
-            return;
-        }
-        if(frame==15)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-    if(animhandle==231)
-    {
-        if(frame==0)
-        {
-            cProperty("map", 1);
-            return;
-        }
-        if(frame==4)
-        {
-            killme();
-            return;
-        }
-        if(frame==5)
-        {
-            killme();
-            return;
-        }
-        return;
-    }
-
-}
-
-#### animationscript function main #####
-# data/chars/billy/billy.txt
-########################################
-void main()
-{
-    int frame = getlocalvar("frame");
-    int animhandle = getlocalvar("animhandle");
-    if(animhandle==232)
+    if(animhandle==138)
     {
         if(frame==1)
         {
             intro();
             teleport();
+            spawnbind2("Willy_Effect", 0, 0, 1, 1, 6);
             return;
         }
         return;
     }
-    if(animhandle==233)
-    {
-        if(frame==1)
-        {
-            dasher(0, 0, 0.3);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0, 0, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==238)
-    {
-        if(frame==3)
-        {
-            grab();
-            return;
-        }
-        return;
-    }
-    if(animhandle==240)
-    {
-        if(frame==4)
-        {
-            grab();
-            return;
-        }
-        return;
-    }
-    if(animhandle==243)
+    if(animhandle==150)
     {
         if(frame==0)
         {
-            dasher(1.8, 0, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==247)
-    {
-        if(frame==0)
-        {
-            floater(16);
-            stop();
-            return;
-        }
-        if(frame==2)
-        {
-            dasher(4, -3, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==248)
-    {
-        if(frame==0)
-        {
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==256)
-    {
-        if(frame==0)
-        {
-            fixbase();
-            return;
-        }
-        return;
-    }
-    if(animhandle==258)
-    {
-        if(frame==0)
-        {
-            punches();
-            return;
-        }
-        return;
-    }
-    if(animhandle==261)
-    {
-        if(frame==1)
-        {
-            dasher(2);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==263)
-    {
-        if(frame==2)
-        {
-            dasher(1);
-            return;
-        }
-        if(frame==3)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==264)
-    {
-        if(frame==7)
-        {
-            dasher(0.8);
-            return;
-        }
-        return;
-    }
-    if(animhandle==265)
-    {
-        if(frame==1)
-        {
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==266)
-    {
-        if(frame==2)
-        {
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        return;
-    }
-    if(animhandle==269)
-    {
-        if(frame==1)
-        {
-            dasher(1);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==271)
-    {
-        if(frame==0)
-        {
-            dasher(2.5);
-            return;
-        }
-        if(frame==2)
-        {
-            dasher(1);
-            return;
-        }
-        if(frame==5)
-        {
-            dasher(0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==272)
-    {
-        if(frame==0)
-        {
-            floater(16);
-            stop();
-            spawnbind2("Billy_Effect", 0, 0, 1, 1, 6);
-            return;
-        }
-        if(frame==1)
-        {
-            playsample(loadsample("data/sounds/0_voice05.wav"), 1, 50, 50);
-            return;
-        }
-        if(frame==2)
-        {
-            dasher(4, -3, 0);
-            return;
-        }
-        return;
-    }
-    if(animhandle==274)
-    {
-        if(frame==0)
-        {
-            stomp();
-            return;
-        }
-        if(frame==3)
-        {
-            anichange("ani_follow3");
-            return;
-        }
-        return;
-    }
-    if(animhandle==275)
-    {
-        if(frame==1)
-        {
-            anichange("ani_jumpland");
+            spawnbind2("Chin_Effect", 0, 0, 1, 1, 6);
             return;
         }
         return;
