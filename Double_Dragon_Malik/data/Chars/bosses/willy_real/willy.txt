@@ -145,7 +145,8 @@ anim attack1 # claws
 	offset	71 139
 	delay	8
 	bbox	56 74 34 66
-	@cmd	key2ani "attack3" 0 "moveforward"
+	@cmd	key2ani "attack3" 0 "moveforward" # double fists
+	@cmd	key2ani "attack2" 0 "movedown" # power geyser
 	frame	data/chars/bosses/willy_real/atk101.gif
 	frame	data/chars/bosses/willy_real/atk102.gif
 	frame	data/chars/bosses/willy_real/atk103.gif
